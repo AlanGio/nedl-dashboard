@@ -67,7 +67,7 @@ export function FloatingChat({
             >
               {/* Inner white container */}
               <div className="absolute inset-0 rounded-lg bg-white m-[3px] flex flex-col overflow-hidden">
-                {/* Close button */}
+                {/* Close and expand buttons stacked vertically */}
                 <div className="absolute top-4 right-4 z-50 flex flex-col gap-2">
                   <button
                     onClick={toggleChat}

@@ -284,6 +284,9 @@ export function PolicyCommandCenter() {
           />
         </div>
 
+      {/* Search Policies Component */}
+      <SearchPolicies />
+
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <div className="rounded-lg border bg-white shadow-custom">
@@ -341,11 +344,7 @@ export function PolicyCommandCenter() {
         </div>
       </div>
 
-      {/* Divider between sections */}
-      <div className="border-t border-slate-200 mt-4 mb-0 mx-8"></div>
 
-      {/* Search Policies Component */}
-      <SearchPolicies />
     </div>
   )
 }
