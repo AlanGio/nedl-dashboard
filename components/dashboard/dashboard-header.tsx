@@ -84,7 +84,7 @@ export function DashboardHeader({ onNavigate, activeTab, setActiveTab, toggleCha
           <div className="flex items-center gap-4">
             <button onClick={() => toggleChat()} className="rounded-full p-2 no-shadow" aria-label="Open chat">
               <span className="sr-only">Open chat</span>
-              <img src="/spark-circle.png" alt="Chat" className="h-8 w-8 no-shadow" />
+              <img src="/spark-circle.svg" alt="Chat" className="h-12 w-12 no-shadow" />
             </button>
           </div>
         </div>
