@@ -1,0 +1,938 @@
+{
+  "siteConfig": {
+    "title": "Healthcare Dashboard",
+    "description": "Comprehensive healthcare policy management dashboard",
+    "navigation": {
+      "mainNav": [
+        { "id": "overview", "title": "Overview", "icon": "FileBarChart", "linkedView": null },
+        { "id": "payer-analysis", "title": "Payer Analysis", "icon": "Users", "linkedView": "bookmarked" },
+        { "id": "policy-explorer", "title": "Policy Explorer", "icon": "BookOpen", "linkedView": "all-policies" },
+        { "id": "code-coverage", "title": "Code Coverage", "icon": "FileCheck", "linkedView": "code-coverage" }
+      ]
+    }
+  },
+  "payersList": [
+    "BCBSNC",
+    "United",
+    "Cigna",
+    "Elevance Health (formerly Anthem)",
+    "CVS Health (including Aetna)",
+    "Kaiser Permanente",
+    "Health Care Service Corporation (HCSC)",
+    "Humana",
+    "Molina Healthcare",
+    "Centene Corp.",
+    "Oscar Health"
+  ],
+  "dashboard": {
+    "metrics": {
+      "totalPayers": {
+        "title": "Total Payers",
+        "value": 125,
+        "change": 12,
+        "changeType": "increase",
+        "period": "since last month",
+        "icon": "FileText",
+        "iconBgColor": "bg-primary-100"
+      },
+      "livesCovered": {
+        "title": "Lives Covered",
+        "value": 45.2,
+        "unit": "M",
+        "change": 3.2,
+        "changeUnit": "M",
+        "changeType": "increase",
+        "period": "since last quarter",
+        "icon": "Users",
+        "iconBgColor": "bg-secondary-100",
+        "subtitle": "Across all payers"
+      },
+      "totalPolicies": {
+        "title": "Total Policies",
+        "value": 1432,
+        "icon": "BookOpen",
+        "iconBgColor": "bg-blue-100",
+        "subtitle": "11.5 policies per payer",
+        "policiesPerPayer": 11.5
+      },
+      "codeCoverage": {
+        "title": "Code Coverage",
+        "value": 78,
+        "unit": "%",
+        "change": 5,
+        "changeType": "increase",
+        "period": "since last month",
+        "icon": "FileCheck",
+        "iconBgColor": "bg-purple-100"
+      },
+      "recentChanges": {
+        "title": "Recent Changes",
+        "value": 42,
+        "change": 8,
+        "changeType": "decrease",
+        "period": "since last week",
+        "icon": "Clock",
+        "iconBgColor": "bg-gray-100"
+      }
+    },
+    "insights": {
+      "title": "AI-Powered Insights",
+      "badge": "Powered by N of 1 AI",
+      "items": [
+        {
+          "type": "growth",
+          "title": "Coverage Growth",
+          "description": "Code coverage has increased by 5% in the last month, primarily in cardiology and orthopedics.",
+          "actionText": "View Details",
+          "actionLink": "#"
+        },
+        {
+          "type": "opportunity",
+          "title": "Policy Optimization",
+          "description": "15 policies could be optimized to better align with clinical guidelines and reduce denials.",
+          "actionText": "Review Policies",
+          "actionLink": "#"
+        },
+        {
+          "type": "warning",
+          "title": "Compliance Alert",
+          "description": "3 policies need updates to comply with recent regulatory changes effective next month.",
+          "actionText": "Take Action",
+          "actionLink": "#"
+        }
+      ]
+    },
+    "trendLineChart": {
+      "title": "Policy Adoption Trend",
+      "timeRange": "Last 12 Months",
+      "data": [
+        { "name": "Jan", "value": 65, "target": 70 },
+        { "name": "Feb", "value": 68, "target": 72 },
+        { "name": "Mar", "value": 73, "target": 75 },
+        { "name": "Apr", "value": 75, "target": 78 },
+        { "name": "May", "value": 78, "target": 80 },
+        { "name": "Jun", "value": 82, "target": 83 },
+        { "name": "Jul", "value": 85, "target": 85 },
+        { "name": "Aug", "value": 87, "target": 88 },
+        { "name": "Sep", "value": 88, "target": 90 },
+        { "name": "Oct", "value": 90, "target": 92 },
+        { "name": "Nov", "value": 92, "target": 95 },
+        { "name": "Dec", "value": 95, "target": 98 }
+      ]
+    },
+    "distributionCharts": {
+      "payerDistribution": {
+        "commercial": 45,
+        "medicare": 30,
+        "medicaid": 25
+      },
+      "policyDistribution": {
+        "commercial": 520,
+        "medicare": 380,
+        "medicaid": 290
+      }
+    },
+    "codeCoverageStatus": {
+      "title": "CPT/HCPCS Coverage Status",
+      "filters": ["All Codes", "High Volume", "High Cost"],
+      "coverage": {
+        "details": {
+          "covered": 65,
+          "priorAuth": 20,
+          "notCovered": 15
+        }
+      }
+    },
+    "geographicDistribution": {
+      "title": "Geographic Payer Distribution",
+      "distribution": {
+        "northeast": 35,
+        "midwest": 25,
+        "southeast": 20,
+        "southwest": 10,
+        "west": 30
+      }
+    },
+    "stackedBarChart": {
+      "title": "Policy Status by Specialty",
+      "data": [
+        { "name": "Cardiology", "approved": 45, "pending": 15, "rejected": 5 },
+        { "name": "Orthopedics", "approved": 38, "pending": 12, "rejected": 8 },
+        { "name": "Neurology", "approved": 30, "pending": 20, "rejected": 10 },
+        { "name": "Oncology", "approved": 50, "pending": 10, "rejected": 3 },
+        { "name": "Radiology", "approved": 35, "pending": 18, "rejected": 7 }
+      ]
+    },
+    "radarChart": {
+      "title": "Policy Performance Metrics",
+      "data": [
+        { "subject": "Clarity", "current": 80, "benchmark": 90, "fullMark": 100 },
+        { "subject": "Specificity", "current": 75, "benchmark": 85, "fullMark": 100 },
+        { "subject": "Clinical Alignment", "current": 85, "benchmark": 80, "fullMark": 100 },
+        { "subject": "Consistency", "current": 70, "benchmark": 88, "fullMark": 100 },
+        { "subject": "Compliance", "current": 90, "benchmark": 85, "fullMark": 100 }
+      ]
+    },
+    "funnelChart": {
+      "title": "Policy Adoption Funnel",
+      "data": [
+        { "name": "Awareness", "value": 100, "fill": "#449CFB" },
+        { "name": "Understanding", "value": 80, "fill": "#5BA7FB" },
+        { "name": "Acceptance", "value": 60, "fill": "#72B3FC" },
+        { "name": "Implementation", "value": 40, "fill": "#89BFFC" },
+        { "name": "Adherence", "value": 20, "fill": "#A0CBFD" }
+      ]
+    },
+    "policyEffectivenessChart": {
+      "title": "Policy Effectiveness by Category",
+      "data": [
+        { "name": "Cardiology", "effectiveness": 85, "adoption": 75 },
+        { "name": "Orthopedics", "effectiveness": 78, "adoption": 82 },
+        { "name": "Neurology", "effectiveness": 70, "adoption": 65 },
+        { "name": "Oncology", "effectiveness": 90, "adoption": 80 },
+        { "name": "Radiology", "effectiveness": 75, "adoption": 70 }
+      ]
+    },
+    "bubbleChart": {
+      "title": "Specialty Policy Analysis",
+      "data": [
+        { "name": "Cardiology", "adoptionRate": 75, "coverageRate": 85, "policyCount": 120, "color": "#449CFB" },
+        { "name": "Orthopedics", "adoptionRate": 82, "coverageRate": 78, "policyCount": 95, "color": "#F087FB" },
+        { "name": "Neurology", "adoptionRate": 65, "coverageRate": 70, "policyCount": 80, "color": "#0071EA" },
+        { "name": "Oncology", "adoptionRate": 80, "coverageRate": 90, "policyCount": 110, "color": "#8A287F" },
+        { "name": "Radiology", "adoptionRate": 70, "coverageRate": 75, "policyCount": 85, "color": "#4D4D4D" }
+      ]
+    },
+    "heatmapChart": {
+      "title": "Policy Coverage Analysis",
+      "maxValue": 100,
+      "categories": ["Medical", "Pharmacy", "Behavioral", "Specialty", "Radiology", "Lab", "DME"],
+      "data": {
+        "BCBSNC-BCBSNC": 100,
+        "BCBSNC-United": 65,
+        "BCBSNC-Cigna": 58,
+        "BCBSNC-Elevance Health (formerly Anthem)": 72,
+        "BCBSNC-CVS Health (including Aetna)": 61,
+        "BCBSNC-Kaiser Permanente": 45,
+        "BCBSNC-Health Care Service Corporation (HCSC)": 68,
+        "BCBSNC-Humana": 52,
+        "BCBSNC-Molina Healthcare": 42,
+        "BCBSNC-Centene Corp.": 48,
+        "BCBSNC-Oscar Health": 38,
+
+        "United-BCBSNC": 65,
+        "United-United": 100,
+        "United-Cigna": 70,
+        "United-Elevance Health (formerly Anthem)": 75,
+        "United-CVS Health (including Aetna)": 68,
+        "United-Kaiser Permanente": 55,
+        "United-Health Care Service Corporation (HCSC)": 62,
+        "United-Humana": 60,
+        "United-Molina Healthcare": 50,
+        "United-Centene Corp.": 53,
+        "United-Oscar Health": 45,
+
+        "Cigna-BCBSNC": 58,
+        "Cigna-United": 70,
+        "Cigna-Cigna": 100,
+        "Cigna-Elevance Health (formerly Anthem)": 67,
+        "Cigna-CVS Health (including Aetna)": 72,
+        "Cigna-Kaiser Permanente": 48,
+        "Cigna-Health Care Service Corporation (HCSC)": 55,
+        "Cigna-Humana": 63,
+        "Cigna-Molina Healthcare": 47,
+        "Cigna-Centene Corp.": 51,
+        "Cigna-Oscar Health": 42,
+
+        "Elevance Health (formerly Anthem)-BCBSNC": 72,
+        "Elevance Health (formerly Anthem)-United": 75,
+        "Elevance Health (formerly Anthem)-Cigna": 67,
+        "Elevance Health (formerly Anthem)-Elevance Health (formerly Anthem)": 100,
+        "Elevance Health (formerly Anthem)-CVS Health (including Aetna)": 70,
+        "Elevance Health (formerly Anthem)-Kaiser Permanente": 52,
+        "Elevance Health (formerly Anthem)-Health Care Service Corporation (HCSC)": 65,
+        "Elevance Health (formerly Anthem)-Humana": 58,
+        "Elevance Health (formerly Anthem)-Molina Healthcare": 45,
+        "Elevance Health (formerly Anthem)-Centene Corp.": 50,
+        "Elevance Health (formerly Anthem)-Oscar Health": 40,
+
+        "CVS Health (including Aetna)-BCBSNC": 61,
+        "CVS Health (including Aetna)-United": 68,
+        "CVS Health (including Aetna)-Cigna": 72,
+        "CVS Health (including Aetna)-Elevance Health (formerly Anthem)": 70,
+        "CVS Health (including Aetna)-CVS Health (including Aetna)": 100,
+        "CVS Health (including Aetna)-Kaiser Permanente": 53,
+        "CVS Health (including Aetna)-Health Care Service Corporation (HCSC)": 60,
+        "CVS Health (including Aetna)-Humana": 65,
+        "CVS Health (including Aetna)-Molina Healthcare": 48,
+        "CVS Health (including Aetna)-Centene Corp.": 52,
+        "CVS Health (including Aetna)-Oscar Health": 43,
+
+        "Kaiser Permanente-BCBSNC": 45,
+        "Kaiser Permanente-United": 55,
+        "Kaiser Permanente-Cigna": 48,
+        "Kaiser Permanente-Elevance Health (formerly Anthem)": 52,
+        "Kaiser Permanente-CVS Health (including Aetna)": 53,
+        "Kaiser Permanente-Kaiser Permanente": 100,
+        "Kaiser Permanente-Health Care Service Corporation (HCSC)": 47,
+        "Kaiser Permanente-Humana": 50,
+        "Kaiser Permanente-Molina Healthcare": 60,
+        "Kaiser Permanente-Centene Corp.": 55,
+        "Kaiser Permanente-Oscar Health": 58,
+
+        "Health Care Service Corporation (HCSC)-BCBSNC": 68,
+        "Health Care Service Corporation (HCSC)-United": 62,
+        "Health Care Service Corporation (HCSC)-Cigna": 55,
+        "Health Care Service Corporation (HCSC)-Elevance Health (formerly Anthem)": 65,
+        "Health Care Service Corporation (HCSC)-CVS Health (including Aetna)": 60,
+        "Health Care Service Corporation (HCSC)-Kaiser Permanente": 47,
+        "Health Care Service Corporation (HCSC)-Health Care Service Corporation (HCSC)": 100,
+        "Health Care Service Corporation (HCSC)-Humana": 57,
+        "Health Care Service Corporation (HCSC)-Molina Healthcare": 45,
+        "Health Care Service Corporation (HCSC)-Centene Corp.": 50,
+        "Health Care Service Corporation (HCSC)-Oscar Health": 40,
+
+        "Humana-BCBSNC": 52,
+        "Humana-United": 60,
+        "Humana-Cigna": 63,
+        "Humana-Elevance Health (formerly Anthem)": 58,
+        "Humana-CVS Health (including Aetna)": 65,
+        "Humana-Kaiser Permanente": 50,
+        "Humana-Health Care Service Corporation (HCSC)": 57,
+        "Humana-Humana": 100,
+        "Humana-Molina Healthcare": 53,
+        "Humana-Centene Corp.": 56,
+        "Humana-Oscar Health": 45,
+
+        "Molina Healthcare-BCBSNC": 42,
+        "Molina Healthcare-United": 50,
+        "Molina Healthcare-Cigna": 47,
+        "Molina Healthcare-Elevance Health (formerly Anthem)": 45,
+        "Molina Healthcare-CVS Health (including Aetna)": 48,
+        "Molina Healthcare-Kaiser Permanente": 60,
+        "Molina Healthcare-Health Care Service Corporation (HCSC)": 45,
+        "Molina Healthcare-Humana": 53,
+        "Molina Healthcare-Molina Healthcare": 100,
+        "Molina Healthcare-Centene Corp.": 65,
+        "Molina Healthcare-Oscar Health": 55,
+
+        "Centene Corp.-BCBSNC": 48,
+        "Centene Corp.-United": 53,
+        "Centene Corp.-Cigna": 51,
+        "Centene Corp.-Elevance Health (formerly Anthem)": 50,
+        "Centene Corp.-CVS Health (including Aetna)": 52,
+        "Centene Corp.-Kaiser Permanente": 55,
+        "Centene Corp.-Health Care Service Corporation (HCSC)": 50,
+        "Centene Corp.-Humana": 56,
+        "Centene Corp.-Molina Healthcare": 65,
+        "Centene Corp.-Centene Corp.": 100,
+        "Centene Corp.-Oscar Health": 58,
+
+        "Oscar Health-BCBSNC": 38,
+        "Oscar Health-United": 45,
+        "Oscar Health-Cigna": 42,
+        "Oscar Health-Elevance Health (formerly Anthem)": 40,
+        "Oscar Health-CVS Health (including Aetna)": 43,
+        "Oscar Health-Kaiser Permanente": 58,
+        "Oscar Health-Health Care Service Corporation (HCSC)": 40,
+        "Oscar Health-Humana": 45,
+        "Oscar Health-Molina Healthcare": 55,
+        "Oscar Health-Centene Corp.": 58,
+        "Oscar Health-Oscar Health": 100
+      }
+    }
+  },
+  "bookmarked": {
+    "metrics": {
+      "totalPayers": {
+        "value": 125,
+        "label": "Total Payers"
+      },
+      "livesCovered": {
+        "value": "45.2M",
+        "label": "Lives Covered"
+      },
+      "totalPolicies": {
+        "value": 1432,
+        "label": "Total Policies",
+        "subtitle": "11.5 policies per payer"
+      },
+      "recentChanges": {
+        "value": 42,
+        "label": "Recent Changes",
+        "subtitle": "Last 30 days"
+      }
+    },
+    "payerDistribution": {
+      "distribution": {
+        "commercial": 50,
+        "medicare": 30,
+        "medicaid": 20
+      }
+    },
+    "policyDistributionTable": {
+      "categories": ["Medical", "Pharmacy", "Provider"],
+      "columns": ["Commercial", "Medicare", "Medicaid"],
+      "data": [
+        {
+          "category": "Medical",
+          "values": {
+            "Commercial": "250",
+            "Medicare": "180",
+            "Medicaid": "120"
+          },
+          "colors": {
+            "Commercial": "bg-primary-100 text-primary-800",
+            "Medicare": "bg-primary-50 text-primary-700",
+            "Medicaid": "bg-primary-50 text-primary-700"
+          }
+        },
+        {
+          "category": "Pharmacy",
+          "values": {
+            "Commercial": "150",
+            "Medicare": "120",
+            "Medicaid": "90"
+          },
+          "colors": {
+            "Commercial": "bg-secondary-100 text-secondary-800",
+            "Medicare": "bg-secondary-50 text-secondary-700",
+            "Medicaid": "bg-secondary-50 text-secondary-700"
+          }
+        },
+        {
+          "category": "Provider",
+          "values": {
+            "Commercial": "120",
+            "Medicare": "80",
+            "Medicaid": "80"
+          },
+          "colors": {
+            "Commercial": "bg-blue-100 text-blue-800",
+            "Medicare": "bg-blue-50 text-blue-700",
+            "Medicaid": "bg-blue-50 text-blue-700"
+          }
+        }
+      ]
+    },
+    "payerDetails": [
+      {
+        "columns": [
+          { "id": "policyName", "label": "Policy Name", "type": "text" },
+          { "id": "effectiveDate", "label": "Effective Date", "type": "date" },
+          { "id": "coverageType", "label": "Coverage Type", "type": "text" },
+          { "id": "priorAuth", "label": "Prior Auth", "type": "checkbox" },
+          { "id": "clinicalReview", "label": "Clinical Review", "type": "checkbox" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "policyName": "Cardiac Imaging",
+            "effectiveDate": "Jan 1, 2023",
+            "coverageType": "Medical",
+            "priorAuth": true,
+            "clinicalReview": true
+          },
+          {
+            "id": "2",
+            "policyName": "Genetic Testing",
+            "effectiveDate": "Mar 15, 2023",
+            "coverageType": "Medical",
+            "priorAuth": true,
+            "clinicalReview": false
+          },
+          {
+            "id": "3",
+            "policyName": "Spinal Procedures",
+            "effectiveDate": "Feb 1, 2023",
+            "coverageType": "Medical",
+            "priorAuth": true,
+            "clinicalReview": true
+          }
+        ]
+      },
+      {
+        "columns": [
+          { "id": "drugName", "label": "Drug Name", "type": "text" },
+          { "id": "tier", "label": "Tier", "type": "text" },
+          { "id": "costShare", "label": "Cost Share", "type": "text" },
+          { "id": "priorAuth", "label": "Prior Auth", "type": "checkbox" },
+          { "id": "stepTherapy", "label": "Step Therapy", "type": "checkbox" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "drugName": "Humira",
+            "tier": "Specialty",
+            "costShare": "20%",
+            "priorAuth": true,
+            "stepTherapy": true
+          },
+          {
+            "id": "2",
+            "drugName": "Eliquis",
+            "tier": "Tier 2",
+            "costShare": "$40",
+            "priorAuth": false,
+            "stepTherapy": false
+          },
+          {
+            "id": "3",
+            "drugName": "Ozempic",
+            "tier": "Tier 3",
+            "costShare": "$60",
+            "priorAuth": true,
+            "stepTherapy": true
+          }
+        ]
+      }
+    ],
+    "codeCoverage": {
+      "percentage": 78,
+      "details": {
+        "covered": 65,
+        "priorAuth": 20,
+        "notCovered": 15
+      }
+    },
+    "codeExplorer": {
+      "columns": [
+        { "id": "code", "label": "Code", "type": "text" },
+        { "id": "description", "label": "Description", "type": "text" },
+        { "id": "category", "label": "Category", "type": "text" },
+        { "id": "status", "label": "Status", "type": "status" }
+      ],
+      "data": [
+        {
+          "id": "1",
+          "code": "99214",
+          "description": "Office/outpatient visit, established patient",
+          "category": "E/M",
+          "status": "Covered\nCovered"
+        },
+        {
+          "id": "2",
+          "code": "73721",
+          "description": "MRI joint of lower extremity",
+          "category": "Radiology",
+          "status": "Covered\nNot Covered"
+        },
+        {
+          "id": "3",
+          "code": "90791",
+          "description": "Psychiatric diagnostic evaluation",
+          "category": "Behavioral Health",
+          "status": "Covered\nCovered"
+        }
+      ]
+    }
+  },
+  "codeCoverage": {
+    "performanceSnapshot": {
+      "data": {
+        "cptCodesWithGuidelines": {
+          "value": 3250,
+          "benchmark": 4500
+        },
+        "eiuCptCodes": {
+          "value": 1875,
+          "benchmark": 2200
+        },
+        "servicesDefined": {
+          "value": 425,
+          "benchmark": 500
+        }
+      }
+    },
+    "topMissingCodes": {
+      "data": [
+        { "code": "99214", "value": 450 },
+        { "code": "73721", "value": 380 },
+        { "code": "77067", "value": 320 },
+        { "code": "90791", "value": 290 },
+        { "code": "90837", "value": 250 },
+        { "code": "99213", "value": 220 },
+        { "code": "99203", "value": 190 },
+        { "code": "99204", "value": 170 },
+        { "code": "99215", "value": 150 },
+        { "code": "77066", "value": 130 }
+      ]
+    },
+    "spendUnderManagement": {
+      "data": [
+        { "name": "BCBS", "value": 120, "highlighted": true },
+        { "name": "United", "value": 95 },
+        { "name": "Aetna", "value": 85 },
+        { "name": "Cigna", "value": 75 },
+        { "name": "Humana", "value": 65 }
+      ]
+    }
+  },
+  "allPolicies": {
+    "title": "Policy Explorer",
+    "subtitle": "Browse all payers policies, and compare them against each other.",
+    "metrics": {
+      "activePolicies": {
+        "value": 1432,
+        "icon": "FileText",
+        "change": "+12 since last month",
+        "changeType": "increase",
+        "iconBgColor": "bg-primary-100",
+        "iconColor": "text-primary-600"
+      },
+      "needReview": {
+        "value": 87,
+        "icon": "Clock",
+        "change": "-5 since last month",
+        "changeType": "decrease",
+        "iconBgColor": "bg-secondary-100",
+        "iconColor": "text-secondary-600"
+      },
+      "recentUpdates": {
+        "value": 42,
+        "icon": "History",
+        "subtitle": "Last 30 days",
+        "iconBgColor": "bg-blue-100",
+        "iconColor": "text-blue-600"
+      },
+      "complianceScore": {
+        "value": "92%",
+        "icon": "CheckCircle",
+        "change": "+3% since last quarter",
+        "changeType": "increase",
+        "iconBgColor": "bg-purple-100",
+        "iconColor": "text-purple-600"
+      }
+    },
+    "timeline": [
+      {
+        "title": "Policy Update: Cardiology Services",
+        "description": "Updated coverage criteria for cardiac imaging procedures.",
+        "status": "Updated",
+        "statusColor": "bg-primary-100 text-primary-800",
+        "icon": "FileText",
+        "iconBg": "bg-primary-100",
+        "iconColor": "text-primary-600",
+        "author": {
+          "initials": "JD",
+          "name": "John Doe",
+          "color": "bg-primary-600"
+        },
+        "time": "2 hours ago"
+      },
+      {
+        "title": "New Policy: Genetic Testing",
+        "description": "Added new policy for genetic testing for hereditary cancer syndromes.",
+        "status": "New",
+        "statusColor": "bg-secondary-100 text-secondary-800",
+        "icon": "FileText",
+        "iconBg": "bg-secondary-100",
+        "iconColor": "text-secondary-600",
+        "author": {
+          "initials": "AS",
+          "name": "Alice Smith",
+          "color": "bg-secondary-600"
+        },
+        "time": "Yesterday"
+      },
+      {
+        "title": "Policy Review: Orthopedic Procedures",
+        "description": "Completed quarterly review of orthopedic surgical procedures.",
+        "status": "Reviewed",
+        "statusColor": "bg-blue-100 text-blue-800",
+        "icon": "Eye",
+        "iconBg": "bg-blue-100",
+        "iconColor": "text-blue-600",
+        "author": {
+          "initials": "RJ",
+          "name": "Robert Johnson",
+          "color": "bg-blue-600"
+        },
+        "time": "2 days ago"
+      },
+      {
+        "title": "Policy Approval: Neurology",
+        "description": "Approved updated policy for neurological diagnostic testing.",
+        "status": "Approved",
+        "statusColor": "bg-purple-100 text-purple-800",
+        "icon": "CheckCircle",
+        "iconBg": "bg-purple-100",
+        "iconColor": "text-purple-600",
+        "author": {
+          "initials": "MP",
+          "name": "Maria Parker",
+          "color": "bg-purple-600"
+        },
+        "time": "3 days ago"
+      }
+    ],
+    "alerts": [
+      {
+        "title": "Policy Update Required",
+        "description": "CMS has released new guidelines for telehealth services that require updates to 3 policies.",
+        "time": "2 days ago",
+        "color": "#F087FB",
+        "actions": {
+          "primary": {
+            "label": "Review Policies",
+            "color": "#F087FB"
+          },
+          "secondary": {
+            "label": "Dismiss"
+          }
+        }
+      },
+      {
+        "title": "Compliance Alert",
+        "description": "5 policies are out of compliance with new state regulations effective next month.",
+        "time": "1 week ago",
+        "color": "#0071EA",
+        "actions": {
+          "primary": {
+            "label": "Update Now",
+            "color": "#0071EA"
+          },
+          "secondary": {
+            "label": "Schedule"
+          }
+        }
+      },
+      {
+        "title": "Policy Conflict Detected",
+        "description": "Conflict detected between Cardiology and Radiology policies for cardiac imaging.",
+        "time": "3 days ago",
+        "color": "#8A287F",
+        "actions": {
+          "primary": {
+            "label": "Resolve Conflict",
+            "color": "#8A287F"
+          },
+          "secondary": {
+            "label": "Assign"
+          }
+        }
+      }
+    ]
+  },
+  "needsReview": {
+    "totalPolicies": 87,
+    "columns": [
+      {
+        "id": "policyName",
+        "label": "Policy Name",
+        "sortable": true
+      },
+      {
+        "id": "payer",
+        "label": "Payer",
+        "sortable": true
+      },
+      {
+        "id": "clinicalCategory",
+        "label": "Clinical Category",
+        "sortable": true
+      },
+      {
+        "id": "spendUnderManagement",
+        "label": "Spend Under Management",
+        "sortable": true
+      },
+      {
+        "id": "expDenialValue",
+        "label": "Exp. Denial Value",
+        "sortable": true
+      },
+      {
+        "id": "lastUpdated",
+        "label": "Last Updated",
+        "sortable": true
+      }
+    ],
+    "policies": [
+      {
+        "id": "1",
+        "policyName": "Cardiac Imaging for Coronary Artery Disease",
+        "payer": {
+          "name": "Blue Cross Blue Shield",
+          "logo": "bcbs"
+        },
+        "clinicalCategory": "Orthopedic",
+        "spendUnderManagement": "$1.2M",
+        "expDenialValue": "$320K",
+        "lastUpdated": "2 days ago"
+      },
+      {
+        "id": "2",
+        "policyName": "Genetic Testing for Hereditary Cancer Syndromes",
+        "payer": {
+          "name": "UnitedHealthcare",
+          "logo": "united"
+        },
+        "clinicalCategory": "Hematologic",
+        "spendUnderManagement": "$950K",
+        "expDenialValue": "$280K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "3",
+        "policyName": "Spinal Fusion for Degenerative Disc Disease",
+        "payer": {
+          "name": "Aetna",
+          "logo": "aetna"
+        },
+        "clinicalCategory": "Orthopedic",
+        "spendUnderManagement": "$1.5M",
+        "expDenialValue": "$420K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "4",
+        "policyName": "Immunotherapy for Allergic Rhinitis",
+        "payer": {
+          "name": "Cigna",
+          "logo": "cigna"
+        },
+        "clinicalCategory": "Allergy",
+        "spendUnderManagement": "$780K",
+        "expDenialValue": "$190K",
+        "lastUpdated": "2 weeks ago"
+      },
+      {
+        "id": "5",
+        "policyName": "Continuous Glucose Monitoring for Diabetes",
+        "payer": {
+          "name": "HCSC",
+          "logo": "hcsc"
+        },
+        "clinicalCategory": "Medication",
+        "spendUnderManagement": "$1.1M",
+        "expDenialValue": "$310K",
+        "lastUpdated": "5 days ago"
+      }
+    ],
+    "suggestions": ["cardiac imaging", "genetic testing", "spinal fusion", "immunotherapy", "glucose monitoring"]
+  },
+  "recentUpdates": {
+    "subtitle": "Compare coverage criteria across different payers for the same service.",
+    "policies": [
+      {
+        "id": "bcbs",
+        "name": "BCBS",
+        "bgColor": "bg-primary-50"
+      },
+      {
+        "id": "united",
+        "name": "United",
+        "bgColor": "bg-blue-50"
+      },
+      {
+        "id": "aetna",
+        "name": "Aetna",
+        "bgColor": "bg-primary-50"
+      },
+      {
+        "id": "cigna",
+        "name": "Cigna",
+        "bgColor": "bg-blue-50"
+      }
+    ],
+    "services": [
+      {
+        "id": "1",
+        "name": "Cardiac MRI",
+        "status": {
+          "bcbs": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "united": {
+            "status": "Prior Auth",
+            "type": "not-covered"
+          },
+          "aetna": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "cigna": {
+            "status": "Not Covered",
+            "type": "not-covered"
+          }
+        }
+      },
+      {
+        "id": "2",
+        "name": "Genetic Testing",
+        "status": {
+          "bcbs": {
+            "status": "Prior Auth",
+            "type": "not-covered"
+          },
+          "united": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "aetna": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "cigna": {
+            "status": "Prior Auth",
+            "type": "not-covered"
+          }
+        }
+      },
+      {
+        "id": "3",
+        "name": "Spinal Fusion",
+        "status": {
+          "bcbs": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "united": {
+            "status": "Covered",
+            "type": "covered"
+          },
+          "aetna": {
+            "status": "Prior Auth",
+            "type": "not-covered"
+          },
+          "cigna": {
+            "status": "Covered",
+            "type": "covered"
+          }
+        }
+      },
+      {
+        "id": "4",
+        "name": "Immunotherapy",
+        "status": {
+          "bcbs": {
+            "status": "Not Covered",
+            "type": "not-covered"
+          },
+          "united": {
+            "status": "Prior Auth",
+            "type": "not-covered"
+          },
+          "aetna": {
+            "status": "Not Covered",
+            "type": "not-covered"
+          },
+          "cigna": {
+            "status": "Covered",
+            "type": "covered"
+          }
+        }
+      }
+    ]
+  },
+  "chatAnswers": [
+    "Based on the policy data, BCBS covers cardiac MRI without prior authorization, while United requires prior authorization. Aetna also covers it, but Cigna does not provide coverage for this procedure.",
+    "I've analyzed the data and found that genetic testing is covered by United and Aetna, while BCBS and Cigna require prior authorization. This suggests a trend toward coverage with conditions for this service.",
+    "Looking at the spend under management metrics, orthopedic procedures like spinal fusion have the highest financial impact at $1.5M, followed by cardiac imaging at $1.2M.",
+    "The dashboard shows that your code coverage is at 78%, which is a 5% increase since last month. This is primarily driven by improvements in cardiology and orthopedics coverage.",
+    "I can see that there are 87 policies that need review, which is a decrease of 5 from last month. This indicates good progress in your policy maintenance efforts.",
+    "According to the data, commercial payers have the highest number of policies (520), followed by Medicare (380) and Medicaid (290). This distribution aligns with typical market patterns."
+  ]
+}
