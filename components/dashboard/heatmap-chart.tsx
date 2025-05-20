@@ -10,11 +10,23 @@ export function HeatmapChart() {
   const [hoveredCell, setHoveredCell] = useState<string | null>(null)
   const [displayedPayers, setDisplayedPayers] = useState(payers.slice(0, 7))
 
-  // Get color intensity based on value
+  // Get color based on value - blue to purple gradient
   const getColorIntensity = (value: number) => {
     if (value === 0) return "bg-white"
+
+    // Normalize the value between 0 and 1
     const normalizedValue = Math.min(value / maxValue, 1)
-    return `rgba(68, 156, 251, ${normalizedValue})`
+
+    // Convert hex colors to RGB
+    const blueColor = { r: 68, g: 156, b: 251 } // #449cfb
+    const purpleColor = { r: 240, g: 135, b: 251 } // #f087fb
+
+    // Interpolate between blue and purple based on the value
+    const r = Math.round(blueColor.r + normalizedValue * (purpleColor.r - blueColor.r))
+    const g = Math.round(blueColor.g + normalizedValue * (purpleColor.g - blueColor.g))
+    const b = Math.round(blueColor.b + normalizedValue * (purpleColor.b - blueColor.b))
+
+    return `rgb(${r}, ${g}, ${b})`
   }
 
   // Function to abbreviate payer names for better display
@@ -106,16 +118,25 @@ export function HeatmapChart() {
       <div className="mt-6 flex justify-center items-center gap-4">
         <div className="text-xs text-slate-500">Less Similar</div>
         <div className="flex gap-1">
-          {[0.2, 0.4, 0.6, 0.8, 1].map((intensity, i) => (
-            <div
-              key={i}
-              className="w-8 h-8 rounded-sm no-shadow"
-              style={{
-                backgroundColor: `rgba(68, 156, 251, ${intensity})`,
-                border: "1px solid rgba(0,0,0,0.05)",
-              }}
-            ></div>
-          ))}
+          {[0.2, 0.4, 0.6, 0.8, 1].map((intensity, i) => {
+            // Interpolate between blue and purple for the legend
+            const blueColor = { r: 68, g: 156, b: 251 } // #449cfb
+            const purpleColor = { r: 240, g: 135, b: 251 } // #f087fb
+            const r = Math.round(blueColor.r + intensity * (purpleColor.r - blueColor.r))
+            const g = Math.round(blueColor.g + intensity * (purpleColor.g - blueColor.g))
+            const b = Math.round(blueColor.b + intensity * (purpleColor.b - blueColor.b))
+
+            return (
+              <div
+                key={i}
+                className="w-8 h-8 rounded-sm no-shadow"
+                style={{
+                  backgroundColor: `rgb(${r}, ${g}, ${b})`,
+                  border: "1px solid rgba(0,0,0,0.05)",
+                }}
+              ></div>
+            )
+          })}
         </div>
         <div className="text-xs text-slate-500">More Similar</div>
       </div>
