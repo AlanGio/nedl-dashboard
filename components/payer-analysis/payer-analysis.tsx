@@ -106,7 +106,7 @@ export function PayerAnalysis() {
 
         {/* Autocomplete Payer Selector */}
         <div className="bg-white border rounded-lg p-4 shadow-custom mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-8">
             <div className="flex items-center">
               <Users className="h-5 w-5 text-primary-600 mr-2" />
               <span className="font-medium text-slate-700">Select Payer:</span>
@@ -114,31 +114,42 @@ export function PayerAnalysis() {
 
 
             <div className="relative" ref={dropdownRef}>
-              <div className="relative w-auto min-w-[400px] sm:max-w-md">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value)
-                    setIsDropdownOpen(true)
+              <div className="relative w-auto min-w-[440px] sm:max-w-md">
+                <div
+                  className="relative rounded-full overflow-hidden"
+                  style={{
+                    background:
+                      "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F087FB) border-box",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: "transparent",
                   }}
-                  onFocus={() => setIsDropdownOpen(true)}
-                  placeholder="Search payers..."
-                  className="w-full rounded-full border-0 py-3 px-6 focus:outline-none bg-white"
-                />
-                <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#449cfb] no-shadow" />
-                {searchQuery && (
-                  <button
-                    onClick={() => {
-                      setSearchQuery("")
-                      inputRef.current?.focus()
+                >
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value)
+                      setIsDropdownOpen(true)
                     }}
-                    className="absolute right-10 top-1/2 -translate-y-1/2 rounded-full p-1 hover:bg-slate-100 no-shadow"
-                  >
-                    <X className="h-4 w-4 text-slate-400 no-shadow" />
-                  </button>
-                )}
+                    onFocus={() => setIsDropdownOpen(true)}
+                    placeholder="Search payers..."
+                    className="w-full rounded-full border-0 py-3 px-6 focus:outline-none bg-white"
+                  />
+                  <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#449cfb] no-shadow" />
+                  {searchQuery && (
+                    <button
+                      onClick={() => {
+                        setSearchQuery("")
+                        inputRef.current?.focus()
+                      }}
+                      className="absolute right-10 top-1/2 -translate-y-1/2 rounded-full p-1 hover:bg-slate-100 no-shadow"
+                    >
+                      <X className="h-4 w-4 text-slate-400 no-shadow" />
+                    </button>
+                  )}
+                </div>
               </div>
 
 
