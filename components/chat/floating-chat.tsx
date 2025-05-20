@@ -68,22 +68,22 @@ export function FloatingChat({
               {/* Inner white container */}
               <div className="absolute inset-0 rounded-lg bg-white m-[3px] flex flex-col overflow-hidden">
                 {/* Close button */}
-                <button
-                  onClick={toggleChat}
-                  className="absolute top-4 right-4 z-50 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300"
-                  aria-label="Close chat"
-                >
-                  <X className="h-5 w-5 text-gray-600" />
-                </button>
-
-                {/* Expand button */}
-                <button
-                  onClick={toggleExpand}
-                  className="absolute top-4 right-16 z-50 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300"
-                  aria-label="Expand chat"
-                >
-                  <Maximize2 className="h-5 w-5 text-gray-600" />
-                </button>
+                <div className="absolute top-4 right-4 z-50 flex flex-col gap-2">
+                  <button
+                    onClick={toggleChat}
+                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300"
+                    aria-label="Close chat"
+                  >
+                    <X className="h-5 w-5 text-gray-600" />
+                  </button>
+                  <button
+                    onClick={toggleExpand}
+                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300"
+                    aria-label="Expand chat"
+                  >
+                    <Maximize2 className="h-5 w-5 text-gray-600" />
+                  </button>
+                </div>
 
                 {/* Messages area */}
                 <div className="flex-1 overflow-y-auto p-4 pt-12 pr-12 bg-gray-50">

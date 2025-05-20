@@ -57,9 +57,9 @@ export function ExpandedChat({
 
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         {/* Messages area */}
-        <div className="h-[calc(100vh-300px)] overflow-y-auto p-6 bg-gray-50">
+        <div className="h-[calc(95vh-400px)] overflow-y-auto p-6 bg-gray-50">
           {messages.length === 0 ? (
-            <div className="flex h-full min-h-[200px] items-center justify-center text-center text-sm text-slate-500">
+            <div className="flex h-full min-h-[350px] items-center justify-center text-center text-sm text-slate-500">
               <div>
                 <p>How can I help you today?</p>
                 <p className="mt-1 text-xs">Ask me anything about your healthcare policies.</p>

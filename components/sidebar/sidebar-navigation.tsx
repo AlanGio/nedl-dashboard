@@ -50,7 +50,7 @@ export function SidebarNavigation({ className, onNavigate, activeItem }: Sidebar
   return (
     <div
       className={cn(
-        "fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 z-10 font-title",
+        "fixed left-0 top-16 h-[calc(100vh-5rem)] w-64 z-10 font-title",
         "bg-[#F5F5F5] shadow-[3px_0px_25px_0px_rgba(0,0,0,0.15)]",
         className,
       )}

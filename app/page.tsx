@@ -73,6 +73,11 @@ export default function Dashboard() {
   }
 
   const handleNavigate = (viewId: string | null) => {
+    // If chat is expanded, minimize it when navigating
+    if (isExpanded) {
+      setIsExpanded(false)
+    }
+
     setActiveView(viewId)
 
     // Update the active tab based on the view
@@ -158,7 +163,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-auto bg-slate-50">
       <DashboardHeader
         onNavigate={handleNavigate}
         activeTab={activeTab}
