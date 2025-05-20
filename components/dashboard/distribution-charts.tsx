@@ -25,7 +25,7 @@ export function DistributionCharts() {
     <>
       <div className="rounded-xl border bg-white p-6 shadow-custom">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-base font-medium">Payer Distribution by Type</h3>
+          <h3 className="text-base font-medium">Payers by Type</h3>
           <div className="flex items-center rounded-md border bg-slate-50 px-3 py-1 text-xs">
             <CalendarIcon className="mr-2 h-4 w-4 text-slate-500" />
             <span>{timeRange}</span>
@@ -61,7 +61,7 @@ export function DistributionCharts() {
 
       <div className="rounded-xl border bg-white p-6 shadow-custom">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-base font-medium">Policy Distribution by Payer Type</h3>
+          <h3 className="text-base font-medium">Policies by Type</h3>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-primary-500"></span>

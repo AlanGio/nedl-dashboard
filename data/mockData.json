@@ -133,7 +133,7 @@
       }
     },
     "codeCoverageStatus": {
-      "title": "CPT/HCPCS Coverage Status",
+      "title": "Top Code Coverage",
       "filters": ["All Codes", "High Volume", "High Cost"],
       "coverage": {
         "details": {
@@ -194,7 +194,7 @@
       ]
     },
     "bubbleChart": {
-      "title": "Specialty Policy Analysis",
+      "title": "Distibutrion by Speciality",
       "data": [
         { "name": "Cardiology", "adoptionRate": 75, "coverageRate": 85, "policyCount": 120, "color": "#449CFB" },
         { "name": "Orthopedics", "adoptionRate": 82, "coverageRate": 78, "policyCount": 95, "color": "#F087FB" },

@@ -20,7 +20,7 @@ export function BubbleChart() {
   return (
     <div className="rounded-xl border bg-white p-6 shadow-custom">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-sm font-medium">{title}</h3>
+        <h3 className="text-md font-medium">{title}</h3>
         <button className="flex items-center rounded-md border bg-slate-50 px-3 py-1 text-[10px]">
           <Filter className="mr-2 h-3 w-3 text-slate-500" />
           <span>Filter</span>
