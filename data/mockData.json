@@ -24,6 +24,1768 @@
     "Centene Corp.",
     "Oscar Health"
   ],
+  "payerAnalysis": {
+    "BCBSNC": {
+      "metrics": {
+        "totalPayers": {
+          "value": 132,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "48.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1520,
+          "label": "Total Policies",
+          "subtitle": "11.5 policies per payer"
+        },
+        "recentChanges": {
+          "value": 45,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 55,
+        "medicare": 25,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "280",
+              "Medicare": "190",
+              "Medicaid": "130"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "170",
+              "Medicare": "130",
+              "Medicaid": "95"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "130",
+              "Medicare": "85",
+              "Medicaid": "85"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 82,
+        "details": {
+          "covered": 68,
+          "priorAuth": 18,
+          "notCovered": 14
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33208",
+            "description": "Insertion of cardiac pacemaker",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43644",
+            "description": "Laparoscopic gastric bypass",
+            "category": "Surgery",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "9",
+            "code": "97110",
+            "description": "Therapeutic exercises",
+            "category": "Physical Therapy",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          }
+        ]
+      }
+    },
+    "United": {
+      "metrics": {
+        "totalPayers": {
+          "value": 118,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "42.8M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1380,
+          "label": "Total Policies",
+          "subtitle": "11.7 policies per payer"
+        },
+        "recentChanges": {
+          "value": 38,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 48,
+        "medicare": 32,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "240",
+              "Medicare": "175",
+              "Medicaid": "115"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "145",
+              "Medicare": "115",
+              "Medicaid": "85"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "115",
+              "Medicare": "75",
+              "Medicaid": "75"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 75,
+        "details": {
+          "covered": 62,
+          "priorAuth": 22,
+          "notCovered": 16
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Cigna": {
+      "metrics": {
+        "totalPayers": {
+          "value": 110,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "39.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1290,
+          "label": "Total Policies",
+          "subtitle": "11.7 policies per payer"
+        },
+        "recentChanges": {
+          "value": 36,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 52,
+        "medicare": 28,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "225",
+              "Medicare": "165",
+              "Medicaid": "110"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "135",
+              "Medicare": "110",
+              "Medicaid": "80"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "110",
+              "Medicare": "70",
+              "Medicaid": "70"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 70,
+        "details": {
+          "covered": 58,
+          "priorAuth": 24,
+          "notCovered": 18
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Elevance Health (formerly Anthem)": {
+      "metrics": {
+        "totalPayers": {
+          "value": 128,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "46.2M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1470,
+          "label": "Total Policies",
+          "subtitle": "11.5 policies per payer"
+        },
+        "recentChanges": {
+          "value": 43,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 50,
+        "medicare": 30,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "260",
+              "Medicare": "180",
+              "Medicaid": "125"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "160",
+              "Medicare": "125",
+              "Medicaid": "90"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "125",
+              "Medicare": "80",
+              "Medicaid": "80"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 80,
+        "details": {
+          "covered": 65,
+          "priorAuth": 20,
+          "notCovered": 15
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          }
+        ]
+      }
+    },
+    "CVS Health (including Aetna)": {
+      "metrics": {
+        "totalPayers": {
+          "value": 115,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "41.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1320,
+          "label": "Total Policies",
+          "subtitle": "11.5 policies per payer"
+        },
+        "recentChanges": {
+          "value": 38,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 45,
+        "medicare": 35,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "210",
+              "Medicare": "165",
+              "Medicaid": "110"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "165",
+              "Medicare": "130",
+              "Medicaid": "95"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "110",
+              "Medicare": "75",
+              "Medicaid": "75"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 75,
+        "details": {
+          "covered": 60,
+          "priorAuth": 25,
+          "notCovered": 15
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43644",
+            "description": "Laparoscopic gastric bypass",
+            "category": "Surgery",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "9",
+            "code": "97110",
+            "description": "Therapeutic exercises",
+            "category": "Physical Therapy",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Kaiser Permanente": {
+      "metrics": {
+        "totalPayers": {
+          "value": 120,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "44.0M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1400,
+          "label": "Total Policies",
+          "subtitle": "11.7 policies per payer"
+        },
+        "recentChanges": {
+          "value": 40,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 40,
+        "medicare": 40,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "230",
+              "Medicare": "170",
+              "Medicaid": "110"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "140",
+              "Medicare": "120",
+              "Medicaid": "80"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "100",
+              "Medicare": "70",
+              "Medicaid": "70"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 85,
+        "details": {
+          "covered": 70,
+          "priorAuth": 15,
+          "notCovered": 15
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43644",
+            "description": "Laparoscopic gastric bypass",
+            "category": "Surgery",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "9",
+            "code": "97110",
+            "description": "Therapeutic exercises",
+            "category": "Physical Therapy",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Covered\nCovered"
+          }
+        ]
+      }
+    },
+    "Health Care Service Corporation (HCSC)": {
+      "metrics": {
+        "totalPayers": {
+          "value": 118,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "42.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1350,
+          "label": "Total Policies",
+          "subtitle": "11.4 policies per payer"
+        },
+        "recentChanges": {
+          "value": 39,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 47,
+        "medicare": 33,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "235",
+              "Medicare": "175",
+              "Medicaid": "115"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "140",
+              "Medicare": "115",
+              "Medicaid": "85"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "110",
+              "Medicare": "75",
+              "Medicaid": "75"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 77,
+        "details": {
+          "covered": 63,
+          "priorAuth": 23,
+          "notCovered": 14
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Humana": {
+      "metrics": {
+        "totalPayers": {
+          "value": 112,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "40.0M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1300,
+          "label": "Total Policies",
+          "subtitle": "11.6 policies per payer"
+        },
+        "recentChanges": {
+          "value": 37,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 46,
+        "medicare": 34,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "220",
+              "Medicare": "170",
+              "Medicaid": "110"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "130",
+              "Medicare": "110",
+              "Medicaid": "80"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "100",
+              "Medicare": "70",
+              "Medicaid": "70"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 72,
+        "details": {
+          "covered": 59,
+          "priorAuth": 25,
+          "notCovered": 16
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Molina Healthcare": {
+      "metrics": {
+        "totalPayers": {
+          "value": 105,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "37.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1250,
+          "label": "Total Policies",
+          "subtitle": "11.9 policies per payer"
+        },
+        "recentChanges": {
+          "value": 35,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 44,
+        "medicare": 36,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "215",
+              "Medicare": "165",
+              "Medicaid": "105"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "125",
+              "Medicare": "105",
+              "Medicaid": "75"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "95",
+              "Medicare": "65",
+              "Medicaid": "65"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 68,
+        "details": {
+          "covered": 56,
+          "priorAuth": 26,
+          "notCovered": 18
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Centene Corp.": {
+      "metrics": {
+        "totalPayers": {
+          "value": 108,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "38.5M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1270,
+          "label": "Total Policies",
+          "subtitle": "11.8 policies per payer"
+        },
+        "recentChanges": {
+          "value": 36,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 43,
+        "medicare": 37,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "225",
+              "Medicare": "165",
+              "Medicaid": "110"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "135",
+              "Medicare": "110",
+              "Medicaid": "80"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "105",
+              "Medicare": "70",
+              "Medicaid": "70"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 69,
+        "details": {
+          "covered": 57,
+          "priorAuth": 27,
+          "notCovered": 16
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    },
+    "Oscar Health": {
+      "metrics": {
+        "totalPayers": {
+          "value": 100,
+          "label": "Total Payers"
+        },
+        "livesCovered": {
+          "value": "35.0M",
+          "label": "Lives Covered"
+        },
+        "totalPolicies": {
+          "value": 1200,
+          "label": "Total Policies",
+          "subtitle": "12.0 policies per payer"
+        },
+        "recentChanges": {
+          "value": 34,
+          "label": "Recent Changes",
+          "subtitle": "Last 30 days"
+        }
+      },
+      "distribution": {
+        "commercial": 42,
+        "medicare": 38,
+        "medicaid": 20
+      },
+      "policyDistribution": {
+        "categories": ["Medical", "Pharmacy", "Provider"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "data": [
+          {
+            "category": "Medical",
+            "values": {
+              "Commercial": "210",
+              "Medicare": "160",
+              "Medicaid": "100"
+            },
+            "colors": {
+              "Commercial": "bg-primary-100 text-primary-800",
+              "Medicare": "bg-primary-50 text-primary-700",
+              "Medicaid": "bg-primary-50 text-primary-700"
+            }
+          },
+          {
+            "category": "Pharmacy",
+            "values": {
+              "Commercial": "120",
+              "Medicare": "100",
+              "Medicaid": "70"
+            },
+            "colors": {
+              "Commercial": "bg-secondary-100 text-secondary-800",
+              "Medicare": "bg-secondary-50 text-secondary-700",
+              "Medicaid": "bg-secondary-50 text-secondary-700"
+            }
+          },
+          {
+            "category": "Provider",
+            "values": {
+              "Commercial": "90",
+              "Medicare": "60",
+              "Medicaid": "60"
+            },
+            "colors": {
+              "Commercial": "bg-blue-100 text-blue-800",
+              "Medicare": "bg-blue-50 text-blue-700",
+              "Medicaid": "bg-blue-50 text-blue-700"
+            }
+          }
+        ]
+      },
+      "codeCoverage": {
+        "percentage": 65,
+        "details": {
+          "covered": 53,
+          "priorAuth": 28,
+          "notCovered": 19
+        }
+      },
+      "codeExplorer": {
+        "columns": [
+          { "id": "code", "label": "Code", "type": "text" },
+          { "id": "description", "label": "Description", "type": "text" },
+          { "id": "category", "label": "Category", "type": "text" },
+          { "id": "status", "label": "Status", "type": "status" }
+        ],
+        "data": [
+          {
+            "id": "1",
+            "code": "99214",
+            "description": "Office/outpatient visit, established patient",
+            "category": "E/M",
+            "status": "Covered\nNot Covered"
+          },
+          {
+            "id": "2",
+            "code": "73721",
+            "description": "MRI joint of lower extremity",
+            "category": "Radiology",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "3",
+            "code": "90791",
+            "description": "Psychiatric diagnostic evaluation",
+            "category": "Behavioral Health",
+            "status": "Not Covered\nCovered"
+          },
+          {
+            "id": "4",
+            "code": "77067",
+            "description": "Screening mammography bilateral",
+            "category": "Radiology",
+            "status": "Prior Auth\nCovered"
+          },
+          {
+            "id": "5",
+            "code": "90837",
+            "description": "Psychotherapy, 60 minutes",
+            "category": "Behavioral Health",
+            "status": "Prior Auth\nPrior Auth"
+          },
+          {
+            "id": "6",
+            "code": "99213",
+            "description": "Office/outpatient visit, established patient, 20-29 min",
+            "category": "E/M",
+            "status": "Covered\nCovered"
+          },
+          {
+            "id": "7",
+            "code": "33207",
+            "description": "Insertion of cardiac defibrillator",
+            "category": "Cardiology",
+            "status": "Prior Auth\nNot Covered"
+          },
+          {
+            "id": "8",
+            "code": "43846",
+            "description": "Gastric bypass for obesity",
+            "category": "Surgery",
+            "status": "Not Covered\nNot Covered"
+          },
+          {
+            "id": "9",
+            "code": "97112",
+            "description": "Neuromuscular reeducation",
+            "category": "Physical Therapy",
+            "status": "Not Covered\nPrior Auth"
+          },
+          {
+            "id": "10",
+            "code": "70450",
+            "description": "CT scan, head/brain, without contrast",
+            "category": "Radiology",
+            "status": "Prior Auth\nPrior Auth"
+          }
+        ]
+      }
+    }
+  },
   "dashboard": {
     "metrics": {
       "totalPayers": {

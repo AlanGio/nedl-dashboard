@@ -22,13 +22,22 @@ export function CodeCoverageDonut({ coverage }: CodeCoverageDonutProps) {
     { name: "Not Covered", value: coverage.details.notCovered },
   ]
 
+  // Calculate total to ensure percentages add up to 100%
+  const total = data.reduce((acc, item) => acc + item.value, 0)
+
+  // Normalize data if total is not 100
+  const normalizedData = data.map((item) => ({
+    ...item,
+    value: total === 0 ? 0 : Math.round((item.value / total) * 100),
+  }))
+
   return (
-    <div>
-      <div className="h-60 relative">
+    <div className="h-full flex flex-col">
+      <div className="flex-grow relative">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={data}
+              data={normalizedData}
               cx="50%"
               cy="50%"
               innerRadius={60}
@@ -37,7 +46,7 @@ export function CodeCoverageDonut({ coverage }: CodeCoverageDonutProps) {
               dataKey="value"
               label={false}
             >
-              {data.map((entry, index) => (
+              {normalizedData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
@@ -48,12 +57,17 @@ export function CodeCoverageDonut({ coverage }: CodeCoverageDonutProps) {
         </div>
       </div>
       <div className="mt-4">
-        <h3 className="text-sm font-medium mb-2">Code Explorer</h3>
+        <h3 className="text-sm font-medium mb-2">Coverage Breakdown</h3>
         <div className="flex flex-col gap-2">
-          {data.map((entry, index) => (
+          {normalizedData.map((entry, index) => (
             <div key={index} className="flex items-center">
-              <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: COLORS[index % COLORS.length] }} />
-              <span className="text-xs">{entry.name}</span>
+              <div
+                className="w-3 h-3 rounded-full mr-2 no-shadow"
+                style={{ backgroundColor: COLORS[index % COLORS.length] }}
+              />
+              <span className="text-xs">
+                {entry.name}: {entry.value}%
+              </span>
             </div>
           ))}
         </div>

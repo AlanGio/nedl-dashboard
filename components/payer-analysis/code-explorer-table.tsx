@@ -36,9 +36,9 @@ export function CodeExplorerTable({ data }: CodeExplorerTableProps) {
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto w-full h-full">
       <table className="w-full">
-        <thead>
+        <thead className="sticky top-0 bg-white z-10">
           <tr className="border-b">
             {columns.map((column, index) => (
               <th key={index} className="p-3 text-left text-xs font-medium text-slate-500 uppercase">

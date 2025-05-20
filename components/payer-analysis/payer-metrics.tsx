@@ -1,5 +1,3 @@
-import mockData from "@/data/mockData.json"
-
 interface MetricCardProps {
   label: string
   value: string | number
@@ -16,9 +14,30 @@ function MetricCard({ label, value, subtitle }: MetricCardProps) {
   )
 }
 
-export function BookmarkMetrics() {
-  const metrics = mockData.bookmarked.metrics
+interface PayerMetricsProps {
+  metrics: {
+    totalPayers: {
+      value: number
+      label: string
+    }
+    livesCovered: {
+      value: string
+      label: string
+    }
+    totalPolicies: {
+      value: number
+      label: string
+      subtitle?: string
+    }
+    recentChanges: {
+      value: number
+      label: string
+      subtitle?: string
+    }
+  }
+}
 
+export function PayerMetrics({ metrics }: PayerMetricsProps) {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <MetricCard label={metrics.totalPayers.label} value={metrics.totalPayers.value} />

@@ -1,6 +1,18 @@
 import { cn } from "@/lib/utils"
 
-export function PolicyDistributionTable({ data }) {
+interface PolicyDistributionTableProps {
+  data: {
+    categories: string[]
+    columns: string[]
+    data: {
+      category: string
+      values: Record<string, string>
+      colors: Record<string, string>
+    }[]
+  }
+}
+
+export function PolicyDistributionTable({ data }: PolicyDistributionTableProps) {
   const { categories, columns, data: tableData } = data
 
   return (

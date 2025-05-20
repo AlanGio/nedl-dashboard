@@ -4,7 +4,7 @@ import { DashboardContent } from "@/components/dashboard/dashboard-content"
 import { PolicyCommandCenter } from "@/components/policies/policy-command-center"
 import { SearchPolicies } from "@/components/search-policies/search-policies"
 import { RecentUpdates } from "@/components/recent-updates/recent-updates"
-import { Bookmarked } from "@/components/bookmarked/bookmarked"
+import { PayerAnalysis } from "@/components/payer-analysis/payer-analysis"
 import { CodeCoverage } from "@/components/code-coverage/code-coverage"
 
 interface DashboardViewsProps {
@@ -26,7 +26,7 @@ export function DashboardViews({ activeView }: DashboardViewsProps) {
   }
 
   if (activeView === "bookmarked") {
-    return <Bookmarked />
+    return <PayerAnalysis />
   }
 
   if (activeView === "code-coverage") {
