@@ -2,107 +2,43 @@
 
 import type React from "react"
 
-import { useState, useRef, useEffect } from "react"
-import { X } from "lucide-react"
+import { useRef, useEffect } from "react"
+import { X, Maximize2 } from "lucide-react"
 import Image from "next/image"
-import mockData from "@/data/mockData.json"
 
-type Message = {
+export type Message = {
   id: string
   content: string
   sender: "user" | "bot"
   timestamp: Date
 }
 
-const suggestedQueries = [
-  "show me the 10 ten drg codes that could be displayed in a tabular format",
-  "can you show the rate relativity per health system",
-]
-
-// Update the component definition to accept isOpen and toggleChat props
-export function FloatingChat({ isOpen = false, toggleChat }: { isOpen?: boolean; toggleChat?: () => void }) {
-  const [input, setInput] = useState("")
-  const [messages, setMessages] = useState<Message[]>([])
+// Update the component definition to accept all the necessary props
+export function FloatingChat({
+  isOpen = false,
+  toggleChat,
+  toggleExpand,
+  messages = [],
+  input = "",
+  handleInputChange,
+  handleKeyDown,
+  handleSendMessage,
+  handleSuggestedQuery,
+  suggestedQueries = [],
+}: {
+  isOpen?: boolean
+  toggleChat?: () => void
+  toggleExpand?: () => void
+  messages?: Message[]
+  input?: string
+  handleInputChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  handleKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void
+  handleSendMessage?: () => void
+  handleSuggestedQuery?: (query: string) => void
+  suggestedQueries?: string[]
+}) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
-  const [answerIndex, setAnswerIndex] = useState(0)
-
-  // Remove the isOpen state since it's now a prop
-  // const [isOpen, setIsOpen] = useState(false)
-
-  // Remove the toggleChat function since it's now a prop
-  // const toggleChat = () => {
-  //   setIsOpen(!isOpen)
-  // }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value)
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      handleSendMessage()
-    }
-  }
-
-  const handleSendMessage = () => {
-    if (input.trim()) {
-      const newMessage: Message = {
-        id: Date.now().toString(),
-        content: input,
-        sender: "user",
-        timestamp: new Date(),
-      }
-      setMessages([...messages, newMessage])
-      setInput("")
-
-      // Get the next answer from the chatAnswers array
-      const answer = mockData.chatAnswers[answerIndex % mockData.chatAnswers.length]
-
-      // Simulate bot response after a delay
-      setTimeout(() => {
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          content: answer,
-          sender: "bot",
-          timestamp: new Date(),
-        }
-        setMessages((prev) => [...prev, botMessage])
-
-        // Move to the next answer for future questions
-        setAnswerIndex((prev) => prev + 1)
-      }, 1000)
-    }
-  }
-
-  const handleSuggestedQuery = (query: string) => {
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      content: query,
-      sender: "user",
-      timestamp: new Date(),
-    }
-    setMessages([...messages, newMessage])
-    setInput("")
-
-    // Get the next answer from the chatAnswers array
-    const answer = mockData.chatAnswers[answerIndex % mockData.chatAnswers.length]
-
-    // Simulate bot response after a delay
-    setTimeout(() => {
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: answer,
-        sender: "bot",
-        timestamp: new Date(),
-      }
-      setMessages((prev) => [...prev, botMessage])
-
-      // Move to the next answer for future questions
-      setAnswerIndex((prev) => prev + 1)
-    }, 1000)
-  }
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -138,6 +74,15 @@ export function FloatingChat({ isOpen = false, toggleChat }: { isOpen?: boolean;
                   aria-label="Close chat"
                 >
                   <X className="h-5 w-5 text-gray-600" />
+                </button>
+
+                {/* Expand button */}
+                <button
+                  onClick={toggleExpand}
+                  className="absolute top-4 right-16 z-50 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all duration-300"
+                  aria-label="Expand chat"
+                >
+                  <Maximize2 className="h-5 w-5 text-gray-600" />
                 </button>
 
                 {/* Messages area */}
@@ -202,7 +147,7 @@ export function FloatingChat({ isOpen = false, toggleChat }: { isOpen?: boolean;
                     {suggestedQueries.map((query, index) => (
                       <button
                         key={index}
-                        onClick={() => handleSuggestedQuery(query)}
+                        onClick={() => handleSuggestedQuery && handleSuggestedQuery(query)}
                         className="bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 hover:bg-gray-200 transition-colors"
                       >
                         {query}
