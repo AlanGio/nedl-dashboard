@@ -2,7 +2,7 @@
 
 import { DashboardContent } from "@/components/dashboard/dashboard-content"
 import { PolicyCommandCenter } from "@/components/policies/policy-command-center"
-import { NeedsReview } from "@/components/needs-review/needs-review"
+import { SearchPolicies } from "@/components/search-policies/search-policies"
 import { RecentUpdates } from "@/components/recent-updates/recent-updates"
 import { Bookmarked } from "@/components/bookmarked/bookmarked"
 import { CodeCoverage } from "@/components/code-coverage/code-coverage"
@@ -18,7 +18,7 @@ export function DashboardViews({ activeView }: DashboardViewsProps) {
   }
 
   if (activeView === "needs-review") {
-    return <NeedsReview />
+    return <SearchPolicies />
   }
 
   if (activeView === "recent-updates") {

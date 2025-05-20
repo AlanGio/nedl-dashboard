@@ -2,6 +2,7 @@ import type React from "react"
 import { FileText, Clock, History, CheckCircle, Filter, Plus, MoreHorizontal, Eye } from "lucide-react"
 import { cn } from "@/lib/utils"
 import mockData from "@/data/mockData.json"
+import { SearchPolicies } from "@/components/search-policies/search-policies"
 
 interface MetricCardProps {
   title: string
@@ -226,115 +227,125 @@ export function PolicyCommandCenter() {
   }))
 
   return (
-    <div className="p-8 mt-10">
-      <div className="mb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-800">{mockData.allPolicies.title}</h1>
-          <p className="text-sm text-slate-500">{mockData.allPolicies.subtitle}</p>
+    <div>
+      <div className="p-8 mt-10">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-800">{mockData.allPolicies.title}</h1>
+            <p className="text-sm text-slate-500">{mockData.allPolicies.subtitle}</p>
+          </div>
+          <div className="flex gap-3">
+            <button className="flex items-center gap-2 rounded-md border bg-white px-4 py-2 text-xs font-medium shadow-custom hover:bg-slate-50">
+              <Filter className="h-4 w-4 no-shadow" />
+              Filter View
+            </button>
+            <button className="flex items-center gap-2 rounded-md bg-primary-600 px-4 py-2 text-xs font-medium text-white shadow-custom hover:bg-primary-700">
+              <Plus className="h-4 w-4 no-shadow" />
+              New Policy
+            </button>
+          </div>
         </div>
-        <div className="flex gap-3">
-          <button className="flex items-center gap-2 rounded-md border bg-white px-4 py-2 text-xs font-medium shadow-custom hover:bg-slate-50">
-            <Filter className="h-4 w-4 no-shadow" />
-            Filter View
-          </button>
-          <button className="flex items-center gap-2 rounded-md bg-primary-600 px-4 py-2 text-xs font-medium text-white shadow-custom hover:bg-primary-700">
-            <Plus className="h-4 w-4 no-shadow" />
-            New Policy
-          </button>
+
+        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <MetricCard
+            title="Active Policies"
+            value={updatedMetrics.activePolicies.value}
+            icon={getIconComponent(updatedMetrics.activePolicies.icon)}
+            change={updatedMetrics.activePolicies.change}
+            changeType={updatedMetrics.activePolicies.changeType as "increase" | "decrease" | "neutral"}
+            iconBgColor={updatedMetrics.activePolicies.iconBgColor}
+            iconColor={updatedMetrics.activePolicies.iconColor}
+          />
+          <MetricCard
+            title="Need Review"
+            value={updatedMetrics.needReview.value}
+            icon={getIconComponent(updatedMetrics.needReview.icon)}
+            change={updatedMetrics.needReview.change}
+            changeType={updatedMetrics.needReview.changeType as "increase" | "decrease" | "neutral"}
+            iconBgColor={updatedMetrics.needReview.iconBgColor}
+            iconColor={updatedMetrics.needReview.iconColor}
+          />
+          <MetricCard
+            title="Recent Updates"
+            value={updatedMetrics.recentUpdates.value}
+            icon={getIconComponent(updatedMetrics.recentUpdates.icon)}
+            subtitle={updatedMetrics.recentUpdates.subtitle}
+            iconBgColor={updatedMetrics.recentUpdates.iconBgColor}
+            iconColor={updatedMetrics.recentUpdates.iconColor}
+          />
+          <MetricCard
+            title="Compliance Score"
+            value={updatedMetrics.complianceScore.value}
+            icon={getIconComponent(updatedMetrics.complianceScore.icon)}
+            change={updatedMetrics.complianceScore.change}
+            changeType={updatedMetrics.complianceScore.changeType as "increase" | "decrease" | "neutral"}
+            iconBgColor={updatedMetrics.complianceScore.iconBgColor}
+            iconColor={updatedMetrics.complianceScore.iconColor}
+          />
         </div>
-      </div>
 
-      <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <MetricCard
-          title="Active Policies"
-          value={updatedMetrics.activePolicies.value}
-          icon={getIconComponent(updatedMetrics.activePolicies.icon)}
-          change={updatedMetrics.activePolicies.change}
-          changeType={updatedMetrics.activePolicies.changeType as "increase" | "decrease" | "neutral"}
-          iconBgColor={updatedMetrics.activePolicies.iconBgColor}
-          iconColor={updatedMetrics.activePolicies.iconColor}
-        />
-        <MetricCard
-          title="Need Review"
-          value={updatedMetrics.needReview.value}
-          icon={getIconComponent(updatedMetrics.needReview.icon)}
-          change={updatedMetrics.needReview.change}
-          changeType={updatedMetrics.needReview.changeType as "increase" | "decrease" | "neutral"}
-          iconBgColor={updatedMetrics.needReview.iconBgColor}
-          iconColor={updatedMetrics.needReview.iconColor}
-        />
-        <MetricCard
-          title="Recent Updates"
-          value={updatedMetrics.recentUpdates.value}
-          icon={getIconComponent(updatedMetrics.recentUpdates.icon)}
-          subtitle={updatedMetrics.recentUpdates.subtitle}
-          iconBgColor={updatedMetrics.recentUpdates.iconBgColor}
-          iconColor={updatedMetrics.recentUpdates.iconColor}
-        />
-        <MetricCard
-          title="Compliance Score"
-          value={updatedMetrics.complianceScore.value}
-          icon={getIconComponent(updatedMetrics.complianceScore.icon)}
-          change={updatedMetrics.complianceScore.change}
-          changeType={updatedMetrics.complianceScore.changeType as "increase" | "decrease" | "neutral"}
-          iconBgColor={updatedMetrics.complianceScore.iconBgColor}
-          iconColor={updatedMetrics.complianceScore.iconColor}
-        />
-      </div>
-
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <div className="lg:col-span-2">
-          <div className="rounded-lg border bg-white shadow-custom">
-            <div className="flex items-center justify-between border-b p-4">
-              <h3 className="text-base font-medium">Policy Activity Timeline</h3>
-              <div className="flex items-center gap-2">
-                <button className="rounded-md p-1 hover:bg-slate-100 no-shadow">
-                  <Filter className="h-5 w-5 text-slate-500 no-shadow" />
-                </button>
-                <button className="rounded-md p-1 hover:bg-slate-100 no-shadow">
-                  <MoreHorizontal className="h-5 w-5 text-slate-500 no-shadow" />
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <div className="rounded-lg border bg-white shadow-custom">
+              <div className="flex items-center justify-between border-b p-4">
+                <h3 className="text-base font-medium">Policy Activity Timeline</h3>
+                <div className="flex items-center gap-2">
+                  <button className="rounded-md p-1 hover:bg-slate-100 no-shadow">
+                    <Filter className="h-5 w-5 text-slate-500 no-shadow" />
+                  </button>
+                  <button className="rounded-md p-1 hover:bg-slate-100 no-shadow">
+                    <MoreHorizontal className="h-5 w-5 text-slate-500 no-shadow" />
+                  </button>
+                </div>
+              </div>
+              <div className="divide-y">
+                {updatedTimeline.map((item, index) => (
+                  <TimelineItem
+                    key={index}
+                    title={item.title}
+                    description={item.description}
+                    status={item.status}
+                    statusColor={item.statusColor}
+                    icon={getIconComponent(item.icon)}
+                    iconBg={item.iconBg}
+                    author={item.author}
+                    time={item.time}
+                  />
+                ))}
+              </div>
+              <div className="border-t p-4">
+                <button className="text-xs font-medium text-primary-600 hover:text-primary-800">
+                  View All Activity
                 </button>
               </div>
             </div>
-            <div className="divide-y">
-              {updatedTimeline.map((item, index) => (
-                <TimelineItem
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  status={item.status}
-                  statusColor={item.statusColor}
-                  icon={getIconComponent(item.icon)}
-                  iconBg={item.iconBg}
-                  author={item.author}
-                  time={item.time}
-                />
-              ))}
-            </div>
-            <div className="border-t p-4">
-              <button className="text-xs font-medium text-primary-600 hover:text-primary-800">View All Activity</button>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-base font-medium">Priority Alerts</h3>
-            <button className="text-xs font-medium text-primary-600 hover:text-primary-800">View All</button>
           </div>
 
-          {updatedAlerts.map((alert, index) => (
-            <Alert
-              key={index}
-              title={alert.title}
-              description={alert.description}
-              time={alert.time}
-              color={alert.color}
-              actions={alert.actions}
-            />
-          ))}
+          <div>
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-base font-medium">Priority Alerts</h3>
+              <button className="text-xs font-medium text-primary-600 hover:text-primary-800">View All</button>
+            </div>
+
+            {updatedAlerts.map((alert, index) => (
+              <Alert
+                key={index}
+                title={alert.title}
+                description={alert.description}
+                time={alert.time}
+                color={alert.color}
+                actions={alert.actions}
+              />
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Divider between sections */}
+      <div className="border-t border-slate-200 mt-4 mb-0 mx-8"></div>
+
+      {/* Search Policies Component */}
+      <SearchPolicies />
     </div>
   )
 }

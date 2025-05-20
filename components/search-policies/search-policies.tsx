@@ -7,7 +7,7 @@ import { LayoutList, Search } from "lucide-react"
 import { PolicyTable } from "./policy-table"
 import mockData from "@/data/mockData.json"
 
-export function NeedsReview() {
+export function SearchPolicies() {
   const { totalPolicies, columns, policies, suggestions } = mockData.needsReview
 
   const [searchQuery, setSearchQuery] = useState("")
@@ -89,7 +89,7 @@ export function NeedsReview() {
   }, [sortedPolicies, currentPage, rowsPerPage])
 
   return (
-    <div className="p-8 mt-10">
+    <div className="p-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-800">Search Policies</h1>
         <p className="text-sm text-slate-500">Browse all payers policies, and compare them against each other.</p>

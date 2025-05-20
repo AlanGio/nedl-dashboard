@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { FileBarChart, BookOpen, Users, FileCheck, GitCompare, FileSearch } from "lucide-react"
+import { FileBarChart, BookOpen, Users, FileCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavigationItem {
@@ -44,18 +44,7 @@ export function SidebarNavigation({ className, onNavigate, activeItem }: Sidebar
       label: "Code Coverage",
       color: "text-blue-600",
     },
-    {
-      id: "recent-updates",
-      icon: GitCompare,
-      label: "Service Comparison",
-      color: "text-blue-500",
-    },
-    {
-      id: "needs-review",
-      icon: FileSearch,
-      label: "Search Policies",
-      color: "text-secondary-500",
-    },
+    // Removed "recent-updates" (Service Comparison) and "needs-review" (Search Policies) items
   ]
 
   return (
