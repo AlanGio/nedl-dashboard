@@ -2,8 +2,6 @@ import { MetricsGrid } from "@/components/dashboard/metrics-grid"
 import { DistributionCharts } from "@/components/dashboard/distribution-charts"
 import { CodeCoverageStatus } from "@/components/dashboard/code-coverage-status"
 import { InsightsSection } from "@/components/dashboard/insights-section"
-import { TrendLineChart } from "@/components/dashboard/trend-line-chart"
-import { StackedBarChart } from "@/components/dashboard/stacked-bar-chart"
 import { HeatmapChart } from "@/components/dashboard/heatmap-chart"
 import { BubbleChart } from "@/components/dashboard/bubble-chart"
 
@@ -26,12 +24,6 @@ export function DashboardContent() {
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
         <BubbleChart />
         <CodeCoverageStatus />
-      </div>
-
-      {/* New row with trend line and stacked bar charts */}
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <TrendLineChart />
-        <StackedBarChart />
       </div>
 
       {/* Policy Update Activity - Full Width */}
