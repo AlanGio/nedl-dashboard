@@ -284,8 +284,13 @@ export function PolicyCommandCenter() {
           />
         </div>
 
-      {/* Search Policies Component */}
-      <SearchPolicies />
+        {/* Search Policies Component - MOVED ABOVE THE TIMELINE */}
+        <div className="mb-8">
+          <SearchPolicies />
+        </div>
+
+        {/* Divider between sections */}
+        <div className="border-t border-slate-200 my-4 mx-0"></div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
@@ -343,8 +348,6 @@ export function PolicyCommandCenter() {
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }

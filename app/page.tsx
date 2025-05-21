@@ -33,9 +33,9 @@ export default function Dashboard() {
     "can you show the rate relativity per health system",
   ]
 
-  // Load chat state from localStorage on initial render
+  // Load chat state from session on initial render
   useEffect(() => {
-    const savedMessages = localStorage.getItem("chatMessages")
+    const savedMessages = sessionStorage.getItem("chatMessages")
     if (savedMessages) {
       try {
         // Parse the saved messages and convert string timestamps back to Date objects
@@ -50,10 +50,10 @@ export default function Dashboard() {
     }
   }, [])
 
-  // Save chat state to localStorage whenever messages change
+  // Save chat state to sessionStorage whenever messages change
   useEffect(() => {
     if (messages.length > 0) {
-      localStorage.setItem("chatMessages", JSON.stringify(messages))
+      sessionStorage.setItem("chatMessages", JSON.stringify(messages))
     }
   }, [messages])
 

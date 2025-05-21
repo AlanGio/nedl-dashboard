@@ -89,7 +89,7 @@ export function SearchPolicies() {
   }, [sortedPolicies, currentPage, rowsPerPage])
 
   return (
-    <div className="py-4">
+    <div className="p-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-800">Search Policies</h1>
         <p className="text-sm text-slate-500">Browse all payers policies, and compare them against each other.</p>
