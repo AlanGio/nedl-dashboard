@@ -1,9 +1,10 @@
 import { MetricsGrid } from "@/components/dashboard/metrics-grid"
 import { DistributionCharts } from "@/components/dashboard/distribution-charts"
-import { CodeCoverageStatus } from "@/components/dashboard/code-coverage-status"
 import { InsightsSection } from "@/components/dashboard/insights-section"
 import { HeatmapChart } from "@/components/dashboard/heatmap-chart"
-import { BubbleChart } from "@/components/dashboard/bubble-chart"
+import { CoverageComparisonChart } from "@/components/dashboard/coverage-comparison-chart"
+import { HealthcarePayersChart } from "@/components/dashboard/healthcare-payers-chart"
+import { PayerCoverageTable } from "@/components/dashboard/payer-coverage-table"
 
 export function DashboardContent() {
   return (
@@ -15,15 +16,20 @@ export function DashboardContent() {
 
       <MetricsGrid />
 
-      {/* First row of charts */}
+      {/* First row of charts - Replace DistributionCharts with CoverageComparisonChart */}
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
         <DistributionCharts />
+        <CoverageComparisonChart />
       </div>
 
-      {/* Second row of charts */}
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <BubbleChart />
-        <CodeCoverageStatus />
+      {/* Healthcare Payers Chart - Full Width */}
+      <div className="mt-8 w-full h-540">
+        <HealthcarePayersChart />
+      </div>
+
+      {/* Payer Coverage Table - Full Width */}
+      <div className="mt-8 w-full">
+        <PayerCoverageTable />
       </div>
 
       {/* Policy Update Activity - Full Width */}

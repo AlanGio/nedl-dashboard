@@ -12,17 +12,219 @@
     }
   },
   "payersList": [
-    "BCBSNC",
-    "United",
-    "Cigna",
-    "Elevance Health (formerly Anthem)",
-    "CVS Health (including Aetna)",
+    "BCBS North Carolina",
+    "UnitedHealthcare",
+    "Elevance Health (Anthem)",
+    "BCBS Texas (HCSC)",
+    "BCBS Florida (GuideWell)",
+    "BCBS Michigan",
+    "BCBS Illinois (HCSC)",
+    "Highmark BCBS",
     "Kaiser Permanente",
-    "Health Care Service Corporation (HCSC)",
+    "Centene",
     "Humana",
+    "CVS Health/Aetna",
+    "Cigna",
     "Molina Healthcare",
-    "Centene Corp.",
-    "Oscar Health"
+    "BCBS Massachusetts",
+    "BCBS Tennessee",
+    "CareFirst BCBS",
+    "Independence BCBS",
+    "WellCare",
+    "Anthem BCBS (Other States)"
+  ],
+  "payersData": [
+    {
+      "rank": 1,
+      "name": "BCBS North Carolina",
+      "coveredLives": 3800000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 2,
+      "name": "UnitedHealthcare",
+      "coveredLives": 53000000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry, Oncology & Hematology"
+    },
+    {
+      "rank": 3,
+      "name": "Elevance Health (Anthem)",
+      "coveredLives": 47000000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
+    },
+    {
+      "rank": 4,
+      "name": "BCBS Texas (HCSC)",
+      "coveredLives": 10400000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 5,
+      "name": "BCBS Florida (GuideWell)",
+      "coveredLives": 5200000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 6,
+      "name": "BCBS Michigan",
+      "coveredLives": 4600000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 7,
+      "name": "BCBS Illinois (HCSC)",
+      "coveredLives": 8500000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 8,
+      "name": "Highmark BCBS",
+      "coveredLives": 6500000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 9,
+      "name": "Kaiser Permanente",
+      "coveredLives": 12600000,
+      "type": "Integrated",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology"
+    },
+    {
+      "rank": 10,
+      "name": "Centene",
+      "coveredLives": 27500000,
+      "type": "Medicaid",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Neurology & Psychiatry"
+    },
+    {
+      "rank": 11,
+      "name": "Humana",
+      "coveredLives": 17000000,
+      "type": "Medicare",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular"
+    },
+    {
+      "rank": 12,
+      "name": "CVS Health/Aetna",
+      "coveredLives": 24000000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
+    },
+    {
+      "rank": 13,
+      "name": "Cigna",
+      "coveredLives": 18000000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Neurology & Psychiatry, Oncology & Hematology"
+    },
+    {
+      "rank": 14,
+      "name": "Molina Healthcare",
+      "coveredLives": 5100000,
+      "type": "Medicaid",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical"
+    },
+    {
+      "rank": 15,
+      "name": "BCBS Massachusetts",
+      "coveredLives": 3200000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 16,
+      "name": "BCBS Tennessee",
+      "coveredLives": 3500000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Oncology & Hematology",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 17,
+      "name": "CareFirst BCBS",
+      "coveredLives": 3400000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Neurology & Psychiatry",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 18,
+      "name": "Independence BCBS",
+      "coveredLives": 2800000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 19,
+      "name": "WellCare",
+      "coveredLives": 6000000,
+      "type": "Medicaid",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical"
+    },
+    {
+      "rank": 20,
+      "name": "Anthem BCBS (Other States)",
+      "coveredLives": 8000000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    }
   ],
   "payerAnalysis": {
     "BCBSNC": {
@@ -1788,53 +1990,27 @@
   },
   "dashboard": {
     "metrics": {
-      "totalPayers": {
-        "title": "Total Payers",
-        "value": 125,
-        "change": 12,
-        "changeType": "increase",
-        "period": "since last month",
-        "icon": "FileText",
-        "iconBgColor": "bg-primary-100"
-      },
-      "livesCovered": {
-        "title": "Lives Covered",
-        "value": 45.2,
+      "totalCoveredLives": {
+        "title": "Total Covered Lives",
+        "value": 270.1,
         "unit": "M",
-        "change": 3.2,
-        "changeUnit": "M",
-        "changeType": "increase",
-        "period": "since last quarter",
         "icon": "Users",
-        "iconBgColor": "bg-secondary-100",
+        "iconBgColor": "bg-primary-100",
         "subtitle": "Across all payers"
       },
-      "totalPolicies": {
-        "title": "Total Policies",
-        "value": 1432,
-        "icon": "BookOpen",
+      "totalPayersAnalyzed": {
+        "title": "Total Payers Analyzed",
+        "value": 20,
+        "icon": "FileText",
+        "iconBgColor": "bg-secondary-100",
+        "subtitle": "Top US healthcare payers"
+      },
+      "nationalVsRegional": {
+        "title": "National vs Regional",
+        "value": "8 / 12",
+        "icon": "Globe",
         "iconBgColor": "bg-blue-100",
-        "subtitle": "11.5 policies per payer",
-        "policiesPerPayer": 11.5
-      },
-      "codeCoverage": {
-        "title": "Code Coverage",
-        "value": 78,
-        "unit": "%",
-        "change": 5,
-        "changeType": "increase",
-        "period": "since last month",
-        "icon": "FileCheck",
-        "iconBgColor": "bg-purple-100"
-      },
-      "recentChanges": {
-        "title": "Recent Changes",
-        "value": 42,
-        "change": 8,
-        "changeType": "decrease",
-        "period": "since last week",
-        "icon": "Clock",
-        "iconBgColor": "bg-gray-100"
+        "subtitle": "Distribution of payer types"
       }
     },
     "insights": {
@@ -1844,21 +2020,21 @@
         {
           "type": "growth",
           "title": "Coverage Growth",
-          "description": "Code coverage has increased by 5% in the last month, primarily in cardiology and orthopedics.",
+          "description": "BCBS affiliates cover 47.9M lives across 10 regional entities, representing 17.7% of total covered lives.",
           "actionText": "View Details",
           "actionLink": "#"
         },
         {
           "type": "opportunity",
-          "title": "Policy Optimization",
-          "description": "15 policies could be optimized to better align with clinical guidelines and reduce denials.",
+          "title": "Specialty Focus",
+          "description": "15 payers cover Cardiology & Vascular specialties, making it the most widely supported specialty area.",
           "actionText": "Review Policies",
           "actionLink": "#"
         },
         {
           "type": "warning",
-          "title": "Compliance Alert",
-          "description": "3 policies need updates to comply with recent regulatory changes effective next month.",
+          "title": "Market Concentration",
+          "description": "The top 5 payers control 67% of covered lives, indicating high market concentration.",
           "actionText": "Take Action",
           "actionLink": "#"
         }
@@ -1884,9 +2060,10 @@
     },
     "distributionCharts": {
       "payerDistribution": {
-        "commercial": 45,
-        "medicare": 30,
-        "medicaid": 25
+        "commercial": 70,
+        "medicare": 10,
+        "medicaid": 15,
+        "integrated": 5
       },
       "policyDistribution": {
         "commercial": 520,
@@ -1956,153 +2133,99 @@
       ]
     },
     "bubbleChart": {
-      "title": "Distibutrion by Speciality",
+      "title": "Distribution by Specialty",
       "data": [
-        { "name": "Cardiology", "adoptionRate": 75, "coverageRate": 85, "policyCount": 120, "color": "#449CFB" },
-        { "name": "Orthopedics", "adoptionRate": 82, "coverageRate": 78, "policyCount": 95, "color": "#F087FB" },
-        { "name": "Neurology", "adoptionRate": 65, "coverageRate": 70, "policyCount": 80, "color": "#0071EA" },
-        { "name": "Oncology", "adoptionRate": 80, "coverageRate": 90, "policyCount": 110, "color": "#8A287F" },
-        { "name": "Radiology", "adoptionRate": 70, "coverageRate": 75, "policyCount": 85, "color": "#4D4D4D" }
+        {
+          "name": "Cardiology & Vascular",
+          "adoptionRate": 75,
+          "coverageRate": 85,
+          "policyCount": 150,
+          "color": "#449CFB"
+        },
+        {
+          "name": "Neurology & Psychiatry",
+          "adoptionRate": 65,
+          "coverageRate": 70,
+          "policyCount": 120,
+          "color": "#F087FB"
+        },
+        {
+          "name": "Oncology & Hematology",
+          "adoptionRate": 80,
+          "coverageRate": 75,
+          "policyCount": 100,
+          "color": "#0071EA"
+        },
+        { "name": "General Medical", "adoptionRate": 90, "coverageRate": 95, "policyCount": 200, "color": "#8A287F" }
       ]
     },
     "heatmapChart": {
       "title": "Policy Coverage Analysis",
-      "maxValue": 100,
+      "maxValue": 75,
       "categories": ["Medical", "Pharmacy", "Behavioral", "Specialty", "Radiology", "Lab", "DME"],
       "data": {
-        "BCBSNC-BCBSNC": 100,
         "BCBSNC-United": 65,
         "BCBSNC-Cigna": 58,
-        "BCBSNC-Elevance Health (formerly Anthem)": 72,
-        "BCBSNC-CVS Health (including Aetna)": 61,
-        "BCBSNC-Kaiser Permanente": 45,
-        "BCBSNC-Health Care Service Corporation (HCSC)": 68,
-        "BCBSNC-Humana": 52,
-        "BCBSNC-Molina Healthcare": 42,
-        "BCBSNC-Centene Corp.": 48,
-        "BCBSNC-Oscar Health": 38,
+        "BCBSNC-Elevance Health": 72,
+        "BCBSNC-CVS Health": 61,
+        "BCBSNC-Kaiser Per...": 45,
+        "BCBSNC-Health Care Service Corpo...": 68,
 
         "United-BCBSNC": 65,
-        "United-United": 100,
         "United-Cigna": 70,
-        "United-Elevance Health (formerly Anthem)": 75,
-        "United-CVS Health (including Aetna)": 68,
-        "United-Kaiser Permanente": 55,
-        "United-Health Care Service Corporation (HCSC)": 62,
-        "United-Humana": 60,
-        "United-Molina Healthcare": 50,
-        "United-Centene Corp.": 53,
-        "United-Oscar Health": 45,
+        "United-Elevance Health": 75,
+        "United-CVS Health": 68,
+        "United-Kaiser Per...": 55,
+        "United-Health Care Service Corpo...": 62,
 
         "Cigna-BCBSNC": 58,
         "Cigna-United": 70,
-        "Cigna-Cigna": 100,
-        "Cigna-Elevance Health (formerly Anthem)": 67,
-        "Cigna-CVS Health (including Aetna)": 72,
-        "Cigna-Kaiser Permanente": 48,
-        "Cigna-Health Care Service Corporation (HCSC)": 55,
-        "Cigna-Humana": 63,
-        "Cigna-Molina Healthcare": 47,
-        "Cigna-Centene Corp.": 51,
-        "Cigna-Oscar Health": 42,
+        "Cigna-Elevance Health": 67,
+        "Cigna-CVS Health": 72,
+        "Cigna-Kaiser Per...": 48,
+        "Cigna-Health Care Service Corpo...": 55,
 
-        "Elevance Health (formerly Anthem)-BCBSNC": 72,
-        "Elevance Health (formerly Anthem)-United": 75,
-        "Elevance Health (formerly Anthem)-Cigna": 67,
-        "Elevance Health (formerly Anthem)-Elevance Health (formerly Anthem)": 100,
-        "Elevance Health (formerly Anthem)-CVS Health (including Aetna)": 70,
-        "Elevance Health (formerly Anthem)-Kaiser Permanente": 52,
-        "Elevance Health (formerly Anthem)-Health Care Service Corporation (HCSC)": 65,
-        "Elevance Health (formerly Anthem)-Humana": 58,
-        "Elevance Health (formerly Anthem)-Molina Healthcare": 45,
-        "Elevance Health (formerly Anthem)-Centene Corp.": 50,
-        "Elevance Health (formerly Anthem)-Oscar Health": 40,
+        "Elevance Health-BCBSNC": 72,
+        "Elevance Health-United": 75,
+        "Elevance Health-Cigna": 67,
+        "Elevance Health-CVS Health": 70,
+        "Elevance Health-Kaiser Per...": 52,
+        "Elevance Health-Health Care Service Corpo...": 65,
 
-        "CVS Health (including Aetna)-BCBSNC": 61,
-        "CVS Health (including Aetna)-United": 68,
-        "CVS Health (including Aetna)-Cigna": 72,
-        "CVS Health (including Aetna)-Elevance Health (formerly Anthem)": 70,
-        "CVS Health (including Aetna)-CVS Health (including Aetna)": 100,
-        "CVS Health (including Aetna)-Kaiser Permanente": 53,
-        "CVS Health (including Aetna)-Health Care Service Corporation (HCSC)": 60,
-        "CVS Health (including Aetna)-Humana": 65,
-        "CVS Health (including Aetna)-Molina Healthcare": 48,
-        "CVS Health (including Aetna)-Centene Corp.": 52,
-        "CVS Health (including Aetna)-Oscar Health": 43,
+        "CVS Health-BCBSNC": 61,
+        "CVS Health-United": 68,
+        "CVS Health-Cigna": 72,
+        "CVS Health-Elevance Health": 70,
+        "CVS Health-Kaiser Per...": 53,
+        "CVS Health-Health Care Service Corpo...": 60,
 
-        "Kaiser Permanente-BCBSNC": 45,
-        "Kaiser Permanente-United": 55,
-        "Kaiser Permanente-Cigna": 48,
-        "Kaiser Permanente-Elevance Health (formerly Anthem)": 52,
-        "Kaiser Permanente-CVS Health (including Aetna)": 53,
-        "Kaiser Permanente-Kaiser Permanente": 100,
-        "Kaiser Permanente-Health Care Service Corporation (HCSC)": 47,
-        "Kaiser Permanente-Humana": 50,
-        "Kaiser Permanente-Molina Healthcare": 60,
-        "Kaiser Permanente-Centene Corp.": 55,
-        "Kaiser Permanente-Oscar Health": 58,
+        "Kaiser Per...-BCBSNC": 45,
+        "Kaiser Per...-United": 55,
+        "Kaiser Per...-Cigna": 48,
+        "Kaiser Per...-Elevance Health": 52,
+        "Kaiser Per...-CVS Health": 53,
+        "Kaiser Per...-Health Care Service Corpo...": 47,
 
-        "Health Care Service Corporation (HCSC)-BCBSNC": 68,
-        "Health Care Service Corporation (HCSC)-United": 62,
-        "Health Care Service Corporation (HCSC)-Cigna": 55,
-        "Health Care Service Corporation (HCSC)-Elevance Health (formerly Anthem)": 65,
-        "Health Care Service Corporation (HCSC)-CVS Health (including Aetna)": 60,
-        "Health Care Service Corporation (HCSC)-Kaiser Permanente": 47,
-        "Health Care Service Corporation (HCSC)-Health Care Service Corporation (HCSC)": 100,
-        "Health Care Service Corporation (HCSC)-Humana": 57,
-        "Health Care Service Corporation (HCSC)-Molina Healthcare": 45,
-        "Health Care Service Corporation (HCSC)-Centene Corp.": 50,
-        "Health Care Service Corporation (HCSC)-Oscar Health": 40,
-
-        "Humana-BCBSNC": 52,
-        "Humana-United": 60,
-        "Humana-Cigna": 63,
-        "Humana-Elevance Health (formerly Anthem)": 58,
-        "Humana-CVS Health (including Aetna)": 65,
-        "Humana-Kaiser Permanente": 50,
-        "Humana-Health Care Service Corporation (HCSC)": 57,
-        "Humana-Humana": 100,
-        "Humana-Molina Healthcare": 53,
-        "Humana-Centene Corp.": 56,
-        "Humana-Oscar Health": 45,
-
-        "Molina Healthcare-BCBSNC": 42,
-        "Molina Healthcare-United": 50,
-        "Molina Healthcare-Cigna": 47,
-        "Molina Healthcare-Elevance Health (formerly Anthem)": 45,
-        "Molina Healthcare-CVS Health (including Aetna)": 48,
-        "Molina Healthcare-Kaiser Permanente": 60,
-        "Molina Healthcare-Health Care Service Corporation (HCSC)": 45,
-        "Molina Healthcare-Humana": 53,
-        "Molina Healthcare-Molina Healthcare": 100,
-        "Molina Healthcare-Centene Corp.": 65,
-        "Molina Healthcare-Oscar Health": 55,
-
-        "Centene Corp.-BCBSNC": 48,
-        "Centene Corp.-United": 53,
-        "Centene Corp.-Cigna": 51,
-        "Centene Corp.-Elevance Health (formerly Anthem)": 50,
-        "Centene Corp.-CVS Health (including Aetna)": 52,
-        "Centene Corp.-Kaiser Permanente": 55,
-        "Centene Corp.-Health Care Service Corporation (HCSC)": 50,
-        "Centene Corp.-Humana": 56,
-        "Centene Corp.-Molina Healthcare": 65,
-        "Centene Corp.-Centene Corp.": 100,
-        "Centene Corp.-Oscar Health": 58,
-
-        "Oscar Health-BCBSNC": 38,
-        "Oscar Health-United": 45,
-        "Oscar Health-Cigna": 42,
-        "Oscar Health-Elevance Health (formerly Anthem)": 40,
-        "Oscar Health-CVS Health (including Aetna)": 43,
-        "Oscar Health-Kaiser Permanente": 58,
-        "Oscar Health-Health Care Service Corporation (HCSC)": 40,
-        "Oscar Health-Humana": 45,
-        "Oscar Health-Molina Healthcare": 55,
-        "Oscar Health-Centene Corp.": 58,
-        "Oscar Health-Oscar Health": 100
+        "Health Care Service Corpo...-BCBSNC": 68,
+        "Health Care Service Corpo...-United": 62,
+        "Health Care Service Corpo...-Cigna": 55,
+        "Health Care Service Corpo...-Elevance Health": 65,
+        "Health Care Service Corpo...-CVS Health": 60,
+        "Health Care Service Corpo...-Kaiser Per...": 47
       }
-    }
+    },
+    "policyCoverageData": [
+      { "payer": "BCBS North Carolina", "totalPolicies": 450, "hcpcsCodes": 8200, "modifiers": 320 },
+      { "payer": "UnitedHealthcare", "totalPolicies": 850, "hcpcsCodes": 12500, "modifiers": 450 },
+      { "payer": "Elevance Health", "totalPolicies": 780, "hcpcsCodes": 11800, "modifiers": 420 },
+      { "payer": "BCBS Texas (HCSC)", "totalPolicies": 520, "hcpcsCodes": 9000, "modifiers": 340 },
+      { "payer": "BCBS Florida", "totalPolicies": 480, "hcpcsCodes": 8500, "modifiers": 310 },
+      { "payer": "BCBS Michigan", "totalPolicies": 440, "hcpcsCodes": 8000, "modifiers": 300 },
+      { "payer": "Kaiser Permanente", "totalPolicies": 620, "hcpcsCodes": 9500, "modifiers": 380 },
+      { "payer": "CVS Health/Aetna", "totalPolicies": 720, "hcpcsCodes": 11000, "modifiers": 400 },
+      { "payer": "Cigna", "totalPolicies": 690, "hcpcsCodes": 10500, "modifiers": 380 },
+      { "payer": "Other BCBS (Avg)", "totalPolicies": 420, "hcpcsCodes": 7800, "modifiers": 290 }
+    ]
   },
   "bookmarked": {
     "metrics": {

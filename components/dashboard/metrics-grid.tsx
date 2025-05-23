@@ -1,55 +1,31 @@
-import { FileText, Users, BookOpen, FileCheck, Clock } from "lucide-react"
-import { MetricCard } from "@/components/dashboard/metric-card"
-import mockData from "@/data/mockData.json"
+"use client"
 
-// Map icon names to components
-const iconMap: Record<string, JSX.Element> = {
-  FileText: <FileText className="h-5 w-5 text-primary-600" />,
-  Users: <Users className="h-5 w-5 text-secondary-600" />,
-  BookOpen: <BookOpen className="h-5 w-5 text-blue-600" />,
-  FileCheck: <FileCheck className="h-5 w-5 text-purple-600" />,
-  Clock: <Clock className="h-5 w-5 text-gray-700" />,
-}
+import { Users, FileText, Globe } from "lucide-react"
+import { MetricCard } from "./metric-card"
 
 export function MetricsGrid() {
-  const metrics = mockData.dashboard.metrics
-
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="grid gap-4 sm:grid-cols-3">
       <MetricCard
-        title={metrics.totalPayers.title}
-        value={metrics.totalPayers.value}
-        icon={iconMap[metrics.totalPayers.icon] || iconMap.FileText}
-        period={metrics.totalPayers.period}
-        iconBgColor={metrics.totalPayers.iconBgColor}
+        title="Total Covered Lives"
+        value="270.1M"
+        icon={<Users className="h-5 w-5" />}
+        iconBgColor="bg-primary-100"
+        subtitle="Across all payers"
       />
       <MetricCard
-        title={metrics.livesCovered.title}
-        value={`${metrics.livesCovered.value}${metrics.livesCovered.unit}`}
-        icon={iconMap[metrics.livesCovered.icon] || iconMap.Users}
-        period={metrics.livesCovered.period}
-        iconBgColor={metrics.livesCovered.iconBgColor}
+        title="Total Payers Analyzed"
+        value="20"
+        icon={<FileText className="h-5 w-5" />}
+        iconBgColor="bg-secondary-100"
+        subtitle="Top US healthcare payers"
       />
       <MetricCard
-        title={metrics.totalPolicies.title}
-        value={metrics.totalPolicies.value}
-        icon={iconMap[metrics.totalPolicies.icon] || iconMap.BookOpen}
-        iconBgColor={metrics.totalPolicies.iconBgColor}
-      />
-      <MetricCard
-        title={metrics.codeCoverage.title}
-        value={`${metrics.codeCoverage.value}${metrics.codeCoverage.unit}`}
-        icon={iconMap[metrics.codeCoverage.icon] || iconMap.FileCheck}
-        iconBgColor={metrics.codeCoverage.iconBgColor}
-      />
-      <MetricCard
-        title={metrics.recentChanges.title}
-        value={metrics.recentChanges.value}
-        icon={iconMap[metrics.recentChanges.icon] || iconMap.Clock}
-        change={metrics.recentChanges.change}
-        changeType={metrics.recentChanges.changeType}
-        period={metrics.recentChanges.period}
-        iconBgColor={metrics.recentChanges.iconBgColor}
+        title="National vs Regional"
+        value="8 / 12"
+        icon={<Globe className="h-5 w-5" />}
+        iconBgColor="bg-blue-100"
+        subtitle="Distribution of payer types"
       />
     </div>
   )
