@@ -23,7 +23,7 @@ export function DashboardContent() {
       </div>
 
       {/* Healthcare Payers Chart - Full Width */}
-      <div className="mt-8 w-full h-540">
+      <div className="mt-8 w-full overflow-hidden">
         <HealthcarePayersChart />
       </div>
 

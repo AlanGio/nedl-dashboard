@@ -29,13 +29,13 @@ export function HealthcarePayersChart() {
   const sortedData = chartData.sort((a, b) => b.coveredLives - a.coveredLives)
 
   return (
-    <Card className="w-full">
+    <Card className="w-full h-600">
       <CardHeader>
         <CardTitle>Healthcare Payers by Covered Lives</CardTitle>
       </CardHeader>
-      <CardContent className="w-full">
+      <CardContent className="w-full h-[590px]">
         <ChartContainer
-          className="w-full h-[600px]"
+          className="w-full h-auto"
           config={{
             "BCBS NC": {
               label: "BCBS NC",
