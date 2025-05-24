@@ -4,6 +4,9 @@ import { PerformanceSnapshot } from "./performance-snapshot"
 import { OpportunitiesSection } from "./opportunities-section"
 import { SpendUnderManagement } from "./spend-under-management"
 import { TopMissingCodes } from "./top-missing-codes"
+import { HCPCSCoverageComparison } from "./hcpcs-coverage-comparison"
+import { CoverageAnalysisSection } from "./coverage-analysis-section"
+import { KeyInsightsSection } from "../payer-analysis/key-insights-section"
 import mockData from "@/data/mockData.json"
 
 export function CodeCoverage() {
@@ -28,6 +31,21 @@ export function CodeCoverage() {
       <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
         <SpendUnderManagement data={mockData.codeCoverage.spendUnderManagement} />
         <TopMissingCodes data={mockData.codeCoverage.topMissingCodes} />
+      </div>
+
+      {/* HCPCS Code Coverage Comparison */}
+      <div className="mt-8">
+        <HCPCSCoverageComparison />
+      </div>
+
+      {/* Coverage Analysis Section */}
+      <div className="mt-8">
+        <CoverageAnalysisSection />
+      </div>
+
+      {/* Key Insights Section */}
+      <div className="mt-8">
+        <KeyInsightsSection />
       </div>
     </div>
   )
