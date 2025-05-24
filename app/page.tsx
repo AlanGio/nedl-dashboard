@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [isChatOpen, setIsChatOpen] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [input, setInput] = useState("")
+  const [isTyping, setIsTyping] = useState(false)
   const [messages, setMessages] = useState<
     Array<{
       id: string
@@ -110,7 +111,7 @@ export default function Dashboard() {
   }
 
   const handleSendMessage = () => {
-    if (input.trim()) {
+    if (input.trim() && !isTyping) {
       const newMessage = {
         id: Date.now().toString(),
         content: input,
@@ -119,12 +120,16 @@ export default function Dashboard() {
       }
       setMessages([...messages, newMessage])
       setInput("")
+      setIsTyping(true)
 
       // Get the next answer from the chatAnswers array
       const answer = mockData.chatAnswers[answerIndex % mockData.chatAnswers.length]
 
-      // Simulate bot response after a delay
+      // Simulate AI thinking time (2-4 seconds)
+      const thinkingTime = 2000 + Math.random() * 2000
+
       setTimeout(() => {
+        setIsTyping(false)
         const botMessage = {
           id: (Date.now() + 1).toString(),
           content: answer,
@@ -135,36 +140,42 @@ export default function Dashboard() {
 
         // Move to the next answer for future questions
         setAnswerIndex((prev) => prev + 1)
-      }, 1000)
+      }, thinkingTime)
     }
   }
 
   const handleSuggestedQuery = (query: string) => {
-    const newMessage = {
-      id: Date.now().toString(),
-      content: query,
-      sender: "user" as const,
-      timestamp: new Date(),
-    }
-    setMessages([...messages, newMessage])
-    setInput("")
-
-    // Get the next answer from the chatAnswers array
-    const answer = mockData.chatAnswers[answerIndex % mockData.chatAnswers.length]
-
-    // Simulate bot response after a delay
-    setTimeout(() => {
-      const botMessage = {
-        id: (Date.now() + 1).toString(),
-        content: answer,
-        sender: "bot" as const,
+    if (!isTyping) {
+      const newMessage = {
+        id: Date.now().toString(),
+        content: query,
+        sender: "user" as const,
         timestamp: new Date(),
       }
-      setMessages((prev) => [...prev, botMessage])
+      setMessages([...messages, newMessage])
+      setInput("")
+      setIsTyping(true)
 
-      // Move to the next answer for future questions
-      setAnswerIndex((prev) => prev + 1)
-    }, 1000)
+      // Get the next answer from the chatAnswers array
+      const answer = mockData.chatAnswers[answerIndex % mockData.chatAnswers.length]
+
+      // Simulate AI thinking time (2-4 seconds)
+      const thinkingTime = 2000 + Math.random() * 2000
+
+      setTimeout(() => {
+        setIsTyping(false)
+        const botMessage = {
+          id: (Date.now() + 1).toString(),
+          content: answer,
+          sender: "bot" as const,
+          timestamp: new Date(),
+        }
+        setMessages((prev) => [...prev, botMessage])
+
+        // Move to the next answer for future questions
+        setAnswerIndex((prev) => prev + 1)
+      }, thinkingTime)
+    }
   }
 
   return (
@@ -195,6 +206,7 @@ export default function Dashboard() {
                 handleSuggestedQuery={handleSuggestedQuery}
                 suggestedQueries={suggestedQueries}
                 toggleExpand={toggleExpand}
+                isTyping={isTyping}
               />
             ) : (
               <DashboardViews activeView={activeView} />
@@ -215,6 +227,7 @@ export default function Dashboard() {
           handleSendMessage={handleSendMessage}
           handleSuggestedQuery={handleSuggestedQuery}
           suggestedQueries={suggestedQueries}
+          isTyping={isTyping}
         />
       )}
     </div>

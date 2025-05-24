@@ -25,6 +25,7 @@ export function FloatingChat({
   handleSendMessage,
   handleSuggestedQuery,
   suggestedQueries = [],
+  isTyping = false,
 }: {
   isOpen?: boolean
   toggleChat?: () => void
@@ -36,6 +37,7 @@ export function FloatingChat({
   handleSendMessage?: () => void
   handleSuggestedQuery?: (query: string) => void
   suggestedQueries?: string[]
+  isTyping?: boolean
 }) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -46,7 +48,7 @@ export function FloatingChat({
     if (isOpen && inputRef.current) {
       inputRef.current.focus()
     }
-  }, [messages, isOpen])
+  }, [messages, isOpen, isTyping])
 
   return (
     <>
@@ -88,7 +90,7 @@ export function FloatingChat({
 
                 {/* Messages area */}
                 <div className="flex-1 overflow-y-auto p-4 pt-12 pr-12 bg-gray-50">
-                  {messages.length === 0 ? (
+                  {messages.length === 0 && !isTyping ? (
                     <div className="flex h-full min-h-[200px] items-center justify-center text-center text-sm text-slate-500">
                       <div>
                         <p>How can I help you today?</p>
@@ -96,28 +98,55 @@ export function FloatingChat({
                       </div>
                     </div>
                   ) : (
-                    messages.map((message, index) => (
-                      <div
-                        key={message.id}
-                        className={`mb-4 ${index === 0 ? "mt-2" : ""} ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
-                      >
+                    <>
+                      {messages.map((message, index) => (
                         <div
-                          className={`max-w-[85%] sm:max-w-3/4 rounded-lg p-3 ${
-                            message.sender === "user"
-                              ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                              : "bg-gray-200 text-gray-800"
-                          }`}
+                          key={message.id}
+                          className={`mb-4 ${index === 0 ? "mt-2" : ""} ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
                         >
-                          <p className="text-sm sm:text-base">{message.content}</p>
-                          <p className="text-xs opacity-70 mt-1">
-                            {message.timestamp.toLocaleTimeString([], {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            })}
-                          </p>
+                          <div
+                            className={`max-w-[85%] sm:max-w-3/4 rounded-lg p-3 ${
+                              message.sender === "user"
+                                ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                                : "bg-gray-200 text-gray-800"
+                            }`}
+                          >
+                            <p className="text-sm sm:text-base">{message.content}</p>
+                            <p className="text-xs opacity-70 mt-1">
+                              {message.timestamp.toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))
+                      ))}
+
+                      {/* Typing indicator */}
+                      {isTyping && (
+                        <div className="mb-4 flex justify-start">
+                          <div className="max-w-[85%] sm:max-w-3/4 rounded-lg p-3 bg-gray-200 text-gray-800">
+                            <div className="flex items-center space-x-1">
+                              <span className="text-sm">Nedl AI is writing</span>
+                              <div className="flex space-x-1">
+                                <div
+                                  className="w-1 h-1 bg-gray-500 rounded-full animate-bounce"
+                                  style={{ animationDelay: "0ms" }}
+                                ></div>
+                                <div
+                                  className="w-1 h-1 bg-gray-500 rounded-full animate-bounce"
+                                  style={{ animationDelay: "150ms" }}
+                                ></div>
+                                <div
+                                  className="w-1 h-1 bg-gray-500 rounded-full animate-bounce"
+                                  style={{ animationDelay: "300ms" }}
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
                   <div ref={messagesEndRef} />
                 </div>
@@ -132,10 +161,11 @@ export function FloatingChat({
                       onKeyDown={handleKeyDown}
                       placeholder="Type anything you want to ask our AI chat agent"
                       className="w-full p-4 pr-16 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-[80px] sm:h-[110px] text-sm sm:text-base"
+                      disabled={isTyping}
                     />
                     <button
                       onClick={handleSendMessage}
-                      disabled={!input.trim()}
+                      disabled={!input.trim() || isTyping}
                       className="absolute bottom-4 right-4 bg-[#8B5CF6] text-white rounded-full p-2 sm:p-3 disabled:opacity-50 hover:bg-[#7C3AED] transition-colors"
                       aria-label="Send message"
                     >
@@ -144,17 +174,20 @@ export function FloatingChat({
                   </div>
 
                   {/* Suggested queries */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {suggestedQueries.map((query, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleSuggestedQuery && handleSuggestedQuery(query)}
-                        className="bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 hover:bg-gray-200 transition-colors"
-                      >
-                        {query}
-                      </button>
-                    ))}
-                  </div>
+                  {!isTyping && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {suggestedQueries.map((query, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleSuggestedQuery && handleSuggestedQuery(query)}
+                          className="bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 hover:bg-gray-200 transition-colors"
+                          disabled={isTyping}
+                        >
+                          {query}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

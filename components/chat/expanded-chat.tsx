@@ -16,6 +16,7 @@ interface ExpandedChatProps {
   handleSuggestedQuery: (query: string) => void
   suggestedQueries: string[]
   toggleExpand: () => void
+  isTyping?: boolean
 }
 
 export function ExpandedChat({
@@ -27,6 +28,7 @@ export function ExpandedChat({
   handleSuggestedQuery,
   suggestedQueries,
   toggleExpand,
+  isTyping = false,
 }: ExpandedChatProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -37,7 +39,7 @@ export function ExpandedChat({
     if (inputRef.current) {
       inputRef.current.focus()
     }
-  }, [messages])
+  }, [messages, isTyping])
 
   return (
     <main className="pt-16 p-4 sm:p-8">
@@ -58,7 +60,7 @@ export function ExpandedChat({
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         {/* Messages area */}
         <div className="h-[calc(100vh-300px)] sm:h-[calc(95vh-400px)] overflow-y-auto p-4 sm:p-6 bg-gray-50">
-          {messages.length === 0 ? (
+          {messages.length === 0 && !isTyping ? (
             <div className="flex h-full min-h-[250px] sm:min-h-[350px] items-center justify-center text-center text-sm text-slate-500">
               <div>
                 <p>How can I help you today?</p>
@@ -66,28 +68,55 @@ export function ExpandedChat({
               </div>
             </div>
           ) : (
-            messages.map((message, index) => (
-              <div
-                key={message.id}
-                className={`mb-4 sm:mb-6 ${index === 0 ? "mt-2" : ""} ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
-              >
+            <>
+              {messages.map((message, index) => (
                 <div
-                  className={`max-w-[90%] sm:max-w-2xl rounded-lg p-3 sm:p-4 ${
-                    message.sender === "user"
-                      ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                      : "bg-gray-200 text-gray-800"
-                  }`}
+                  key={message.id}
+                  className={`mb-4 sm:mb-6 ${index === 0 ? "mt-2" : ""} ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
                 >
-                  <p className="text-sm sm:text-base">{message.content}</p>
-                  <p className="text-xs opacity-70 mt-2">
-                    {message.timestamp.toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
+                  <div
+                    className={`max-w-[90%] sm:max-w-2xl rounded-lg p-3 sm:p-4 ${
+                      message.sender === "user"
+                        ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                        : "bg-gray-200 text-gray-800"
+                    }`}
+                  >
+                    <p className="text-sm sm:text-base">{message.content}</p>
+                    <p className="text-xs opacity-70 mt-2">
+                      {message.timestamp.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))}
+
+              {/* Typing indicator */}
+              {isTyping && (
+                <div className="mb-4 sm:mb-6 flex justify-start">
+                  <div className="max-w-[90%] sm:max-w-2xl rounded-lg p-3 sm:p-4 bg-gray-200 text-gray-800">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-sm sm:text-base">Nedl AI is writing</span>
+                      <div className="flex space-x-1">
+                        <div
+                          className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "0ms" }}
+                        ></div>
+                        <div
+                          className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "150ms" }}
+                        ></div>
+                        <div
+                          className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "300ms" }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
           )}
           <div ref={messagesEndRef} />
         </div>
@@ -102,10 +131,11 @@ export function ExpandedChat({
               onKeyDown={handleKeyDown}
               placeholder="Type anything you want to ask our AI chat agent"
               className="w-full p-4 pr-16 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-[80px] sm:h-[110px] text-sm sm:text-base"
+              disabled={isTyping}
             />
             <button
               onClick={handleSendMessage}
-              disabled={!input.trim()}
+              disabled={!input.trim() || isTyping}
               className="absolute bottom-4 right-4 bg-[#8B5CF6] text-white rounded-full p-2 sm:p-3 disabled:opacity-50 hover:bg-[#7C3AED] transition-colors"
               aria-label="Send message"
             >
@@ -114,17 +144,20 @@ export function ExpandedChat({
           </div>
 
           {/* Suggested queries */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {suggestedQueries.map((query, index) => (
-              <button
-                key={index}
-                onClick={() => handleSuggestedQuery(query)}
-                className="bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 hover:bg-gray-200 transition-colors"
-              >
-                {query}
-              </button>
-            ))}
-          </div>
+          {!isTyping && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {suggestedQueries.map((query, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleSuggestedQuery(query)}
+                  className="bg-gray-100 border border-gray-200 rounded-full px-3 py-1 text-xs text-gray-700 hover:bg-gray-200 transition-colors"
+                  disabled={isTyping}
+                >
+                  {query}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </main>
