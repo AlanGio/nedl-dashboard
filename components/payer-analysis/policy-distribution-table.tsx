@@ -1,19 +1,32 @@
 import { cn } from "@/lib/utils"
 
 interface PolicyDistributionTableProps {
-  data: {
-    categories: string[]
-    columns: string[]
-    data: {
-      category: string
-      values: Record<string, string>
-      colors: Record<string, string>
-    }[]
-  }
+  policyDistribution:
+    | {
+        categories: string[]
+        columns: string[]
+        data: {
+          category: string
+          values: Record<string, string>
+          colors: Record<string, string>
+        }[]
+      }
+    | undefined
 }
 
-export function PolicyDistributionTable({ data }: PolicyDistributionTableProps) {
-  const { categories, columns, data: tableData } = data
+export function PolicyDistributionTable({ policyDistribution }: PolicyDistributionTableProps) {
+  // Add default values to prevent destructuring errors
+  const { categories = [], columns = [], data: tableData = [] } = policyDistribution || {}
+
+  // If no data is available, show a fallback message
+  if (!policyDistribution || !categories.length || !columns.length) {
+    return (
+      <div className="bg-white rounded-lg border shadow-sm p-6">
+        <h2 className="text-base font-semibold mb-4">Policy Distribution by Payer Type</h2>
+        <p className="text-gray-500 text-center py-8">No policy distribution data available</p>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-white rounded-lg border shadow-sm p-6">

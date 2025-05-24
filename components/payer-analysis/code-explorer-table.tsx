@@ -12,14 +12,26 @@ interface RowData {
 }
 
 interface CodeExplorerTableProps {
-  data: {
-    columns: Column[]
-    data: RowData[]
-  }
+  codeExplorer:
+    | {
+        columns: Column[]
+        data: RowData[]
+      }
+    | undefined
 }
 
-export function CodeExplorerTable({ data }: CodeExplorerTableProps) {
-  const { columns, data: tableData } = data
+export function CodeExplorerTable({ codeExplorer }: CodeExplorerTableProps) {
+  // Provide default values to prevent destructuring errors
+  const { columns = [], data: tableData = [] } = codeExplorer || {}
+
+  // Show fallback UI when no data is available
+  if (!codeExplorer || !columns.length) {
+    return (
+      <div className="w-full p-8 text-center text-gray-500">
+        <p>No code explorer data available</p>
+      </div>
+    )
+  }
 
   const renderCoveredStatus = (status: string) => {
     const statuses = status.split("\n")

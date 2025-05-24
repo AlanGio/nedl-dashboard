@@ -3,7 +3,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 
 interface CodeCoverageDonutProps {
-  coverage: {
+  codeCoverage?: {
     percentage: number
     details: {
       covered: number
@@ -13,13 +13,17 @@ interface CodeCoverageDonutProps {
   }
 }
 
-export function CodeCoverageDonut({ coverage }: CodeCoverageDonutProps) {
+export function CodeCoverageDonut({ codeCoverage }: CodeCoverageDonutProps) {
+  // Default values if codeCoverage is undefined
+  const percentage = codeCoverage?.percentage || 0
+  const details = codeCoverage?.details || { covered: 0, priorAuth: 0, notCovered: 0 }
+
   const COLORS = ["#4ade80", "#fbbf24", "#ef4444"]
 
   const data = [
-    { name: "Covered", value: coverage.details.covered },
-    { name: "Prior Auth", value: coverage.details.priorAuth },
-    { name: "Not Covered", value: coverage.details.notCovered },
+    { name: "Covered", value: details.covered },
+    { name: "Prior Auth", value: details.priorAuth },
+    { name: "Not Covered", value: details.notCovered },
   ]
 
   // Calculate total to ensure percentages add up to 100%
@@ -53,7 +57,7 @@ export function CodeCoverageDonut({ coverage }: CodeCoverageDonutProps) {
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-          <span className="text-2xl font-bold">{coverage.percentage}%</span>
+          <span className="text-2xl font-bold">{percentage}%</span>
         </div>
       </div>
       <div className="mt-4">
