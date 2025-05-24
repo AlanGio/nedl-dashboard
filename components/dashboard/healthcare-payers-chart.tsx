@@ -127,7 +127,7 @@ export function HealthcarePayersChart({ selectedPayer = "All Payers" }: Healthca
           {isAllPayers ? "Healthcare Payers by Covered Lives" : `${selectedPayer} vs Competitors - Covered Lives`}
         </CardTitle>
       </CardHeader>
-      <CardContent className="w-full h-[590px]">
+      <CardContent className="w-full h-[620px]">
         <ChartContainer className="w-full h-auto" config={chartConfig}>
           <BarChart
             data={chartData}
