@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { Search, Users } from "lucide-react"
 import mockData from "@/data/mockData.json"
@@ -9,10 +11,12 @@ import { CodeCoverageDonut } from "./code-coverage-donut"
 import { CodeExplorerTable } from "./code-explorer-table"
 import { HealthcarePayerProfilesTable } from "./healthcare-payer-profiles-table"
 import { KeyInsightsSection } from "./key-insights-section"
+import { HealthcarePayersChart } from "@/components/dashboard/healthcare-payers-chart"
 
 export function PayerAnalysis() {
   const [selectedPayer, setSelectedPayer] = useState("All Payers")
   const [searchTerm, setSearchTerm] = useState("")
+  const [showDropdown, setShowDropdown] = useState(false)
 
   // Create a mapping between the new payer names and the existing data keys
   const payerMapping: Record<string, string> = {
@@ -44,7 +48,7 @@ export function PayerAnalysis() {
       return {
         metrics: {
           totalPayers: { value: 543, label: "Total Payers" },
-          livesCovered: { value: "125M+", label: "Lives Covered" },
+          livesCovered: { value: "270.1M", label: "Lives Covered" },
           totalPolicies: { value: 14750, label: "Total Policies", subtitle: "Across all payers" },
           recentChanges: { value: 421, label: "Recent Changes", subtitle: "Last 30 days" },
         },
@@ -56,14 +60,31 @@ export function PayerAnalysis() {
     }
 
     // Get the mapped key for the selected payer
-    const mappedKey = payerMapping[payerName] || "BCBSNC"
+    const mappedKey = payerMapping[payerName]
 
+    // If we have specific data for this payer, use it
+    if (mappedKey && mockData.payerAnalysis[mappedKey]) {
+      return mockData.payerAnalysis[mappedKey]
+    }
+
+    // Fallback to BCBSNC data but customize the metrics
+    const fallbackData = mockData.payerAnalysis.BCBSNC
     return {
-      metrics: mockData.payerAnalysis[mappedKey].metrics,
-      distribution: mockData.payerAnalysis[mappedKey].distribution,
-      policyDistribution: mockData.payerAnalysis[mappedKey].policyDistribution,
-      codeCoverage: mockData.payerAnalysis[mappedKey].codeCoverage,
-      codeExplorer: mockData.payerAnalysis[mappedKey].codeExplorer,
+      ...fallbackData,
+      metrics: {
+        totalPayers: { value: Math.floor(Math.random() * 50) + 80, label: "Total Payers" },
+        livesCovered: { value: `${(Math.random() * 30 + 20).toFixed(1)}M`, label: "Lives Covered" },
+        totalPolicies: {
+          value: Math.floor(Math.random() * 500) + 1000,
+          label: "Total Policies",
+          subtitle: "Active policies",
+        },
+        recentChanges: {
+          value: Math.floor(Math.random() * 20) + 25,
+          label: "Recent Changes",
+          subtitle: "Last 30 days",
+        },
+      },
     }
   }
 
@@ -71,10 +92,25 @@ export function PayerAnalysis() {
 
   const filteredPayers = mockData.payersList.filter((payer) => payer.toLowerCase().includes(searchTerm.toLowerCase()))
 
+  const handlePayerSelect = (payer: string) => {
+    setSelectedPayer(payer)
+    setSearchTerm("")
+    setShowDropdown(false) // Close dropdown after selection
+  }
+
+  const handleInputFocus = () => {
+    setShowDropdown(true)
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+    setShowDropdown(true)
+  }
+
   return (
     <div className="space-y-6 p-6">
       {/* Header */}
-      <div>
+      <div className="pt-12">
         <h1 className="text-2xl font-bold text-gray-900">Payer Analysis</h1>
         <p className="text-sm text-gray-600">Analyze payer policies and coverage metrics across your network</p>
       </div>
@@ -102,31 +138,36 @@ export function PayerAnalysis() {
                 type="text"
                 placeholder="Search payers..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                onBlur={() => {
+                  // Delay hiding dropdown to allow for clicks
+                  setTimeout(() => setShowDropdown(false), 150)
+                }}
                 className="w-full rounded-full border-0 py-3 px-6 focus:outline-none bg-white text-sm"
               />
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-blue-500" />
             </div>
 
-            {searchTerm && (
-              <div className="absolute top-full left-0 right-0 mt-2 max-h-40 overflow-y-auto border border-gray-200 rounded-lg bg-white shadow-lg z-10">
+            {showDropdown && (
+              <div className="absolute top-full left-0 right-0 mt-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg bg-white shadow-lg z-10">
                 <button
-                  className="w-full px-4 py-2 text-left hover:bg-gray-50 border-b text-sm"
-                  onClick={() => {
-                    setSelectedPayer("All Payers")
-                    setSearchTerm("")
-                  }}
+                  className={`w-full px-4 py-2 text-left hover:bg-gray-50 border-b text-sm ${
+                    selectedPayer === "All Payers" ? "bg-blue-50 text-blue-600 font-medium" : ""
+                  }`}
+                  onMouseDown={(e) => e.preventDefault()} // Prevent blur event
+                  onClick={() => handlePayerSelect("All Payers")}
                 >
                   All Payers
                 </button>
-                {filteredPayers.map((payer) => (
+                {(searchTerm ? filteredPayers : mockData.payersList).map((payer) => (
                   <button
                     key={payer}
-                    className="w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0 text-sm"
-                    onClick={() => {
-                      setSelectedPayer(payer)
-                      setSearchTerm("")
-                    }}
+                    className={`w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0 text-sm ${
+                      selectedPayer === payer ? "bg-blue-50 text-blue-600 font-medium" : ""
+                    }`}
+                    onMouseDown={(e) => e.preventDefault()} // Prevent blur event
+                    onClick={() => handlePayerSelect(payer)}
                   >
                     {payer}
                   </button>
@@ -166,6 +207,9 @@ export function PayerAnalysis() {
           )}
         </div>
       </div>
+
+      {/* Healthcare Payers Chart - Full Width */}
+      <HealthcarePayersChart selectedPayer={selectedPayer} />
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

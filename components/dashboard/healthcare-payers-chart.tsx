@@ -5,50 +5,132 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import mockData from "@/data/mockData.json"
 
-export function HealthcarePayersChart() {
-  // Transform the payers data to match the chart format
-  const chartData = mockData.payersData.map((payer) => {
-    // Replace the category determination logic with:
-    let category = "Other Payers"
+interface HealthcarePayersChartProps {
+  selectedPayer?: string
+}
 
-    if (payer.name === "BCBS North Carolina") {
-      category = "BCBS NC"
+export function HealthcarePayersChart({ selectedPayer = "All Payers" }: HealthcarePayersChartProps) {
+  // Function to generate chart data based on selected payer
+  const getChartData = () => {
+    if (selectedPayer === "All Payers") {
+      // Show all payers with original data
+      return mockData.payersData
+        .map((payer) => {
+          let category = "Other Payers"
+          if (payer.name === "BCBS North Carolina") {
+            category = "BCBS NC"
+          }
+
+          return {
+            name: payer.name,
+            coveredLives: payer.coveredLives / 1000000,
+            category: category,
+            "BCBS NC": category === "BCBS NC" ? payer.coveredLives / 1000000 : 0,
+            "Other Payers": category === "Other Payers" ? payer.coveredLives / 1000000 : 0,
+          }
+        })
+        .sort((a, b) => b.coveredLives - a.coveredLives)
+    } else {
+      // Show comparison data when a specific payer is selected
+      const selectedPayerData = mockData.payersData.find((p) => p.name === selectedPayer)
+
+      if (!selectedPayerData) {
+        // Fallback if payer not found
+        return mockData.payersData
+          .slice(0, 10)
+          .map((payer) => {
+            const isSelected = payer.name === selectedPayer
+            const adjustedValue = isSelected ? payer.coveredLives : payer.coveredLives * (0.8 + Math.random() * 0.4)
+
+            return {
+              name: payer.name,
+              coveredLives: adjustedValue / 1000000,
+              category: isSelected ? "Selected Payer" : "Other Payers",
+              "Selected Payer": isSelected ? adjustedValue / 1000000 : 0,
+              "Other Payers": !isSelected ? adjustedValue / 1000000 : 0,
+            }
+          })
+          .sort((a, b) => b.coveredLives - a.coveredLives)
+      }
+
+      // Create comparison data with the selected payer highlighted
+      const comparisonData = mockData.payersData
+        .filter((payer) => {
+          // Always include the selected payer and top competitors
+          if (payer.name === selectedPayer) return true
+
+          // Include top payers for comparison
+          const topPayers = [
+            "UnitedHealthcare",
+            "Elevance Health (Anthem)",
+            "CVS Health/Aetna",
+            "Cigna",
+            "Kaiser Permanente",
+            "Humana",
+            "Centene",
+          ]
+          return topPayers.includes(payer.name)
+        })
+        .slice(0, 10) // Limit to top 10 for readability
+        .map((payer) => {
+          const isSelected = payer.name === selectedPayer
+          // Add some variation to make the chart more realistic
+          const variation = isSelected ? 1 : 0.85 + Math.random() * 0.3
+          const adjustedValue = payer.coveredLives * variation
+
+          return {
+            name: payer.name,
+            coveredLives: adjustedValue / 1000000,
+            category: isSelected ? "Selected Payer" : "Competitors",
+            "Selected Payer": isSelected ? adjustedValue / 1000000 : 0,
+            Competitors: !isSelected ? adjustedValue / 1000000 : 0,
+          }
+        })
+        .sort((a, b) => b.coveredLives - a.coveredLives)
+
+      return comparisonData
     }
+  }
 
-    return {
-      name: payer.name,
-      coveredLives: payer.coveredLives / 1000000, // Convert to millions
-      category: category,
-      // Set the value for the appropriate category, others will be 0
-      "BCBS NC": category === "BCBS NC" ? payer.coveredLives / 1000000 : 0,
-      "Other Payers": category === "Other Payers" ? payer.coveredLives / 1000000 : 0,
-    }
-  })
+  const chartData = getChartData()
 
-  // Sort by covered lives descending to match the original chart
-  const sortedData = chartData.sort((a, b) => b.coveredLives - a.coveredLives)
+  // Determine chart configuration based on selected payer
+  const isAllPayers = selectedPayer === "All Payers"
+  const chartConfig = isAllPayers
+    ? {
+        "BCBS NC": {
+          label: "BCBS NC",
+          color: "#F087FB", // Pink for BCBS NC
+        },
+        "Other Payers": {
+          label: "Other Payers",
+          color: "#449CFB", // Blue for all other payers
+        },
+      }
+    : {
+        "Selected Payer": {
+          label: selectedPayer,
+          color: "#F087FB", // Pink for selected payer
+        },
+        Competitors: {
+          label: "Competitors",
+          color: "#449CFB", // Blue for competitors
+        },
+      }
+
+  const dataKeys = isAllPayers ? ["BCBS NC", "Other Payers"] : ["Selected Payer", "Competitors"]
 
   return (
     <Card className="w-full h-600">
       <CardHeader>
-        <CardTitle>Healthcare Payers by Covered Lives</CardTitle>
+        <CardTitle>
+          {isAllPayers ? "Healthcare Payers by Covered Lives" : `${selectedPayer} vs Competitors - Covered Lives`}
+        </CardTitle>
       </CardHeader>
       <CardContent className="w-full h-[590px]">
-        <ChartContainer
-          className="w-full h-auto"
-          config={{
-            "BCBS NC": {
-              label: "BCBS NC",
-              color: "#F087FB", // Pink for BCBS NC
-            },
-            "Other Payers": {
-              label: "Other Payers",
-              color: "#449CFB", // Blue for all other payers
-            },
-          }}
-        >
+        <ChartContainer className="w-full h-auto" config={chartConfig}>
           <BarChart
-            data={sortedData}
+            data={chartData}
             margin={{
               top: 20,
               right: 30,
@@ -65,8 +147,15 @@ export function HealthcarePayersChart() {
               labelFormatter={(label) => `${label}`}
             />
             <Legend />
-            <Bar dataKey="BCBS NC" name="BCBS NC" fill="#F087FB" stackId="stack" />
-            <Bar dataKey="Other Payers" name="Other Payers" fill="#449CFB" stackId="stack" />
+            {dataKeys.map((key) => (
+              <Bar
+                key={key}
+                dataKey={key}
+                name={chartConfig[key].label}
+                fill={chartConfig[key].color}
+                stackId="stack"
+              />
+            ))}
           </BarChart>
         </ChartContainer>
       </CardContent>

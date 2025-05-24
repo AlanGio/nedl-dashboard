@@ -52,7 +52,7 @@ export function FloatingChat({
     <>
       {/* Chat window */}
       {isOpen && (
-        <div className="fixed inset-x-0 bottom-0 z-40 flex justify-center pb-6">
+        <div className="fixed inset-x-0 bottom-0 z-40 flex justify-center pb-6 px-4">
           <div className="relative w-full max-w-5xl mx-auto flex flex-col">
             {/* Chat container with gradient border */}
             <div
@@ -62,6 +62,7 @@ export function FloatingChat({
                 padding: "3px",
                 height: "60vh",
                 maxHeight: "600px",
+                minHeight: "400px",
                 boxShadow: "0 -4px 20px rgba(0, 0, 0, 0.1)",
               }}
             >
@@ -101,13 +102,13 @@ export function FloatingChat({
                         className={`mb-4 ${index === 0 ? "mt-2" : ""} ${message.sender === "user" ? "flex justify-end" : "flex justify-start"}`}
                       >
                         <div
-                          className={`max-w-3/4 rounded-lg p-3 ${
+                          className={`max-w-[85%] sm:max-w-3/4 rounded-lg p-3 ${
                             message.sender === "user"
                               ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
                               : "bg-gray-200 text-gray-800"
                           }`}
                         >
-                          <p>{message.content}</p>
+                          <p className="text-sm sm:text-base">{message.content}</p>
                           <p className="text-xs opacity-70 mt-1">
                             {message.timestamp.toLocaleTimeString([], {
                               hour: "2-digit",
@@ -130,15 +131,15 @@ export function FloatingChat({
                       onChange={handleInputChange}
                       onKeyDown={handleKeyDown}
                       placeholder="Type anything you want to ask our AI chat agent"
-                      className="w-full p-4 pr-16 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-[110px]"
+                      className="w-full p-4 pr-16 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-[80px] sm:h-[110px] text-sm sm:text-base"
                     />
                     <button
                       onClick={handleSendMessage}
                       disabled={!input.trim()}
-                      className="absolute bottom-4 right-4 bg-[#8B5CF6] text-white rounded-full p-3 disabled:opacity-50 hover:bg-[#7C3AED] transition-colors"
+                      className="absolute bottom-4 right-4 bg-[#8B5CF6] text-white rounded-full p-2 sm:p-3 disabled:opacity-50 hover:bg-[#7C3AED] transition-colors"
                       aria-label="Send message"
                     >
-                      <Image src="/send-icon.svg" alt="Send" width={20} height={20} />
+                      <Image src="/send-icon.svg" alt="Send" width={16} height={16} className="sm:w-5 sm:h-5" />
                     </button>
                   </div>
 

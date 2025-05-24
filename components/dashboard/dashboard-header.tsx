@@ -1,6 +1,5 @@
 "use client"
-import { useState } from "react"
-import { FileBarChart, Users, BookOpen, FileCheck } from "lucide-react"
+import { FileBarChart, Users, BookOpen, FileCheck, Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { NedlLogo } from "@/components/ui/nedl-logo"
 import mockData from "@/data/mockData.json"
@@ -13,25 +12,26 @@ const iconMap = {
   FileCheck: FileCheck,
 }
 
-// Update the props interface to include toggleChat
+// Update the props interface to include sidebar controls
 interface DashboardHeaderProps {
   onNavigate: (view: string | null) => void
   activeTab: string
   setActiveTab: (tab: string) => void
   toggleChat: () => void
+  onToggleSidebar: () => void
 }
 
-export function DashboardHeader({ onNavigate, activeTab, setActiveTab, toggleChat }: DashboardHeaderProps) {
+export function DashboardHeader({
+  onNavigate,
+  activeTab,
+  setActiveTab,
+  toggleChat,
+  onToggleSidebar,
+}: DashboardHeaderProps) {
   const navItems = mockData.siteConfig.navigation.mainNav.map((item) => ({
     ...item,
     icon: iconMap[item.icon as keyof typeof iconMap] || FileBarChart,
   }))
-
-  const [isChatOpen, setIsChatOpen] = useState(false)
-
-  // const toggleChat = () => {
-  //   setIsChatOpen(!isChatOpen)
-  // }
 
   const handleTabClick = (tabId: string) => {
     // Set the active tab
@@ -60,11 +60,22 @@ export function DashboardHeader({ onNavigate, activeTab, setActiveTab, toggleCha
       <div className="max-w-[1680px] mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
+            {/* Hamburger menu button for mobile */}
+            <button
+              onClick={onToggleSidebar}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              <Menu className="h-5 w-5 text-gray-600" />
+            </button>
+
             <button onClick={handleLogoClick} className="flex items-center focus:outline-none">
               <NedlLogo className="p-3" />
             </button>
           </div>
-          <nav className="flex items-center space-x-2 font-title">
+
+          {/* Desktop navigation - hidden on mobile */}
+          <nav className="hidden md:flex items-center space-x-2 font-title">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -81,6 +92,7 @@ export function DashboardHeader({ onNavigate, activeTab, setActiveTab, toggleCha
               </button>
             ))}
           </nav>
+
           <div className="flex items-center gap-4">
             <button onClick={() => toggleChat()} className="rounded-full p-2 no-shadow" aria-label="Open chat">
               <span className="sr-only">Open chat</span>

@@ -13,6 +13,7 @@ import mockData from "@/data/mockData.json"
 export default function Dashboard() {
   const [activeView, setActiveView] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState("overview")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   // Chat state
   const [isChatOpen, setIsChatOpen] = useState(false)
@@ -70,6 +71,10 @@ export default function Dashboard() {
       // If we're expanding, make sure the chat is open
       setIsChatOpen(true)
     }
+  }
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
   }
 
   const handleNavigate = (viewId: string | null) => {
@@ -169,11 +174,17 @@ export default function Dashboard() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         toggleChat={toggleChat}
+        onToggleSidebar={toggleSidebar}
       />
       <div className="max-w-[1680px] mx-auto px-4 relative">
         <div className="flex mt-10">
-          <SidebarNavigation onNavigate={handleNavigate} activeItem={activeView} />
-          <div className="ml-64 flex-1">
+          <SidebarNavigation
+            onNavigate={handleNavigate}
+            activeItem={activeView}
+            isOpen={isSidebarOpen}
+            onToggle={toggleSidebar}
+          />
+          <div className="md:ml-64 flex-1 w-full">
             {isExpanded ? (
               <ExpandedChat
                 messages={messages}
