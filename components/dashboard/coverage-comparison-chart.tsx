@@ -5,10 +5,16 @@ import { CalendarIcon } from "lucide-react"
 import mockData from "@/data/mockData.json"
 
 export function CoverageComparisonChart() {
-  // Get the top 5 payers by total policies
-  const top5Payers = [...mockData.dashboard.policyCoverageData]
+  // Get the top 5 payers including BCBS NC specifically
+  const bcbsNC = mockData.dashboard.policyCoverageData.find((p) => p.payer === "BCBS North Carolina")
+  const otherTop4 = [...mockData.dashboard.policyCoverageData]
+    .filter((p) => p.payer !== "BCBS North Carolina")
     .sort((a, b) => b.totalPolicies - a.totalPolicies)
-    .slice(0, 5)
+    .slice(0, 4)
+
+  const top5Payers = bcbsNC
+    ? [bcbsNC, ...otherTop4]
+    : [...mockData.dashboard.policyCoverageData].sort((a, b) => b.totalPolicies - a.totalPolicies).slice(0, 5)
 
   // Find the maximum values for each metric to normalize the data
   const maxPolicies = Math.max(...top5Payers.map((p) => p.totalPolicies))
@@ -48,7 +54,7 @@ export function CoverageComparisonChart() {
   return (
     <div className="rounded-xl border bg-white p-6 shadow-custom">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-base font-medium">Coverage Comparison (Top 5)</h3>
+        <h3 className="text-base font-medium">Coverage Comparison (Top 5 including BCBS NC)</h3>
         <div className="flex items-center rounded-md border bg-slate-50 px-3 py-1 text-xs">
           <CalendarIcon className="mr-2 h-4 w-4 text-slate-500" />
           <span>Current Quarter</span>

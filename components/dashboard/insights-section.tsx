@@ -76,7 +76,7 @@ export function InsightsSection() {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-lg font-semibold">{insights.title}</h2>
         <div className="rounded-md bg-gradient-to-r from-primary-100 to-secondary-100 px-3 py-1 text-xs font-medium text-primary-700">
-          Powered by nedl.ia
+          Powered by nedl.ai
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
