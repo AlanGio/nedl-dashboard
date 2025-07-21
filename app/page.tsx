@@ -179,7 +179,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-auto bg-slate-50">
+    <div className="min-h-auto" style={{ backgroundColor: '#F6F6F6' }}>
       <DashboardHeader
         onNavigate={handleNavigate}
         activeTab={activeTab}
