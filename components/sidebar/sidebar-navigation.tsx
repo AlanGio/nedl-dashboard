@@ -1,10 +1,19 @@
 "use client";
 
 import type React from "react";
-import { FileBarChart, BookOpen, Users, FileCheck, X } from "lucide-react";
+import {
+  FileBarChart,
+  BookOpen,
+  Users,
+  FileCheck,
+  X,
+  ChevronDown,
+  ChevronRight,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { getExternalLink, isExternalLink } from "@/lib/external-links";
 
 interface NavigationItem {
   id: string | null;
@@ -13,6 +22,7 @@ interface NavigationItem {
   count?: number;
   color?: string;
   href: string;
+  children?: NavigationItem[];
 }
 
 interface SidebarNavigationProps {
@@ -31,6 +41,9 @@ export function SidebarNavigation({
   onToggle,
 }: SidebarNavigationProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
+    new Set(["policy-intelligence"])
+  );
   const router = useRouter();
   const pathname = usePathname();
 
@@ -46,39 +59,119 @@ export function SidebarNavigation({
 
   const quickNavItems: NavigationItem[] = [
     {
-      id: null,
+      id: "policy-intelligence",
       icon: FileBarChart,
-      label: "Overview",
-      color: "text-gray-700",
-      href: "/",
-    },
-    {
-      id: "bookmarked",
-      icon: Users,
-      label: "Payer Analysis",
-      color: "text-purple-500",
-      href: "/payer-analysis",
-    },
-    {
-      id: "all-policies",
-      icon: BookOpen,
-      label: "Policy Explorer",
-      color: "text-primary-500",
-      href: "/policy-explorer",
-    },
-    {
-      id: "code-coverage",
-      icon: FileCheck,
-      label: "Code Coverage",
+      label: "Policy Intelligence",
       color: "text-blue-600",
-      href: "/code-coverage",
+      href: "#",
+      children: [
+        {
+          id: null,
+          icon: FileBarChart,
+          label: "Overview",
+          color: "text-blue-600",
+          href: "/",
+        },
+        {
+          id: "bookmarked",
+          icon: Users,
+          label: "Payer Analysis",
+          color: "text-blue-600",
+          href: "/payer-analysis",
+        },
+        {
+          id: "all-policies",
+          icon: BookOpen,
+          label: "Policy Explorer",
+          color: "text-blue-600",
+          href: "/policy-explorer",
+        },
+        {
+          id: "code-coverage",
+          icon: FileCheck,
+          label: "Code Coverage",
+          color: "text-blue-600",
+          href: "/code-coverage",
+        },
+      ],
+    },
+    {
+      id: "claim-repricer",
+      icon: FileCheck,
+      label: "Claim Repricer",
+      color: "text-green-600",
+      href: "#",
+      children: [
+        {
+          id: "repricer-dashboard",
+          icon: FileBarChart,
+          label: "Repricer Intelligence Dashboard",
+          color: "text-green-600",
+          href: "https://reprice-dashboard.vercel.app/",
+        },
+        {
+          id: "claims-process",
+          icon: FileCheck,
+          label: "Claims Process Summary",
+          color: "text-green-600",
+          href: "https://reprice-dashboard.vercel.app/claims-process",
+        },
+      ],
+    },
+    {
+      id: "payment-leakage",
+      icon: Users,
+      label: "Payment Leakage",
+      color: "text-orange-600",
+      href: "#",
+      children: [
+        {
+          id: "leakage-overview",
+          icon: FileBarChart,
+          label: "Overview",
+          color: "text-orange-600",
+          href: "https://payment-leakage.vercel.app/",
+        },
+        {
+          id: "data-ingestion",
+          icon: FileCheck,
+          label: "Data Ingestion",
+          color: "text-orange-600",
+          href: "https://payment-leakage.vercel.app/data-ingestion",
+        },
+        {
+          id: "diagnosis-configuration",
+          icon: BookOpen,
+          label: "Diagnosis Configuration",
+          color: "text-orange-600",
+          href: "https://payment-leakage.vercel.app/diagnosis-configuration",
+        },
+        {
+          id: "file-config-status",
+          icon: FileCheck,
+          label: "File & Config Status",
+          color: "text-orange-600",
+          href: "https://payment-leakage.vercel.app/file-config-status",
+        },
+        {
+          id: "claims-management",
+          icon: Users,
+          label: "Claims Management",
+          color: "text-orange-600",
+          href: "https://payment-leakage.vercel.app/claims-management",
+        },
+      ],
     },
   ];
 
-  const handleNavigate = (href: string) => {
-    router.push(href);
-    if (isMobile) {
-      onToggle(); // Close mobile menu after navigation
+  const handleNavigate = (href: string, itemId?: string) => {
+    if (href !== "#") {
+      // Check if it's an external link
+      router.push(href);
+
+      if (isMobile) {
+        onToggle(); // Close mobile menu after navigation
+      }
     }
   };
 
@@ -87,6 +180,22 @@ export function SidebarNavigation({
       return pathname === "/";
     }
     return pathname === href;
+  };
+
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategories((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(categoryId)) {
+        newSet.delete(categoryId);
+      } else {
+        newSet.add(categoryId);
+      }
+      return newSet;
+    });
+  };
+
+  const isCategoryExpanded = (categoryId: string) => {
+    return expandedCategories.has(categoryId);
   };
 
   // Mobile overlay
@@ -121,40 +230,111 @@ export function SidebarNavigation({
             </button>
           </div>
 
-          <div className="p-4">
+          <div className="p-2">
             <nav className="mt-2 space-y-1">
               {quickNavItems.map((item) => {
-                const active = isActive(item.href);
+                const hasChildren = item.children && item.children.length > 0;
+                const isExpanded = hasChildren
+                  ? isCategoryExpanded(item.id!)
+                  : false;
 
                 return (
-                  <button
-                    key={item.id || "overview"}
-                    onClick={() => handleNavigate(item.href)}
-                    className={cn(
-                      "flex w-full items-center rounded-full px-4 py-4 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",
-                      active
-                        ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                        : "text-gray-700 hover:bg-white"
-                    )}
-                  >
-                    <item.icon
+                  <div key={item.id || "overview"}>
+                    <button
+                      onClick={() => {
+                        if (hasChildren) {
+                          toggleCategory(item.id!);
+                        } else {
+                          handleNavigate(item.href, item.id || undefined);
+                        }
+                      }}
                       className={cn(
-                        "mr-3 h-5 w-5 no-shadow",
-                        active ? "text-white" : item.color
+                        "flex w-full items-center rounded-full px-2 py-4 my-1 text-sm font-bold text-left transition-all duration-200 no-shadow",
+                        hasChildren
+                          ? "text-gray-700 hover:bg-white"
+                          : isActive(item.href)
+                          ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                          : "text-gray-700 hover:bg-white"
                       )}
-                    />
-                    <span className="flex-1">{item.label}</span>
-                    {item.count && (
-                      <span
+                    >
+                      <item.icon
                         className={cn(
-                          "ml-2 rounded-full text-xs",
-                          active ? "text-white" : "text-slate-500"
+                          "mr-3 h-5 w-5 no-shadow",
+                          hasChildren
+                            ? item.color
+                            : isActive(item.href)
+                            ? "text-white"
+                            : item.color
                         )}
-                      >
-                        ({item.count})
-                      </span>
+                      />
+                      <span className="flex-1">{item.label}</span>
+                      {hasChildren && (
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform",
+                            isExpanded ? "rotate-180" : ""
+                          )}
+                        />
+                      )}
+                      {item.count && (
+                        <span
+                          className={cn(
+                            "ml-2 rounded-full text-xs",
+                            isActive(item.href)
+                              ? "text-white"
+                              : "text-slate-500"
+                          )}
+                        >
+                          ({item.count})
+                        </span>
+                      )}
+                    </button>
+
+                    {hasChildren && isExpanded && (
+                      <div className="ml-2 space-y-1">
+                        {item.children!.map((child) => {
+                          const childActive = isActive(child.href);
+                          return (
+                            <button
+                              key={child.id || "child-overview"}
+                              onClick={() =>
+                                handleNavigate(
+                                  child.href,
+                                  child.id || undefined
+                                )
+                              }
+                              className={cn(
+                                "flex w-full items-center rounded-full px-4 py-3 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",
+                                childActive
+                                  ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                                  : "text-gray-600 hover:bg-white"
+                              )}
+                            >
+                              <child.icon
+                                className={cn(
+                                  "mr-3 h-4 w-4 no-shadow",
+                                  childActive ? "text-white" : child.color
+                                )}
+                              />
+                              <span className="flex-1">{child.label}</span>
+                              {child.count && (
+                                <span
+                                  className={cn(
+                                    "ml-2 rounded-full text-xs",
+                                    childActive
+                                      ? "text-white"
+                                      : "text-slate-500"
+                                  )}
+                                >
+                                  ({child.count})
+                                </span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
                     )}
-                  </button>
+                  </div>
                 );
               })}
             </nav>
@@ -176,37 +356,101 @@ export function SidebarNavigation({
       <div className="p-4">
         <nav className="mt-2 space-y-1">
           {quickNavItems.map((item) => {
-            const active = isActive(item.href);
+            const hasChildren = item.children && item.children.length > 0;
+            const isExpanded = hasChildren
+              ? isCategoryExpanded(item.id!)
+              : false;
 
             return (
-              <button
-                key={item.id || "overview"}
-                onClick={() => handleNavigate(item.href)}
-                className={cn(
-                  "flex w-full items-center rounded-full px-4 py-4 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",
-                  active
-                    ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                    : "text-gray-700 hover:bg-white"
-                )}
-              >
-                <item.icon
+              <div key={item.id || "overview"}>
+                <button
+                  onClick={() => {
+                    if (hasChildren) {
+                      toggleCategory(item.id!);
+                    } else {
+                      handleNavigate(item.href, item.id || undefined);
+                    }
+                  }}
                   className={cn(
-                    "mr-3 h-5 w-5 no-shadow",
-                    active ? "text-white" : item.color
+                    "flex w-full items-center rounded-full px-1 py-4 my-1 text-md font-semibold text-left transition-all duration-200 no-shadow",
+                    hasChildren
+                      ? "text-gray-700 hover:bg-white"
+                      : isActive(item.href)
+                      ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                      : "text-gray-700 hover:bg-white"
                   )}
-                />
-                <span className="flex-1">{item.label}</span>
-                {item.count && (
-                  <span
+                >
+                  <item.icon
                     className={cn(
-                      "ml-2 rounded-full text-xs",
-                      active ? "text-white" : "text-slate-500"
+                      "mr-3 h-5 w-5 no-shadow",
+                      hasChildren
+                        ? item.color
+                        : isActive(item.href)
+                        ? "text-white"
+                        : item.color
                     )}
-                  >
-                    ({item.count})
-                  </span>
+                  />
+                  <span className="flex-1">{item.label}</span>
+                  {hasChildren && (
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform",
+                        isExpanded ? "rotate-180" : ""
+                      )}
+                    />
+                  )}
+                  {item.count && (
+                    <span
+                      className={cn(
+                        "ml-2 rounded-full text-xs",
+                        isActive(item.href) ? "text-white" : "text-slate-500"
+                      )}
+                    >
+                      ({item.count})
+                    </span>
+                  )}
+                </button>
+
+                {hasChildren && isExpanded && (
+                  <div className="ml-2 space-y-1">
+                    {item.children!.map((child) => {
+                      const childActive = isActive(child.href);
+                      return (
+                        <button
+                          key={child.id || "child-overview"}
+                          onClick={() =>
+                            handleNavigate(child.href, child.id || undefined)
+                          }
+                          className={cn(
+                            "flex w-full items-center rounded-full px-4 py-3 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",
+                            childActive
+                              ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                              : "text-gray-600 hover:bg-white"
+                          )}
+                        >
+                          <child.icon
+                            className={cn(
+                              "mr-3 h-4 w-4 no-shadow",
+                              childActive ? "text-white" : child.color
+                            )}
+                          />
+                          <span className="flex-1">{child.label}</span>
+                          {child.count && (
+                            <span
+                              className={cn(
+                                "ml-2 rounded-full text-xs",
+                                childActive ? "text-white" : "text-slate-500"
+                              )}
+                            >
+                              ({child.count})
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
-              </button>
+              </div>
             );
           })}
         </nav>
