@@ -4,7 +4,7 @@
   <defs>
     <linearGradient id="linear-gradient" x1="0" y1="1125" x2="2250" y2="1125" gradientTransform="translate(0 2250) scale(1 -1)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#449cfb"/>
-<stop offset="1" stop-color="#f5709a"/>
+      <stop offset="1" stop-color="#f087fb"/>
     </linearGradient>
   </defs>
   <g id="Layer_x5F_1">
