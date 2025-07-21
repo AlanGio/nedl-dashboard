@@ -1,20 +1,20 @@
 "use client";
 
 import type React from "react";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { SidebarNavigation } from "@/components/sidebar/sidebar-navigation";
-import { DashboardContent } from "@/components/dashboard/dashboard-content";
 import { FloatingChat } from "@/components/chat/floating-chat";
 import { ExpandedChat } from "@/components/chat/expanded-chat";
 import mockData from "@/data/mockData.json";
 
-export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("overview");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+interface LayoutWithNavProps {
+  children: React.ReactNode;
+  activeTab: string;
+}
 
-  // Chat state
+export function LayoutWithNav({ children, activeTab }: LayoutWithNavProps) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [input, setInput] = useState("");
@@ -34,30 +34,6 @@ export default function Dashboard() {
     "can you show the rate relativity per health system",
   ];
 
-  // Load chat state from session on initial render
-  useEffect(() => {
-    const savedMessages = sessionStorage.getItem("chatMessages");
-    if (savedMessages) {
-      try {
-        // Parse the saved messages and convert string timestamps back to Date objects
-        const parsedMessages = JSON.parse(savedMessages).map((msg: any) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp),
-        }));
-        setMessages(parsedMessages);
-      } catch (error) {
-        console.error("Error loading chat messages:", error);
-      }
-    }
-  }, []);
-
-  // Save chat state to sessionStorage whenever messages change
-  useEffect(() => {
-    if (messages.length > 0) {
-      sessionStorage.setItem("chatMessages", JSON.stringify(messages));
-    }
-  }, [messages]);
-
   const toggleChat = () => {
     if (isExpanded) {
       setIsExpanded(false);
@@ -68,7 +44,6 @@ export default function Dashboard() {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
     if (!isExpanded) {
-      // If we're expanding, make sure the chat is open
       setIsChatOpen(true);
     }
   };
@@ -77,23 +52,8 @@ export default function Dashboard() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleNavigate = (viewId: string | null) => {
-    // If chat is expanded, minimize it when navigating
-    if (isExpanded) {
-      setIsExpanded(false);
-    }
-
-    // Update the active tab based on the view
-    if (viewId === null) {
-      setActiveTab("overview");
-    } else if (viewId === "all-policies") {
-      setActiveTab("policy-explorer");
-    } else if (viewId === "bookmarked") {
-      setActiveTab("payer-analysis");
-    } else if (viewId === "code-coverage") {
-      setActiveTab("code-coverage");
-    }
-    // Add more mappings as needed for other views
+  const handleNavigate = () => {
+    // Navigation is now handled by URL routing
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -119,11 +79,8 @@ export default function Dashboard() {
       setInput("");
       setIsTyping(true);
 
-      // Get the next answer from the chatAnswers array
       const answer =
         mockData.chatAnswers[answerIndex % mockData.chatAnswers.length];
-
-      // Simulate AI thinking time (2-4 seconds)
       const thinkingTime = 2000 + Math.random() * 2000;
 
       setTimeout(() => {
@@ -135,8 +92,6 @@ export default function Dashboard() {
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, botMessage]);
-
-        // Move to the next answer for future questions
         setAnswerIndex((prev) => prev + 1);
       }, thinkingTime);
     }
@@ -154,11 +109,8 @@ export default function Dashboard() {
       setInput("");
       setIsTyping(true);
 
-      // Get the next answer from the chatAnswers array
       const answer =
         mockData.chatAnswers[answerIndex % mockData.chatAnswers.length];
-
-      // Simulate AI thinking time (2-4 seconds)
       const thinkingTime = 2000 + Math.random() * 2000;
 
       setTimeout(() => {
@@ -170,8 +122,6 @@ export default function Dashboard() {
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, botMessage]);
-
-        // Move to the next answer for future questions
         setAnswerIndex((prev) => prev + 1);
       }, thinkingTime);
     }
@@ -182,7 +132,7 @@ export default function Dashboard() {
       <DashboardHeader
         onNavigate={handleNavigate}
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={() => {}}
         toggleChat={toggleChat}
         onToggleSidebar={toggleSidebar}
       />
@@ -208,12 +158,11 @@ export default function Dashboard() {
                 isTyping={isTyping}
               />
             ) : (
-              <DashboardContent />
+              children
             )}
           </div>
         </div>
       </div>
-      {/* Only render FloatingChat when not expanded */}
       {!isExpanded && (
         <FloatingChat
           isOpen={isChatOpen}

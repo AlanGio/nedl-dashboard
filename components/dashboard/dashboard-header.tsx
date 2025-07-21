@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { NedlLogo } from "@/components/ui/nedl-logo";
 import mockData from "@/data/mockData.json";
+import { useRouter } from "next/navigation";
 
 // Map string icon names to actual icon components
 const iconMap = {
@@ -36,6 +37,7 @@ export function DashboardHeader({
   toggleChat,
   onToggleSidebar,
 }: DashboardHeaderProps) {
+  const router = useRouter();
   const navItems = mockData.siteConfig.navigation.mainNav.map((item) => ({
     ...item,
     icon: iconMap[item.icon as keyof typeof iconMap] || FileBarChart,
@@ -50,16 +52,22 @@ export function DashboardHeader({
 
     if (tabId === "overview") {
       // Navigate to the main dashboard
-      onNavigate(null);
+      router.push("/");
     } else if (clickedItem?.linkedView) {
       // Navigate to the linked view if it exists
-      onNavigate(clickedItem.linkedView);
+      if (clickedItem.linkedView === "bookmarked") {
+        router.push("/payer-analysis");
+      } else if (clickedItem.linkedView === "all-policies") {
+        router.push("/policy-explorer");
+      } else if (clickedItem.linkedView === "code-coverage") {
+        router.push("/code-coverage");
+      }
     }
   };
 
   const handleLogoClick = () => {
     // Navigate to the main dashboard
-    onNavigate(null);
+    router.push("/");
     setActiveTab("overview");
   };
 
