@@ -1,20 +1,29 @@
-import type React from "react"
-import { FileText, Clock, History, CheckCircle, Filter, Plus, Eye } from "lucide-react"
-import { cn } from "@/lib/utils"
-import mockData from "@/data/mockData.json"
-import { SearchPolicies } from "@/components/search-policies/search-policies"
-import { WrittenPolicyCoverageTable } from "@/components/policies/written-policy-coverage-table"
-import { KeyInsightsSection } from "@/components/payer-analysis/key-insights-section"
+import type React from "react";
+import {
+  FileText,
+  Clock,
+  History,
+  CheckCircle,
+  Filter,
+  Plus,
+  Eye,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import mockData from "@/data/mockData.json";
+import { SearchPolicies } from "@/components/search-policies/search-policies";
+import { WrittenPolicyCoverageTable } from "@/components/policies/written-policy-coverage-table";
+import { KeyInsightsSection } from "@/components/payer-analysis/key-insights-section";
+import { PageHeader } from "@/components/ui/page-header";
 
 interface MetricCardProps {
-  title: string
-  value: string | number
-  icon: React.ReactNode
-  change?: string
-  changeType?: "increase" | "decrease" | "neutral"
-  subtitle?: string
-  iconBgColor?: string
-  iconColor?: string
+  title: string;
+  value: string | number;
+  icon: React.ReactNode;
+  change?: string;
+  changeType?: "increase" | "decrease" | "neutral";
+  subtitle?: string;
+  iconBgColor?: string;
+  iconColor?: string;
 }
 
 function MetricCard({
@@ -41,7 +50,11 @@ function MetricCard({
           <p
             className={cn(
               "mt-1 text-xs",
-              changeType === "increase" ? "text-primary-600" : changeType === "decrease" ? "text-secondary-600" : "",
+              changeType === "increase"
+                ? "text-primary-600"
+                : changeType === "decrease"
+                ? "text-secondary-600"
+                : ""
             )}
           >
             {change}
@@ -50,7 +63,7 @@ function MetricCard({
         {subtitle && <p className="mt-1 text-xs text-slate-500">{subtitle}</p>}
       </div>
     </div>
-  )
+  );
 }
 
 // Helper function to get the icon component based on the icon name from the data
@@ -61,12 +74,12 @@ function getIconComponent(iconName: string) {
     History: <History className="h-5 w-5 no-shadow" />,
     CheckCircle: <CheckCircle className="h-5 w-5 no-shadow" />,
     Eye: <Eye className="h-5 w-5 no-shadow" />,
-  }
-  return icons[iconName] || <FileText className="h-5 w-5 no-shadow" />
+  };
+  return icons[iconName] || <FileText className="h-5 w-5 no-shadow" />;
 }
 
 export function PolicyCommandCenter() {
-  const { metrics } = mockData.allPolicies
+  const { metrics } = mockData.allPolicies;
 
   // Update the updatedMetrics colors
   const updatedMetrics = {
@@ -91,15 +104,17 @@ export function PolicyCommandCenter() {
       iconBgColor: "bg-purple-100",
       iconColor: "text-purple-600",
     },
-  }
+  };
 
   return (
     <div>
-      <div className="p-8 mt-10">
+      <div className="p-8">
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-800">{mockData.allPolicies.title}</h1>
-            <p className="text-sm text-slate-500">{mockData.allPolicies.subtitle}</p>
+            <PageHeader
+              title={mockData.allPolicies.title}
+              description={mockData.allPolicies.subtitle}
+            />
           </div>
           <div className="flex gap-3">
             <button className="flex items-center gap-2 rounded-md border bg-white px-4 py-2 text-xs font-medium shadow-custom hover:bg-slate-50">
@@ -119,7 +134,12 @@ export function PolicyCommandCenter() {
             value={updatedMetrics.activePolicies.value}
             icon={getIconComponent(updatedMetrics.activePolicies.icon)}
             change={updatedMetrics.activePolicies.change}
-            changeType={updatedMetrics.activePolicies.changeType as "increase" | "decrease" | "neutral"}
+            changeType={
+              updatedMetrics.activePolicies.changeType as
+                | "increase"
+                | "decrease"
+                | "neutral"
+            }
             iconBgColor={updatedMetrics.activePolicies.iconBgColor}
             iconColor={updatedMetrics.activePolicies.iconColor}
           />
@@ -128,7 +148,12 @@ export function PolicyCommandCenter() {
             value={updatedMetrics.needReview.value}
             icon={getIconComponent(updatedMetrics.needReview.icon)}
             change={updatedMetrics.needReview.change}
-            changeType={updatedMetrics.needReview.changeType as "increase" | "decrease" | "neutral"}
+            changeType={
+              updatedMetrics.needReview.changeType as
+                | "increase"
+                | "decrease"
+                | "neutral"
+            }
             iconBgColor={updatedMetrics.needReview.iconBgColor}
             iconColor={updatedMetrics.needReview.iconColor}
           />
@@ -145,7 +170,12 @@ export function PolicyCommandCenter() {
             value={updatedMetrics.complianceScore.value}
             icon={getIconComponent(updatedMetrics.complianceScore.icon)}
             change={updatedMetrics.complianceScore.change}
-            changeType={updatedMetrics.complianceScore.changeType as "increase" | "decrease" | "neutral"}
+            changeType={
+              updatedMetrics.complianceScore.changeType as
+                | "increase"
+                | "decrease"
+                | "neutral"
+            }
             iconBgColor={updatedMetrics.complianceScore.iconBgColor}
             iconColor={updatedMetrics.complianceScore.iconColor}
           />
@@ -167,5 +197,5 @@ export function PolicyCommandCenter() {
         </div>
       </div>
     </div>
-  )
+  );
 }

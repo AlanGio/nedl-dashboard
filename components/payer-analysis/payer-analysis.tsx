@@ -12,6 +12,7 @@ import { CodeExplorerTable } from "./code-explorer-table";
 import { HealthcarePayerProfilesTable } from "./healthcare-payer-profiles-table";
 import { KeyInsightsSection } from "./key-insights-section";
 import { HealthcarePayersChart } from "@/components/dashboard/healthcare-payers-chart";
+import { PageHeader } from "@/components/ui/page-header";
 
 export function PayerAnalysis() {
   const [selectedPayer, setSelectedPayer] = useState("All Payers");
@@ -132,14 +133,13 @@ export function PayerAnalysis() {
   };
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="p-8">
       {/* Header */}
-      <div className="pt-12">
-        <h1 className="text-2xl font-bold text-gray-900">Payer Analysis</h1>
-        <p className="text-sm text-gray-600">
-          Analyze payer policies and coverage metrics across your network
-        </p>
-      </div>
+      <PageHeader
+        title="Payer Analysis"
+        description="Analyze payer policies and coverage metrics across your network"
+        className="mb-8"
+      />
 
       {/* Search Section */}
       <div className="bg-gray-50 rounded-lg p-6">
