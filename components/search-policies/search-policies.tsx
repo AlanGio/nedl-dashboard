@@ -111,7 +111,7 @@ export function SearchPolicies() {
             className="relative rounded-full overflow-hidden"
             style={{
               background:
-                "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F087FB) border-box",
+                "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F5709A) border-box",
               borderWidth: "1px",
               borderStyle: "solid",
               borderColor: "transparent",

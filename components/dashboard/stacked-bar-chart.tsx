@@ -25,8 +25,8 @@ export function StackedBarChart() {
             <Tooltip />
             <Legend />
             <Bar dataKey="approved" stackId="a" fill="#449CFB" name="Approved" />
-            <Bar dataKey="pending" stackId="a" fill="#F087FB" name="Pending" />
-            <Bar dataKey="rejected" stackId="a" fill="#8A287F" name="Rejected" />
+            <Bar dataKey="pending" stackId="a" fill="#FFB366" name="Pending" />
+            <Bar dataKey="rejected" stackId="a" fill="#F08C76" name="Rejected" />
           </BarChart>
         </ResponsiveContainer>
       </div>

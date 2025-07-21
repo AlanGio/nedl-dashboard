@@ -19,11 +19,17 @@ export function NedlLogo({ className = "" }: { className?: string }) {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#449cfb" />
-          <stop offset="1" stopColor="#f087fb" />
+          <stop offset="1" stopColor="#f5709a" />
         </linearGradient>
       </defs>
       <g id="Layer_x5F_1">
-        <rect x="-75" y="-639.21" width="2100" height="2100" style={{ fill: "none" }} />
+        <rect
+          x="-75"
+          y="-639.21"
+          width="2100"
+          height="2100"
+          style={{ fill: "none" }}
+        />
         <g id="_1758450338768">
           <path
             d="M148.45,239.94c.39,191.83,106.64,573.31,222.54,581.64H0c115.9-8.33,148.06-389.81,148.45-581.64ZM106.51,18.78c18.07,5.83,181.06-2.15,198.65,25.9,12.67,20.21,24.25,66.23,32.29,101.78l128.65,561.32c8.37,37.03,19.23,77.43,26.18,113.61l325.91.19.1-112.07c-189.82-3.24-211.46-53.62-253.9-260L461.06,1.03,106.67,0l-.16,18.78h0ZM815.68,467.08C816.07,275.25,862.25,8.33,978.15,0h-368.28c115.9,8.33,205.41,275.25,205.81,467.08Z"
@@ -77,5 +83,5 @@ export function NedlLogo({ className = "" }: { className?: string }) {
         </g>
       </g>
     </svg>
-  )
+  );
 }

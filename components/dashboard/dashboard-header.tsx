@@ -95,7 +95,7 @@ export function DashboardHeader({
                 className={cn(
                   "flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-all duration-200 no-shadow font-title",
                   activeTab === item.id
-                    ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                    ? "bg-gradient-to-r from-[#449CFB] to-[#f087fb] text-white"
                     : "text-gray-00 hover:bg-white hover:shadow-sm"
                 )}
               >
@@ -128,7 +128,7 @@ export function DashboardHeader({
           <button className="relative p-2 lg:p-3 hover:bg-[#f3f4f6] rounded-xl transition-all duration-200 group">
             <Bell className="w-5 h-5 lg:w-5 lg:h-5 text-[#6b7280] group-hover:text-[#374151]" />
             <div
-              className="absolute -top-1 -right-1 w-2 h-2 lg:w-3 lg:h-3 bg-[#FA1717] rounded-full shadow-xs animate-pulse"
+              className="absolute -top-1 -right-1 w-2 h-2 lg:w-3 lg:h-3 bg-[#f087fb] rounded-full shadow-xs animate-pulse"
               style={{ animationDuration: "1s" }}
             ></div>
           </button>

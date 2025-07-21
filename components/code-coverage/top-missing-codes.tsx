@@ -19,7 +19,7 @@ export function TopMissingCodes() {
             <XAxis type="number" />
             <YAxis dataKey="code" type="category" />
             <Tooltip />
-            <Bar dataKey="value" fill="#E679F2" radius={[0, 4, 4, 0]} />
+            <Bar dataKey="value" fill="#F5709A" radius={[0, 4, 4, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

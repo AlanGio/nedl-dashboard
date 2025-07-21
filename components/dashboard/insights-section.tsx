@@ -1,56 +1,84 @@
-import { TrendingUp, AlertTriangle, Lightbulb } from "lucide-react"
-import mockData from "@/data/mockData.json"
+import { TrendingUp, AlertTriangle, Lightbulb } from "lucide-react";
+import mockData from "@/data/mockData.json";
+import { CHART_COLORS } from "@/lib/chart-colors";
 
 interface InsightProps {
-  type: string
-  title: string
-  description: string
-  actionText: string
-  actionLink: string
+  type: string;
+  title: string;
+  description: string;
+  actionText: string;
+  actionLink: string;
 }
 
 function InsightCard({ insight }: { insight: InsightProps }) {
-  const getIcon = () => {
+  const getIconColor = () => {
     switch (insight.type) {
       case "growth":
-        return <TrendingUp className="h-5 w-5 text-primary-500" />
+        return CHART_COLORS.primary;
       case "opportunity":
-        return <Lightbulb className="h-5 w-5 text-blue-500" />
+        return CHART_COLORS.quinary;
       case "warning":
-        return <AlertTriangle className="h-5 w-5 text-purple-500" />
+        return CHART_COLORS.secondary;
       default:
-        return <Lightbulb className="h-5 w-5 text-primary-500" />
+        return CHART_COLORS.primary;
     }
-  }
+  };
 
   const getBorderColor = () => {
     switch (insight.type) {
       case "growth":
-        return "border-l-primary-500"
+        return CHART_COLORS.primary;
       case "opportunity":
-        return "border-l-blue-500"
+        return CHART_COLORS.quinary;
       case "warning":
-        return "border-l-purple-500"
+        return CHART_COLORS.secondary;
       default:
-        return "border-l-primary-500"
+        return CHART_COLORS.primary;
     }
-  }
+  };
 
   const getButtonColor = () => {
     switch (insight.type) {
       case "growth":
-        return "bg-primary-50 text-primary-700 hover:bg-primary-100"
+        return CHART_COLORS.primary;
       case "opportunity":
-        return "bg-blue-50 text-blue-700 hover:bg-blue-100"
+        return CHART_COLORS.quinary;
       case "warning":
-        return "bg-purple-50 text-purple-700 hover:bg-purple-100"
+        return CHART_COLORS.secondary;
       default:
-        return "bg-primary-50 text-primary-700 hover:bg-primary-100"
+        return CHART_COLORS.primary;
     }
-  }
+  };
+
+  const getIcon = () => {
+    switch (insight.type) {
+      case "growth":
+        return (
+          <TrendingUp className="h-5 w-5" style={{ color: getIconColor() }} />
+        );
+      case "opportunity":
+        return (
+          <Lightbulb className="h-5 w-5" style={{ color: getIconColor() }} />
+        );
+      case "warning":
+        return (
+          <AlertTriangle
+            className="h-5 w-5"
+            style={{ color: getIconColor() }}
+          />
+        );
+      default:
+        return (
+          <Lightbulb className="h-5 w-5" style={{ color: getIconColor() }} />
+        );
+    }
+  };
 
   return (
-    <div className={`rounded-lg border-l-4 bg-white p-6 shadow-sm ${getBorderColor()}`}>
+    <div
+      className="rounded-lg border-l-4 bg-white p-6 shadow-sm"
+      style={{ borderLeftColor: getBorderColor() }}
+    >
       <div className="flex items-center gap-3">
         <div className="rounded-full bg-slate-100 p-2">{getIcon()}</div>
         <h3 className="text-base font-medium">{insight.title}</h3>
@@ -59,17 +87,21 @@ function InsightCard({ insight }: { insight: InsightProps }) {
       <div className="mt-4">
         <a
           href={insight.actionLink}
-          className={`inline-block rounded-md px-4 py-2 text-xs font-medium ${getButtonColor()}`}
+          className="inline-block rounded-md px-4 py-2 text-xs font-medium hover:opacity-80"
+          style={{
+            backgroundColor: `${getButtonColor()}20`,
+            color: getButtonColor(),
+          }}
         >
           {insight.actionText}
         </a>
       </div>
     </div>
-  )
+  );
 }
 
 export function InsightsSection() {
-  const insights = mockData.dashboard.insights
+  const insights = mockData.dashboard.insights;
 
   return (
     <section className="mt-8">
@@ -85,5 +117,5 @@ export function InsightsSection() {
         ))}
       </div>
     </section>
-  )
+  );
 }

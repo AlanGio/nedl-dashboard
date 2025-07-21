@@ -4,8 +4,7 @@ import { useState } from "react"
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts"
 import { CalendarIcon } from "lucide-react"
 import mockData from "@/data/mockData.json"
-
-const COLORS = ["#449CFB", "#F087FB", "#0071EA", "#8A287F", "#4D4D4D"]
+import { CHART_COLORS_ARRAY } from "@/lib/chart-colors"
 
 export function DistributionCharts() {
   const [timeRange, setTimeRange] = useState("Last 12 Months")
@@ -40,7 +39,7 @@ export function DistributionCharts() {
               label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
             >
               {payerData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell key={`cell-${index}`} fill={CHART_COLORS_ARRAY[index % CHART_COLORS_ARRAY.length]} />
               ))}
             </Pie>
             <Tooltip formatter={(value) => `${value}%`} />

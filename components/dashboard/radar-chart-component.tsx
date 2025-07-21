@@ -23,7 +23,7 @@ export function RadarChartComponent() {
             <PolarAngleAxis dataKey="subject" />
             <PolarRadiusAxis angle={30} domain={[0, 100]} />
             <Radar name="Current" dataKey="current" stroke="#449CFB" fill="#449CFB" fillOpacity={0.6} />
-            <Radar name="Benchmark" dataKey="benchmark" stroke="#F087FB" fill="#F087FB" fillOpacity={0.6} />
+            <Radar name="Benchmark" dataKey="benchmark" stroke="#F08C76" fill="#F08C76" fillOpacity={0.6} />
             <Legend />
           </RadarChart>
         </ResponsiveContainer>

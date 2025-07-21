@@ -4,10 +4,30 @@
     "description": "Comprehensive healthcare policy management dashboard",
     "navigation": {
       "mainNav": [
-        { "id": "overview", "title": "Overview", "icon": "FileBarChart", "linkedView": null },
-        { "id": "payer-analysis", "title": "Payer Analysis", "icon": "Users", "linkedView": "bookmarked" },
-        { "id": "policy-explorer", "title": "Policy Explorer", "icon": "BookOpen", "linkedView": "all-policies" },
-        { "id": "code-coverage", "title": "Code Coverage", "icon": "FileCheck", "linkedView": "code-coverage" }
+        {
+          "id": "overview",
+          "title": "Overview",
+          "icon": "FileBarChart",
+          "linkedView": null
+        },
+        {
+          "id": "payer-analysis",
+          "title": "Payer Analysis",
+          "icon": "Users",
+          "linkedView": "bookmarked"
+        },
+        {
+          "id": "policy-explorer",
+          "title": "Policy Explorer",
+          "icon": "BookOpen",
+          "linkedView": "all-policies"
+        },
+        {
+          "id": "code-coverage",
+          "title": "Code Coverage",
+          "icon": "FileCheck",
+          "linkedView": "code-coverage"
+        }
       ]
     }
   },
@@ -2105,21 +2125,46 @@
     "radarChart": {
       "title": "Policy Performance Metrics",
       "data": [
-        { "subject": "Clarity", "current": 80, "benchmark": 90, "fullMark": 100 },
-        { "subject": "Specificity", "current": 75, "benchmark": 85, "fullMark": 100 },
-        { "subject": "Clinical Alignment", "current": 85, "benchmark": 80, "fullMark": 100 },
-        { "subject": "Consistency", "current": 70, "benchmark": 88, "fullMark": 100 },
-        { "subject": "Compliance", "current": 90, "benchmark": 85, "fullMark": 100 }
+        {
+          "subject": "Clarity",
+          "current": 80,
+          "benchmark": 90,
+          "fullMark": 100
+        },
+        {
+          "subject": "Specificity",
+          "current": 75,
+          "benchmark": 85,
+          "fullMark": 100
+        },
+        {
+          "subject": "Clinical Alignment",
+          "current": 85,
+          "benchmark": 80,
+          "fullMark": 100
+        },
+        {
+          "subject": "Consistency",
+          "current": 70,
+          "benchmark": 88,
+          "fullMark": 100
+        },
+        {
+          "subject": "Compliance",
+          "current": 90,
+          "benchmark": 85,
+          "fullMark": 100
+        }
       ]
     },
     "funnelChart": {
       "title": "Policy Adoption Funnel",
       "data": [
         { "name": "Awareness", "value": 100, "fill": "#449CFB" },
-        { "name": "Understanding", "value": 80, "fill": "#5BA7FB" },
-        { "name": "Acceptance", "value": 60, "fill": "#72B3FC" },
-        { "name": "Implementation", "value": 40, "fill": "#89BFFC" },
-        { "name": "Adherence", "value": 20, "fill": "#A0CBFD" }
+        { "name": "Understanding", "value": 80, "fill": "#F08C76" },
+        { "name": "Acceptance", "value": 60, "fill": "#F5709A" },
+        { "name": "Implementation", "value": 40, "fill": "#B782E8" },
+        { "name": "Adherence", "value": 20, "fill": "#82F09A" }
       ]
     },
     "policyEffectivenessChart": {
@@ -2147,22 +2192,36 @@
           "adoptionRate": 65,
           "coverageRate": 70,
           "policyCount": 120,
-          "color": "#F087FB"
+          "color": "#F08C76"
         },
         {
           "name": "Oncology & Hematology",
           "adoptionRate": 80,
           "coverageRate": 75,
           "policyCount": 100,
-          "color": "#0071EA"
+          "color": "#F5709A"
         },
-        { "name": "General Medical", "adoptionRate": 90, "coverageRate": 95, "policyCount": 200, "color": "#8A287F" }
+        {
+          "name": "General Medical",
+          "adoptionRate": 90,
+          "coverageRate": 95,
+          "policyCount": 200,
+          "color": "#B782E8"
+        }
       ]
     },
     "heatmapChart": {
       "title": "Policy Coverage Analysis",
       "maxValue": 75,
-      "categories": ["Medical", "Pharmacy", "Behavioral", "Specialty", "Radiology", "Lab", "DME"],
+      "categories": [
+        "Medical",
+        "Pharmacy",
+        "Behavioral",
+        "Specialty",
+        "Radiology",
+        "Lab",
+        "DME"
+      ],
       "data": {
         "BCBSNC-United": 65,
         "BCBSNC-Cigna": 58,
@@ -2215,16 +2274,66 @@
       }
     },
     "policyCoverageData": [
-      { "payer": "BCBS North Carolina", "totalPolicies": 450, "hcpcsCodes": 8200, "modifiers": 320 },
-      { "payer": "UnitedHealthcare", "totalPolicies": 850, "hcpcsCodes": 12500, "modifiers": 450 },
-      { "payer": "Elevance Health", "totalPolicies": 780, "hcpcsCodes": 11800, "modifiers": 420 },
-      { "payer": "BCBS Texas (HCSC)", "totalPolicies": 520, "hcpcsCodes": 9000, "modifiers": 340 },
-      { "payer": "BCBS Florida", "totalPolicies": 480, "hcpcsCodes": 8500, "modifiers": 310 },
-      { "payer": "BCBS Michigan", "totalPolicies": 440, "hcpcsCodes": 8000, "modifiers": 300 },
-      { "payer": "Kaiser Permanente", "totalPolicies": 620, "hcpcsCodes": 9500, "modifiers": 380 },
-      { "payer": "CVS Health/Aetna", "totalPolicies": 720, "hcpcsCodes": 11000, "modifiers": 400 },
-      { "payer": "Cigna", "totalPolicies": 690, "hcpcsCodes": 10500, "modifiers": 380 },
-      { "payer": "Other BCBS (Avg)", "totalPolicies": 420, "hcpcsCodes": 7800, "modifiers": 290 }
+      {
+        "payer": "BCBS North Carolina",
+        "totalPolicies": 450,
+        "hcpcsCodes": 8200,
+        "modifiers": 320
+      },
+      {
+        "payer": "UnitedHealthcare",
+        "totalPolicies": 850,
+        "hcpcsCodes": 12500,
+        "modifiers": 450
+      },
+      {
+        "payer": "Elevance Health",
+        "totalPolicies": 780,
+        "hcpcsCodes": 11800,
+        "modifiers": 420
+      },
+      {
+        "payer": "BCBS Texas (HCSC)",
+        "totalPolicies": 520,
+        "hcpcsCodes": 9000,
+        "modifiers": 340
+      },
+      {
+        "payer": "BCBS Florida",
+        "totalPolicies": 480,
+        "hcpcsCodes": 8500,
+        "modifiers": 310
+      },
+      {
+        "payer": "BCBS Michigan",
+        "totalPolicies": 440,
+        "hcpcsCodes": 8000,
+        "modifiers": 300
+      },
+      {
+        "payer": "Kaiser Permanente",
+        "totalPolicies": 620,
+        "hcpcsCodes": 9500,
+        "modifiers": 380
+      },
+      {
+        "payer": "CVS Health/Aetna",
+        "totalPolicies": 720,
+        "hcpcsCodes": 11000,
+        "modifiers": 400
+      },
+      {
+        "payer": "Cigna",
+        "totalPolicies": 690,
+        "hcpcsCodes": 10500,
+        "modifiers": 380
+      },
+      {
+        "payer": "Other BCBS (Avg)",
+        "totalPolicies": 420,
+        "hcpcsCodes": 7800,
+        "modifiers": 290
+      }
     ]
   },
   "bookmarked": {
@@ -2307,7 +2416,11 @@
           { "id": "effectiveDate", "label": "Effective Date", "type": "date" },
           { "id": "coverageType", "label": "Coverage Type", "type": "text" },
           { "id": "priorAuth", "label": "Prior Auth", "type": "checkbox" },
-          { "id": "clinicalReview", "label": "Clinical Review", "type": "checkbox" }
+          {
+            "id": "clinicalReview",
+            "label": "Clinical Review",
+            "type": "checkbox"
+          }
         ],
         "data": [
           {
@@ -2556,11 +2669,11 @@
         "title": "Policy Update Required",
         "description": "CMS has released new guidelines for telehealth services that require updates to 3 policies.",
         "time": "2 days ago",
-        "color": "#F087FB",
+        "color": "#F5709A",
         "actions": {
           "primary": {
             "label": "Review Policies",
-            "color": "#F087FB"
+            "color": "#F5709A"
           },
           "secondary": {
             "label": "Dismiss"
@@ -2695,7 +2808,13 @@
         "lastUpdated": "5 days ago"
       }
     ],
-    "suggestions": ["cardiac imaging", "genetic testing", "spinal fusion", "immunotherapy", "glucose monitoring"]
+    "suggestions": [
+      "cardiac imaging",
+      "genetic testing",
+      "spinal fusion",
+      "immunotherapy",
+      "glucose monitoring"
+    ]
   },
   "recentUpdates": {
     "subtitle": "Compare coverage criteria across different payers for the same service.",

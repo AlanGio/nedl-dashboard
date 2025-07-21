@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -44,12 +44,12 @@ const config: Config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#F087FB",
+          DEFAULT: "#F5709A",
           50: "#FDF5FF",
           100: "#FAEBFE",
           200: "#F6D6FD",
           300: "#F3C2FC",
-          400: "#F087FB",
+          400: "#F5709A",
           500: "#E85DF9",
           600: "#D934F7",
           700: "#C010E4",
@@ -139,6 +139,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 
-export default config
+export default config;

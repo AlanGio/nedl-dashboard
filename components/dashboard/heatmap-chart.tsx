@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Filter, Info } from "lucide-react"
-import mockData from "@/data/mockData.json"
+import { useState } from "react";
+import { Filter, Info } from "lucide-react";
+import mockData from "@/data/mockData.json";
 
 export function HeatmapChart() {
-  const { title, data, maxValue } = mockData.dashboard.heatmapChart
-  const payers = mockData.payersList
-  const [hoveredCell, setHoveredCell] = useState<string | null>(null)
+  const { title, data, maxValue } = mockData.dashboard.heatmapChart;
+  const payers = mockData.payersList;
+  const [hoveredCell, setHoveredCell] = useState<string | null>(null);
   const [displayedPayers, setDisplayedPayers] = useState([
     "BCBSNC",
     "United",
@@ -16,43 +16,51 @@ export function HeatmapChart() {
     "CVS Health",
     "Kaiser Per...",
     "Health Care Service Corpo...",
-  ])
+  ]);
 
   // Get color based on value - blue to purple gradient
   const getColorIntensity = (value: number) => {
-    if (value === 0) return "bg-white"
+    if (value === 0) return "bg-white";
 
     // Normalize the value between 0 and 1
-    const normalizedValue = Math.min(value / maxValue, 1)
+    const normalizedValue = Math.min(value / maxValue, 1);
 
     // Convert hex colors to RGB
-    const blueColor = { r: 68, g: 156, b: 251 } // #449cfb
-    const purpleColor = { r: 240, g: 135, b: 251 } // #f087fb
+    const blueColor = { r: 68, g: 156, b: 251 }; // #449cfb
+    const purpleColor = { r: 183, g: 130, b: 232 }; // #b782e8
 
     // Interpolate between blue and purple based on the value
-    const r = Math.round(blueColor.r + normalizedValue * (purpleColor.r - blueColor.r))
-    const g = Math.round(blueColor.g + normalizedValue * (purpleColor.g - blueColor.g))
-    const b = Math.round(blueColor.b + normalizedValue * (purpleColor.b - blueColor.b))
+    const r = Math.round(
+      blueColor.r + normalizedValue * (purpleColor.r - blueColor.r)
+    );
+    const g = Math.round(
+      blueColor.g + normalizedValue * (purpleColor.g - blueColor.g)
+    );
+    const b = Math.round(
+      blueColor.b + normalizedValue * (purpleColor.b - blueColor.b)
+    );
 
-    return `rgb(${r}, ${g}, ${b})`
-  }
+    return `rgb(${r}, ${g}, ${b})`;
+  };
 
   // Function to abbreviate payer names for better display
   const abbreviatePayer = (name: string) => {
     if (name.includes("(")) {
       // Extract the name before parentheses
-      return name.split("(")[0].trim()
+      return name.split("(")[0].trim();
     }
     // For other names, return the first 10 characters
-    return name.length > 10 ? `${name.substring(0, 10)}...` : name
-  }
+    return name.length > 10 ? `${name.substring(0, 10)}...` : name;
+  };
 
   return (
     <div className="rounded-xl border bg-white p-6 shadow-custom">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <h3 className="text-base font-medium">Policy Coverage Analysis</h3>
-          <p className="text-xs text-slate-500 mt-1">Policy coverage comparison between payers (%)</p>
+          <p className="text-xs text-slate-500 mt-1">
+            Policy coverage comparison between payers (%)
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <div className="flex items-center rounded-md border bg-slate-50 px-3 py-1 text-xs shadow-custom">
@@ -73,7 +81,10 @@ export function HeatmapChart() {
               <tr>
                 <th className="p-2 text-left text-xs font-medium text-slate-500 w-[120px]"></th>
                 {displayedPayers.map((payer) => (
-                  <th key={payer} className="p-2 text-center text-xs font-medium text-slate-500 w-[100px]">
+                  <th
+                    key={payer}
+                    className="p-2 text-center text-xs font-medium text-slate-500 w-[100px]"
+                  >
                     <div className="transform -rotate-45 origin-left h-16 flex items-end ml-8">
                       {abbreviatePayer(payer)}
                     </div>
@@ -88,13 +99,18 @@ export function HeatmapChart() {
                     <div className="truncate">{abbreviatePayer(rowPayer)}</div>
                   </td>
                   {displayedPayers.map((colPayer) => {
-                    const cellKey = `${rowPayer}-${colPayer}`
-                    const value = rowPayer === colPayer ? 0 : data[cellKey] || 0
+                    const cellKey = `${rowPayer}-${colPayer}`;
+                    const value =
+                      rowPayer === colPayer ? 0 : data[cellKey] || 0;
 
                     return (
                       <td key={colPayer} className="p-1 text-center">
                         <div
-                          className={`relative mx-auto h-14 w-24 rounded-sm cursor-pointer transition-all hover:scale-105 flex items-center justify-center no-shadow ${rowPayer === colPayer ? "border border-slate-200" : ""}`}
+                          className={`relative mx-auto h-14 w-24 rounded-sm cursor-pointer transition-all hover:scale-105 flex items-center justify-center no-shadow ${
+                            rowPayer === colPayer
+                              ? "border border-slate-200"
+                              : ""
+                          }`}
                           style={{
                             backgroundColor: getColorIntensity(value),
                           }}
@@ -102,18 +118,23 @@ export function HeatmapChart() {
                           onMouseLeave={() => setHoveredCell(null)}
                         >
                           {value > 0 && (
-                            <span className={`text-sm font-medium ${value > 50 ? "text-white" : "text-slate-700"}`}>
+                            <span
+                              className={`text-sm font-medium ${
+                                value > 50 ? "text-white" : "text-slate-700"
+                              }`}
+                            >
                               {value}
                             </span>
                           )}
                           {hoveredCell === cellKey && value > 0 && (
                             <div className="absolute top-0 left-1/2 -translate-y-full -translate-x-1/2 bg-black bg-opacity-75 text-white text-xs p-1 rounded z-10 whitespace-nowrap shadow-custom">
-                              {rowPayer} and {colPayer} have {value}% policy coverage similarity
+                              {rowPayer} and {colPayer} have {value}% policy
+                              coverage similarity
                             </div>
                           )}
                         </div>
                       </td>
-                    )
+                    );
                   })}
                 </tr>
               ))}
@@ -128,11 +149,17 @@ export function HeatmapChart() {
         <div className="flex gap-1">
           {[0.2, 0.4, 0.6, 0.8, 1].map((intensity, i) => {
             // Interpolate between blue and purple for the legend
-            const blueColor = { r: 68, g: 156, b: 251 } // #449cfb
-            const purpleColor = { r: 240, g: 135, b: 251 } // #f087fb
-            const r = Math.round(blueColor.r + intensity * (purpleColor.r - blueColor.r))
-            const g = Math.round(blueColor.g + intensity * (purpleColor.g - blueColor.g))
-            const b = Math.round(blueColor.b + intensity * (purpleColor.b - blueColor.b))
+            const blueColor = { r: 68, g: 156, b: 251 }; // #449cfb
+            const purpleColor = { r: 183, g: 130, b: 232 }; // #b782e8
+            const r = Math.round(
+              blueColor.r + intensity * (purpleColor.r - blueColor.r)
+            );
+            const g = Math.round(
+              blueColor.g + intensity * (purpleColor.g - blueColor.g)
+            );
+            const b = Math.round(
+              blueColor.b + intensity * (purpleColor.b - blueColor.b)
+            );
 
             return (
               <div
@@ -143,11 +170,11 @@ export function HeatmapChart() {
                   border: "1px solid rgba(0,0,0,0.05)",
                 }}
               ></div>
-            )
+            );
           })}
         </div>
         <div className="text-xs text-slate-500">More Similar</div>
       </div>
     </div>
-  )
+  );
 }

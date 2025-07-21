@@ -27,7 +27,7 @@ export function HCPCSCoverageComparison() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} fontSize={12} stroke="#64748b" />
               <YAxis domain={[0, 14000]} fontSize={12} stroke="#64748b" />
-              <Bar dataKey="value" fill="#0071EA" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="value" fill="#B782E8" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

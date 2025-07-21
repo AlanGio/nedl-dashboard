@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Search, Users } from "lucide-react"
-import mockData from "@/data/mockData.json"
-import { PayerDistributionChart } from "./payer-distribution-chart"
-import { PolicyDistributionChart } from "./policy-distribution-chart"
-import { CodeCoverageDonut } from "./code-coverage-donut"
-import { CodeExplorerTable } from "./code-explorer-table"
-import { HealthcarePayerProfilesTable } from "./healthcare-payer-profiles-table"
-import { KeyInsightsSection } from "./key-insights-section"
-import { HealthcarePayersChart } from "@/components/dashboard/healthcare-payers-chart"
+import { useState } from "react";
+import { Search, Users } from "lucide-react";
+import mockData from "@/data/mockData.json";
+import { PayerDistributionChart } from "./payer-distribution-chart";
+import { PolicyDistributionChart } from "./policy-distribution-chart";
+import { CodeCoverageDonut } from "./code-coverage-donut";
+import { CodeExplorerTable } from "./code-explorer-table";
+import { HealthcarePayerProfilesTable } from "./healthcare-payer-profiles-table";
+import { KeyInsightsSection } from "./key-insights-section";
+import { HealthcarePayersChart } from "@/components/dashboard/healthcare-payers-chart";
 
 export function PayerAnalysis() {
-  const [selectedPayer, setSelectedPayer] = useState("All Payers")
-  const [searchTerm, setSearchTerm] = useState("")
-  const [showDropdown, setShowDropdown] = useState(false)
+  const [selectedPayer, setSelectedPayer] = useState("All Payers");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
 
   // Create a mapping between the new payer names and the existing data keys
   const payerMapping: Record<string, string> = {
@@ -40,7 +40,7 @@ export function PayerAnalysis() {
     "Independence BCBS": "BCBSNC", // Map to existing data
     WellCare: "Centene Corp.", // WellCare is part of Centene
     "Anthem BCBS (Other States)": "Elevance Health (formerly Anthem)",
-  }
+  };
 
   const getPayerData = (payerName: string) => {
     if (payerName === "All Payers") {
@@ -49,31 +49,53 @@ export function PayerAnalysis() {
         metrics: {
           totalPayers: { value: 543, label: "Total Payers" },
           livesCovered: { value: "270.1M", label: "Lives Covered" },
-          totalPolicies: { value: 14750, label: "Total Policies", subtitle: "Across all payers" },
-          recentChanges: { value: 421, label: "Recent Changes", subtitle: "Last 30 days" },
+          totalPolicies: {
+            value: 14750,
+            label: "Total Policies",
+            subtitle: "Across all payers",
+          },
+          recentChanges: {
+            value: 421,
+            label: "Recent Changes",
+            subtitle: "Last 30 days",
+          },
         },
         distribution: { commercial: 45, medicare: 30, medicaid: 25 },
         policyDistribution: mockData.payerAnalysis.BCBSNC.policyDistribution,
-        codeCoverage: { percentage: 78, details: { covered: 78, priorAuth: 12, notCovered: 10 } },
+        codeCoverage: {
+          percentage: 78,
+          details: { covered: 78, priorAuth: 12, notCovered: 10 },
+        },
         codeExplorer: mockData.payerAnalysis.BCBSNC.codeExplorer,
-      }
+      };
     }
 
     // Get the mapped key for the selected payer
-    const mappedKey = payerMapping[payerName]
+    const mappedKey = payerMapping[payerName];
 
     // If we have specific data for this payer, use it
-    if (mappedKey && mockData.payerAnalysis[mappedKey]) {
-      return mockData.payerAnalysis[mappedKey]
+    if (
+      mappedKey &&
+      mockData.payerAnalysis[mappedKey as keyof typeof mockData.payerAnalysis]
+    ) {
+      return mockData.payerAnalysis[
+        mappedKey as keyof typeof mockData.payerAnalysis
+      ];
     }
 
     // Fallback to BCBSNC data but customize the metrics
-    const fallbackData = mockData.payerAnalysis.BCBSNC
+    const fallbackData = mockData.payerAnalysis.BCBSNC;
     return {
       ...fallbackData,
       metrics: {
-        totalPayers: { value: Math.floor(Math.random() * 50) + 80, label: "Total Payers" },
-        livesCovered: { value: `${(Math.random() * 30 + 20).toFixed(1)}M`, label: "Lives Covered" },
+        totalPayers: {
+          value: Math.floor(Math.random() * 50) + 80,
+          label: "Total Payers",
+        },
+        livesCovered: {
+          value: `${(Math.random() * 30 + 20).toFixed(1)}M`,
+          label: "Lives Covered",
+        },
         totalPolicies: {
           value: Math.floor(Math.random() * 500) + 1000,
           label: "Total Policies",
@@ -85,34 +107,38 @@ export function PayerAnalysis() {
           subtitle: "Last 30 days",
         },
       },
-    }
-  }
+    };
+  };
 
-  const payerData = getPayerData(selectedPayer)
+  const payerData = getPayerData(selectedPayer);
 
-  const filteredPayers = mockData.payersList.filter((payer) => payer.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredPayers = mockData.payersList.filter((payer) =>
+    payer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handlePayerSelect = (payer: string) => {
-    setSelectedPayer(payer)
-    setSearchTerm("")
-    setShowDropdown(false) // Close dropdown after selection
-  }
+    setSelectedPayer(payer);
+    setSearchTerm("");
+    setShowDropdown(false); // Close dropdown after selection
+  };
 
   const handleInputFocus = () => {
-    setShowDropdown(true)
-  }
+    setShowDropdown(true);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value)
-    setShowDropdown(true)
-  }
+    setSearchTerm(e.target.value);
+    setShowDropdown(true);
+  };
 
   return (
     <div className="space-y-6 p-6">
       {/* Header */}
       <div className="pt-12">
         <h1 className="text-2xl font-bold text-gray-900">Payer Analysis</h1>
-        <p className="text-sm text-gray-600">Analyze payer policies and coverage metrics across your network</p>
+        <p className="text-sm text-gray-600">
+          Analyze payer policies and coverage metrics across your network
+        </p>
       </div>
 
       {/* Search Section */}
@@ -120,7 +146,9 @@ export function PayerAnalysis() {
         <div className="flex items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <Users className="h-5 w-5 text-blue-600" />
-            <span className="text-sm font-medium text-gray-700">Select Payer:</span>
+            <span className="text-sm font-medium text-gray-700">
+              Select Payer:
+            </span>
           </div>
 
           <div className="flex-1 max-w-lg relative">
@@ -128,7 +156,7 @@ export function PayerAnalysis() {
               className="relative rounded-full overflow-hidden"
               style={{
                 background:
-                  "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F087FB) border-box",
+                  "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F5709A) border-box",
                 borderWidth: "2px",
                 borderStyle: "solid",
                 borderColor: "transparent",
@@ -142,7 +170,7 @@ export function PayerAnalysis() {
                 onFocus={handleInputFocus}
                 onBlur={() => {
                   // Delay hiding dropdown to allow for clicks
-                  setTimeout(() => setShowDropdown(false), 150)
+                  setTimeout(() => setShowDropdown(false), 150);
                 }}
                 className="w-full rounded-full border-0 py-3 px-6 focus:outline-none bg-white text-sm"
               />
@@ -153,31 +181,38 @@ export function PayerAnalysis() {
               <div className="absolute top-full left-0 right-0 mt-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg bg-white shadow-lg z-10">
                 <button
                   className={`w-full px-4 py-2 text-left hover:bg-gray-50 border-b text-sm ${
-                    selectedPayer === "All Payers" ? "bg-blue-50 text-blue-600 font-medium" : ""
+                    selectedPayer === "All Payers"
+                      ? "bg-blue-50 text-blue-600 font-medium"
+                      : ""
                   }`}
                   onMouseDown={(e) => e.preventDefault()} // Prevent blur event
                   onClick={() => handlePayerSelect("All Payers")}
                 >
                   All Payers
                 </button>
-                {(searchTerm ? filteredPayers : mockData.payersList).map((payer) => (
-                  <button
-                    key={payer}
-                    className={`w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0 text-sm ${
-                      selectedPayer === payer ? "bg-blue-50 text-blue-600 font-medium" : ""
-                    }`}
-                    onMouseDown={(e) => e.preventDefault()} // Prevent blur event
-                    onClick={() => handlePayerSelect(payer)}
-                  >
-                    {payer}
-                  </button>
-                ))}
+                {(searchTerm ? filteredPayers : mockData.payersList).map(
+                  (payer) => (
+                    <button
+                      key={payer}
+                      className={`w-full px-4 py-2 text-left hover:bg-gray-50 border-b last:border-b-0 text-sm ${
+                        selectedPayer === payer
+                          ? "bg-blue-50 text-blue-600 font-medium"
+                          : ""
+                      }`}
+                      onMouseDown={(e) => e.preventDefault()} // Prevent blur event
+                      onClick={() => handlePayerSelect(payer)}
+                    >
+                      {payer}
+                    </button>
+                  )
+                )}
               </div>
             )}
           </div>
 
           <div className="text-sm text-gray-600">
-            Selected: <span className="font-medium text-blue-600">{selectedPayer}</span>
+            Selected:{" "}
+            <span className="font-medium text-blue-600">{selectedPayer}</span>
           </div>
         </div>
       </div>
@@ -185,25 +220,45 @@ export function PayerAnalysis() {
       {/* Metrics Cards */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-sm font-medium text-gray-500">{payerData.metrics.totalPayers.label}</h3>
-          <p className="text-2xl font-bold mt-2">{payerData.metrics.totalPayers.value}</p>
+          <h3 className="text-sm font-medium text-gray-500">
+            {payerData.metrics.totalPayers.label}
+          </h3>
+          <p className="text-2xl font-bold mt-2">
+            {payerData.metrics.totalPayers.value}
+          </p>
         </div>
         <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-sm font-medium text-gray-500">{payerData.metrics.livesCovered.label}</h3>
-          <p className="text-2xl font-bold mt-2">{payerData.metrics.livesCovered.value}</p>
+          <h3 className="text-sm font-medium text-gray-500">
+            {payerData.metrics.livesCovered.label}
+          </h3>
+          <p className="text-2xl font-bold mt-2">
+            {payerData.metrics.livesCovered.value}
+          </p>
         </div>
         <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-sm font-medium text-gray-500">{payerData.metrics.totalPolicies.label}</h3>
-          <p className="text-2xl font-bold mt-2">{payerData.metrics.totalPolicies.value}</p>
+          <h3 className="text-sm font-medium text-gray-500">
+            {payerData.metrics.totalPolicies.label}
+          </h3>
+          <p className="text-2xl font-bold mt-2">
+            {payerData.metrics.totalPolicies.value}
+          </p>
           {payerData.metrics.totalPolicies.subtitle && (
-            <p className="text-sm text-gray-500 mt-1">{payerData.metrics.totalPolicies.subtitle}</p>
+            <p className="text-sm text-gray-500 mt-1">
+              {payerData.metrics.totalPolicies.subtitle}
+            </p>
           )}
         </div>
         <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-sm font-medium text-gray-500">{payerData.metrics.recentChanges.label}</h3>
-          <p className="text-2xl font-bold mt-2">{payerData.metrics.recentChanges.value}</p>
+          <h3 className="text-sm font-medium text-gray-500">
+            {payerData.metrics.recentChanges.label}
+          </h3>
+          <p className="text-2xl font-bold mt-2">
+            {payerData.metrics.recentChanges.value}
+          </p>
           {payerData.metrics.recentChanges.subtitle && (
-            <p className="text-sm text-gray-500 mt-1">{payerData.metrics.recentChanges.subtitle}</p>
+            <p className="text-sm text-gray-500 mt-1">
+              {payerData.metrics.recentChanges.subtitle}
+            </p>
           )}
         </div>
       </div>
@@ -242,5 +297,5 @@ export function PayerAnalysis() {
       {/* Key Insights Section */}
       <KeyInsightsSection />
     </div>
-  )
+  );
 }

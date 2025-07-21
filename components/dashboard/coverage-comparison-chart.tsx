@@ -32,8 +32,8 @@ export function CoverageComparisonChart() {
     {
       category: "HCPCS",
       ...Object.fromEntries(top5Payers.map((p) => [p.payer, (p.hcpcsCodes / maxHCPCS) * 100])),
-      fill: "#F087FB",
-      stroke: "#F087FB",
+              fill: "#F5709A",
+        stroke: "#F5709A",
     },
     {
       category: "Modifiers",
@@ -67,8 +67,8 @@ export function CoverageComparisonChart() {
             <PolarAngleAxis dataKey="subject" />
             <PolarRadiusAxis angle={30} domain={[0, 100]} />
             <Radar name="Policies" dataKey="Policies" stroke="#449CFB" fill="#449CFB" fillOpacity={0.3} />
-            <Radar name="HCPCS" dataKey="HCPCS" stroke="#F087FB" fill="#F087FB" fillOpacity={0.3} />
-            <Radar name="Modifiers" dataKey="Modifiers" stroke="#0071EA" fill="#0071EA" fillOpacity={0.3} />
+            <Radar name="HCPCS" dataKey="HCPCS" stroke="#F5709A" fill="#F5709A" fillOpacity={0.3} />
+            <Radar name="Modifiers" dataKey="Modifiers" stroke="#B782E8" fill="#B782E8" fillOpacity={0.3} />
             <Legend />
           </RadarChart>
         </ResponsiveContainer>

@@ -37,7 +37,7 @@ export function TrendLineChart() {
             <Line
               type="monotone"
               dataKey="target"
-              stroke="#F087FB"
+              stroke="#F5709A"
               strokeWidth={2}
               strokeDasharray="5 5"
               dot={{ r: 4, strokeWidth: 1 }}

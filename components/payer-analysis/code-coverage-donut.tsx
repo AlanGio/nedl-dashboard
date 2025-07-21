@@ -1,6 +1,7 @@
 "use client"
 
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
+import { CHART_COLORS_ARRAY } from "@/lib/chart-colors"
 
 interface CodeCoverageDonutProps {
   codeCoverage?: {
@@ -17,8 +18,6 @@ export function CodeCoverageDonut({ codeCoverage }: CodeCoverageDonutProps) {
   // Default values if codeCoverage is undefined
   const percentage = codeCoverage?.percentage || 0
   const details = codeCoverage?.details || { covered: 0, priorAuth: 0, notCovered: 0 }
-
-  const COLORS = ["#4ade80", "#fbbf24", "#ef4444"]
 
   const data = [
     { name: "Covered", value: details.covered },
@@ -51,7 +50,7 @@ export function CodeCoverageDonut({ codeCoverage }: CodeCoverageDonutProps) {
               label={false}
             >
               {normalizedData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell key={`cell-${index}`} fill={CHART_COLORS_ARRAY[index % CHART_COLORS_ARRAY.length]} />
               ))}
             </Pie>
           </PieChart>
@@ -67,7 +66,7 @@ export function CodeCoverageDonut({ codeCoverage }: CodeCoverageDonutProps) {
             <div key={index} className="flex items-center">
               <div
                 className="w-3 h-3 rounded-full mr-2 no-shadow"
-                style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                style={{ backgroundColor: CHART_COLORS_ARRAY[index % CHART_COLORS_ARRAY.length] }}
               />
               <span className="text-xs">
                 {entry.name}: {entry.value}%

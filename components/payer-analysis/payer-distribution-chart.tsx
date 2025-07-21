@@ -1,6 +1,7 @@
 "use client"
 
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
+import { CHART_COLORS_ARRAY } from "@/lib/chart-colors"
 
 interface PayerDistributionChartProps {
   distribution: {
@@ -11,7 +12,6 @@ interface PayerDistributionChartProps {
 }
 
 export function PayerDistributionChart({ distribution }: PayerDistributionChartProps) {
-  const COLORS = ["#449CFB", "#8A287F", "#0071EA"]
 
   const data = [
     { name: "Commercial", value: distribution.commercial },
@@ -45,7 +45,7 @@ export function PayerDistributionChart({ distribution }: PayerDistributionChartP
               label={false}
             >
               {normalizedData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell key={`cell-${index}`} fill={CHART_COLORS_ARRAY[index % CHART_COLORS_ARRAY.length]} />
               ))}
             </Pie>
           </PieChart>
@@ -59,7 +59,7 @@ export function PayerDistributionChart({ distribution }: PayerDistributionChartP
           <div key={index} className="flex items-center">
             <div
               className="w-3 h-3 rounded-full mr-2 no-shadow"
-              style={{ backgroundColor: COLORS[index % COLORS.length] }}
+              style={{ backgroundColor: CHART_COLORS_ARRAY[index % CHART_COLORS_ARRAY.length] }}
             />
             <span className="text-xs">
               {entry.name}: {entry.value}%

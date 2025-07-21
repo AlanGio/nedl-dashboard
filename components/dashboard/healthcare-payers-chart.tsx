@@ -100,7 +100,7 @@ export function HealthcarePayersChart({ selectedPayer = "All Payers" }: Healthca
     ? {
         "BCBS NC": {
           label: "BCBS NC",
-          color: "#F087FB", // Pink for BCBS NC
+          color: "#F5709A", // Pink for BCBS NC
         },
         "Other Payers": {
           label: "Other Payers",
@@ -110,7 +110,7 @@ export function HealthcarePayersChart({ selectedPayer = "All Payers" }: Healthca
     : {
         "Selected Payer": {
           label: selectedPayer,
-          color: "#F087FB", // Pink for selected payer
+          color: "#F5709A", // Pink for selected payer
         },
         Competitors: {
           label: "Competitors",

@@ -25,7 +25,7 @@ export function PolicyEffectivenessChart() {
             <Tooltip />
             <Legend />
             <Bar dataKey="effectiveness" name="Effectiveness" fill="#449CFB" />
-            <Bar dataKey="adoption" name="Adoption Rate" fill="#F087FB" />
+            <Bar dataKey="adoption" name="Adoption Rate" fill="#F08C76" />
           </BarChart>
         </ResponsiveContainer>
       </div>
