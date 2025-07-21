@@ -8,12 +8,10 @@ import {
   FileCheck,
   X,
   ChevronDown,
-  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { getExternalLink, isExternalLink } from "@/lib/external-links";
 
 interface NavigationItem {
   id: string | null;
@@ -353,7 +351,7 @@ export function SidebarNavigation({
         className
       )}
     >
-      <div className="p-4">
+      <div className="p-2">
         <nav className="mt-2 space-y-1">
           {quickNavItems.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
@@ -372,7 +370,7 @@ export function SidebarNavigation({
                     }
                   }}
                   className={cn(
-                    "flex w-full items-center rounded-full px-1 py-4 my-1 text-md font-semibold text-left transition-all duration-200 no-shadow",
+                    "flex w-full items-center rounded-full px-3 py-4 my-2 text-md font-semibold text-left transition-all duration-200 no-shadow",
                     hasChildren
                       ? "text-gray-700 hover:bg-white"
                       : isActive(item.href)
