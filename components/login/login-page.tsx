@@ -11,17 +11,17 @@ const LoginPage = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // For now, just redirect to dashboard without validation
-    router.push("/dashboard");
+    router.push("/summary");
   };
 
   const handleSignUp = () => {
     // For now, just redirect to dashboard
-    router.push("/dashboard");
+    router.push("/summary");
   };
 
   const handleForgotPassword = () => {
     // For now, just redirect to dashboard
-    router.push("/dashboard");
+    router.push("/summary");
   };
 
   return (

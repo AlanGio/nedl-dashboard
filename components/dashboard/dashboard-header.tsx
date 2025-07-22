@@ -18,7 +18,7 @@ export function DashboardHeader({
 
   const handleLogoClick = () => {
     // Navigate to the main dashboard
-    router.push("/dashboard");
+    router.push("/summary");
   };
 
   return (
