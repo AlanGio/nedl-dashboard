@@ -59,7 +59,7 @@ export function DashboardHeader({
           <button className="relative p-2 lg:p-3 hover:bg-[#f3f4f6] rounded-xl transition-all duration-200 group">
             <Bell className="w-5 h-5 lg:w-5 lg:h-5 text-[#6b7280] group-hover:text-[#374151]" />
             <div
-              className="absolute -top-1 -right-1 w-2 h-2 lg:w-3 lg:h-3 bg-[#f087fb] rounded-full shadow-xs animate-pulse"
+              className="absolute -top-1 -right-1 w-2 h-2 lg:w-3 lg:h-3 bg-[#FA1717] rounded-full shadow-xs animate-pulse"
               style={{ animationDuration: "1s" }}
             ></div>
           </button>
