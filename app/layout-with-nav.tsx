@@ -10,10 +10,9 @@ import mockData from "@/data/mockData.json";
 
 interface LayoutWithNavProps {
   children: React.ReactNode;
-  activeTab: string;
 }
 
-export function LayoutWithNav({ children, activeTab }: LayoutWithNavProps) {
+export function LayoutWithNav({ children }: LayoutWithNavProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -50,10 +49,6 @@ export function LayoutWithNav({ children, activeTab }: LayoutWithNavProps) {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const handleNavigate = () => {
-    // Navigation is now handled by URL routing
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -130,13 +125,10 @@ export function LayoutWithNav({ children, activeTab }: LayoutWithNavProps) {
   return (
     <div className="min-h-auto" style={{ backgroundColor: "#F6F6F6" }}>
       <DashboardHeader
-        onNavigate={handleNavigate}
-        activeTab={activeTab}
-        setActiveTab={() => {}}
         toggleChat={toggleChat}
         onToggleSidebar={toggleSidebar}
       />
-      <div className="max-w-[1680px] mx-auto px-4 relative">
+      <div className="mx-auto px-4 relative">
         <div className="flex mt-4">
           <SidebarNavigation
             onNavigate={() => {}}

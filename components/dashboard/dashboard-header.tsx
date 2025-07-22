@@ -1,74 +1,24 @@
 "use client";
-import {
-  FileBarChart,
-  Users,
-  BookOpen,
-  FileCheck,
-  Menu,
-  Bell,
-  ChevronDown,
-} from "lucide-react";
+import { Menu, Bell, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NedlLogo } from "@/components/ui/nedl-logo";
-import mockData from "@/data/mockData.json";
 import { useRouter } from "next/navigation";
 
-// Map string icon names to actual icon components
-const iconMap = {
-  FileBarChart: FileBarChart,
-  Users: Users,
-  BookOpen: BookOpen,
-  FileCheck: FileCheck,
-};
-
-// Update the props interface to include sidebar controls
+// Update the props interface to remove navigation-related props
 interface DashboardHeaderProps {
-  onNavigate: (view: string | null) => void;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
   toggleChat: () => void;
   onToggleSidebar: () => void;
 }
 
 export function DashboardHeader({
-  onNavigate,
-  activeTab,
-  setActiveTab,
   toggleChat,
   onToggleSidebar,
 }: DashboardHeaderProps) {
   const router = useRouter();
-  const navItems = mockData.siteConfig.navigation.mainNav.map((item) => ({
-    ...item,
-    icon: iconMap[item.icon as keyof typeof iconMap] || FileBarChart,
-  }));
-
-  const handleTabClick = (tabId: string) => {
-    // Set the active tab
-    setActiveTab(tabId);
-
-    // Find the clicked item
-    const clickedItem = navItems.find((item) => item.id === tabId);
-
-    if (tabId === "overview") {
-      // Navigate to the main dashboard
-      router.push("/");
-    } else if (clickedItem?.linkedView) {
-      // Navigate to the linked view if it exists
-      if (clickedItem.linkedView === "bookmarked") {
-        router.push("/payer-analysis");
-      } else if (clickedItem.linkedView === "all-policies") {
-        router.push("/policy-explorer");
-      } else if (clickedItem.linkedView === "code-coverage") {
-        router.push("/code-coverage");
-      }
-    }
-  };
 
   const handleLogoClick = () => {
     // Navigate to the main dashboard
-    router.push("/");
-    setActiveTab("overview");
+    router.push("/dashboard");
   };
 
   return (
@@ -90,33 +40,6 @@ export function DashboardHeader({
           >
             <NedlLogo className="p-3" />
           </button>
-        </div>
-
-        {/* Desktop navigation - hidden on mobile */}
-        <div className="hidden lg:flex items-center justify-center flex-2">
-          <div className="flex items-center bg-white/80 backdrop-blur-xs rounded-2xl p-2 ">
-            {" "}
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleTabClick(item.id)}
-                className={cn(
-                  "flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-all duration-200 no-shadow font-title",
-                  activeTab === item.id
-                    ? "bg-gradient-to-r from-[#449CFB] to-[#f087fb] text-white"
-                    : "text-gray-00 hover:bg-white hover:shadow-sm"
-                )}
-              >
-                <item.icon
-                  className={cn(
-                    "h-4 w-4",
-                    activeTab === item.id ? "text-white" : "text-gray-500"
-                  )}
-                />
-                {item.title}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Right Section - User Menu */}

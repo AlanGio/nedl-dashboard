@@ -19,7 +19,7 @@ export function NedlLogo({ className = "" }: { className?: string }) {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="#449cfb" />
-          <stop offset="1" stopColor="#f5709a" />
+          <stop offset="1" stopColor="#f087fb" />
         </linearGradient>
       </defs>
       <g id="Layer_x5F_1">

@@ -11,7 +11,6 @@ import { ExpandedChat } from "@/components/chat/expanded-chat";
 import mockData from "@/data/mockData.json";
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("overview");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Chat state
@@ -82,18 +81,7 @@ export default function Dashboard() {
     if (isExpanded) {
       setIsExpanded(false);
     }
-
-    // Update the active tab based on the view
-    if (viewId === null) {
-      setActiveTab("overview");
-    } else if (viewId === "all-policies") {
-      setActiveTab("policy-explorer");
-    } else if (viewId === "bookmarked") {
-      setActiveTab("payer-analysis");
-    } else if (viewId === "code-coverage") {
-      setActiveTab("code-coverage");
-    }
-    // Add more mappings as needed for other views
+    // Navigation is now handled by the sidebar
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -180,9 +168,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-auto" style={{ backgroundColor: "#F6F6F6" }}>
       <DashboardHeader
-        onNavigate={handleNavigate}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
         toggleChat={toggleChat}
         onToggleSidebar={toggleSidebar}
       />
