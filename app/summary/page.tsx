@@ -16,6 +16,9 @@ import {
   FileCheck2,
   BadgePoundSterling,
 } from "lucide-react";
+import { ChatBox } from "@/components/chat/chat-box";
+import { FloatingChat } from "@/components/chat/floating-chat";
+import { ExpandedChat } from "@/components/chat/expanded-chat";
 
 interface ModuleData {
   id: string;
@@ -30,6 +33,17 @@ interface ModuleData {
     addClaim: string;
     detailedView: string;
   };
+}
+
+interface ActivityItem {
+  id: string;
+  date: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+  user: string;
+  time: string;
+  actionType: "view" | "download";
 }
 
 const moduleData: ModuleData[] = [
@@ -99,6 +113,38 @@ const moduleData: ModuleData[] = [
   },
 ];
 
+const activityData: ActivityItem[] = [
+  {
+    id: "1",
+    date: "July 5, 2025",
+    description: "Repricing Complete for",
+    link: "#",
+    linkText: "d3f33607-e01e-006c-0e75-d527c206ccf2",
+    user: "admin",
+    time: "11:40 AM",
+    actionType: "view",
+  },
+  {
+    id: "2",
+    date: "July 5, 2025",
+    description: "There was an error in file",
+    link: "#",
+    linkText: "Claims_2025_Q2-2.zip",
+    user: "admin",
+    time: "10:20 AM",
+    actionType: "view",
+  },
+  {
+    id: "3",
+    date: "June 4, 2025",
+    description:
+      "Repriced File for Claims 2025 Q2 - 1 is now ready to download",
+    user: "admin",
+    time: "10:20 AM",
+    actionType: "download",
+  },
+];
+
 export default function Summary() {
   const [selectedModule, setSelectedModule] = useState<ModuleData>(
     moduleData[0]
@@ -132,122 +178,256 @@ export default function Summary() {
           </div>
 
           <div className="flex flex-row gap-16">
-            <div className="flex flex-col lg:flex-row w-full sm:w-1/2 gap-6">
-              {/* Left Column - Module Cards */}
-              <section className="w-full lg:w-1/2">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {moduleData.map((module) => {
-                    const IconComponent = module.icon;
-                    const isSelected = selectedModule?.id === module.id;
+            <div className="flex flex-col lg:flex-row w-full sm:w-1/2  gap-6">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-row gap-6">
+                  {/* Left Column - Module Cards */}
+                  <section className="w-full lg:w-1/2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {moduleData.map((module) => {
+                        const IconComponent = module.icon;
+                        const isSelected = selectedModule?.id === module.id;
 
-                    return (
-                      <button
-                        key={module.id}
-                        onClick={() => handleModuleClick(module)}
-                        className={`p-6 rounded-xl transition-all duration-200 hover:shadow-lg ${
-                          isSelected
-                            ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                            : "bg-white border border-gray-200 hover:border-gray-300"
-                        }`}
-                        tabIndex={0}
-                        aria-label={`Select ${module.title} module`}
-                      >
-                        <div className="flex flex-col gap-4">
-                          <IconComponent
-                            className={`w-6 h-6 ${
-                              isSelected ? "text-white" : "text-gray-600"
+                        return (
+                          <button
+                            key={module.id}
+                            onClick={() => handleModuleClick(module)}
+                            className={`p-6 rounded-xl transition-all duration-200 hover:shadow-lg ${
+                              isSelected
+                                ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
+                                : "bg-white border border-gray-200 hover:border-gray-300"
                             }`}
-                          />
-                          <div className="flex-1 text-left">
-                            <h3
-                              className={`font-semibold mb-1 ${
-                                isSelected
-                                  ? "text-white"
-                                  : "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] bg-clip-text text-transparent"
-                              }`}
+                            tabIndex={0}
+                            aria-label={`Select ${module.title} module`}
+                          >
+                            <div className="flex flex-col gap-4">
+                              <IconComponent
+                                className={`w-6 h-6 ${
+                                  isSelected ? "text-white" : "text-gray-600"
+                                }`}
+                              />
+                              <div className="flex-1 text-left">
+                                <h3
+                                  className={`font-semibold mb-1 ${
+                                    isSelected
+                                      ? "text-white"
+                                      : "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] bg-clip-text text-transparent"
+                                  }`}
+                                >
+                                  {module.title}
+                                </h3>
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </section>
+
+                  {/* Right Column - Service Comparison */}
+                  <section className="w-full lg:w-1/2">
+                    <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#449CFB] to-[#E85DF9]">
+                      <div className="bg-white rounded-xl p-5 h-full flex flex-col">
+                        <div className="flex flex-col justify-between h-full">
+                          <div className="flex flex-col gap-6 mb-6">
+                            {selectedModule.metrics.map((metric, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center justify-between"
+                              >
+                                <span className="text-gray-400 text-sm">
+                                  {metric.label}
+                                </span>
+                                <span className="text-[#49A0FB] text-xl font-semibold font-comfortaa">
+                                  {metric.value}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="flex gap-4 mt-4">
+                            <button
+                              className="flex items-center justify-center gap-1 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-3 py-1.5 text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+                              tabIndex={0}
+                              aria-label="Add a claim"
+                              onClick={() =>
+                                handleButtonClick(
+                                  selectedModule.buttonLinks.addClaim
+                                )
+                              }
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  handleButtonClick(
+                                    selectedModule.buttonLinks.addClaim
+                                  );
+                                }
+                              }}
                             >
-                              {module.title}
-                            </h3>
+                              Add a claim
+                              <span aria-hidden="true" className="ml-1">
+                                <ChevronRight className="w-4 h-4" />
+                              </span>
+                            </button>
+                            <button
+                              className="flex items-center justify-center gap-1 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-3 py-1.5 text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+                              tabIndex={0}
+                              aria-label="Detailed view"
+                              onClick={() =>
+                                handleButtonClick(
+                                  selectedModule.buttonLinks.detailedView
+                                )
+                              }
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  handleButtonClick(
+                                    selectedModule.buttonLinks.detailedView
+                                  );
+                                }
+                              }}
+                            >
+                              Detailed view
+                              <span aria-hidden="true" className="ml-1">
+                                <ChevronRight className="w-4 h-4" />
+                              </span>
+                            </button>
                           </div>
                         </div>
-                      </button>
-                    );
-                  })}
+                      </div>
+                    </div>
+                  </section>
                 </div>
-              </section>
 
-              {/* Right Column - Service Comparison */}
-              <section className="w-full lg:w-1/2">
-                <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#449CFB] to-[#E85DF9]">
-                  <div className="bg-white rounded-xl p-5 h-full flex flex-col">
-                    <div className="flex flex-col justify-between h-full">
-                      <div className="flex flex-col gap-6 mb-6">
-                        {selectedModule.metrics.map((metric, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between"
-                          >
-                            <span className="text-gray-400 text-sm">
-                              {metric.label}
-                            </span>
-                            <span className="text-[#49A0FB] text-xl font-semibold font-comfortaa">
-                              {metric.value}
-                            </span>
+                {/* Latest Activity */}
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800 mb-4">
+                    Latest Activity
+                  </h2>
+                  <div className="bg-white rounded-2xl shadow p-6">
+                    {(() => {
+                      const groupedActivities = activityData.reduce(
+                        (groups, activity) => {
+                          if (!groups[activity.date]) {
+                            groups[activity.date] = [];
+                          }
+                          groups[activity.date].push(activity);
+                          return groups;
+                        },
+                        {} as Record<string, ActivityItem[]>
+                      );
+
+                      return Object.entries(groupedActivities).map(
+                        ([date, activities]) => (
+                          <div key={date} className="mb-6">
+                            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2">
+                              <span className="text-xs text-gray-400 font-medium">
+                                {date}
+                              </span>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              {activities.map((activity) => (
+                                <div key={activity.id}>
+                                  <div className="flex items-start justify-between group">
+                                    <div>
+                                      <span className="text-gray-700 text-sm">
+                                        {activity.description}
+                                        {activity.link && activity.linkText && (
+                                          <>
+                                            {" "}
+                                            <a
+                                              href={activity.link}
+                                              className="text-[#49A0FB] underline hover:text-[#318ce7] focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                              tabIndex={0}
+                                              aria-label={`Open ${activity.actionType} for ${activity.linkText}`}
+                                            >
+                                              {activity.linkText}
+                                            </a>
+                                          </>
+                                        )}
+                                      </span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-xs text-gray-400">
+                                        {activity.time}
+                                      </span>
+                                      <button
+                                        className="p-1 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                        tabIndex={0}
+                                        aria-label={
+                                          activity.actionType === "view"
+                                            ? "View details"
+                                            : "Download file"
+                                        }
+                                        onClick={() => {}}
+                                        onKeyDown={(e) => {
+                                          if (
+                                            e.key === "Enter" ||
+                                            e.key === " "
+                                          )
+                                            e.preventDefault();
+                                        }}
+                                      >
+                                        {activity.actionType === "view" ? (
+                                          <svg
+                                            className="w-4 h-4 text-gray-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                          >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                          </svg>
+                                        ) : (
+                                          <svg
+                                            className="w-4 h-4 text-gray-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                          >
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                            <polyline points="7,10 12,15 17,10" />
+                                            <line
+                                              x1="12"
+                                              y1="15"
+                                              x2="12"
+                                              y2="3"
+                                            />
+                                          </svg>
+                                        )}
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        ))}
-                      </div>
-                      <div className="flex gap-4 mt-4">
-                        <button
-                          className="flex items-center justify-center gap-1 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-3 py-1.5 text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          tabIndex={0}
-                          aria-label="Add a claim"
-                          onClick={() =>
-                            handleButtonClick(
-                              selectedModule.buttonLinks.addClaim
-                            )
-                          }
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              e.preventDefault();
-                              handleButtonClick(
-                                selectedModule.buttonLinks.addClaim
-                              );
-                            }
-                          }}
-                        >
-                          Add a claim
-                          <span aria-hidden="true" className="ml-1">
-                            <ChevronRight className="w-4 h-4" />
-                          </span>
-                        </button>
-                        <button
-                          className="flex items-center justify-center gap-1 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-3 py-1.5 text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-                          tabIndex={0}
-                          aria-label="Detailed view"
-                          onClick={() =>
-                            handleButtonClick(
-                              selectedModule.buttonLinks.detailedView
-                            )
-                          }
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              e.preventDefault();
-                              handleButtonClick(
-                                selectedModule.buttonLinks.detailedView
-                              );
-                            }
-                          }}
-                        >
-                          Detailed view
-                          <span aria-hidden="true" className="ml-1">
-                            <ChevronRight className="w-4 h-4" />
-                          </span>
-                        </button>
-                      </div>
+                        )
+                      );
+                    })()}
+
+                    {/* View More Button */}
+                    <div className="flex justify-end">
+                      <button
+                        className="flex items-center gap-2 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-4 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        tabIndex={0}
+                        aria-label="View more activity"
+                        onClick={() => {}}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ")
+                            e.preventDefault();
+                        }}
+                      >
+                        View More
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
                 </div>
-              </section>
+              </div>
             </div>
 
             <div className="flex flex-col lg:flex-row w-full sm:w-1/2">
@@ -420,7 +600,70 @@ export default function Summary() {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-8">
+                  <section className="bg-white rounded-2xl p-6 mt-2">
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
+                      Ask Spark Anything
+                    </h2>
+                    <div className="rounded-2xl p-[2.5px] bg-[#f9fafb] relative bg-gradient-to-r from-[#449CFB] to-[#E85DF9]">
+                      <div className="rounded-2xl bg-[#f9fafb] p-4 w-full h-full">
+                        <input
+                          type="text"
+                          className="w-full bg-transparent outline-none text-gray-500 text-base sm:text-lg placeholder-gray-400 font-light py-3 px-4 rounded-2xl"
+                          placeholder="Have a question about the app? Ask our AI agent"
+                          aria-label="Ask Spark Anything"
+                          tabIndex={0}
+                          disabled
+                        />
+                        <div className="absolute right-4 top-1/2 -translate-y-[80px] flex items-center justify-center">
+                          <span tabIndex={0} aria-label="AI agent">
+                            <img
+                              src="/spark-circle.svg"
+                              alt="AI agent"
+                              width={48}
+                              height={48}
+                              className="w-12 h-12"
+                              aria-hidden="true"
+                            />
+                          </span>
+                        </div>
+                        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <button
+                            tabIndex={0}
+                            aria-label="Which Prospective Payment Systems are supported?"
+                            className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
+                          >
+                            Which Prospective Payment Systems are supported?
+                          </button>
+                          <button
+                            tabIndex={0}
+                            aria-label="What is Policy Intelligence?"
+                            className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
+                          >
+                            What is Policy Intelligence?
+                          </button>
+                          <button
+                            tabIndex={0}
+                            aria-label="How do I view the analytics dashboards?"
+                            className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
+                          >
+                            How do I view the analytics dashboards?
+                          </button>
+                          <button
+                            tabIndex={0}
+                            aria-label="What is Payment Leakage Analysis?"
+                            className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
+                          >
+                            What is Payment Leakage Analysis?
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
               </section>
+              {/* ExpandedChat Section */}
             </div>
           </div>
         </div>
