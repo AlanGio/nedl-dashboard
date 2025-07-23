@@ -218,7 +218,7 @@ export function PayerAnalysis() {
       </div>
 
       {/* Metrics Cards */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
         <div className="bg-white rounded-lg border p-6">
           <h3 className="text-sm font-medium text-gray-500">
             {payerData.metrics.totalPayers.label}
@@ -263,17 +263,19 @@ export function PayerAnalysis() {
         </div>
       </div>
 
-      {/* Healthcare Payers Chart - Full Width */}
-      <HealthcarePayersChart selectedPayer={selectedPayer} />
+      <div className="mb-6">
+        {/* Healthcare Payers Chart - Full Width */}
+        <HealthcarePayersChart selectedPayer={selectedPayer} />
+      </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
         <PayerDistributionChart distribution={payerData.distribution} />
         <PolicyDistributionChart data={payerData.policyDistribution} />
       </div>
 
       {/* Bottom Row */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
         <div className="bg-white rounded-lg border p-6 h-[400px] flex flex-col">
           <div className="mb-4">
             <h2 className="text-base font-semibold">Coverage Analysis</h2>
@@ -291,8 +293,10 @@ export function PayerAnalysis() {
         </div>
       </div>
 
-      {/* Healthcare Payer Profiles Table */}
-      <HealthcarePayerProfilesTable />
+      <div className="mb-6">
+        {/* Healthcare Payer Profiles Table */}
+        <HealthcarePayerProfilesTable />
+      </div>
 
       {/* Key Insights Section */}
       <KeyInsightsSection />
