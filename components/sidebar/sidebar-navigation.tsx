@@ -170,10 +170,15 @@ export function SidebarNavigation({
     },
   ];
 
-  const handleNavigate = (href: string, itemId?: string) => {
+  const handleNavigate = (href: string, itemId?: string | null) => {
     if (href !== "#") {
       // Check if it's an external link
       router.push(href);
+
+      // If Summary is clicked, collapse all other menus
+      if (itemId === "summary") {
+        setExpandedCategories(new Set());
+      }
 
       if (isMobile) {
         onToggle(); // Close mobile menu after navigation
@@ -251,7 +256,7 @@ export function SidebarNavigation({
                         if (hasChildren) {
                           toggleCategory(item.id!);
                         } else {
-                          handleNavigate(item.href, item.id || undefined);
+                          handleNavigate(item.href, item.id || null);
                         }
                       }}
                       className={cn(
@@ -304,10 +309,7 @@ export function SidebarNavigation({
                             <button
                               key={child.id || "child-overview"}
                               onClick={() =>
-                                handleNavigate(
-                                  child.href,
-                                  child.id || undefined
-                                )
+                                handleNavigate(child.href, child.id || null)
                               }
                               className={cn(
                                 "flex w-full items-center rounded-full px-4 py-3 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",
@@ -374,7 +376,7 @@ export function SidebarNavigation({
                     if (hasChildren) {
                       toggleCategory(item.id!);
                     } else {
-                      handleNavigate(item.href, item.id || undefined);
+                      handleNavigate(item.href, item.id || null);
                     }
                   }}
                   className={cn(
@@ -425,7 +427,7 @@ export function SidebarNavigation({
                         <button
                           key={child.id || "child-overview"}
                           onClick={() =>
-                            handleNavigate(child.href, child.id || undefined)
+                            handleNavigate(child.href, child.id || null)
                           }
                           className={cn(
                             "flex w-full items-center rounded-full px-4 py-3 my-1 text-sm font-medium text-left transition-all duration-200 no-shadow",

@@ -19,6 +19,7 @@ import {
 import { ChatBox } from "@/components/chat/chat-box";
 import { FloatingChat } from "@/components/chat/floating-chat";
 import { ExpandedChat } from "@/components/chat/expanded-chat";
+import { ModernPieChart } from "@/components/modern-pie-chart";
 
 interface ModuleData {
   id: string;
@@ -59,8 +60,8 @@ const moduleData: ModuleData[] = [
       { label: "Avg. Medicare Rate Relativity", value: "120%" },
     ],
     buttonLinks: {
-      addClaim: "https://reprice-dashboard.vercel.app/",
-      detailedView: "https://reprice-dashboard.vercel.app/claims-process",
+      addClaim: "https://payment-leakage.vercel.app/claims-management",
+      detailedView: "https://reprice-dashboard.vercel.app/",
     },
   },
   {
@@ -75,8 +76,8 @@ const moduleData: ModuleData[] = [
       { label: "Compliance Rate", value: "96.8%" },
     ],
     buttonLinks: {
-      addClaim: "/policy-explorer",
-      detailedView: "/payer-analysis",
+      addClaim: "https://payment-leakage.vercel.app/claims-management",
+      detailedView: "https://nedl-dashboard.vercel.app/dashboard",
     },
   },
   {
@@ -91,7 +92,7 @@ const moduleData: ModuleData[] = [
       { label: "Compliance Score", value: "98.1%" },
     ],
     buttonLinks: {
-      addClaim: "/policy-explorer",
+      addClaim: "https://payment-leakage.vercel.app/claims-management",
       detailedView: "/code-coverage",
     },
   },
@@ -107,11 +108,53 @@ const moduleData: ModuleData[] = [
       { label: "Accuracy Rate", value: "91.7%" },
     ],
     buttonLinks: {
-      addClaim: "https://payment-leakage.vercel.app/",
-      detailedView: "https://payment-leakage.vercel.app/claims-management",
+      addClaim: "https://payment-leakage.vercel.app/claims-management",
+      detailedView: "https://payment-leakage.vercel.app/",
     },
   },
 ];
+
+const claimVolumePieChart = {
+  title: "Claim Volume across Claim Types",
+  data: [
+    {
+      name: "PFS",
+      value: 45.2,
+      claimVolume: "65.5M",
+      color: "#449CFB",
+    },
+    {
+      name: "OPPS",
+      value: 32.8,
+      claimVolume: "47.6M",
+      color: "#F08C76",
+    },
+    {
+      name: "IPPS",
+      value: 17.0,
+      claimVolume: "24.7M",
+      color: "#F5709A",
+    },
+    {
+      name: "ASC",
+      value: 2.8,
+      claimVolume: "4.1M",
+      color: "#B782E8",
+    },
+    {
+      name: "SNF",
+      value: 1.2,
+      claimVolume: "1.7M",
+      color: "#82F09A",
+    },
+    {
+      name: "Other",
+      value: 1.0,
+      claimVolume: "1.5M",
+      color: "#FFB366",
+    },
+  ],
+};
 
 const activityData: ActivityItem[] = [
   {
@@ -438,100 +481,11 @@ export default function Summary() {
 
                 <div className="flex flex-col lg:flex-row gap-6">
                   {/* Left: Pie Chart Card */}
-                  <div className="bg-white rounded-2xl shadow p-4 flex-1 flex flex-col">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs text-gray-500 font-medium">
-                        Claim volume by Claim Type
-                      </span>
-                    </div>
-                    <div className="flex flex-row items-center gap-2">
-                      {/* Pie Chart */}
-                      <div className="flex-shrink-0">
-                        {/* Static Pie Chart SVG */}
-                        <svg
-                          width="240"
-                          height="240"
-                          viewBox="0 0 120 120"
-                          aria-label="Claim volume pie chart"
-                          role="img"
-                        >
-                          <circle r="48" cx="60" cy="60" fill="#e5e7eb" />
-                          {/* PFS - Blue (largest) */}
-                          <path
-                            d="M60 60 L60 12 A48 48 0 0 1 110.6 80.6 Z"
-                            fill="#49A0FB"
-                          />
-                          {/* OPPS - Pink */}
-                          <path
-                            d="M60 60 L110.6 80.6 A48 48 0 0 1 60 108 Z"
-                            fill="#F087FB"
-                          />
-                          {/* IPPS - Red */}
-                          <path
-                            d="M60 60 L60 108 A48 48 0 0 1 24.6 95.4 Z"
-                            fill="#F87171"
-                          />
-                          {/* SNFPPS - Green */}
-                          <path
-                            d="M60 60 L24.6 95.4 A48 48 0 0 1 19.4 39.4 Z"
-                            fill="#4ADE80"
-                          />
-                          {/* ASC - Orange */}
-                          <path
-                            d="M60 60 L19.4 39.4 A48 48 0 0 1 60 12 Z"
-                            fill="#FBBF24"
-                          />
-                        </svg>
-                      </div>
-                      {/* Legend */}
-                      <div className="flex flex-col gap-2 ml-10">
-                        <div className="flex items-center gap-2">
-                          <span
-                            className="w-3 h-3 rounded-full bg-[#49A0FB]"
-                            aria-hidden="true"
-                          ></span>
-                          <span className="text-xs text-gray-700 font-medium">
-                            PFS
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span
-                            className="w-3 h-3 rounded-full bg-[#F087FB]"
-                            aria-hidden="true"
-                          ></span>
-                          <span className="text-xs text-gray-700 font-medium">
-                            OPPS
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span
-                            className="w-3 h-3 rounded-full bg-[#F87171]"
-                            aria-hidden="true"
-                          ></span>
-                          <span className="text-xs text-gray-700 font-medium">
-                            IPPS
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span
-                            className="w-3 h-3 rounded-full bg-[#4ADE80]"
-                            aria-hidden="true"
-                          ></span>
-                          <span className="text-xs text-gray-700 font-medium">
-                            SNFPPS
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span
-                            className="w-3 h-3 rounded-full bg-[#FBBF24]"
-                            aria-hidden="true"
-                          ></span>
-                          <span className="text-xs text-gray-700 font-medium">
-                            ASC
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="flex flex-col gap-4 flex-1">
+                    <ModernPieChart
+                      title={claimVolumePieChart.title}
+                      data={claimVolumePieChart.data}
+                    />
                   </div>
 
                   {/* Right: Top Metrics Cards */}
@@ -571,32 +525,28 @@ export default function Summary() {
                         137.75M
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Bottom Row: Additional Metrics Cards */}
-                <div className="flex flex-col lg:flex-row gap-4 mt-6">
-                  {/* Total Exclusions Card */}
-                  <div className="bg-white rounded-2xl shadow p-4 flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs text-gray-500 font-medium">
-                        Total Exclusions
-                      </span>
+                    <div className="bg-white rounded-2xl shadow p-4 flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs text-gray-500 font-medium">
+                          Total Exclusions
+                        </span>
+                      </div>
+                      <div className="text-2xl text-[#49A0FB] font-comfortaa">
+                        9.25M
+                      </div>
                     </div>
-                    <div className="text-2xl text-[#49A0FB] font-comfortaa">
-                      9.25M
-                    </div>
-                  </div>
 
-                  {/* Total Duplicates Card */}
-                  <div className="bg-white rounded-2xl shadow p-4 flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs text-gray-500 font-medium">
-                        Total Duplicates
-                      </span>
-                    </div>
-                    <div className="text-2xl text-[#49A0FB] font-comfortaa">
-                      1.5M
+                    {/* Total Duplicates Card */}
+                    <div className="bg-white rounded-2xl shadow p-4 flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs text-gray-500 font-medium">
+                          Total Duplicates
+                        </span>
+                      </div>
+                      <div className="text-2xl text-[#49A0FB] font-comfortaa">
+                        1.5M
+                      </div>
                     </div>
                   </div>
                 </div>
