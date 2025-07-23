@@ -16,10 +16,11 @@ import {
   FileCheck2,
   BadgePoundSterling,
 } from "lucide-react";
-import { ChatBox } from "@/components/chat/chat-box";
+
 import { FloatingChat } from "@/components/chat/floating-chat";
 import { ExpandedChat } from "@/components/chat/expanded-chat";
 import { ModernPieChart } from "@/components/modern-pie-chart";
+import mockData from "@/data/mockData.json";
 
 interface ModuleData {
   id: string;
@@ -192,7 +193,116 @@ export default function Summary() {
   const [selectedModule, setSelectedModule] = useState<ModuleData>(
     moduleData[0]
   );
+
+  // Chat state management
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [messages, setMessages] = useState<
+    Array<{
+      id: string;
+      content: string;
+      sender: "user" | "bot";
+      timestamp: Date;
+    }>
+  >([]);
+  const [answerIndex, setAnswerIndex] = useState(0);
+
   const router = useRouter();
+
+  const suggestedQueries = [
+    "show me the 10 ten drg codes that could be displayed in a tabular format",
+    "can you show the rate relativity per health system",
+  ];
+
+  const toggleChat = () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+    }
+    setIsChatOpen(!isChatOpen);
+  };
+
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+    if (!isExpanded) {
+      setIsChatOpen(true);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  const handleSendMessage = () => {
+    if (input.trim() && !isTyping) {
+      const newMessage = {
+        id: Date.now().toString(),
+        content: input,
+        sender: "user" as const,
+        timestamp: new Date(),
+      };
+      setMessages([...messages, newMessage]);
+      setInput("");
+      setIsTyping(true);
+
+      const answer =
+        mockData.chatAnswers[answerIndex % mockData.chatAnswers.length];
+      const thinkingTime = 2000 + Math.random() * 2000;
+
+      setTimeout(() => {
+        setIsTyping(false);
+        const botMessage = {
+          id: (Date.now() + 1).toString(),
+          content: answer,
+          sender: "bot" as const,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setAnswerIndex((prev) => prev + 1);
+      }, thinkingTime);
+    }
+  };
+
+  const handleSuggestedQuery = (query: string) => {
+    if (!isTyping) {
+      const newMessage = {
+        id: Date.now().toString(),
+        content: query,
+        sender: "user" as const,
+        timestamp: new Date(),
+      };
+      setMessages([...messages, newMessage]);
+      setInput("");
+      setIsTyping(true);
+
+      const answer =
+        mockData.chatAnswers[answerIndex % mockData.chatAnswers.length];
+      const thinkingTime = 2000 + Math.random() * 2000;
+
+      setTimeout(() => {
+        setIsTyping(false);
+        const botMessage = {
+          id: (Date.now() + 1).toString(),
+          content: answer,
+          sender: "bot" as const,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setAnswerIndex((prev) => prev + 1);
+      }, thinkingTime);
+
+      // Open the chat
+      setIsChatOpen(true);
+    }
+  };
 
   const handleModuleClick = (module: ModuleData) => {
     setSelectedModule(module);
@@ -204,6 +314,40 @@ export default function Summary() {
     } else {
       router.push(url);
     }
+  };
+
+  const handleAIAgentClick = () => {
+    // If there's text in the input field, send it as a message
+    if (input.trim()) {
+      const newMessage = {
+        id: Date.now().toString(),
+        content: input,
+        sender: "user" as const,
+        timestamp: new Date(),
+      };
+      setMessages([...messages, newMessage]);
+      setInput("");
+      setIsTyping(true);
+
+      const answer =
+        mockData.chatAnswers[answerIndex % mockData.chatAnswers.length];
+      const thinkingTime = 2000 + Math.random() * 2000;
+
+      setTimeout(() => {
+        setIsTyping(false);
+        const botMessage = {
+          id: (Date.now() + 1).toString(),
+          content: answer,
+          sender: "bot" as const,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setAnswerIndex((prev) => prev + 1);
+      }, thinkingTime);
+    }
+
+    // Open the chat
+    setIsChatOpen(true);
   };
 
   return (
@@ -560,14 +704,26 @@ export default function Summary() {
                       <div className="rounded-2xl bg-[#f9fafb] p-4 w-full h-full">
                         <input
                           type="text"
+                          value={input}
+                          onChange={(e) => setInput(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" && !e.shiftKey) {
+                              e.preventDefault();
+                              handleSendMessage();
+                            }
+                          }}
                           className="w-full bg-transparent outline-none text-gray-500 text-base sm:text-lg placeholder-gray-400 font-light py-3 px-4 rounded-2xl"
                           placeholder="Have a question about the app? Ask our AI agent"
                           aria-label="Ask Spark Anything"
                           tabIndex={0}
-                          disabled
                         />
                         <div className="absolute right-4 top-1/2 -translate-y-[80px] flex items-center justify-center">
-                          <span tabIndex={0} aria-label="AI agent">
+                          <button
+                            onClick={handleAIAgentClick}
+                            tabIndex={0}
+                            aria-label="AI agent"
+                            className="cursor-pointer hover:scale-105 transition-transform"
+                          >
                             <img
                               src="/spark-circle.svg"
                               alt="AI agent"
@@ -576,10 +732,15 @@ export default function Summary() {
                               className="w-12 h-12"
                               aria-hidden="true"
                             />
-                          </span>
+                          </button>
                         </div>
                         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
                           <button
+                            onClick={() =>
+                              handleSuggestedQuery(
+                                "Which Prospective Payment Systems are supported?"
+                              )
+                            }
                             tabIndex={0}
                             aria-label="Which Prospective Payment Systems are supported?"
                             className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
@@ -587,6 +748,11 @@ export default function Summary() {
                             Which Prospective Payment Systems are supported?
                           </button>
                           <button
+                            onClick={() =>
+                              handleSuggestedQuery(
+                                "What is Policy Intelligence?"
+                              )
+                            }
                             tabIndex={0}
                             aria-label="What is Policy Intelligence?"
                             className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
@@ -594,6 +760,11 @@ export default function Summary() {
                             What is Policy Intelligence?
                           </button>
                           <button
+                            onClick={() =>
+                              handleSuggestedQuery(
+                                "How do I view the analytics dashboards?"
+                              )
+                            }
                             tabIndex={0}
                             aria-label="How do I view the analytics dashboards?"
                             className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
@@ -601,6 +772,11 @@ export default function Summary() {
                             How do I view the analytics dashboards?
                           </button>
                           <button
+                            onClick={() =>
+                              handleSuggestedQuery(
+                                "What is Payment Leakage Analysis?"
+                              )
+                            }
                             tabIndex={0}
                             aria-label="What is Payment Leakage Analysis?"
                             className="w-full border border-[#49A0FB] rounded-full px-3 py-2 text-xs sm:text-sm text-gray-700 bg-white hover:bg-[#f3f8fd] transition-colors focus:outline-none"
@@ -613,11 +789,39 @@ export default function Summary() {
                   </section>
                 </div>
               </section>
-              {/* ExpandedChat Section */}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Chat Components */}
+      {isExpanded ? (
+        <ExpandedChat
+          messages={messages}
+          input={input}
+          handleInputChange={handleInputChange}
+          handleKeyDown={handleKeyDown}
+          handleSendMessage={handleSendMessage}
+          handleSuggestedQuery={handleSuggestedQuery}
+          suggestedQueries={suggestedQueries}
+          toggleExpand={toggleExpand}
+          isTyping={isTyping}
+        />
+      ) : (
+        <FloatingChat
+          isOpen={isChatOpen}
+          toggleChat={toggleChat}
+          toggleExpand={toggleExpand}
+          messages={messages}
+          input={input}
+          handleInputChange={handleInputChange}
+          handleKeyDown={handleKeyDown}
+          handleSendMessage={handleSendMessage}
+          handleSuggestedQuery={handleSuggestedQuery}
+          suggestedQueries={suggestedQueries}
+          isTyping={isTyping}
+        />
+      )}
     </LayoutWithNav>
   );
 }
