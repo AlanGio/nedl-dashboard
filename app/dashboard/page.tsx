@@ -171,7 +171,7 @@ export default function Dashboard() {
         toggleChat={toggleChat}
         onToggleSidebar={toggleSidebar}
       />
-      <div className="max-w-[1680px] mx-auto px-4 relative">
+      <div className="mx-auto px-4 relative">
         <div className="flex mt-4">
           <SidebarNavigation
             onNavigate={() => {}}
