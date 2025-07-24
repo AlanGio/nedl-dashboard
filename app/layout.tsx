@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nedl-labs.com"), // Replace with your actual domain
+  metadataBase: new URL("https://nedl-dashboard.vercel.app/"), // Replace with your actual domain
   alternates: {
     canonical: "/",
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Nedl Labs :: Healthcare Analytics Dashboard",
     description:
       "Analyze payer policies and coverage metrics across your network with our comprehensive healthcare analytics dashboard.",
-    url: "https://nedl-labs.com", // Replace with your actual domain
+    url: "https://nedl-dashboard.vercel.app/", // Replace with your actual domain
     siteName: "Nedl Labs",
     images: [
       {
