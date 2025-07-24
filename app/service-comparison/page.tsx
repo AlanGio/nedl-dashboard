@@ -464,32 +464,32 @@ export default function ServiceComparison() {
   return (
     <LayoutWithNav>
       <div className="p-6">
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                 Services comparison
               </h1>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 Compare different services and their policy criteria
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <button
                 onClick={handleExportData}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200"
+                className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200 text-sm"
                 tabIndex={0}
                 aria-label="Export data to CSV"
               >
-                <Download className="w-4 h-4" />
-                Export
+                <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Export</span>
               </button>
 
               <button
                 onClick={() => setShowInsights(!showInsights)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 text-sm ${
                   showInsights
                     ? "bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md"
                     : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
@@ -497,13 +497,13 @@ export default function ServiceComparison() {
                 tabIndex={0}
                 aria-label="Toggle smart insights"
               >
-                <Lightbulb className="w-4 h-4" />
-                Insights
+                <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Insights</span>
               </button>
 
               <button
                 onClick={() => setShowTrends(!showTrends)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 text-sm ${
                   showTrends
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
                     : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
@@ -511,58 +511,66 @@ export default function ServiceComparison() {
                 tabIndex={0}
                 aria-label="Toggle trends analysis"
               >
-                <TrendingUp className="w-4 h-4" />
-                Trends
+                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Trends</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Analytics Overview - Always Visible */}
-        <div className="mb-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center gap-2 mb-6">
-            <TrendingUp className="w-5 h-5 text-blue-600" />
-            <h2 className="text-xl font-semibold text-gray-900">
+        <div className="mb-6 sm:mb-8 bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex items-center gap-2 mb-4 sm:mb-6">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
               Analytics Overview
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <div className="text-2xl font-bold text-blue-600 mb-1">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-200">
+              <div className="text-lg sm:text-2xl font-bold text-blue-600 mb-1">
                 {analyticsData.total}
               </div>
-              <div className="text-sm text-blue-700">Total Services</div>
+              <div className="text-xs sm:text-sm text-blue-700">
+                Total Services
+              </div>
             </div>
 
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <div className="text-2xl font-bold text-green-600 mb-1">
+            <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
+              <div className="text-lg sm:text-2xl font-bold text-green-600 mb-1">
                 {analyticsData.established}
               </div>
-              <div className="text-sm text-green-700">Fully Established</div>
+              <div className="text-xs sm:text-sm text-green-700">
+                Fully Established
+              </div>
             </div>
 
-            <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-              <div className="text-2xl font-bold text-yellow-600 mb-1">
+            <div className="bg-yellow-50 p-3 sm:p-4 rounded-lg border border-yellow-200">
+              <div className="text-lg sm:text-2xl font-bold text-yellow-600 mb-1">
                 {analyticsData.partial}
               </div>
-              <div className="text-sm text-yellow-700">
+              <div className="text-xs sm:text-sm text-yellow-700">
                 Partially Established
               </div>
             </div>
 
-            <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-              <div className="text-2xl font-bold text-red-600 mb-1">
+            <div className="bg-red-50 p-3 sm:p-4 rounded-lg border border-red-200">
+              <div className="text-lg sm:text-2xl font-bold text-red-600 mb-1">
                 {analyticsData.none}
               </div>
-              <div className="text-sm text-red-700">Not Established</div>
+              <div className="text-xs sm:text-sm text-red-700">
+                Not Established
+              </div>
             </div>
 
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <div className="text-2xl font-bold text-purple-600 mb-1">
+            <div className="bg-purple-50 p-3 sm:p-4 rounded-lg border border-purple-200 col-span-2 sm:col-span-1">
+              <div className="text-lg sm:text-2xl font-bold text-purple-600 mb-1">
                 {analyticsData.avgConfidence.toFixed(0)}%
               </div>
-              <div className="text-sm text-purple-700">Avg Confidence</div>
+              <div className="text-xs sm:text-sm text-purple-700">
+                Avg Confidence
+              </div>
             </div>
           </div>
         </div>
@@ -711,15 +719,15 @@ export default function ServiceComparison() {
         )}
 
         {/* Advanced Filters */}
-        <div className="mb-6 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div className="mb-6 bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Filter className="w-5 h-5 text-gray-600" />
-            <h3 className="text-lg font-semibold text-gray-900">
+            <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900">
               Filters & Search
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {/* Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -728,7 +736,7 @@ export default function ServiceComparison() {
                 placeholder="Search services..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
               />
             </div>
 
@@ -736,7 +744,7 @@ export default function ServiceComparison() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             >
               <option value="all">All Statuses</option>
               <option value="established">Fully Established</option>
@@ -748,7 +756,7 @@ export default function ServiceComparison() {
             <select
               value={confidenceFilter}
               onChange={(e) => setConfidenceFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             >
               <option value="all">All Confidence Levels</option>
               <option value="high">High (80%+)</option>
@@ -760,7 +768,7 @@ export default function ServiceComparison() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             >
               <option value="name">Sort by Name</option>
               <option value="confidence">Sort by Confidence</option>
@@ -769,46 +777,30 @@ export default function ServiceComparison() {
           </div>
 
           {/* Results Count */}
-          <div className="mt-4 flex items-center justify-between">
-            <p className="text-sm text-gray-600">
+          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <p className="text-xs sm:text-sm text-gray-600">
               Showing {filteredServices.length} of {serviceData.length} services
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Lightbulb className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
+              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Smart filtering active</span>
             </div>
           </div>
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-          {/* Table Header */}
-          <div className="grid grid-cols-4 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-50/50">
-            <div className="p-6 font-semibold text-gray-900 text-lg">
-              Service
-            </div>
-            <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border-l border-blue-200">
-              Actemra (Tocilizumab)
-            </div>
-            <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border-l border-purple-200">
-              Tocilizumab And Associated Services
-            </div>
-            <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-gray-50 to-gray-100/50 border-l border-gray-200">
-              Actions
-            </div>
-          </div>
-
-          {/* Table Body */}
-          <div className="divide-y divide-gray-100">
+          {/* Mobile: Card Layout */}
+          <div className="block lg:hidden">
             {filteredServices.map((service, index) => (
               <div
                 key={service.id}
-                className={`grid grid-cols-4 hover:bg-gray-50/50 transition-colors duration-200 ${
+                className={`p-4 border-b border-gray-100 ${
                   index % 2 === 0 ? "bg-white" : "bg-gray-50/30"
                 }`}
               >
-                {/* Service Description Column */}
+                {/* Service Description */}
                 <div
-                  className="p-6 cursor-pointer"
+                  className="mb-4 cursor-pointer"
                   onClick={() => handleRowClick(service)}
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -819,148 +811,275 @@ export default function ServiceComparison() {
                   }}
                   aria-label={`View detailed comparison for ${service.description}`}
                 >
-                  <div className="space-y-3">
-                    <p className="text-sm font-medium text-gray-900 leading-relaxed">
-                      {service.description}
+                  <p className="text-sm font-medium text-gray-900 leading-relaxed mb-2">
+                    {service.description}
+                  </p>
+                  {service.condition && (
+                    <p className="text-xs text-gray-600 font-medium mb-2">
+                      {service.condition}
                     </p>
-                    {service.condition && (
-                      <p className="text-sm text-gray-600 font-medium">
-                        {service.condition}
+                  )}
+                  {service.confidenceMatch && (
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <p className="text-xs text-gray-500 font-medium">
+                        {service.confidenceMatch}
                       </p>
-                    )}
-                    {service.confidenceMatch && (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <p className="text-xs text-gray-500 font-medium">
-                          {service.confidenceMatch}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Risk Indicator */}
-                    <div className="flex items-center space-x-2 mt-2">
-                      <span
-                        className={`inline-flex px-2 py-1 text-xs font-medium rounded-full border ${getRiskColor(
-                          getRiskLevel(service)
-                        )}`}
-                      >
-                        {getRiskLevel(service).toUpperCase()} RISK
-                      </span>
                     </div>
+                  )}
+                  {/* Risk Indicator */}
+                  <div className="flex items-center space-x-2">
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-medium rounded-full border ${getRiskColor(
+                        getRiskLevel(service)
+                      )}`}
+                    >
+                      {getRiskLevel(service).toUpperCase()} RISK
+                    </span>
                   </div>
                 </div>
 
-                {/* Actemra Status Column */}
-                <div className="p-6 bg-gradient-to-r from-blue-50/50 to-blue-100/30 border-l border-blue-200/50">
-                  <div className="flex items-center justify-center h-full">
+                {/* Status Cards */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                    <p className="text-xs font-medium text-blue-700 mb-2">
+                      Actemra
+                    </p>
                     <span
-                      className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-lg shadow-sm ${
                         service.actemraStatus === "established"
-                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
-                          : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
+                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
+                          : "bg-gradient-to-r from-red-500 to-pink-500 text-white"
                       }`}
                     >
                       {service.actemraStatus === "established"
-                        ? "Criteria established"
+                        ? "Established"
                         : "Not in policy"}
                     </span>
                   </div>
-                </div>
 
-                {/* Tocilizumab Status Column */}
-                <div className="p-6 bg-gradient-to-r from-purple-50/50 to-purple-100/30 border-l border-purple-200/50">
-                  <div className="flex items-center justify-center h-full">
+                  <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                    <p className="text-xs font-medium text-purple-700 mb-2">
+                      Tocilizumab
+                    </p>
                     <span
-                      className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-lg shadow-sm ${
                         service.tocilizumabStatus === "established"
-                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
-                          : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
+                          ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
+                          : "bg-gradient-to-r from-red-500 to-pink-500 text-white"
                       }`}
                     >
                       {service.tocilizumabStatus === "established"
-                        ? "Criteria established"
+                        ? "Established"
                         : "Not in policy"}
                     </span>
                   </div>
                 </div>
 
-                {/* Actions Column */}
-                <div className="p-6 bg-gradient-to-r from-gray-50/50 to-gray-100/30 border-l border-gray-200/50">
-                  <div className="flex items-center justify-center h-full">
-                    {service.confidenceMatch && (
-                      <button
-                        onClick={() => handleCompareCriteria(service.id)}
-                        className={`px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md ${
-                          selectedServices.includes(service.id)
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                            : "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
-                        }`}
-                        tabIndex={0}
-                        aria-label={`Compare criteria for ${service.description}`}
-                      >
-                        COMPARE CRITERIA
-                      </button>
-                    )}
+                {/* Action Button */}
+                {service.confidenceMatch && (
+                  <div className="flex justify-center">
+                    <button
+                      onClick={() => handleCompareCriteria(service.id)}
+                      className={`w-full px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md ${
+                        selectedServices.includes(service.id)
+                          ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                          : "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
+                      }`}
+                      tabIndex={0}
+                      aria-label={`Compare criteria for ${service.description}`}
+                    >
+                      COMPARE CRITERIA
+                    </button>
                   </div>
-                </div>
+                )}
               </div>
             ))}
+          </div>
+
+          {/* Desktop: Table Layout */}
+          <div className="hidden lg:block">
+            {/* Table Header */}
+            <div className="grid grid-cols-4 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-50/50">
+              <div className="p-6 font-semibold text-gray-900 text-lg">
+                Service
+              </div>
+              <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border-l border-blue-200">
+                Actemra (Tocilizumab)
+              </div>
+              <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border-l border-purple-200">
+                Tocilizumab And Associated Services
+              </div>
+              <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-gray-50 to-gray-100/50 border-l border-gray-200">
+                Actions
+              </div>
+            </div>
+
+            {/* Table Body */}
+            <div className="divide-y divide-gray-100">
+              {filteredServices.map((service, index) => (
+                <div
+                  key={service.id}
+                  className={`grid grid-cols-4 hover:bg-gray-50/50 transition-colors duration-200 ${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50/30"
+                  }`}
+                >
+                  {/* Service Description Column */}
+                  <div
+                    className="p-6 cursor-pointer"
+                    onClick={() => handleRowClick(service)}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        handleRowClick(service);
+                      }
+                    }}
+                    aria-label={`View detailed comparison for ${service.description}`}
+                  >
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium text-gray-900 leading-relaxed">
+                        {service.description}
+                      </p>
+                      {service.condition && (
+                        <p className="text-sm text-gray-600 font-medium">
+                          {service.condition}
+                        </p>
+                      )}
+                      {service.confidenceMatch && (
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <p className="text-xs text-gray-500 font-medium">
+                            {service.confidenceMatch}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Risk Indicator */}
+                      <div className="flex items-center space-x-2 mt-2">
+                        <span
+                          className={`inline-flex px-2 py-1 text-xs font-medium rounded-full border ${getRiskColor(
+                            getRiskLevel(service)
+                          )}`}
+                        >
+                          {getRiskLevel(service).toUpperCase()} RISK
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actemra Status Column */}
+                  <div className="p-6 bg-gradient-to-r from-blue-50/50 to-blue-100/30 border-l border-blue-200/50">
+                    <div className="flex items-center justify-center h-full">
+                      <span
+                        className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
+                          service.actemraStatus === "established"
+                            ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
+                            : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
+                        }`}
+                      >
+                        {service.actemraStatus === "established"
+                          ? "Criteria established"
+                          : "Not in policy"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Tocilizumab Status Column */}
+                  <div className="p-6 bg-gradient-to-r from-purple-50/50 to-purple-100/30 border-l border-purple-200/50">
+                    <div className="flex items-center justify-center h-full">
+                      <span
+                        className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
+                          service.tocilizumabStatus === "established"
+                            ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
+                            : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
+                        }`}
+                      >
+                        {service.tocilizumabStatus === "established"
+                          ? "Criteria established"
+                          : "Not in policy"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Actions Column */}
+                  <div className="p-6 bg-gradient-to-r from-gray-50/50 to-gray-100/30 border-l border-gray-200/50">
+                    <div className="flex items-center justify-center h-full">
+                      {service.confidenceMatch && (
+                        <button
+                          onClick={() => handleCompareCriteria(service.id)}
+                          className={`px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md ${
+                            selectedServices.includes(service.id)
+                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                              : "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700"
+                          }`}
+                          tabIndex={0}
+                          aria-label={`Compare criteria for ${service.description}`}
+                        >
+                          COMPARE CRITERIA
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Comprehensive Service Comparison Modal */}
         {isModalOpen && selectedService && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-2 sm:p-4 z-50">
             <div className="bg-white rounded-xl shadow-2xl max-w-7xl w-full max-h-[95vh] overflow-hidden">
               {/* Modal Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-1">
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100">
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1 truncate">
                     Medical Necessity & Criteria Comparison
                   </h2>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">
                     Comprehensive analysis for {selectedService.description}
                   </p>
                 </div>
                 <button
                   onClick={handleCloseModal}
-                  className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
+                  className="p-2 hover:bg-gray-200 rounded-lg transition-colors ml-2 flex-shrink-0"
                   tabIndex={0}
                   aria-label="Close modal"
                 >
-                  <X className="w-6 h-6 text-gray-500" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
                 </button>
               </div>
 
               {/* Modal Content */}
-              <div className="p-6 overflow-y-auto max-h-[calc(95vh-120px)]">
+              <div className="p-4 sm:p-6 overflow-y-auto max-h-[calc(95vh-120px)]">
                 {/* Executive Summary */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">
                     Executive Summary
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                      <div className="text-2xl font-bold text-blue-600 mb-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                    <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-200">
+                      <div className="text-lg sm:text-2xl font-bold text-blue-600 mb-1">
                         {selectedService.actemraCriteria?.length || 0}
                       </div>
-                      <div className="text-sm text-blue-700">
+                      <div className="text-xs sm:text-sm text-blue-700">
                         Actemra Criteria
                       </div>
                     </div>
-                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                      <div className="text-2xl font-bold text-purple-600 mb-1">
+                    <div className="bg-purple-50 p-3 sm:p-4 rounded-lg border border-purple-200">
+                      <div className="text-lg sm:text-2xl font-bold text-purple-600 mb-1">
                         {selectedService.tocilizumabCriteria?.length || 0}
                       </div>
-                      <div className="text-sm text-purple-700">
+                      <div className="text-xs sm:text-sm text-purple-700">
                         Tocilizumab Criteria
                       </div>
                     </div>
-                    <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                      <div className="text-2xl font-bold text-green-600 mb-1">
+                    <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
+                      <div className="text-lg sm:text-2xl font-bold text-green-600 mb-1">
                         {selectedService.confidenceMatch}
                       </div>
-                      <div className="text-sm text-green-700">
+                      <div className="text-xs sm:text-sm text-green-700">
                         Confidence Match
                       </div>
                     </div>
@@ -968,15 +1087,15 @@ export default function ServiceComparison() {
                 </div>
 
                 {/* Medical Necessity Comparison */}
-                <div className="mb-8">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">
                     Medical Necessity Comparison
                   </h3>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                     {/* Policy 1 Column */}
-                    <div className="space-y-4">
-                      <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 p-4 rounded-lg border border-blue-200">
-                        <h4 className="font-semibold text-gray-900 text-lg">
+                    <div className="space-y-3 sm:space-y-4">
+                      <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 p-3 sm:p-4 rounded-lg border border-blue-200">
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-lg">
                           Policy 1 service: {selectedService.description} for{" "}
                           {selectedService.condition}
                         </h4>
@@ -984,8 +1103,8 @@ export default function ServiceComparison() {
 
                       {selectedService.actemraCriteria &&
                       selectedService.actemraCriteria.length > 0 ? (
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <p className="font-medium text-gray-900 mb-3">
+                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                          <p className="font-medium text-gray-900 mb-3 text-sm sm:text-base">
                             All of the following need to be true:
                           </p>
                           <ul className="space-y-2">
@@ -996,7 +1115,7 @@ export default function ServiceComparison() {
                                   className="flex items-start space-x-2"
                                 >
                                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-sm text-gray-700">
+                                  <span className="text-xs sm:text-sm text-gray-700">
                                     {criteria}
                                   </span>
                                 </li>
@@ -1005,8 +1124,8 @@ export default function ServiceComparison() {
                           </ul>
                         </div>
                       ) : (
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <p className="text-sm text-gray-500 italic">
+                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                          <p className="text-xs sm:text-sm text-gray-500 italic">
                             No criteria established for this policy
                           </p>
                         </div>
@@ -1014,9 +1133,9 @@ export default function ServiceComparison() {
                     </div>
 
                     {/* Policy 2 Column */}
-                    <div className="space-y-4">
-                      <div className="bg-gradient-to-r from-purple-50 to-purple-100/50 p-4 rounded-lg border border-purple-200">
-                        <h4 className="font-semibold text-gray-900 text-lg">
+                    <div className="space-y-3 sm:space-y-4">
+                      <div className="bg-gradient-to-r from-purple-50 to-purple-100/50 p-3 sm:p-4 rounded-lg border border-purple-200">
+                        <h4 className="font-semibold text-gray-900 text-sm sm:text-lg">
                           Policy 2 service: Intravenous administration of
                           Tocilizumab (Actemra) for treatment of active{" "}
                           {selectedService.condition}
@@ -1025,8 +1144,8 @@ export default function ServiceComparison() {
 
                       {selectedService.tocilizumabCriteria &&
                       selectedService.tocilizumabCriteria.length > 0 ? (
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <p className="font-medium text-gray-900 mb-3">
+                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                          <p className="font-medium text-gray-900 mb-3 text-sm sm:text-base">
                             All of the following need to be true:
                           </p>
                           <ul className="space-y-2">
@@ -1037,7 +1156,7 @@ export default function ServiceComparison() {
                                   className="flex items-start space-x-2"
                                 >
                                   <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-sm text-gray-700">
+                                  <span className="text-xs sm:text-sm text-gray-700">
                                     {criteria}
                                   </span>
                                 </li>
@@ -1046,8 +1165,8 @@ export default function ServiceComparison() {
                           </ul>
                         </div>
                       ) : (
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <p className="text-sm text-gray-500 italic">
+                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                          <p className="text-xs sm:text-sm text-gray-500 italic">
                             No criteria established for this policy
                           </p>
                         </div>
