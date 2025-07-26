@@ -19,9 +19,9 @@ function MetricCard({ title, value, benchmark, benchmarkLabel, trend = "neutral"
         <h3 className="text-base font-medium">{title}</h3>
       </div>
       <div className="mt-2">
-        <p className="text-4xl font-bold">{value.toLocaleString()}</p>
+        <p className="text-4xl font-bold">{value.toLocaleString('en-US')}</p>
         <p className="mt-2 text-sm text-slate-500">
-          <span className="font-medium">{benchmark.toLocaleString()}</span> {benchmarkLabel}
+          <span className="font-medium">{benchmark.toLocaleString('en-US')}</span> {benchmarkLabel}
         </p>
       </div>
     </div>

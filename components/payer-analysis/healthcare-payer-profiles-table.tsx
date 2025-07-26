@@ -36,7 +36,7 @@ export function HealthcarePayerProfilesTable() {
     if (lives >= 1000000) {
       return `${(lives / 1000000).toFixed(1)}M`
     }
-    return `${lives.toLocaleString()}`
+    return `${lives.toLocaleString('en-US')}`
   }
 
   const getCoverage = (payer: any) => {

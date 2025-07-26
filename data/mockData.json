@@ -2754,7 +2754,7 @@
           "name": "Blue Cross Blue Shield",
           "logo": "bcbs"
         },
-        "clinicalCategory": "Orthopedic",
+        "clinicalCategory": "Cardiology",
         "spendUnderManagement": "$1.2M",
         "expDenialValue": "$320K",
         "lastUpdated": "2 days ago"
@@ -2766,7 +2766,7 @@
           "name": "UnitedHealthcare",
           "logo": "united"
         },
-        "clinicalCategory": "Hematologic",
+        "clinicalCategory": "Oncology",
         "spendUnderManagement": "$950K",
         "expDenialValue": "$280K",
         "lastUpdated": "1 week ago"
@@ -2802,10 +2802,190 @@
           "name": "HCSC",
           "logo": "hcsc"
         },
-        "clinicalCategory": "Medication",
+        "clinicalCategory": "Endocrinology",
         "spendUnderManagement": "$1.1M",
         "expDenialValue": "$310K",
         "lastUpdated": "5 days ago"
+      },
+      {
+        "id": "6",
+        "policyName": "MRI for Neurological Disorders",
+        "payer": {
+          "name": "Kaiser Permanente",
+          "logo": "kaiser"
+        },
+        "clinicalCategory": "Neurology",
+        "spendUnderManagement": "$890K",
+        "expDenialValue": "$240K",
+        "lastUpdated": "4 days ago"
+      },
+      {
+        "id": "7",
+        "policyName": "Hip Replacement Surgery",
+        "payer": {
+          "name": "Humana",
+          "logo": "humana"
+        },
+        "clinicalCategory": "Orthopedic",
+        "spendUnderManagement": "$2.1M",
+        "expDenialValue": "$580K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "8",
+        "policyName": "Chemotherapy for Breast Cancer",
+        "payer": {
+          "name": "Elevance Health",
+          "logo": "elevance"
+        },
+        "clinicalCategory": "Oncology",
+        "spendUnderManagement": "$1.8M",
+        "expDenialValue": "$450K",
+        "lastUpdated": "6 days ago"
+      },
+      {
+        "id": "9",
+        "policyName": "Sleep Study for Sleep Apnea",
+        "payer": {
+          "name": "Centene",
+          "logo": "centene"
+        },
+        "clinicalCategory": "Pulmonology",
+        "spendUnderManagement": "$650K",
+        "expDenialValue": "$180K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "10",
+        "policyName": "Physical Therapy for Sports Injuries",
+        "payer": {
+          "name": "Molina Healthcare",
+          "logo": "molina"
+        },
+        "clinicalCategory": "Rehabilitation",
+        "spendUnderManagement": "$420K",
+        "expDenialValue": "$95K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "11",
+        "policyName": "Colonoscopy for Colorectal Cancer Screening",
+        "payer": {
+          "name": "Blue Cross Blue Shield",
+          "logo": "bcbs"
+        },
+        "clinicalCategory": "Gastroenterology",
+        "spendUnderManagement": "$720K",
+        "expDenialValue": "$210K",
+        "lastUpdated": "2 weeks ago"
+      },
+      {
+        "id": "12",
+        "policyName": "Dermatological Procedures for Skin Cancer",
+        "payer": {
+          "name": "UnitedHealthcare",
+          "logo": "united"
+        },
+        "clinicalCategory": "Dermatology",
+        "spendUnderManagement": "$580K",
+        "expDenialValue": "$160K",
+        "lastUpdated": "5 days ago"
+      },
+      {
+        "id": "13",
+        "policyName": "Cataract Surgery",
+        "payer": {
+          "name": "Aetna",
+          "logo": "aetna"
+        },
+        "clinicalCategory": "Ophthalmology",
+        "spendUnderManagement": "$920K",
+        "expDenialValue": "$280K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "14",
+        "policyName": "Dental Implants for Missing Teeth",
+        "payer": {
+          "name": "Cigna",
+          "logo": "cigna"
+        },
+        "clinicalCategory": "Dental",
+        "spendUnderManagement": "$380K",
+        "expDenialValue": "$120K",
+        "lastUpdated": "4 days ago"
+      },
+      {
+        "id": "15",
+        "policyName": "Mental Health Counseling",
+        "payer": {
+          "name": "HCSC",
+          "logo": "hcsc"
+        },
+        "clinicalCategory": "Psychiatry",
+        "spendUnderManagement": "$540K",
+        "expDenialValue": "$140K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "16",
+        "policyName": "Vascular Surgery for Peripheral Artery Disease",
+        "payer": {
+          "name": "Kaiser Permanente",
+          "logo": "kaiser"
+        },
+        "clinicalCategory": "Vascular",
+        "spendUnderManagement": "$1.3M",
+        "expDenialValue": "$350K",
+        "lastUpdated": "2 days ago"
+      },
+      {
+        "id": "17",
+        "policyName": "Fertility Treatments",
+        "payer": {
+          "name": "Humana",
+          "logo": "humana"
+        },
+        "clinicalCategory": "Reproductive Medicine",
+        "spendUnderManagement": "$680K",
+        "expDenialValue": "$190K",
+        "lastUpdated": "6 days ago"
+      },
+      {
+        "id": "18",
+        "policyName": "Pediatric Vaccinations",
+        "payer": {
+          "name": "Elevance Health",
+          "logo": "elevance"
+        },
+        "clinicalCategory": "Pediatrics",
+        "spendUnderManagement": "$450K",
+        "expDenialValue": "$85K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "19",
+        "policyName": "Emergency Room Services",
+        "payer": {
+          "name": "Centene",
+          "logo": "centene"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.6M",
+        "expDenialValue": "$420K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "20",
+        "policyName": "Hearing Aids for Hearing Loss",
+        "payer": {
+          "name": "Molina Healthcare",
+          "logo": "molina"
+        },
+        "clinicalCategory": "Audiology",
+        "spendUnderManagement": "$320K",
+        "expDenialValue": "$75K",
+        "lastUpdated": "1 week ago"
       }
     ],
     "suggestions": [
@@ -2813,7 +2993,21 @@
       "genetic testing",
       "spinal fusion",
       "immunotherapy",
-      "glucose monitoring"
+      "glucose monitoring",
+      "hip replacement",
+      "chemotherapy",
+      "sleep study",
+      "physical therapy",
+      "colonoscopy",
+      "dermatology",
+      "cataract surgery",
+      "dental implants",
+      "mental health",
+      "vascular surgery",
+      "fertility",
+      "vaccinations",
+      "emergency room",
+      "hearing aids"
     ]
   },
   "recentUpdates": {

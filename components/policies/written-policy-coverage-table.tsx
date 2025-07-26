@@ -91,9 +91,9 @@ export function WrittenPolicyCoverageTable() {
               {policyData.map((row, index) => (
                 <tr key={index} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                   <td className="py-3 px-4 text-slate-800 font-medium">{row.payerName}</td>
-                  <td className="py-3 px-4 text-right text-slate-700">{row.totalPolicies.toLocaleString()}</td>
-                  <td className="py-3 px-4 text-right text-slate-700">{row.hcpcsCodes.toLocaleString()}</td>
-                  <td className="py-3 px-4 text-right text-slate-700">{row.modifiersCovered.toLocaleString()}</td>
+                  <td className="py-3 px-4 text-right text-slate-700">{row.totalPolicies.toLocaleString('en-US')}</td>
+                  <td className="py-3 px-4 text-right text-slate-700">{row.hcpcsCodes.toLocaleString('en-US')}</td>
+                  <td className="py-3 px-4 text-right text-slate-700">{row.modifiersCovered.toLocaleString('en-US')}</td>
                 </tr>
               ))}
             </tbody>

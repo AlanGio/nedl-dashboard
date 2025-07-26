@@ -1,98 +1,135 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useMemo } from "react"
-import { LayoutList, Search } from "lucide-react"
-import { PolicyTable } from "./policy-table"
-import mockData from "@/data/mockData.json"
+import { useState, useMemo } from "react";
+import { LayoutList, Search } from "lucide-react";
+import { PolicyTable } from "./policy-table";
+import { ComparisonBox } from "./comparison-box";
+import { ComparisonModal } from "./comparison-modal";
+import mockData from "@/data/mockData.json";
 
 export function SearchPolicies() {
-  const { totalPolicies, columns, policies, suggestions } = mockData.needsReview
+  const { totalPolicies, columns, policies, suggestions } =
+    mockData.needsReview;
 
-  const [searchQuery, setSearchQuery] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
-  const [sortColumn, setSortColumn] = useState("policyName")
-  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc")
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [sortColumn, setSortColumn] = useState("policyName");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [selectedPolicies, setSelectedPolicies] = useState<string[]>([]);
+  const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
 
   // Filter policies based on search query
   const filteredPolicies = useMemo(() => {
-    if (!searchQuery) return policies
+    if (!searchQuery) return policies;
 
-    return policies.filter((policy) => policy.policyName.toLowerCase().includes(searchQuery.toLowerCase()))
-  }, [policies, searchQuery])
+    return policies.filter((policy) =>
+      policy.policyName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [policies, searchQuery]);
 
   // Sort policies based on sort column and direction
   const sortedPolicies = useMemo(() => {
     return [...filteredPolicies].sort((a, b) => {
-      const aValue = a[sortColumn as keyof typeof a]
-      const bValue = b[sortColumn as keyof typeof b]
+      const aValue = a[sortColumn as keyof typeof a];
+      const bValue = b[sortColumn as keyof typeof b];
 
       // Handle nested objects like payer
       if (sortColumn === "payer") {
-        const aName = (a.payer as any).name
-        const bName = (b.payer as any).name
-        return sortDirection === "asc" ? aName.localeCompare(bName) : bName.localeCompare(aName)
+        const aName = (a.payer as any).name;
+        const bName = (b.payer as any).name;
+        return sortDirection === "asc"
+          ? aName.localeCompare(bName)
+          : bName.localeCompare(aName);
       }
 
       // Handle string comparison
       if (typeof aValue === "string" && typeof bValue === "string") {
-        return sortDirection === "asc" ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue)
+        return sortDirection === "asc"
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
       }
 
-      return 0
-    })
-  }, [filteredPolicies, sortColumn, sortDirection])
+      return 0;
+    });
+  }, [filteredPolicies, sortColumn, sortDirection]);
 
   // Handle sort column change
   const handleSort = (column: string) => {
     if (sortColumn === column) {
       // Toggle sort direction
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc")
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       // Set new sort column and default to ascending
-      setSortColumn(column)
-      setSortDirection("asc")
+      setSortColumn(column);
+      setSortDirection("asc");
     }
     // Reset to first page when sorting changes
-    setCurrentPage(1)
-  }
+    setCurrentPage(1);
+  };
 
   // Handle search query change
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-    setCurrentPage(1) // Reset to first page when search changes
-  }
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // Reset to first page when search changes
+  };
 
   // Handle clear search
   const handleClearSearch = () => {
-    setSearchQuery("")
-    setCurrentPage(1)
-  }
+    setSearchQuery("");
+    setCurrentPage(1);
+  };
 
   // Handle page change
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
 
   // Handle rows per page change
   const handleRowsPerPageChange = (rows: number) => {
-    setRowsPerPage(rows)
-    setCurrentPage(1) // Reset to first page when rows per page changes
-  }
+    setRowsPerPage(rows);
+    setCurrentPage(1); // Reset to first page when rows per page changes
+  };
+
+  // Handle policy selection
+  const handlePolicySelect = (policyId: string) => {
+    setSelectedPolicies((prev) =>
+      prev.includes(policyId)
+        ? prev.filter((id) => id !== policyId)
+        : [...prev, policyId]
+    );
+  };
+
+  // Handle remove policy from comparison
+  const handleRemovePolicy = (policyId: string) => {
+    setSelectedPolicies((prev) => prev.filter((id) => id !== policyId));
+  };
+
+  // Handle compare button click
+  const handleCompare = () => {
+    setIsComparisonModalOpen(true);
+  };
+
+  // Handle close comparison modal
+  const handleCloseComparisonModal = () => {
+    setIsComparisonModalOpen(false);
+  };
 
   // Get current page of policies
   const currentPolicies = useMemo(() => {
-    const startIndex = (currentPage - 1) * rowsPerPage
-    return sortedPolicies.slice(startIndex, startIndex + rowsPerPage)
-  }, [sortedPolicies, currentPage, rowsPerPage])
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return sortedPolicies.slice(startIndex, startIndex + rowsPerPage);
+  }, [sortedPolicies, currentPage, rowsPerPage]);
 
   return (
     <div className="p-2">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-800">Search Policies</h1>
-        <p className="text-sm text-slate-500">Browse all payers policies, and compare them against each other.</p>
+        <p className="text-sm text-slate-500">
+          Browse all payers policies, and compare them against each other.
+        </p>
       </div>
 
       <div className="mb-6">
@@ -108,7 +145,7 @@ export function SearchPolicies() {
 
         <div className="mb-6">
           <div
-            className="relative rounded-full overflow-hidden"
+            className="relative rounded-full"
             style={{
               background:
                 "linear-gradient(white, white) padding-box, linear-gradient(90deg, #449CFB, #F5709A) border-box",
@@ -137,12 +174,50 @@ export function SearchPolicies() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             )}
             <div className="absolute right-6 top-1/2 -translate-y-1/2">
               <Search className="h-5 w-5 text-[#449cfb] no-shadow" />
+            </div>
+          </div>
+        </div>
+
+        {/* Comparison Instructions Poster */}
+        <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center space-x-3">
+            <div className="flex-shrink-0">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-4 h-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-sm font-medium text-blue-900">
+                Compare Policies
+              </h3>
+              <p className="text-sm text-blue-700 mt-1">
+                Select up to 4 policies using the checkboxes to compare them
+                side by side. Click the "Compare" button in the floating bar at
+                the bottom to view detailed comparisons.
+              </p>
             </div>
           </div>
         </div>
@@ -158,8 +233,35 @@ export function SearchPolicies() {
           sortColumn={sortColumn}
           sortDirection={sortDirection}
           onSort={handleSort}
+          selectedPolicies={selectedPolicies}
+          onPolicySelect={handlePolicySelect}
+          maxSelections={4}
         />
       </div>
+
+      {/* Get selected policy objects for comparison box */}
+      {(() => {
+        const selectedPolicyObjects = policies.filter((policy) =>
+          selectedPolicies.includes(policy.id)
+        );
+
+        return (
+          <>
+            <ComparisonBox
+              selectedPolicies={selectedPolicyObjects}
+              onRemovePolicy={handleRemovePolicy}
+              onCompare={handleCompare}
+              isVisible={selectedPolicies.length > 0}
+            />
+
+            <ComparisonModal
+              selectedPolicies={selectedPolicyObjects}
+              isOpen={isComparisonModalOpen}
+              onClose={handleCloseComparisonModal}
+            />
+          </>
+        );
+      })()}
     </div>
-  )
+  );
 }
