@@ -6,6 +6,7 @@ import { useState, useMemo } from "react";
 import { LayoutList, Search } from "lucide-react";
 import { PolicyTable } from "./policy-table";
 import { ComparisonBox } from "./comparison-box";
+import { ComparisonModal } from "./comparison-modal";
 import { BestInClassModal } from "./best-in-class-modal";
 import mockData from "@/data/mockData.json";
 
@@ -268,6 +269,12 @@ export function SearchPolicies() {
               onRemovePolicy={handleRemovePolicy}
               onCompare={handleCompare}
               isVisible={selectedPolicies.length > 0}
+            />
+
+            <ComparisonModal
+              selectedPolicies={selectedPolicyObjects}
+              isOpen={isComparisonModalOpen}
+              onClose={handleCloseComparisonModal}
             />
 
             <BestInClassModal
