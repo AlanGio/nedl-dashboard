@@ -18,11 +18,27 @@ interface ServiceData {
   description: string;
   condition: string;
   confidenceMatch?: string;
-  actemraStatus: "established" | "not-in-policy";
-  tocilizumabStatus: "established" | "not-in-policy";
-  actemraCriteria?: string[];
-  tocilizumabCriteria?: string[];
+  payer1Status: "established" | "not-in-policy";
+  payer2Status: "established" | "not-in-policy";
+  payer1Criteria?: string[];
+  payer2Criteria?: string[];
+  payer1Name?: string;
+  payer2Name?: string;
 }
+
+// Available payers for comparison
+const availablePayers = [
+  "BCBSNC",
+  "United Healthcare",
+  "Cigna",
+  "Aetna",
+  "Humana",
+  "Kaiser Permanente",
+  "Elevance Health",
+  "CVS Health",
+  "Molina Healthcare",
+  "Centene",
+];
 
 const serviceData: ServiceData[] = [
   {
@@ -30,140 +46,156 @@ const serviceData: ServiceData[] = [
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "systemic juvenile idiopathic arthritis",
     confidenceMatch: "85% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "established",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "established",
+    payer1Criteria: [
       "Diagnosis of systemic juvenile idiopathic arthritis",
       "Dosed according to FDA labeled dosing",
       "Not receiving Actemra with a targeted immunomodulator",
       "Prescribed by a rheumatologist",
       "Authorization for no more than 12 months",
     ],
-    tocilizumabCriteria: [
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 2 years of age and older",
       "Active systemic juvenile idiopathic arthritis",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "2",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "giant cell arteritis",
     confidenceMatch: "82% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "established",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "established",
+    payer1Criteria: [
       "Diagnosis of giant cell arteritis",
       "Dosed according to FDA labeled dosing",
       "Prescribed by a rheumatologist",
       "Authorization for no more than 12 months",
     ],
-    tocilizumabCriteria: [
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 18 years of age and older",
       "Active giant cell arteritis",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "3",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "polyarticular juvenile idiopathic arthritis",
     confidenceMatch: "76% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "established",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "established",
+    payer1Criteria: [
       "Diagnosis of polyarticular juvenile idiopathic arthritis",
       "Dosed according to FDA labeled dosing",
       "Prescribed by a rheumatologist",
       "Authorization for no more than 12 months",
     ],
-    tocilizumabCriteria: [
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 2 years of age and older",
       "Active polyarticular juvenile idiopathic arthritis",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "4",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "rheumatoid arthritis",
     confidenceMatch: "79% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "established",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "established",
+    payer1Criteria: [
       "Diagnosis of rheumatoid arthritis",
       "Dosed according to FDA labeled dosing",
       "Prescribed by a rheumatologist",
       "Authorization for no more than 12 months",
     ],
-    tocilizumabCriteria: [
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 18 years of age and older",
       "Active rheumatoid arthritis",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "5",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "cytokine release syndrome",
     confidenceMatch: "81% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "established",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "established",
+    payer1Criteria: [
       "Diagnosis of cytokine release syndrome",
       "Dosed according to FDA labeled dosing",
       "Prescribed by an oncologist",
       "Authorization for no more than 6 months",
     ],
-    tocilizumabCriteria: [
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 18 years of age and older",
       "Active cytokine release syndrome",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "6",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "acute graft-versus-host disease",
     confidenceMatch: "73% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "not-in-policy",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "not-in-policy",
+    payer1Criteria: [
       "Diagnosis of acute graft-versus-host disease",
       "Dosed according to FDA labeled dosing",
       "Prescribed by a hematologist",
       "Authorization for no more than 6 months",
     ],
-    tocilizumabCriteria: [],
+    payer2Criteria: [],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "7",
     description: "Actemra (tocilizumab) injection for intravenous infusion",
     condition: "immune checkpoint inhibitor-related toxicities",
     confidenceMatch: "77% confidence match",
-    actemraStatus: "established",
-    tocilizumabStatus: "not-in-policy",
-    actemraCriteria: [
+    payer1Status: "established",
+    payer2Status: "not-in-policy",
+    payer1Criteria: [
       "Diagnosis of immune checkpoint inhibitor-related toxicities",
       "Dosed according to FDA labeled dosing",
       "Prescribed by an oncologist",
       "Authorization for no more than 6 months",
     ],
-    tocilizumabCriteria: [],
+    payer2Criteria: [],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
   {
     id: "8",
     description:
       "Intravenous administration of Tocilizumab (Actemra) for any other indications (including outpatient COVID-19)",
     condition: "",
-    actemraStatus: "not-in-policy",
-    tocilizumabStatus: "established",
-    actemraCriteria: [],
-    tocilizumabCriteria: [
+    payer1Status: "not-in-policy",
+    payer2Status: "established",
+    payer1Criteria: [],
+    payer2Criteria: [
       "Administered intravenously",
       "Individuals 18 years of age and older",
       "Any other indications including outpatient COVID-19",
     ],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
   },
 ];
 
@@ -173,6 +205,27 @@ export default function ServiceComparison() {
     null
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Payer selection state
+  const [selectedPayer1, setSelectedPayer1] = useState<string>("BCBSNC");
+  const [selectedPayer2, setSelectedPayer2] =
+    useState<string>("United Healthcare");
+
+  // Handle payer selection changes
+  const handlePayer1Change = (payer: string) => {
+    setSelectedPayer1(payer);
+    // If the second payer is the same as the new first payer, reset it
+    if (payer === selectedPayer2) {
+      const availablePayersForPayer2 = availablePayers.filter(
+        (p) => p !== payer
+      );
+      setSelectedPayer2(availablePayersForPayer2[0] || "");
+    }
+  };
+
+  const handlePayer2Change = (payer: string) => {
+    setSelectedPayer2(payer);
+  };
 
   // Advanced filtering and search state
   const [searchTerm, setSearchTerm] = useState("");
@@ -217,16 +270,16 @@ export default function ServiceComparison() {
       const matchesStatus =
         statusFilter === "all" ||
         (statusFilter === "established" &&
-          service.actemraStatus === "established" &&
-          service.tocilizumabStatus === "established") ||
+          service.payer1Status === "established" &&
+          service.payer2Status === "established") ||
         (statusFilter === "partial" &&
-          ((service.actemraStatus === "established" &&
-            service.tocilizumabStatus === "not-in-policy") ||
-            (service.actemraStatus === "not-in-policy" &&
-              service.tocilizumabStatus === "established"))) ||
+          ((service.payer1Status === "established" &&
+            service.payer2Status === "not-in-policy") ||
+            (service.payer1Status === "not-in-policy" &&
+              service.payer2Status === "established"))) ||
         (statusFilter === "none" &&
-          service.actemraStatus === "not-in-policy" &&
-          service.tocilizumabStatus === "not-in-policy");
+          service.payer1Status === "not-in-policy" &&
+          service.payer2Status === "not-in-policy");
 
       const matchesConfidence =
         confidenceFilter === "all" ||
@@ -259,11 +312,9 @@ export default function ServiceComparison() {
           return bConfidence - aConfidence;
         case "criteria":
           const aCriteria =
-            (a.actemraCriteria?.length || 0) +
-            (a.tocilizumabCriteria?.length || 0);
+            (a.payer1Criteria?.length || 0) + (a.payer2Criteria?.length || 0);
           const bCriteria =
-            (b.actemraCriteria?.length || 0) +
-            (b.tocilizumabCriteria?.length || 0);
+            (b.payer1Criteria?.length || 0) + (b.payer2Criteria?.length || 0);
           return bCriteria - aCriteria;
         default:
           return 0;
@@ -278,20 +329,17 @@ export default function ServiceComparison() {
     const total = serviceData.length;
     const established = serviceData.filter(
       (s) =>
-        s.actemraStatus === "established" &&
-        s.tocilizumabStatus === "established"
+        s.payer1Status === "established" && s.payer2Status === "established"
     ).length;
     const partial = serviceData.filter(
       (s) =>
-        (s.actemraStatus === "established" &&
-          s.tocilizumabStatus === "not-in-policy") ||
-        (s.actemraStatus === "not-in-policy" &&
-          s.tocilizumabStatus === "established")
+        (s.payer1Status === "established" &&
+          s.payer2Status === "not-in-policy") ||
+        (s.payer1Status === "not-in-policy" && s.payer2Status === "established")
     ).length;
     const none = serviceData.filter(
       (s) =>
-        s.actemraStatus === "not-in-policy" &&
-        s.tocilizumabStatus === "not-in-policy"
+        s.payer1Status === "not-in-policy" && s.payer2Status === "not-in-policy"
     ).length;
 
     const avgConfidence =
@@ -306,12 +354,12 @@ export default function ServiceComparison() {
   const handleExportData = () => {
     const csvContent =
       "data:text/csv;charset=utf-8," +
-      "Service,Condition,Actemra Status,Tocilizumab Status,Confidence Match\n" +
+      `Service,Condition,${selectedPayer1} Status,${selectedPayer2} Status,Confidence Match\n` +
       filteredServices
         .map(
           (s) =>
-            `"${s.description}","${s.condition}","${s.actemraStatus}","${
-              s.tocilizumabStatus
+            `"${s.description}","${s.condition}","${s.payer1Status}","${
+              s.payer2Status
             }","${s.confidenceMatch || "N/A"}"`
         )
         .join("\n");
@@ -358,9 +406,7 @@ export default function ServiceComparison() {
     // Criteria complexity insights
     const highComplexityServices = serviceData.filter(
       (s) =>
-        (s.actemraCriteria?.length || 0) +
-          (s.tocilizumabCriteria?.length || 0) >
-        8
+        (s.payer1Criteria?.length || 0) + (s.payer2Criteria?.length || 0) > 8
     );
     if (highComplexityServices.length > 0) {
       insights.push({
@@ -397,23 +443,21 @@ export default function ServiceComparison() {
     });
 
     // Policy preference analysis
-    const actemraPreferred = serviceData.filter(
+    const payer1Preferred = serviceData.filter(
       (s) =>
-        s.actemraStatus === "established" &&
-        s.tocilizumabStatus === "not-in-policy"
+        s.payer1Status === "established" && s.payer2Status === "not-in-policy"
     ).length;
 
-    const tocilizumabPreferred = serviceData.filter(
+    const payer2Preferred = serviceData.filter(
       (s) =>
-        s.actemraStatus === "not-in-policy" &&
-        s.tocilizumabStatus === "established"
+        s.payer1Status === "not-in-policy" && s.payer2Status === "established"
     ).length;
 
     trends.push({
       title: "Policy Preferences",
       data: [
-        { label: "Actemra Only", value: actemraPreferred },
-        { label: "Tocilizumab Only", value: tocilizumabPreferred },
+        { label: `${selectedPayer1} Only`, value: payer1Preferred },
+        { label: `${selectedPayer2} Only`, value: payer2Preferred },
         { label: "Both Policies", value: analyticsData.established },
       ],
     });
@@ -427,8 +471,8 @@ export default function ServiceComparison() {
       ? parseInt(service.confidenceMatch)
       : 0;
     const criteriaCount =
-      (service.actemraCriteria?.length || 0) +
-      (service.tocilizumabCriteria?.length || 0);
+      (service.payer1Criteria?.length || 0) +
+      (service.payer2Criteria?.length || 0);
 
     if (confidence < 70 || criteriaCount > 10) return "high";
     if (confidence < 80 || criteriaCount > 6) return "medium";
@@ -718,72 +762,66 @@ export default function ServiceComparison() {
           </div>
         )}
 
-        {/* Advanced Filters */}
+        {/* Payer Selection */}
         <div className="mb-6 bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
           <div className="flex items-center gap-2 mb-4">
-            <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+            <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
             <h3 className="text-base sm:text-lg font-semibold text-gray-900">
-              Filters & Search
+              Select Payers to Compare
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search services..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-              />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {/* Payer 1 Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                First Payer
+              </label>
+              <select
+                value={selectedPayer1}
+                onChange={(e) => handlePayer1Change(e.target.value)}
+                className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+              >
+                {availablePayers.map((payer) => (
+                  <option key={payer} value={payer}>
+                    {payer}
+                  </option>
+                ))}
+              </select>
             </div>
 
-            {/* Status Filter */}
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-            >
-              <option value="all">All Statuses</option>
-              <option value="established">Fully Established</option>
-              <option value="partial">Partially Established</option>
-              <option value="none">Not Established</option>
-            </select>
-
-            {/* Confidence Filter */}
-            <select
-              value={confidenceFilter}
-              onChange={(e) => setConfidenceFilter(e.target.value)}
-              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-            >
-              <option value="all">All Confidence Levels</option>
-              <option value="high">High (80%+)</option>
-              <option value="medium">Medium (70-79%)</option>
-              <option value="low">Low (&lt;70%)</option>
-            </select>
-
-            {/* Sort By */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-            >
-              <option value="name">Sort by Name</option>
-              <option value="confidence">Sort by Confidence</option>
-              <option value="criteria">Sort by Criteria Count</option>
-            </select>
+            {/* Payer 2 Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Second Payer
+              </label>
+              <select
+                value={selectedPayer2}
+                onChange={(e) => handlePayer2Change(e.target.value)}
+                className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+              >
+                {availablePayers
+                  .filter((payer) => payer !== selectedPayer1)
+                  .map((payer) => (
+                    <option key={payer} value={payer}>
+                      {payer}
+                    </option>
+                  ))}
+              </select>
+            </div>
           </div>
 
-          {/* Results Count */}
-          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <p className="text-xs sm:text-sm text-gray-600">
-              Showing {filteredServices.length} of {serviceData.length} services
-            </p>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Smart filtering active</span>
+          {/* Comparison Status */}
+          <div className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium text-gray-700">
+                Comparing:{" "}
+                <span className="text-blue-600">{selectedPayer1}</span> vs{" "}
+                <span className="text-purple-600">{selectedPayer2}</span>
+              </span>
+              <span className="text-xs text-gray-500">
+                {filteredServices.length} services available
+              </span>
             </div>
           </div>
         </div>
@@ -843,16 +881,16 @@ export default function ServiceComparison() {
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
                     <p className="text-xs font-medium text-blue-700 mb-2">
-                      Actemra
+                      {selectedPayer1}
                     </p>
                     <span
                       className={`inline-flex px-2 py-1 text-xs font-semibold rounded-lg shadow-sm ${
-                        service.actemraStatus === "established"
+                        service.payer1Status === "established"
                           ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
                           : "bg-gradient-to-r from-red-500 to-pink-500 text-white"
                       }`}
                     >
-                      {service.actemraStatus === "established"
+                      {service.payer1Status === "established"
                         ? "Established"
                         : "Not in policy"}
                     </span>
@@ -860,16 +898,16 @@ export default function ServiceComparison() {
 
                   <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
                     <p className="text-xs font-medium text-purple-700 mb-2">
-                      Tocilizumab
+                      {selectedPayer2}
                     </p>
                     <span
                       className={`inline-flex px-2 py-1 text-xs font-semibold rounded-lg shadow-sm ${
-                        service.tocilizumabStatus === "established"
+                        service.payer2Status === "established"
                           ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
                           : "bg-gradient-to-r from-red-500 to-pink-500 text-white"
                       }`}
                     >
-                      {service.tocilizumabStatus === "established"
+                      {service.payer2Status === "established"
                         ? "Established"
                         : "Not in policy"}
                     </span>
@@ -905,10 +943,10 @@ export default function ServiceComparison() {
                 Service
               </div>
               <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border-l border-blue-200">
-                Actemra (Tocilizumab)
+                {selectedPayer1}
               </div>
               <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border-l border-purple-200">
-                Tocilizumab And Associated Services
+                {selectedPayer2}
               </div>
               <div className="p-6 font-semibold text-gray-900 text-lg bg-gradient-to-r from-gray-50 to-gray-100/50 border-l border-gray-200">
                 Actions
@@ -968,34 +1006,34 @@ export default function ServiceComparison() {
                     </div>
                   </div>
 
-                  {/* Actemra Status Column */}
+                  {/* Payer 1 Status Column */}
                   <div className="p-6 bg-gradient-to-r from-blue-50/50 to-blue-100/30 border-l border-blue-200/50">
                     <div className="flex items-center justify-center h-full">
                       <span
                         className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
-                          service.actemraStatus === "established"
+                          service.payer1Status === "established"
                             ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
                             : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
                         }`}
                       >
-                        {service.actemraStatus === "established"
+                        {service.payer1Status === "established"
                           ? "Criteria established"
                           : "Not in policy"}
                       </span>
                     </div>
                   </div>
 
-                  {/* Tocilizumab Status Column */}
+                  {/* Payer 2 Status Column */}
                   <div className="p-6 bg-gradient-to-r from-purple-50/50 to-purple-100/30 border-l border-purple-200/50">
                     <div className="flex items-center justify-center h-full">
                       <span
                         className={`inline-flex px-4 py-2 text-sm font-semibold rounded-xl shadow-sm transition-all duration-200 ${
-                          service.tocilizumabStatus === "established"
+                          service.payer2Status === "established"
                             ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md"
                             : "bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md"
                         }`}
                       >
-                        {service.tocilizumabStatus === "established"
+                        {service.payer2Status === "established"
                           ? "Criteria established"
                           : "Not in policy"}
                       </span>
@@ -1035,10 +1073,12 @@ export default function ServiceComparison() {
               <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100">
                 <div className="flex-1 min-w-0">
                   <h2 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1 truncate">
-                    Medical Necessity & Criteria Comparison
+                    {selectedPayer1} vs {selectedPayer2} Policy Comparison
                   </h2>
                   <p className="text-xs sm:text-sm text-gray-600 truncate">
                     Comprehensive analysis for {selectedService.description}
+                    {selectedService.condition &&
+                      ` - ${selectedService.condition}`}
                   </p>
                 </div>
                 <button
@@ -1061,18 +1101,18 @@ export default function ServiceComparison() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-200">
                       <div className="text-lg sm:text-2xl font-bold text-blue-600 mb-1">
-                        {selectedService.actemraCriteria?.length || 0}
+                        {selectedService.payer1Criteria?.length || 0}
                       </div>
                       <div className="text-xs sm:text-sm text-blue-700">
-                        Actemra Criteria
+                        {selectedPayer1} Criteria
                       </div>
                     </div>
                     <div className="bg-purple-50 p-3 sm:p-4 rounded-lg border border-purple-200">
                       <div className="text-lg sm:text-2xl font-bold text-purple-600 mb-1">
-                        {selectedService.tocilizumabCriteria?.length || 0}
+                        {selectedService.payer2Criteria?.length || 0}
                       </div>
                       <div className="text-xs sm:text-sm text-purple-700">
-                        Tocilizumab Criteria
+                        {selectedPayer2} Criteria
                       </div>
                     </div>
                     <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
@@ -1081,6 +1121,93 @@ export default function ServiceComparison() {
                       </div>
                       <div className="text-xs sm:text-sm text-green-700">
                         Confidence Match
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Comparison Summary */}
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                    Policy Comparison Summary
+                  </h3>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    {/* Policy Status Comparison */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Policy Status
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-gray-700">
+                            {selectedPayer1}:
+                          </span>
+                          <span
+                            className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+                              selectedService.payer1Status === "established"
+                                ? "bg-green-100 text-green-800"
+                                : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {selectedService.payer1Status === "established"
+                              ? "Established"
+                              : "Not in Policy"}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-gray-700">
+                            {selectedPayer2}:
+                          </span>
+                          <span
+                            className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+                              selectedService.payer2Status === "established"
+                                ? "bg-green-100 text-green-800"
+                                : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {selectedService.payer2Status === "established"
+                              ? "Established"
+                              : "Not in Policy"}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Criteria Complexity Comparison */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Criteria Complexity
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-gray-700">
+                            {selectedPayer1}:
+                          </span>
+                          <span className="text-sm font-bold text-blue-600">
+                            {selectedService.payer1Criteria?.length || 0}{" "}
+                            criteria
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-gray-700">
+                            {selectedPayer2}:
+                          </span>
+                          <span className="text-sm font-bold text-purple-600">
+                            {selectedService.payer2Criteria?.length || 0}{" "}
+                            criteria
+                          </span>
+                        </div>
+                        <div className="pt-2 border-t border-gray-200">
+                          <span className="text-xs text-gray-600">
+                            {(selectedService.payer1Criteria?.length || 0) >
+                            (selectedService.payer2Criteria?.length || 0)
+                              ? `${selectedPayer1} has more complex requirements`
+                              : (selectedService.payer2Criteria?.length || 0) >
+                                (selectedService.payer1Criteria?.length || 0)
+                              ? `${selectedPayer2} has more complex requirements`
+                              : "Both policies have similar complexity"}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1096,20 +1223,21 @@ export default function ServiceComparison() {
                     <div className="space-y-3 sm:space-y-4">
                       <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 p-3 sm:p-4 rounded-lg border border-blue-200">
                         <h4 className="font-semibold text-gray-900 text-sm sm:text-lg">
-                          Policy 1 service: {selectedService.description} for{" "}
+                          {selectedPayer1} service:{" "}
+                          {selectedService.description} for{" "}
                           {selectedService.condition}
                         </h4>
                       </div>
 
-                      {selectedService.actemraCriteria &&
-                      selectedService.actemraCriteria.length > 0 ? (
+                      {selectedService.payer1Criteria &&
+                      selectedService.payer1Criteria.length > 0 ? (
                         <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                           <p className="font-medium text-gray-900 mb-3 text-sm sm:text-base">
                             All of the following need to be true:
                           </p>
                           <ul className="space-y-2">
-                            {selectedService.actemraCriteria.map(
-                              (criteria, index) => (
+                            {selectedService.payer1Criteria.map(
+                              (criteria: string, index: number) => (
                                 <li
                                   key={index}
                                   className="flex items-start space-x-2"
@@ -1136,21 +1264,21 @@ export default function ServiceComparison() {
                     <div className="space-y-3 sm:space-y-4">
                       <div className="bg-gradient-to-r from-purple-50 to-purple-100/50 p-3 sm:p-4 rounded-lg border border-purple-200">
                         <h4 className="font-semibold text-gray-900 text-sm sm:text-lg">
-                          Policy 2 service: Intravenous administration of
-                          Tocilizumab (Actemra) for treatment of active{" "}
+                          {selectedPayer2} service:{" "}
+                          {selectedService.description} for{" "}
                           {selectedService.condition}
                         </h4>
                       </div>
 
-                      {selectedService.tocilizumabCriteria &&
-                      selectedService.tocilizumabCriteria.length > 0 ? (
+                      {selectedService.payer2Criteria &&
+                      selectedService.payer2Criteria.length > 0 ? (
                         <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
                           <p className="font-medium text-gray-900 mb-3 text-sm sm:text-base">
                             All of the following need to be true:
                           </p>
                           <ul className="space-y-2">
-                            {selectedService.tocilizumabCriteria.map(
-                              (criteria, index) => (
+                            {selectedService.payer2Criteria.map(
+                              (criteria: string, index: number) => (
                                 <li
                                   key={index}
                                   className="flex items-start space-x-2"
@@ -1186,10 +1314,10 @@ export default function ServiceComparison() {
                         Criteria
                       </div>
                       <div className="p-4 font-semibold text-gray-900 bg-blue-50">
-                        Actemra Policy
+                        {selectedPayer1} Policy
                       </div>
                       <div className="p-4 font-semibold text-gray-900 bg-purple-50">
-                        Tocilizumab Policy
+                        {selectedPayer2} Policy
                       </div>
                     </div>
 
@@ -1207,13 +1335,10 @@ export default function ServiceComparison() {
                             {criteria}
                           </div>
                           <div className="p-4 bg-blue-50/30">
-                            {selectedService.actemraCriteria?.some(
-                              (c: string) =>
-                                c
-                                  .toLowerCase()
-                                  .includes(
-                                    criteria.toLowerCase().split(" ")[0]
-                                  )
+                            {selectedService.payer1Criteria?.some((c: string) =>
+                              c
+                                .toLowerCase()
+                                .includes(criteria.toLowerCase().split(" ")[0])
                             ) ? (
                               <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
                                 ✓ Required
@@ -1225,13 +1350,10 @@ export default function ServiceComparison() {
                             )}
                           </div>
                           <div className="p-4 bg-purple-50/30">
-                            {selectedService.tocilizumabCriteria?.some(
-                              (c: string) =>
-                                c
-                                  .toLowerCase()
-                                  .includes(
-                                    criteria.toLowerCase().split(" ")[0]
-                                  )
+                            {selectedService.payer2Criteria?.some((c: string) =>
+                              c
+                                .toLowerCase()
+                                .includes(criteria.toLowerCase().split(" ")[0])
                             ) ? (
                               <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
                                 ✓ Required
@@ -1253,13 +1375,13 @@ export default function ServiceComparison() {
                   {/* Actemra Criteria Cards */}
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      Actemra Policy Criteria
+                      {selectedPayer1} Policy Criteria
                     </h3>
                     <div className="space-y-3">
-                      {selectedService.actemraCriteria &&
-                      selectedService.actemraCriteria.length > 0 ? (
-                        selectedService.actemraCriteria.map(
-                          (criteria, index) => (
+                      {selectedService.payer1Criteria &&
+                      selectedService.payer1Criteria.length > 0 ? (
+                        selectedService.payer1Criteria.map(
+                          (criteria: string, index: number) => (
                             <div
                               key={index}
                               className="bg-blue-50 border border-blue-200 rounded-lg p-4"
@@ -1298,13 +1420,13 @@ export default function ServiceComparison() {
                   {/* Tocilizumab Criteria Cards */}
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                      Tocilizumab Policy Criteria
+                      {selectedPayer2} Policy Criteria
                     </h3>
                     <div className="space-y-3">
-                      {selectedService.tocilizumabCriteria &&
-                      selectedService.tocilizumabCriteria.length > 0 ? (
-                        selectedService.tocilizumabCriteria.map(
-                          (criteria, index) => (
+                      {selectedService.payer2Criteria &&
+                      selectedService.payer2Criteria.length > 0 ? (
+                        selectedService.payer2Criteria.map(
+                          (criteria: string, index: number) => (
                             <div
                               key={index}
                               className="bg-purple-50 border border-purple-200 rounded-lg p-4"
@@ -1344,9 +1466,9 @@ export default function ServiceComparison() {
                 {/* Recommendations Section */}
                 <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Recommendations
+                    Strategic Recommendations
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div>
                       <h4 className="font-medium text-gray-900 mb-2">
                         Optimal Submission Strategy
@@ -1354,15 +1476,44 @@ export default function ServiceComparison() {
                       <ul className="text-sm text-gray-700 space-y-1">
                         <li>
                           • Submit under{" "}
-                          {(selectedService.actemraCriteria?.length || 0) >
-                          (selectedService.tocilizumabCriteria?.length || 0)
-                            ? "Actemra"
-                            : "Tocilizumab"}{" "}
+                          {(selectedService.payer1Criteria?.length || 0) >
+                          (selectedService.payer2Criteria?.length || 0)
+                            ? selectedPayer1
+                            : selectedPayer2}{" "}
                           policy for better coverage
                         </li>
                         <li>• Include all required documentation upfront</li>
                         <li>
                           • Request authorization for maximum allowed period
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2">
+                        Policy Differences
+                      </h4>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>
+                          • {selectedPayer1}:{" "}
+                          {selectedService.payer1Status === "established"
+                            ? "Policy established"
+                            : "Not covered"}
+                        </li>
+                        <li>
+                          • {selectedPayer2}:{" "}
+                          {selectedService.payer2Status === "established"
+                            ? "Policy established"
+                            : "Not covered"}
+                        </li>
+                        <li>
+                          • Complexity:{" "}
+                          {(selectedService.payer1Criteria?.length || 0) >
+                          (selectedService.payer2Criteria?.length || 0)
+                            ? `${selectedPayer1} has more requirements`
+                            : (selectedService.payer2Criteria?.length || 0) >
+                              (selectedService.payer1Criteria?.length || 0)
+                            ? `${selectedPayer2} has more requirements`
+                            : "Similar complexity"}
                         </li>
                       </ul>
                     </div>
@@ -1374,6 +1525,7 @@ export default function ServiceComparison() {
                         <li>• Missing prescriber specialty requirements</li>
                         <li>• Incomplete diagnosis documentation</li>
                         <li>• Exceeding authorization timeframes</li>
+                        <li>• Submitting to wrong payer policy</li>
                       </ul>
                     </div>
                   </div>
