@@ -4,6 +4,10 @@ import { useState } from "react";
 import { Filter, Info } from "lucide-react";
 import mockData from "@/data/mockData.json";
 
+// Convert hex colors to RGB
+const blueColor = { r: 68, g: 156, b: 251 }; // #449CFB
+const purpleColor = { r: 245, g: 112, b: 154 }; // #f5709a
+
 export function HeatmapChart() {
   const { title, data, maxValue } = mockData.dashboard.heatmapChart;
   const payers = mockData.payersList;
@@ -42,10 +46,6 @@ export function HeatmapChart() {
       const visualValue = visualMin + actualPosition * visualRange;
       normalizedValue = (visualValue - visualMin) / (visualMax - visualMin);
     }
-
-    // Convert hex colors to RGB
-    const blueColor = { r: 107, g: 179, b: 255 }; // #6BB3FF
-    const purpleColor = { r: 232, g: 93, b: 249 }; // #E85DF9
 
     // Interpolate between blue and purple based on the normalized value
     const r = Math.round(
@@ -167,8 +167,7 @@ export function HeatmapChart() {
         <div className="flex gap-1">
           {[0.1, 0.3, 0.5, 0.7, 0.9].map((intensity, i) => {
             // Interpolate between blue and purple for the legend
-            const blueColor = { r: 107, g: 179, b: 255 }; // #6BB3FF
-            const purpleColor = { r: 232, g: 93, b: 249 }; // #E85DF9
+
             const r = Math.round(
               blueColor.r + intensity * (purpleColor.r - blueColor.r)
             );

@@ -43,122 +43,107 @@ const availablePayers = [
 const serviceData: ServiceData[] = [
   {
     id: "1",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "systemic juvenile idiopathic arthritis",
-    confidenceMatch: "85% confidence match",
+    description: "Dialysis - CPB 0541",
+    condition: "end-stage renal disease",
+    confidenceMatch: "92% confidence match",
     payer1Status: "established",
-    payer2Status: "established",
+    payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of systemic juvenile idiopathic arthritis",
-      "Dosed according to FDA labeled dosing",
-      "Not receiving Actemra with a targeted immunomodulator",
-      "Prescribed by a rheumatologist",
+      "Diagnosis of end-stage renal disease",
+      "GFR less than 15 mL/min/1.73m²",
+      "Prescribed by a nephrologist",
       "Authorization for no more than 12 months",
+      "Regular monitoring of kidney function",
     ],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 2 years of age and older",
-      "Active systemic juvenile idiopathic arthritis",
-    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
   {
     id: "2",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "giant cell arteritis",
-    confidenceMatch: "82% confidence match",
+    description: "Pembrolizumab (Keytruda) - CPB 0890",
+    condition: "advanced melanoma",
+    confidenceMatch: "88% confidence match",
     payer1Status: "established",
-    payer2Status: "established",
+    payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of giant cell arteritis",
-      "Dosed according to FDA labeled dosing",
-      "Prescribed by a rheumatologist",
-      "Authorization for no more than 12 months",
+      "Diagnosis of advanced melanoma",
+      "PD-L1 expression ≥1%",
+      "Prescribed by an oncologist",
+      "Authorization for no more than 24 months",
+      "No prior immunotherapy treatment",
     ],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 18 years of age and older",
-      "Active giant cell arteritis",
-    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
   {
     id: "3",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "polyarticular juvenile idiopathic arthritis",
-    confidenceMatch: "76% confidence match",
+    description: "Guillain-Barre Syndrome Treatments - CPB 0732",
+    condition: "acute inflammatory demyelinating polyneuropathy",
+    confidenceMatch: "85% confidence match",
     payer1Status: "established",
-    payer2Status: "established",
+    payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of polyarticular juvenile idiopathic arthritis",
-      "Dosed according to FDA labeled dosing",
-      "Prescribed by a rheumatologist",
-      "Authorization for no more than 12 months",
+      "Diagnosis of Guillain-Barre syndrome",
+      "Symptom onset within 4 weeks",
+      "Prescribed by a neurologist",
+      "Authorization for no more than 6 months",
+      "Intravenous immunoglobulin therapy",
     ],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 2 years of age and older",
-      "Active polyarticular juvenile idiopathic arthritis",
-    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
   {
     id: "4",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "rheumatoid arthritis",
-    confidenceMatch: "79% confidence match",
+    description: "Chronic Fatigue Syndrome - CPB 0369",
+    condition: "myalgic encephalomyelitis",
+    confidenceMatch: "78% confidence match",
     payer1Status: "established",
-    payer2Status: "established",
+    payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of rheumatoid arthritis",
-      "Dosed according to FDA labeled dosing",
+      "Diagnosis of chronic fatigue syndrome",
+      "Symptoms persisting for 6+ months",
       "Prescribed by a rheumatologist",
       "Authorization for no more than 12 months",
+      "Exclusion of other medical conditions",
     ],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 18 years of age and older",
-      "Active rheumatoid arthritis",
-    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
   {
     id: "5",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "cytokine release syndrome",
-    confidenceMatch: "81% confidence match",
+    description: "Injectable Medications - CPB 0020",
+    condition: "various chronic conditions",
+    confidenceMatch: "91% confidence match",
     payer1Status: "established",
-    payer2Status: "established",
+    payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of cytokine release syndrome",
-      "Dosed according to FDA labeled dosing",
-      "Prescribed by an oncologist",
-      "Authorization for no more than 6 months",
+      "Documented medical necessity",
+      "Oral alternatives ineffective",
+      "Prescribed by a specialist",
+      "Authorization for no more than 12 months",
+      "Regular clinical monitoring",
     ],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 18 years of age and older",
-      "Active cytokine release syndrome",
-    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
   {
     id: "6",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "acute graft-versus-host disease",
-    confidenceMatch: "73% confidence match",
+    description: "CAR-T Cell Therapy - CPB 0456",
+    condition: "refractory B-cell malignancies",
+    confidenceMatch: "87% confidence match",
     payer1Status: "established",
     payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of acute graft-versus-host disease",
-      "Dosed according to FDA labeled dosing",
+      "Diagnosis of refractory B-cell malignancy",
+      "Failed at least 2 prior therapies",
       "Prescribed by a hematologist",
       "Authorization for no more than 6 months",
+      "Specialized treatment center",
     ],
     payer2Criteria: [],
     payer1Name: "BCBSNC",
@@ -166,16 +151,17 @@ const serviceData: ServiceData[] = [
   },
   {
     id: "7",
-    description: "Actemra (tocilizumab) injection for intravenous infusion",
-    condition: "immune checkpoint inhibitor-related toxicities",
-    confidenceMatch: "77% confidence match",
+    description: "Gene Therapy - CPB 0789",
+    condition: "rare genetic disorders",
+    confidenceMatch: "83% confidence match",
     payer1Status: "established",
     payer2Status: "not-in-policy",
     payer1Criteria: [
-      "Diagnosis of immune checkpoint inhibitor-related toxicities",
-      "Dosed according to FDA labeled dosing",
-      "Prescribed by an oncologist",
-      "Authorization for no more than 6 months",
+      "Diagnosis of rare genetic disorder",
+      "FDA-approved gene therapy",
+      "Prescribed by a geneticist",
+      "Authorization for no more than 12 months",
+      "Comprehensive genetic testing",
     ],
     payer2Criteria: [],
     payer1Name: "BCBSNC",
@@ -183,17 +169,55 @@ const serviceData: ServiceData[] = [
   },
   {
     id: "8",
-    description:
-      "Intravenous administration of Tocilizumab (Actemra) for any other indications (including outpatient COVID-19)",
-    condition: "",
-    payer1Status: "not-in-policy",
-    payer2Status: "established",
-    payer1Criteria: [],
-    payer2Criteria: [
-      "Administered intravenously",
-      "Individuals 18 years of age and older",
-      "Any other indications including outpatient COVID-19",
+    description: "Stem Cell Transplantation - CPB 0123",
+    condition: "hematologic malignancies",
+    confidenceMatch: "89% confidence match",
+    payer1Status: "established",
+    payer2Status: "not-in-policy",
+    payer1Criteria: [
+      "Diagnosis of hematologic malignancy",
+      "Appropriate donor match",
+      "Prescribed by a hematologist",
+      "Authorization for no more than 24 months",
+      "Transplant center approval",
     ],
+    payer2Criteria: [],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
+  },
+  {
+    id: "9",
+    description: "Immunotherapy Combinations - CPB 0567",
+    condition: "advanced solid tumors",
+    confidenceMatch: "86% confidence match",
+    payer1Status: "established",
+    payer2Status: "not-in-policy",
+    payer1Criteria: [
+      "Diagnosis of advanced solid tumor",
+      "PD-L1 expression ≥50%",
+      "Prescribed by an oncologist",
+      "Authorization for no more than 18 months",
+      "Combination therapy protocol",
+    ],
+    payer2Criteria: [],
+    payer1Name: "BCBSNC",
+    payer2Name: "United Healthcare",
+  },
+  {
+    id: "10",
+    description: "Precision Medicine - CPB 0345",
+    condition: "molecularly defined cancers",
+    confidenceMatch: "90% confidence match",
+    payer1Status: "established",
+    payer2Status: "not-in-policy",
+    payer1Criteria: [
+      "Molecular testing completed",
+      "Targetable genetic alteration",
+      "Prescribed by an oncologist",
+      "Authorization for no more than 12 months",
+      "Comprehensive genomic profiling",
+    ],
+    payer2Criteria: [],
     payer1Name: "BCBSNC",
     payer2Name: "United Healthcare",
   },
@@ -210,6 +234,9 @@ export default function ServiceComparison() {
   const [selectedPayer1, setSelectedPayer1] = useState<string>("BCBSNC");
   const [selectedPayer2, setSelectedPayer2] =
     useState<string>("United Healthcare");
+
+  // Tab selection state
+  const [activeTab, setActiveTab] = useState<string>("additions");
 
   // Handle payer selection changes
   const handlePayer1Change = (payer: string) => {
@@ -503,6 +530,31 @@ export default function ServiceComparison() {
       default:
         return "border-gray-200 bg-gray-50";
     }
+  };
+
+  // Function to generate dynamic values based on selected payers
+  const getDynamicValue = (
+    baseValue: number,
+    payer1: string,
+    payer2: string,
+    type: "spend" | "denial"
+  ) => {
+    // Create a hash from payer names to generate consistent but different values
+    const payer1Hash = payer1
+      .split("")
+      .reduce((a, b) => a + b.charCodeAt(0), 0);
+    const payer2Hash = payer2
+      .split("")
+      .reduce((a, b) => a + b.charCodeAt(0), 0);
+
+    // Different multipliers for spend vs denial
+    const multiplier = type === "spend" ? 0.15 : 0.12;
+
+    // Generate variation based on payer names
+    const variation =
+      ((payer1Hash % 100) + (payer2Hash % 100)) * 0.01 * multiplier;
+
+    return Math.max(0.1, baseValue + variation);
   };
 
   return (
@@ -826,6 +878,759 @@ export default function ServiceComparison() {
           </div>
         </div>
 
+        {/* Comparison Tabs */}
+        <div className="mb-6 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          {/* Tab Navigation */}
+          <div className="flex border-b border-gray-200">
+            <button
+              onClick={() => setActiveTab("additions")}
+              className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                activeTab === "additions"
+                  ? "text-blue-600 border-b-2 border-blue-600 bg-blue-50"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+              }`}
+              tabIndex={0}
+              aria-label="View additions comparison"
+            >
+              Additions
+            </button>
+            <button
+              onClick={() => setActiveTab("improvements")}
+              className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                activeTab === "improvements"
+                  ? "text-purple-600 border-b-2 border-purple-600 bg-purple-50"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+              }`}
+              tabIndex={0}
+              aria-label="View improvements comparison"
+            >
+              Improvements
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <div className="p-4 sm:p-6">
+            {activeTab === "additions" ? (
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Policy Additions Comparison
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Compare new policies and coverage additions between{" "}
+                  {selectedPayer1} and {selectedPayer2}.
+                </p>
+
+                {/* Policies to be Added Table */}
+                <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                  <div className="px-6 py-4 border-b border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      Policies to be added
+                    </h4>
+                  </div>
+
+                  {/* Desktop Table */}
+                  <div className="hidden lg:block">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-gray-200 bg-gray-50">
+                          <th className="text-left py-4 px-6 font-medium text-gray-900">
+                            Policy Name
+                          </th>
+                          <th className="text-center py-4 px-6 font-medium text-gray-900">
+                            <div className="flex flex-col">
+                              <span>Spend under</span>
+                              <span>management</span>
+                            </div>
+                          </th>
+                          <th className="text-center py-4 px-6 font-medium text-gray-900">
+                            <div className="flex flex-col">
+                              <span>Expected denial</span>
+                              <span>value</span>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {[
+                          {
+                            id: "add-1",
+                            description: "Dialysis - CPB 0541",
+                            condition: "end-stage renal disease",
+                            baseSpend: 5.5,
+                            baseDenial: 3.8,
+                          },
+                          {
+                            id: "add-2",
+                            description: "Pembrolizumab (Keytruda) - CPB 0890",
+                            condition: "advanced melanoma",
+                            baseSpend: 9.9,
+                            baseDenial: 3.7,
+                          },
+                          {
+                            id: "add-3",
+                            description:
+                              "Guillain-Barre Syndrome Treatments - CPB 0732",
+                            condition:
+                              "acute inflammatory demyelinating polyneuropathy",
+                            baseSpend: 5.1,
+                            baseDenial: 3.0,
+                          },
+                          {
+                            id: "add-4",
+                            description: "Chronic Fatigue Syndrome - CPB 0369",
+                            condition: "myalgic encephalomyelitis",
+                            baseSpend: 13.4,
+                            baseDenial: 2.9,
+                          },
+                          {
+                            id: "add-5",
+                            description: "Injectable Medications - CPB 0020",
+                            condition: "various chronic conditions",
+                            baseSpend: 11.5,
+                            baseDenial: 2.9,
+                          },
+                          {
+                            id: "add-6",
+                            description: "CAR-T Cell Therapy - CPB 0456",
+                            condition: "refractory B-cell malignancies",
+                            baseSpend: 8.7,
+                            baseDenial: 4.2,
+                          },
+                          {
+                            id: "add-7",
+                            description: "Gene Therapy - CPB 0789",
+                            condition: "rare genetic disorders",
+                            baseSpend: 12.3,
+                            baseDenial: 3.5,
+                          },
+                          {
+                            id: "add-8",
+                            description: "Stem Cell Transplantation - CPB 0123",
+                            condition: "hematologic malignancies",
+                            baseSpend: 7.8,
+                            baseDenial: 2.6,
+                          },
+                          {
+                            id: "add-9",
+                            description:
+                              "Immunotherapy Combinations - CPB 0567",
+                            condition: "advanced solid tumors",
+                            baseSpend: 10.2,
+                            baseDenial: 3.1,
+                          },
+                          {
+                            id: "add-10",
+                            description: "Precision Medicine - CPB 0345",
+                            condition: "molecularly defined cancers",
+                            baseSpend: 14.6,
+                            baseDenial: 4.8,
+                          },
+                          {
+                            id: "add-11",
+                            description: "Biosimilar Medications - CPB 0912",
+                            condition: "autoimmune disorders",
+                            baseSpend: 6.9,
+                            baseDenial: 2.3,
+                          },
+                          {
+                            id: "add-12",
+                            description: "Advanced Imaging - CPB 0678",
+                            condition: "complex diagnostic cases",
+                            baseSpend: 9.3,
+                            baseDenial: 3.4,
+                          },
+                        ].map((service, index) => {
+                          const spendManagement = getDynamicValue(
+                            service.baseSpend,
+                            selectedPayer1,
+                            selectedPayer2,
+                            "spend"
+                          );
+                          const expectedDenial = getDynamicValue(
+                            service.baseDenial,
+                            selectedPayer1,
+                            selectedPayer2,
+                            "denial"
+                          );
+                          return (
+                            <tr
+                              key={service.id}
+                              className="hover:bg-gray-50 transition-colors"
+                            >
+                              <td className="py-4 px-6">
+                                <span className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                  {service.description}
+                                </span>
+                                {service.condition && (
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {service.condition}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="py-4 px-6 text-right ">
+                                <span className="flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full justify-center">
+                                  ${spendManagement.toFixed(1)} PMPM
+                                </span>
+                              </td>
+                              <td className="py-4 px-6 text-right">
+                                <span className="flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full  justify-center">
+                                  ${expectedDenial.toFixed(1)} PMPM
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Mobile Cards */}
+                  <div className="block lg:hidden">
+                    {[
+                      {
+                        id: "add-1",
+                        description: "Dialysis - CPB 0541",
+                        condition: "end-stage renal disease",
+                        baseSpend: 5.5,
+                        baseDenial: 3.8,
+                      },
+                      {
+                        id: "add-2",
+                        description: "Pembrolizumab (Keytruda) - CPB 0890",
+                        condition: "advanced melanoma",
+                        baseSpend: 9.9,
+                        baseDenial: 3.7,
+                      },
+                      {
+                        id: "add-3",
+                        description:
+                          "Guillain-Barre Syndrome Treatments - CPB 0732",
+                        condition:
+                          "acute inflammatory demyelinating polyneuropathy",
+                        baseSpend: 5.1,
+                        baseDenial: 3.0,
+                      },
+                      {
+                        id: "add-4",
+                        description: "Chronic Fatigue Syndrome - CPB 0369",
+                        condition: "myalgic encephalomyelitis",
+                        baseSpend: 13.4,
+                        baseDenial: 2.9,
+                      },
+                      {
+                        id: "add-5",
+                        description: "Injectable Medications - CPB 0020",
+                        condition: "various chronic conditions",
+                        baseSpend: 11.5,
+                        baseDenial: 2.9,
+                      },
+                      {
+                        id: "add-6",
+                        description: "CAR-T Cell Therapy - CPB 0456",
+                        condition: "refractory B-cell malignancies",
+                        baseSpend: 8.7,
+                        baseDenial: 4.2,
+                      },
+                      {
+                        id: "add-7",
+                        description: "Gene Therapy - CPB 0789",
+                        condition: "rare genetic disorders",
+                        baseSpend: 12.3,
+                        baseDenial: 3.5,
+                      },
+                      {
+                        id: "add-8",
+                        description: "Stem Cell Transplantation - CPB 0123",
+                        condition: "hematologic malignancies",
+                        baseSpend: 7.8,
+                        baseDenial: 2.6,
+                      },
+                      {
+                        id: "add-9",
+                        description: "Immunotherapy Combinations - CPB 0567",
+                        condition: "advanced solid tumors",
+                        baseSpend: 10.2,
+                        baseDenial: 3.1,
+                      },
+                      {
+                        id: "add-10",
+                        description: "Precision Medicine - CPB 0345",
+                        condition: "molecularly defined cancers",
+                        baseSpend: 14.6,
+                        baseDenial: 4.8,
+                      },
+                      {
+                        id: "add-11",
+                        description: "Biosimilar Medications - CPB 0912",
+                        condition: "autoimmune disorders",
+                        baseSpend: 6.9,
+                        baseDenial: 2.3,
+                      },
+                      {
+                        id: "add-12",
+                        description: "Advanced Imaging - CPB 0678",
+                        condition: "complex diagnostic cases",
+                        baseSpend: 9.3,
+                        baseDenial: 3.4,
+                      },
+                    ].map((service, index) => {
+                      const spendManagement = getDynamicValue(
+                        service.baseSpend,
+                        selectedPayer1,
+                        selectedPayer2,
+                        "spend"
+                      );
+                      const expectedDenial = getDynamicValue(
+                        service.baseDenial,
+                        selectedPayer1,
+                        selectedPayer2,
+                        "denial"
+                      );
+                      return (
+                        <div
+                          key={service.id}
+                          className="p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                        >
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="flex-1">
+                              <span className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                {service.description}
+                              </span>
+                              {service.condition && (
+                                <div className="text-sm text-gray-500 mt-1">
+                                  {service.condition}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <div className="text-sm text-gray-600">
+                              Spend under management:
+                            </div>
+                            <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                              ${spendManagement.toFixed(1)} PMPM
+                            </span>
+                          </div>
+                          <div className="flex justify-between items-center mt-2">
+                            <div className="text-sm text-gray-600">
+                              Expected denial value:
+                            </div>
+                            <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+                              ${expectedDenial.toFixed(1)} PMPM
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Policy Improvements Comparison
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Compare policy improvements and enhancements between{" "}
+                  {selectedPayer1} and {selectedPayer2}.
+                </p>
+
+                {/* Policies to Improve Table */}
+                <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                  <div className="px-6 py-4 border-b border-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      Policies to improve
+                    </h4>
+                  </div>
+
+                  {/* Desktop Table */}
+                  <div className="hidden lg:block">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-gray-200 bg-gray-50">
+                          <th className="text-left py-4 px-6 font-medium text-gray-900">
+                            {selectedPayer1} (expected denial value)
+                          </th>
+                          <th className="text-left py-4 px-6 font-medium text-gray-900">
+                            {selectedPayer2} (expected denial value)
+                          </th>
+                          <th className="text-right py-4 px-6 font-medium text-gray-900">
+                            Expected denial value
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {[
+                          {
+                            id: "improve-1",
+                            description:
+                              "Kidney Transplantation, Pancreas-Kidney Transplantation, And Pancreas Transplantation Alone",
+                            condition: "end-stage renal disease",
+                            payer1CPB: "0146",
+                            payer2CPB: "0587",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 3.2,
+                          },
+                          {
+                            id: "improve-2",
+                            description: "Parkinson's Disease - Duopa",
+                            condition: "Parkinson's disease",
+                            payer1CPB: "0303",
+                            payer2CPB: "0307",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.0,
+                          },
+                          {
+                            id: "improve-3",
+                            description:
+                              "Temporomandibular Joint (TMJ) Disorder Surgery",
+                            condition: "TMJ disorders",
+                            payer1CPB: "0156",
+                            payer2CPB: "0028",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 1.7,
+                          },
+                          {
+                            id: "improve-4",
+                            description: "Spinal Cord Stimulation",
+                            condition: "chronic pain syndromes",
+                            payer1CPB: "0234",
+                            payer2CPB: "0456",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.8,
+                          },
+                          {
+                            id: "improve-5",
+                            description: "Deep Brain Stimulation",
+                            condition: "movement disorders",
+                            payer1CPB: "0678",
+                            payer2CPB: "0789",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 1.9,
+                          },
+                          {
+                            id: "improve-6",
+                            description: "Lung Transplantation",
+                            condition: "end-stage lung disease",
+                            payer1CPB: "0345",
+                            payer2CPB: "0567",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.5,
+                          },
+                          {
+                            id: "improve-7",
+                            description: "Heart Transplantation",
+                            condition: "end-stage heart failure",
+                            payer1CPB: "0789",
+                            payer2CPB: "0123",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 3.1,
+                          },
+                          {
+                            id: "improve-8",
+                            description: "Liver Transplantation",
+                            condition: "end-stage liver disease",
+                            payer1CPB: "0456",
+                            payer2CPB: "0890",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.9,
+                          },
+                          {
+                            id: "improve-9",
+                            description: "Bone Marrow Transplantation",
+                            condition: "hematologic malignancies",
+                            payer1CPB: "0234",
+                            payer2CPB: "0678",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.3,
+                          },
+                          {
+                            id: "improve-10",
+                            description: "Corneal Transplantation",
+                            condition: "corneal disorders",
+                            payer1CPB: "0567",
+                            payer2CPB: "0345",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 1.8,
+                          },
+                          {
+                            id: "improve-11",
+                            description: "Pancreas Transplantation",
+                            condition: "diabetes mellitus",
+                            payer1CPB: "0890",
+                            payer2CPB: "0234",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 2.6,
+                          },
+                          {
+                            id: "improve-12",
+                            description: "Intestinal Transplantation",
+                            condition: "intestinal failure",
+                            payer1CPB: "0123",
+                            payer2CPB: "0456",
+                            basePayer1Denial: 0.0,
+                            basePayer2Denial: 3.4,
+                          },
+                        ].map((service, index) => {
+                          const payer1Denial = getDynamicValue(
+                            service.basePayer1Denial,
+                            selectedPayer1,
+                            selectedPayer2,
+                            "denial"
+                          );
+                          const payer2Denial = getDynamicValue(
+                            service.basePayer2Denial,
+                            selectedPayer1,
+                            selectedPayer2,
+                            "denial"
+                          );
+                          const overallDenial = Math.max(
+                            payer1Denial,
+                            payer2Denial
+                          );
+                          return (
+                            <tr
+                              key={service.id}
+                              className="hover:bg-gray-50 transition-colors"
+                            >
+                              <td className="py-4 px-6">
+                                <div className="flex items-start flex-col justify-between">
+                                  <span className="text-blue-600 font-medium hover:text-blue-700 transition-colors cursor-pointer">
+                                    {service.description} - ({service.payer1CPB}
+                                    )
+                                  </span>
+                                  <span className=" px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">
+                                    ${payer1Denial.toFixed(1)} PMPM
+                                  </span>
+                                </div>
+                                {service.condition && (
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {service.condition}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="py-4 px-6">
+                                <div className="flex items-start flex-col justify-between">
+                                  <span className="text-purple-600 font-medium hover:text-purple-700 transition-colors cursor-pointer">
+                                    {service.description.replace(
+                                      / - Duopa$/,
+                                      ""
+                                    )}{" "}
+                                    - CPB {service.payer2CPB}
+                                  </span>
+                                  <span className="inline-flex px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">
+                                    ${payer2Denial.toFixed(1)} PMPM
+                                  </span>
+                                </div>
+                                {service.condition && (
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {service.condition}
+                                  </div>
+                                )}
+                              </td>
+                              <td className="py-4 px-6 text-right">
+                                <span className="inline-flex px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                                  ${overallDenial.toFixed(1)} PMPM
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Mobile Cards */}
+                  <div className="block lg:hidden">
+                    {[
+                      {
+                        id: "improve-1",
+                        description:
+                          "Kidney Transplantation, Pancreas-Kidney Transplantation, And Pancreas Transplantation Alone",
+                        condition: "end-stage renal disease",
+                        payer1CPB: "0146",
+                        payer2CPB: "0587",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 3.2,
+                      },
+                      {
+                        id: "improve-2",
+                        description: "Parkinson's Disease - Duopa",
+                        condition: "Parkinson's disease",
+                        payer1CPB: "0303",
+                        payer2CPB: "0307",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.0,
+                      },
+                      {
+                        id: "improve-3",
+                        description:
+                          "Temporomandibular Joint (TMJ) Disorder Surgery",
+                        condition: "TMJ disorders",
+                        payer1CPB: "0156",
+                        payer2CPB: "0028",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 1.7,
+                      },
+                      {
+                        id: "improve-4",
+                        description: "Spinal Cord Stimulation",
+                        condition: "chronic pain syndromes",
+                        payer1CPB: "0234",
+                        payer2CPB: "0456",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.8,
+                      },
+                      {
+                        id: "improve-5",
+                        description: "Deep Brain Stimulation",
+                        condition: "movement disorders",
+                        payer1CPB: "0678",
+                        payer2CPB: "0789",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 1.9,
+                      },
+                      {
+                        id: "improve-6",
+                        description: "Lung Transplantation",
+                        condition: "end-stage lung disease",
+                        payer1CPB: "0345",
+                        payer2CPB: "0567",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.5,
+                      },
+                      {
+                        id: "improve-7",
+                        description: "Heart Transplantation",
+                        condition: "end-stage heart failure",
+                        payer1CPB: "0789",
+                        payer2CPB: "0123",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 3.1,
+                      },
+                      {
+                        id: "improve-8",
+                        description: "Liver Transplantation",
+                        condition: "end-stage liver disease",
+                        payer1CPB: "0456",
+                        payer2CPB: "0890",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.9,
+                      },
+                      {
+                        id: "improve-9",
+                        description: "Bone Marrow Transplantation",
+                        condition: "hematologic malignancies",
+                        payer1CPB: "0234",
+                        payer2CPB: "0678",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.3,
+                      },
+                      {
+                        id: "improve-10",
+                        description: "Corneal Transplantation",
+                        condition: "corneal disorders",
+                        payer1CPB: "0567",
+                        payer2CPB: "0345",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 1.8,
+                      },
+                      {
+                        id: "improve-11",
+                        description: "Pancreas Transplantation",
+                        condition: "diabetes mellitus",
+                        payer1CPB: "0890",
+                        payer2CPB: "0234",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 2.6,
+                      },
+                      {
+                        id: "improve-12",
+                        description: "Intestinal Transplantation",
+                        condition: "intestinal failure",
+                        payer1CPB: "0123",
+                        payer2CPB: "0456",
+                        basePayer1Denial: 0.0,
+                        basePayer2Denial: 3.4,
+                      },
+                    ].map((service, index) => {
+                      const payer1Denial = getDynamicValue(
+                        service.basePayer1Denial,
+                        selectedPayer1,
+                        selectedPayer2,
+                        "denial"
+                      );
+                      const payer2Denial = getDynamicValue(
+                        service.basePayer2Denial,
+                        selectedPayer1,
+                        selectedPayer2,
+                        "denial"
+                      );
+                      const overallDenial = Math.max(
+                        payer1Denial,
+                        payer2Denial
+                      );
+                      return (
+                        <div
+                          key={service.id}
+                          className="p-4 border-b border-gray-200"
+                        >
+                          <div className="space-y-3">
+                            {/* Payer 1 Row */}
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <span className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                                  {service.description} - ({service.payer1CPB})
+                                </span>
+                                {service.condition && (
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {service.condition}
+                                  </div>
+                                )}
+                              </div>
+                              <span className="inline-flex px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full ml-2">
+                                ${payer1Denial.toFixed(1)} PMPM
+                              </span>
+                            </div>
+
+                            {/* Payer 2 Row */}
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <span className="text-purple-600 font-medium hover:text-purple-700 transition-colors">
+                                  {service.description.replace(/ - Duopa$/, "")}{" "}
+                                  - CPB {service.payer2CPB}
+                                </span>
+                                {service.condition && (
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {service.condition}
+                                  </div>
+                                )}
+                              </div>
+                              <span className="inline-flex px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full ml-2">
+                                ${payer2Denial.toFixed(1)} PMPM
+                              </span>
+                            </div>
+
+                            {/* Overall Expected Denial Value */}
+                            <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+                              <span className="text-sm font-medium text-gray-700">
+                                Expected denial value:
+                              </span>
+                              <span className="inline-flex px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                                ${overallDenial.toFixed(1)} PMPM
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           {/* Mobile: Card Layout */}
           <div className="block lg:hidden">
@@ -936,7 +1741,7 @@ export default function ServiceComparison() {
           </div>
 
           {/* Desktop: Table Layout */}
-          <div className="hidden lg:block">
+          <div className="hidden">
             {/* Table Header */}
             <div className="grid grid-cols-4 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-gray-50/50">
               <div className="p-6 font-semibold text-gray-900 text-lg">
