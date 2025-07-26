@@ -32,7 +32,7 @@
     }
   },
   "payersList": [
-    "BCBS North Carolina",
+    "HCSC",
     "UnitedHealthcare",
     "Elevance Health (Anthem)",
     "BCBS Texas (HCSC)",
@@ -56,7 +56,7 @@
   "payersData": [
     {
       "rank": 1,
-      "name": "BCBS North Carolina",
+      "name": "HCSC",
       "coveredLives": 3800000,
       "type": "Commercial",
       "national": 0,
@@ -2275,7 +2275,7 @@
     },
     "policyCoverageData": [
       {
-        "payer": "BCBS North Carolina",
+        "payer": "HCSC",
         "totalPolicies": 450,
         "hcpcsCodes": 8200,
         "modifiers": 320

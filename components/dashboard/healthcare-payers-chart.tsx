@@ -23,7 +23,7 @@ export function HealthcarePayersChart({
       return mockData.payersData
         .map((payer) => {
           let category = "Other Payers";
-          if (payer.name === "BCBS North Carolina") {
+          if (payer.name === "HCSC") {
             category = "BCBS NC";
           }
 

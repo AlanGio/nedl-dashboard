@@ -18,18 +18,36 @@ export function HeatmapChart() {
     "Health Care Service Corpo...",
   ]);
 
-  // Get color based on value - blue to purple gradient
+  // Get color based on value - blue to purple gradient with amplified range
   const getColorIntensity = (value: number) => {
     if (value === 0) return "bg-white";
 
-    // Normalize the value between 0 and 1
-    const normalizedValue = Math.min(value / maxValue, 1);
+    // Map the actual data range (45-72) to a wider visual range (25-90)
+    const actualMin = 45;
+    const actualMax = 72;
+    const visualMin = 25;
+    const visualMax = 90;
+
+    // Normalize the value to the visual range
+    let normalizedValue;
+    if (value <= actualMin) {
+      normalizedValue = 0; // Map to the lightest color
+    } else if (value >= actualMax) {
+      normalizedValue = 1; // Map to the darkest color
+    } else {
+      // Map the value proportionally from actual range to visual range
+      const actualRange = actualMax - actualMin;
+      const visualRange = visualMax - visualMin;
+      const actualPosition = (value - actualMin) / actualRange;
+      const visualValue = visualMin + actualPosition * visualRange;
+      normalizedValue = (visualValue - visualMin) / (visualMax - visualMin);
+    }
 
     // Convert hex colors to RGB
-    const blueColor = { r: 68, g: 156, b: 251 }; // #449cfb
-    const purpleColor = { r: 183, g: 130, b: 232 }; // #b782e8
+    const blueColor = { r: 107, g: 179, b: 255 }; // #6BB3FF
+    const purpleColor = { r: 232, g: 93, b: 249 }; // #E85DF9
 
-    // Interpolate between blue and purple based on the value
+    // Interpolate between blue and purple based on the normalized value
     const r = Math.round(
       blueColor.r + normalizedValue * (purpleColor.r - blueColor.r)
     );
@@ -147,10 +165,10 @@ export function HeatmapChart() {
       <div className="mt-6 flex justify-center items-center gap-4">
         <div className="text-xs text-slate-500">Less Similar</div>
         <div className="flex gap-1">
-          {[0.2, 0.4, 0.6, 0.8, 1].map((intensity, i) => {
+          {[0.1, 0.3, 0.5, 0.7, 0.9].map((intensity, i) => {
             // Interpolate between blue and purple for the legend
-            const blueColor = { r: 68, g: 156, b: 251 }; // #449cfb
-            const purpleColor = { r: 183, g: 130, b: 232 }; // #b782e8
+            const blueColor = { r: 107, g: 179, b: 255 }; // #6BB3FF
+            const purpleColor = { r: 232, g: 93, b: 249 }; // #E85DF9
             const r = Math.round(
               blueColor.r + intensity * (purpleColor.r - blueColor.r)
             );

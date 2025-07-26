@@ -14,7 +14,7 @@ interface PolicyCoverageData {
 
 // Data from the table
 const policyData: PolicyCoverageData[] = [
-  { payer: "BCBS North Carolina", totalPolicies: 450, hcpcsCodes: 8200, modifiers: 320 },
+  { payer: "HCSC", totalPolicies: 450, hcpcsCodes: 8200, modifiers: 320 },
   { payer: "UnitedHealthcare", totalPolicies: 850, hcpcsCodes: 12500, modifiers: 450 },
   { payer: "Elevance Health", totalPolicies: 780, hcpcsCodes: 11800, modifiers: 420 },
   { payer: "BCBS Texas (HCSC)", totalPolicies: 520, hcpcsCodes: 9000, modifiers: 340 },

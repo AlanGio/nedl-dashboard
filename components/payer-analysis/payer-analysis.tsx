@@ -21,7 +21,7 @@ export function PayerAnalysis() {
 
   // Create a mapping between the new payer names and the existing data keys
   const payerMapping: Record<string, string> = {
-    "BCBS North Carolina": "BCBSNC",
+    HCSC: "BCBSNC",
     UnitedHealthcare: "United",
     "Elevance Health (Anthem)": "Elevance Health (formerly Anthem)",
     "BCBS Texas (HCSC)": "Health Care Service Corporation (HCSC)",
