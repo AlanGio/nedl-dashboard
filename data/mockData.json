@@ -2744,6 +2744,11 @@
         "id": "lastUpdated",
         "label": "Last Updated",
         "sortable": true
+      },
+      {
+        "id": "actions",
+        "label": "Actions",
+        "sortable": false
       }
     ],
     "policies": [

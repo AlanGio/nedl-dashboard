@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  GitCompare,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Column {
@@ -39,6 +44,7 @@ interface PolicyTableProps {
   selectedPolicies: string[];
   onPolicySelect: (policyId: string) => void;
   maxSelections?: number;
+  onCompareBestInClass?: (policy: Policy) => void;
 }
 
 export function PolicyTable({
@@ -55,6 +61,7 @@ export function PolicyTable({
   selectedPolicies,
   onPolicySelect,
   maxSelections = 4,
+  onCompareBestInClass,
 }: PolicyTableProps) {
   const startIndex = (currentPage - 1) * rowsPerPage + 1;
   const endIndex = Math.min(startIndex + policies.length - 1, totalPolicies);
@@ -264,6 +271,21 @@ export function PolicyTable({
               </td>
               <td className="whitespace-nowrap px-6 py-4 text-sm text-slate-500">
                 {policy.lastUpdated}
+              </td>
+              <td className="whitespace-nowrap px-6 py-4">
+                <div className="flex items-center justify-center">
+                  <button
+                    className="group relative p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                    aria-label="Compare with best in Class"
+                    onClick={() => onCompareBestInClass?.(policy)}
+                  >
+                    <GitCompare className="h-4 w-4" />
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                      Compare with best in Class
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"></div>
+                    </div>
+                  </button>
+                </div>
               </td>
             </tr>
           ))}

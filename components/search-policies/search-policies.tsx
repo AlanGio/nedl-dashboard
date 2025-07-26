@@ -6,7 +6,7 @@ import { useState, useMemo } from "react";
 import { LayoutList, Search } from "lucide-react";
 import { PolicyTable } from "./policy-table";
 import { ComparisonBox } from "./comparison-box";
-import { ComparisonModal } from "./comparison-modal";
+import { BestInClassModal } from "./best-in-class-modal";
 import mockData from "@/data/mockData.json";
 
 export function SearchPolicies() {
@@ -20,6 +20,9 @@ export function SearchPolicies() {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [selectedPolicies, setSelectedPolicies] = useState<string[]>([]);
   const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
+  const [isBestInClassModalOpen, setIsBestInClassModalOpen] = useState(false);
+  const [selectedPolicyForComparison, setSelectedPolicyForComparison] =
+    useState<any>(null);
 
   // Filter policies based on search query
   const filteredPolicies = useMemo(() => {
@@ -115,6 +118,18 @@ export function SearchPolicies() {
   // Handle close comparison modal
   const handleCloseComparisonModal = () => {
     setIsComparisonModalOpen(false);
+  };
+
+  // Handle compare with best in class
+  const handleCompareBestInClass = (policy: any) => {
+    setSelectedPolicyForComparison(policy);
+    setIsBestInClassModalOpen(true);
+  };
+
+  // Handle close best in class modal
+  const handleCloseBestInClassModal = () => {
+    setIsBestInClassModalOpen(false);
+    setSelectedPolicyForComparison(null);
   };
 
   // Get current page of policies
@@ -236,6 +251,7 @@ export function SearchPolicies() {
           selectedPolicies={selectedPolicies}
           onPolicySelect={handlePolicySelect}
           maxSelections={4}
+          onCompareBestInClass={handleCompareBestInClass}
         />
       </div>
 
@@ -254,10 +270,10 @@ export function SearchPolicies() {
               isVisible={selectedPolicies.length > 0}
             />
 
-            <ComparisonModal
-              selectedPolicies={selectedPolicyObjects}
-              isOpen={isComparisonModalOpen}
-              onClose={handleCloseComparisonModal}
+            <BestInClassModal
+              selectedPolicy={selectedPolicyForComparison}
+              isOpen={isBestInClassModalOpen}
+              onClose={handleCloseBestInClassModal}
             />
           </>
         );
