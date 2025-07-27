@@ -24,6 +24,7 @@ interface NavigationItem {
   color?: string;
   href: string;
   children?: NavigationItem[];
+  disabled?: boolean;
 }
 
 interface SidebarNavigationProps {
@@ -180,9 +181,10 @@ export function SidebarNavigation({
     {
       id: "raise-transparency",
       icon: Blend,
-      label: "Raise Transparency Intelligence",
+      label: "Price Transparency Intelligence",
       color: "text-[#66348f]",
       href: "",
+      disabled: true,
     },
   ];
 
@@ -277,12 +279,15 @@ export function SidebarNavigation({
                       }}
                       className={cn(
                         "flex w-full items-center rounded-full px-2 py-4 my-1 text-sm font-bold text-left transition-all duration-200 no-shadow",
+                        item.disabled &&
+                          "opacity-50 cursor-not-allowed hover:bg-transparent",
                         hasChildren
                           ? "text-gray-700 hover:bg-white"
                           : isActive(item.href)
                           ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
                           : "text-gray-700 hover:bg-white"
                       )}
+                      disabled={item.disabled}
                     >
                       <item.icon
                         className={cn(
@@ -333,6 +338,7 @@ export function SidebarNavigation({
                                   ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
                                   : "text-gray-600 hover:bg-white"
                               )}
+                              disabled={item.disabled}
                             >
                               <child.icon
                                 className={cn(
@@ -401,8 +407,10 @@ export function SidebarNavigation({
                       ? "text-gray-700 hover:bg-white"
                       : isActive(item.href)
                       ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                      : "text-gray-700 hover:bg-white"
+                      : "text-gray-700 hover:bg-white",
+                    item.disabled && "opacity-60 hover:bg-transparent"
                   )}
+                  disabled={item.disabled}
                 >
                   <item.icon
                     className={cn(

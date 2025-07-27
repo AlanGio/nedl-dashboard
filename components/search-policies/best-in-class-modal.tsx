@@ -45,8 +45,8 @@ export function BestInClassModal({
   // Mock best-in-class data - in real app this would come from API
   const bestInClassPolicy = {
     payer: {
-      name: "BlueCross BlueShield",
-      logo: "bcbs",
+      name: "UnitedHealthcare",
+      logo: "united",
     },
     policyName: selectedPolicy.policyName,
     codesCovered: 85,
@@ -67,7 +67,7 @@ export function BestInClassModal({
       selectedValue: selectedPolicyData.codesCovered,
       bestInClassValue: bestInClassPolicy.codesCovered,
       reasoning:
-        "BlueCross BlueShield covers 10 additional codes compared to the selected policy, providing more comprehensive coverage for this clinical category.",
+        "UnitedHealthcare covers 10 additional codes compared to the selected policy, providing more comprehensive coverage for this clinical category.",
     },
     {
       metric: "Payout Reimbursed",
