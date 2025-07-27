@@ -63,7 +63,6 @@ export function PolicyDistributionChart({
               formatter={(value) => [`${value} policies`, ""]}
               labelFormatter={(label) => `${label} Policies`}
             />
-            <Legend />
             {data.columns.map((column, index) => (
               <Bar
                 key={column}

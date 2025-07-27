@@ -10,6 +10,7 @@ import {
   ChevronDown,
   House,
   Diff,
+  Blend,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -175,6 +176,13 @@ export function SidebarNavigation({
           href: "https://payment-leakage.vercel.app/claims-management",
         },
       ],
+    },
+    {
+      id: "raise-transparency",
+      icon: Blend,
+      label: "Raise Transparency Intelligence",
+      color: "text-[#66348f]",
+      href: "",
     },
   ];
 

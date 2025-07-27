@@ -5,7 +5,7 @@ import { ChevronDown, Check } from "lucide-react";
 
 // opportunities section
 export function OpportunitiesSection() {
-  const [selectedView, setSelectedView] = useState("Spend under management");
+  const [selectedView, setSelectedView] = useState("Claim Paid PMPM");
   const [showRxResults, setShowRxResults] = useState(true);
 
   return (

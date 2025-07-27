@@ -42,22 +42,22 @@ export function ComparisonModal({
     return logos[logo] || "/generic-insurance-logo.png";
   };
 
-  // Mock data for Codes Covered and Payout Reimbursed - in real app this would come from API
+  // Mock data for Codes Covered and Annual Claim Amount - in real app this would come from API
   const getPolicyMetrics = (policy: Policy) => {
     // Generate consistent values based on policy ID for demo purposes
     const policyIdNum = parseInt(policy.id.replace(/\D/g, "")) || 1;
     return {
       codesCovered: Math.floor((policyIdNum * 7) % 100) + 50, // 50-149 range
-      payoutReimbursed: `$${Math.floor((policyIdNum * 3) % 50) + 20}m`, // $20m-$69m range
+      annualClaimAmount: `$${Math.floor((policyIdNum * 5) % 80) + 15}m`, // $15m-$94m range
+      claimPaidPMPM: `$${Math.floor((policyIdNum * 2) % 40) + 25}`, // $25-$64 range
     };
   };
 
   const comparisonMetrics = [
     "Codes Covered",
-    "Payout Reimbursed",
-    "Clinical Category",
-    "Spend Under Management",
-    "Expected Denial Value",
+    "Annual Claim Amount",
+    "Claim Paid PMPM",
+    "Addressable Policy Impact",
     "Last Updated",
   ];
 
@@ -157,22 +157,17 @@ export function ComparisonModal({
                             {getPolicyMetrics(policy).codesCovered}
                           </span>
                         )}
-                        {metric === "Payout Reimbursed" && (
+                        {metric === "Annual Claim Amount" && (
                           <span className="text-lg font-bold text-blue-600">
-                            {getPolicyMetrics(policy).payoutReimbursed}
+                            {getPolicyMetrics(policy).annualClaimAmount}
                           </span>
                         )}
-                        {metric === "Clinical Category" && (
-                          <span className="inline-flex rounded-full px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800">
-                            {policy.clinicalCategory}
+                        {metric === "Claim Paid PMPM" && (
+                          <span className="text-lg font-bold text-blue-600">
+                            {getPolicyMetrics(policy).claimPaidPMPM}
                           </span>
                         )}
-                        {metric === "Spend Under Management" && (
-                          <span className="font-semibold text-gray-900">
-                            {policy.spendUnderManagement}
-                          </span>
-                        )}
-                        {metric === "Expected Denial Value" && (
+                        {metric === "Addressable Policy Impact" && (
                           <span className="font-semibold text-gray-900">
                             {policy.expDenialValue}
                           </span>
@@ -189,14 +184,12 @@ export function ComparisonModal({
                     <p className="text-xs text-gray-600 leading-relaxed">
                       {metric === "Codes Covered" &&
                         "Code coverage varies significantly across payers. Higher counts indicate more comprehensive coverage but may suggest potential over-coding risks."}
-                      {metric === "Payout Reimbursed" &&
-                        "Payout ranges reflect financial coverage levels. Higher payouts correlate with broader coverage but may indicate increased cost exposure."}
-                      {metric === "Clinical Category" &&
-                        "Clinical categorization helps identify coverage patterns and specialty-specific requirements."}
-                      {metric === "Spend Under Management" &&
-                        "Higher spend under management indicates greater financial oversight and control measures."}
-                      {metric === "Expected Denial Value" &&
-                        "Lower denial values suggest more favorable approval rates and streamlined processes."}
+                      {metric === "Annual Claim Amount" &&
+                        "Annual claim amounts reflect total financial exposure. Higher amounts indicate greater cost burden but may suggest more comprehensive coverage."}
+                      {metric === "Claim Paid PMPM" &&
+                        "Per Member Per Month (PMPM) claims indicate cost efficiency. Lower PMPM suggests better cost management and utilization control."}
+                      {metric === "Addressable Policy Impact" &&
+                        "Addressable policy impact measures potential areas for improvement and optimization opportunities within each policy framework."}
                       {metric === "Last Updated" &&
                         "Recent updates indicate active policy management and current regulatory compliance."}
                     </p>

@@ -48,7 +48,7 @@ export function PayerAnalysis() {
       // For "All Payers", use aggregated data
       return {
         metrics: {
-          totalPayers: { value: 543, label: "Total Payers" },
+          totalPayers: { value: 20, label: "Total Payers" },
           livesCovered: { value: "270.1M", label: "Lives Covered" },
           totalPolicies: {
             value: 14750,
@@ -235,18 +235,38 @@ export function PayerAnalysis() {
             {payerData.metrics.livesCovered.value}
           </p>
         </div>
-        <div className="bg-white rounded-lg border p-6">
-          <h3 className="text-sm font-medium text-gray-500">
+        <div className="bg-white rounded-lg border p-4">
+          <h3 className="text-sm font-medium text-gray-500 mb-2">
             {payerData.metrics.totalPolicies.label}
           </h3>
-          <p className="text-2xl font-bold mt-2">
-            {payerData.metrics.totalPolicies.value}
-          </p>
-          {payerData.metrics.totalPolicies.subtitle && (
-            <p className="text-sm text-gray-500 mt-1">
-              {payerData.metrics.totalPolicies.subtitle}
+
+          {/* Main Total Policies Value */}
+          <div className="mb-3">
+            <p className="text-xl font-bold text-gray-900">
+              {payerData.metrics.totalPolicies.value}
             </p>
-          )}
+            {payerData.metrics.totalPolicies.subtitle && (
+              <p className="text-xs text-gray-500 mt-1">
+                {payerData.metrics.totalPolicies.subtitle}
+              </p>
+            )}
+          </div>
+
+          {/* Additional Metrics Grid */}
+          <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100">
+            <div className="text-center">
+              <p className="text-sm font-semibold text-blue-600">12,400</p>
+              <p className="text-xs text-gray-500">Proc Codes</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-semibold text-green-600">92</p>
+              <p className="text-xs text-gray-500">EIU Proc Code</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-semibold text-purple-600">1,524</p>
+              <p className="text-xs text-gray-500">Services</p>
+            </div>
+          </div>
         </div>
         <div className="bg-white rounded-lg border p-6">
           <h3 className="text-sm font-medium text-gray-500">

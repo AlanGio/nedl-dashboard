@@ -77,7 +77,7 @@ export function BestInClassModal({
         "The selected policy has higher payout reimbursement, indicating better financial coverage for providers and patients.",
     },
     {
-      metric: "Spend Under Management",
+      metric: "Claim Paid PMPM",
       selectedValue: selectedPolicy.spendUnderManagement,
       bestInClassValue: bestInClassPolicy.spendUnderManagement,
       reasoning:
@@ -191,7 +191,7 @@ export function BestInClassModal({
                           : metric.metric === "Payout Reimbursed" &&
                             metric.selectedValue > metric.bestInClassValue
                           ? "text-blue-600"
-                          : metric.metric === "Spend Under Management" &&
+                          : metric.metric === "Claim Paid PMPM" &&
                             metric.selectedValue > metric.bestInClassValue
                           ? "text-blue-600"
                           : metric.metric === "Expected Denial Value" &&
@@ -212,7 +212,7 @@ export function BestInClassModal({
                           : metric.metric === "Payout Reimbursed" &&
                             metric.bestInClassValue > metric.selectedValue
                           ? "text-blue-600"
-                          : metric.metric === "Spend Under Management" &&
+                          : metric.metric === "Claim Paid PMPM" &&
                             metric.bestInClassValue > metric.selectedValue
                           ? "text-blue-600"
                           : metric.metric === "Expected Denial Value" &&

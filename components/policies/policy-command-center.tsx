@@ -1,4 +1,5 @@
 import type React from "react";
+import { useState } from "react";
 import {
   FileText,
   Clock,
@@ -80,6 +81,21 @@ function getIconComponent(iconName: string) {
 
 export function PolicyCommandCenter() {
   const { metrics } = mockData.allPolicies;
+  const [selectedPolicies, setSelectedPolicies] = useState<string[]>([]);
+
+  // Handle policy selection from SearchPolicies
+  const handlePolicySelect = (policyId: string) => {
+    setSelectedPolicies((prev) =>
+      prev.includes(policyId)
+        ? prev.filter((id) => id !== policyId)
+        : [...prev, policyId]
+    );
+  };
+
+  // Handle remove policy from comparison
+  const handleRemovePolicy = (policyId: string) => {
+    setSelectedPolicies((prev) => prev.filter((id) => id !== policyId));
+  };
 
   // Update the updatedMetrics colors
   const updatedMetrics = {
@@ -183,12 +199,16 @@ export function PolicyCommandCenter() {
 
         {/* Search Policies Component */}
         <div className="mb-8">
-          <SearchPolicies />
+          <SearchPolicies
+            selectedPolicies={selectedPolicies}
+            onPolicySelect={handlePolicySelect}
+            onRemovePolicy={handleRemovePolicy}
+          />
         </div>
 
         {/* Written Policy Coverage Table */}
         <div className="mb-8">
-          <WrittenPolicyCoverageTable />
+          <WrittenPolicyCoverageTable selectedPolicies={selectedPolicies} />
         </div>
 
         {/* Key Insights Section */}

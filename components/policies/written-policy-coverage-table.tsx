@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import mockData from "@/data/mockData.json";
 
 interface PolicyCoverageData {
   payerName: string;
@@ -70,12 +71,41 @@ const policyData: PolicyCoverageData[] = [
   },
 ];
 
-export function WrittenPolicyCoverageTable() {
+interface WrittenPolicyCoverageTableProps {
+  selectedPolicies: string[];
+}
+
+export function WrittenPolicyCoverageTable({
+  selectedPolicies,
+}: WrittenPolicyCoverageTableProps) {
+  // Filter policy data based on selected policies
+  const filteredPolicyData =
+    selectedPolicies.length > 0
+      ? policyData.filter((payer) => {
+          // For demo purposes, we'll filter based on payer names that might match selected policies
+          // In a real app, you'd have a mapping between policy IDs and payer data
+          const selectedPolicyNames = selectedPolicies.map((id) => {
+            // This is a simplified mapping - in reality you'd get the actual policy data
+            const policy = mockData.needsReview.policies.find(
+              (p: any) => p.id === id
+            );
+            return policy?.payer?.name || "";
+          });
+
+          return selectedPolicyNames.includes(payer.payerName);
+        })
+      : policyData;
+
   return (
     <Card className="shadow-custom">
       <CardHeader>
         <CardTitle className="text-lg font-semibold text-slate-800">
           Written Policy Coverage by Payer
+          {selectedPolicies.length > 0 && (
+            <span className="ml-2 text-sm font-normal text-blue-600">
+              (Filtered by {selectedPolicies.length} selected policy{selectedPolicies.length > 1 ? 'ies' : 'y'})
+            </span>
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -98,7 +128,7 @@ export function WrittenPolicyCoverageTable() {
               </tr>
             </thead>
             <tbody>
-              {policyData.map((row, index) => (
+              {filteredPolicyData.map((row, index) => (
                 <tr
                   key={index}
                   className="border-b border-slate-100 hover:bg-slate-50 transition-colors"

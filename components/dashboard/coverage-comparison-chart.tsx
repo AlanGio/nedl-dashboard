@@ -13,7 +13,7 @@ import { CalendarIcon } from "lucide-react";
 import mockData from "@/data/mockData.json";
 
 export function CoverageComparisonChart() {
-  // Get the top 5 payers including BCBS NC specifically
+  // Get the top 5 payers including HCSC specifically
   const bcbsNC = mockData.dashboard.policyCoverageData.find(
     (p) => p.payer === "HCSC"
   );

@@ -10,7 +10,17 @@ import { ComparisonModal } from "./comparison-modal";
 import { BestInClassModal } from "./best-in-class-modal";
 import mockData from "@/data/mockData.json";
 
-export function SearchPolicies() {
+interface SearchPoliciesProps {
+  selectedPolicies: string[];
+  onPolicySelect: (policyId: string) => void;
+  onRemovePolicy: (policyId: string) => void;
+}
+
+export function SearchPolicies({
+  selectedPolicies,
+  onPolicySelect,
+  onRemovePolicy,
+}: SearchPoliciesProps) {
   const { totalPolicies, columns, policies, suggestions } =
     mockData.needsReview;
 
@@ -19,7 +29,6 @@ export function SearchPolicies() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortColumn, setSortColumn] = useState("policyName");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-  const [selectedPolicies, setSelectedPolicies] = useState<string[]>([]);
   const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
   const [isBestInClassModalOpen, setIsBestInClassModalOpen] = useState(false);
   const [selectedPolicyForComparison, setSelectedPolicyForComparison] =
@@ -95,20 +104,6 @@ export function SearchPolicies() {
   const handleRowsPerPageChange = (rows: number) => {
     setRowsPerPage(rows);
     setCurrentPage(1); // Reset to first page when rows per page changes
-  };
-
-  // Handle policy selection
-  const handlePolicySelect = (policyId: string) => {
-    setSelectedPolicies((prev) =>
-      prev.includes(policyId)
-        ? prev.filter((id) => id !== policyId)
-        : [...prev, policyId]
-    );
-  };
-
-  // Handle remove policy from comparison
-  const handleRemovePolicy = (policyId: string) => {
-    setSelectedPolicies((prev) => prev.filter((id) => id !== policyId));
   };
 
   // Handle compare button click
@@ -250,7 +245,7 @@ export function SearchPolicies() {
           sortDirection={sortDirection}
           onSort={handleSort}
           selectedPolicies={selectedPolicies}
-          onPolicySelect={handlePolicySelect}
+          onPolicySelect={onPolicySelect}
           maxSelections={4}
           onCompareBestInClass={handleCompareBestInClass}
         />
@@ -266,7 +261,7 @@ export function SearchPolicies() {
           <>
             <ComparisonBox
               selectedPolicies={selectedPolicyObjects}
-              onRemovePolicy={handleRemovePolicy}
+              onRemovePolicy={onRemovePolicy}
               onCompare={handleCompare}
               isVisible={selectedPolicies.length > 0}
             />

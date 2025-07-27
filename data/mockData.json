@@ -274,7 +274,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -304,7 +304,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "130",
               "Medicare": "85",
@@ -434,7 +434,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -464,7 +464,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "115",
               "Medicare": "75",
@@ -594,7 +594,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -624,7 +624,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "110",
               "Medicare": "70",
@@ -754,7 +754,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -784,7 +784,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "125",
               "Medicare": "80",
@@ -914,7 +914,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -944,7 +944,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "110",
               "Medicare": "75",
@@ -1074,7 +1074,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1104,7 +1104,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "100",
               "Medicare": "70",
@@ -1234,7 +1234,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1264,7 +1264,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "110",
               "Medicare": "75",
@@ -1394,7 +1394,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1424,7 +1424,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "100",
               "Medicare": "70",
@@ -1554,7 +1554,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1584,7 +1584,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "95",
               "Medicare": "65",
@@ -1714,7 +1714,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1744,7 +1744,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "105",
               "Medicare": "70",
@@ -1874,7 +1874,7 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Provider"],
+        "categories": ["Medical", "Pharmacy", "Services"],
         "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
@@ -1904,7 +1904,7 @@
             }
           },
           {
-            "category": "Provider",
+            "category": "Services",
             "values": {
               "Commercial": "90",
               "Medicare": "60",
@@ -2347,7 +2347,7 @@
         "label": "Lives Covered"
       },
       "totalPolicies": {
-        "value": 1432,
+        "value": 14750,
         "label": "Total Policies",
         "subtitle": "11.5 policies per payer"
       },
@@ -2365,7 +2365,7 @@
       }
     },
     "policyDistributionTable": {
-      "categories": ["Medical", "Pharmacy", "Provider"],
+      "categories": ["Medical", "Pharmacy", "Services"],
       "columns": ["Commercial", "Medicare", "Medicaid"],
       "data": [
         {
@@ -2395,7 +2395,7 @@
           }
         },
         {
-          "category": "Provider",
+          "category": "Services",
           "values": {
             "Commercial": "120",
             "Medicare": "80",
@@ -2529,16 +2529,16 @@
     "performanceSnapshot": {
       "data": {
         "cptCodesWithGuidelines": {
-          "value": 3250,
-          "benchmark": 4500
+          "value": 12400,
+          "benchmark": 9402
         },
         "eiuCptCodes": {
-          "value": 1875,
-          "benchmark": 2200
+          "value": 92,
+          "benchmark": 89
         },
         "servicesDefined": {
-          "value": 425,
-          "benchmark": 500
+          "value": 1424,
+          "benchmark": 1269
         }
       }
     },
@@ -2571,7 +2571,7 @@
     "subtitle": "Browse all payers policies, and compare them against each other.",
     "metrics": {
       "activePolicies": {
-        "value": 1432,
+        "value": 14750,
         "icon": "FileText",
         "change": "+12 since last month",
         "changeType": "increase",
@@ -2732,12 +2732,12 @@
       },
       {
         "id": "spendUnderManagement",
-        "label": "Spend Under Management",
+        "label": "Claim Paid PMPM",
         "sortable": true
       },
       {
         "id": "expDenialValue",
-        "label": "Exp. Denial Value",
+        "label": "Addressable Policy Impact",
         "sortable": true
       },
       {
@@ -3133,7 +3133,7 @@
   "chatAnswers": [
     "Based on the policy data, BCBS covers cardiac MRI without prior authorization, while United requires prior authorization. Aetna also covers it, but Cigna does not provide coverage for this procedure.",
     "I've analyzed the data and found that genetic testing is covered by United and Aetna, while BCBS and Cigna require prior authorization. This suggests a trend toward coverage with conditions for this service.",
-    "Looking at the spend under management metrics, orthopedic procedures like spinal fusion have the highest financial impact at $1.5M, followed by cardiac imaging at $1.2M.",
+    "Looking at the Claim Paid PMPM metrics, orthopedic procedures like spinal fusion have the highest financial impact at $1.5M, followed by cardiac imaging at $1.2M.",
     "The dashboard shows that your code coverage is at 78%, which is a 5% increase since last month. This is primarily driven by improvements in cardiology and orthopedics coverage.",
     "I can see that there are 87 policies that need review, which is a decrease of 5 from last month. This indicates good progress in your policy maintenance efforts.",
     "According to the data, commercial payers have the highest number of policies (520), followed by Medicare (380) and Medicaid (290). This distribution aligns with typical market patterns."

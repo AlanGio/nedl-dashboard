@@ -24,15 +24,14 @@ export function HealthcarePayersChart({
         .map((payer) => {
           let category = "Other Payers";
           if (payer.name === "HCSC") {
-            category = "BCBS NC";
+            category = "HCSC";
           }
 
           return {
             name: payer.name,
             coveredLives: payer.coveredLives / 1000000,
             category: category,
-            "BCBS NC":
-              category === "BCBS NC" ? payer.coveredLives / 1000000 : 0,
+            HCSC: category === "HCSC" ? payer.coveredLives / 1000000 : 0,
             "Other Payers":
               category === "Other Payers" ? payer.coveredLives / 1000000 : 0,
           };
@@ -110,9 +109,9 @@ export function HealthcarePayersChart({
   const isAllPayers = selectedPayer === "All Payers";
   const chartConfig = isAllPayers
     ? {
-        "BCBS NC": {
-          label: "BCBS NC",
-          color: "#F5709A", // Pink for BCBS NC
+        HCSC: {
+          label: "HCSC",
+          color: "#F5709A", // Pink for HCSC
         },
         "Other Payers": {
           label: "Other Payers",
@@ -131,7 +130,7 @@ export function HealthcarePayersChart({
       };
 
   const dataKeys = isAllPayers
-    ? ["BCBS NC", "Other Payers"]
+    ? ["HCSC", "Other Payers"]
     : ["Selected Payer", "Competitors"];
 
   return (

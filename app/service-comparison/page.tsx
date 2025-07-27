@@ -1205,7 +1205,7 @@ export default function ServiceComparison() {
                           </div>
                           <div className="flex justify-between items-center">
                             <div className="text-sm text-gray-600">
-                              Spend under management:
+                              Addressable Policy Impact:
                             </div>
                             <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                               ${spendManagement.toFixed(1)} PMPM
