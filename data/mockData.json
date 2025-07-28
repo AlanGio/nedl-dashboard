@@ -275,8 +275,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Services"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Services"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -329,10 +337,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -435,8 +459,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -489,10 +521,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -595,8 +643,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -649,10 +705,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -755,8 +827,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -809,10 +889,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -915,8 +1011,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -969,10 +1073,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1075,8 +1195,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1129,10 +1257,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1235,8 +1379,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1289,10 +1441,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1395,8 +1563,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1449,10 +1625,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1555,8 +1747,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1609,10 +1809,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1715,8 +1931,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1769,10 +1993,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -1875,8 +2115,16 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "categories": [
+          "Medical",
+          "Pharmacy",
+          "Services"
+        ],
+        "columns": [
+          "Commercial",
+          "Medicare",
+          "Medicaid"
+        ],
         "data": [
           {
             "category": "Medical",
@@ -1929,10 +2177,26 @@
       },
       "codeExplorer": {
         "columns": [
-          { "id": "code", "label": "Code", "type": "text" },
-          { "id": "description", "label": "Description", "type": "text" },
-          { "id": "category", "label": "Category", "type": "text" },
-          { "id": "status", "label": "Status", "type": "status" }
+          {
+            "id": "code",
+            "label": "Code",
+            "type": "text"
+          },
+          {
+            "id": "description",
+            "label": "Description",
+            "type": "text"
+          },
+          {
+            "id": "category",
+            "label": "Category",
+            "type": "text"
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "type": "status"
+          }
         ],
         "data": [
           {
@@ -2065,18 +2329,66 @@
       "title": "Policy Adoption Trend",
       "timeRange": "Last 12 Months",
       "data": [
-        { "name": "Jan", "value": 65, "target": 70 },
-        { "name": "Feb", "value": 68, "target": 72 },
-        { "name": "Mar", "value": 73, "target": 75 },
-        { "name": "Apr", "value": 75, "target": 78 },
-        { "name": "May", "value": 78, "target": 80 },
-        { "name": "Jun", "value": 82, "target": 83 },
-        { "name": "Jul", "value": 85, "target": 85 },
-        { "name": "Aug", "value": 87, "target": 88 },
-        { "name": "Sep", "value": 88, "target": 90 },
-        { "name": "Oct", "value": 90, "target": 92 },
-        { "name": "Nov", "value": 92, "target": 95 },
-        { "name": "Dec", "value": 95, "target": 98 }
+        {
+          "name": "Jan",
+          "value": 65,
+          "target": 70
+        },
+        {
+          "name": "Feb",
+          "value": 68,
+          "target": 72
+        },
+        {
+          "name": "Mar",
+          "value": 73,
+          "target": 75
+        },
+        {
+          "name": "Apr",
+          "value": 75,
+          "target": 78
+        },
+        {
+          "name": "May",
+          "value": 78,
+          "target": 80
+        },
+        {
+          "name": "Jun",
+          "value": 82,
+          "target": 83
+        },
+        {
+          "name": "Jul",
+          "value": 85,
+          "target": 85
+        },
+        {
+          "name": "Aug",
+          "value": 87,
+          "target": 88
+        },
+        {
+          "name": "Sep",
+          "value": 88,
+          "target": 90
+        },
+        {
+          "name": "Oct",
+          "value": 90,
+          "target": 92
+        },
+        {
+          "name": "Nov",
+          "value": 92,
+          "target": 95
+        },
+        {
+          "name": "Dec",
+          "value": 95,
+          "target": 98
+        }
       ]
     },
     "distributionCharts": {
@@ -2094,7 +2406,11 @@
     },
     "codeCoverageStatus": {
       "title": "Top Code Coverage",
-      "filters": ["All Codes", "High Volume", "High Cost"],
+      "filters": [
+        "All Codes",
+        "High Volume",
+        "High Cost"
+      ],
       "coverage": {
         "details": {
           "covered": 65,
@@ -2116,11 +2432,36 @@
     "stackedBarChart": {
       "title": "Policy Status by Specialty",
       "data": [
-        { "name": "Cardiology", "approved": 45, "pending": 15, "rejected": 5 },
-        { "name": "Orthopedics", "approved": 38, "pending": 12, "rejected": 8 },
-        { "name": "Neurology", "approved": 30, "pending": 20, "rejected": 10 },
-        { "name": "Oncology", "approved": 50, "pending": 10, "rejected": 3 },
-        { "name": "Radiology", "approved": 35, "pending": 18, "rejected": 7 }
+        {
+          "name": "Cardiology",
+          "approved": 45,
+          "pending": 15,
+          "rejected": 5
+        },
+        {
+          "name": "Orthopedics",
+          "approved": 38,
+          "pending": 12,
+          "rejected": 8
+        },
+        {
+          "name": "Neurology",
+          "approved": 30,
+          "pending": 20,
+          "rejected": 10
+        },
+        {
+          "name": "Oncology",
+          "approved": 50,
+          "pending": 10,
+          "rejected": 3
+        },
+        {
+          "name": "Radiology",
+          "approved": 35,
+          "pending": 18,
+          "rejected": 7
+        }
       ]
     },
     "radarChart": {
@@ -2161,21 +2502,61 @@
     "funnelChart": {
       "title": "Policy Adoption Funnel",
       "data": [
-        { "name": "Awareness", "value": 100, "fill": "#449CFB" },
-        { "name": "Understanding", "value": 80, "fill": "#F08C76" },
-        { "name": "Acceptance", "value": 60, "fill": "#F5709A" },
-        { "name": "Implementation", "value": 40, "fill": "#B782E8" },
-        { "name": "Adherence", "value": 20, "fill": "#82F09A" }
+        {
+          "name": "Awareness",
+          "value": 100,
+          "fill": "#449CFB"
+        },
+        {
+          "name": "Understanding",
+          "value": 80,
+          "fill": "#F08C76"
+        },
+        {
+          "name": "Acceptance",
+          "value": 60,
+          "fill": "#F5709A"
+        },
+        {
+          "name": "Implementation",
+          "value": 40,
+          "fill": "#B782E8"
+        },
+        {
+          "name": "Adherence",
+          "value": 20,
+          "fill": "#82F09A"
+        }
       ]
     },
     "policyEffectivenessChart": {
       "title": "Policy Effectiveness by Category",
       "data": [
-        { "name": "Cardiology", "effectiveness": 85, "adoption": 75 },
-        { "name": "Orthopedics", "effectiveness": 78, "adoption": 82 },
-        { "name": "Neurology", "effectiveness": 70, "adoption": 65 },
-        { "name": "Oncology", "effectiveness": 90, "adoption": 80 },
-        { "name": "Radiology", "effectiveness": 75, "adoption": 70 }
+        {
+          "name": "Cardiology",
+          "effectiveness": 85,
+          "adoption": 75
+        },
+        {
+          "name": "Orthopedics",
+          "effectiveness": 78,
+          "adoption": 82
+        },
+        {
+          "name": "Neurology",
+          "effectiveness": 70,
+          "adoption": 65
+        },
+        {
+          "name": "Oncology",
+          "effectiveness": 90,
+          "adoption": 80
+        },
+        {
+          "name": "Radiology",
+          "effectiveness": 75,
+          "adoption": 70
+        }
       ]
     },
     "bubbleChart": {
@@ -2230,42 +2611,36 @@
         "BCBSNC-CVS Health": 61,
         "BCBSNC-Kaiser Per...": 45,
         "BCBSNC-Health Care Service Corpo...": 68,
-
         "United-BCBSNC": 65,
         "United-Cigna": 70,
         "United-Elevance Health": 75,
         "United-CVS Health": 68,
         "United-Kaiser Per...": 55,
         "United-Health Care Service Corpo...": 62,
-
         "Cigna-BCBSNC": 58,
         "Cigna-United": 70,
         "Cigna-Elevance Health": 67,
         "Cigna-CVS Health": 72,
         "Cigna-Kaiser Per...": 48,
         "Cigna-Health Care Service Corpo...": 55,
-
         "Elevance Health-BCBSNC": 72,
         "Elevance Health-United": 75,
         "Elevance Health-Cigna": 67,
         "Elevance Health-CVS Health": 70,
         "Elevance Health-Kaiser Per...": 52,
         "Elevance Health-Health Care Service Corpo...": 65,
-
         "CVS Health-BCBSNC": 61,
         "CVS Health-United": 68,
         "CVS Health-Cigna": 72,
         "CVS Health-Elevance Health": 70,
         "CVS Health-Kaiser Per...": 53,
         "CVS Health-Health Care Service Corpo...": 60,
-
         "Kaiser Per...-BCBSNC": 45,
         "Kaiser Per...-United": 55,
         "Kaiser Per...-Cigna": 48,
         "Kaiser Per...-Elevance Health": 52,
         "Kaiser Per...-CVS Health": 53,
         "Kaiser Per...-Health Care Service Corpo...": 47,
-
         "Health Care Service Corpo...-BCBSNC": 68,
         "Health Care Service Corpo...-United": 62,
         "Health Care Service Corpo...-Cigna": 55,
@@ -2360,8 +2735,16 @@
       }
     },
     "policyDistributionTable": {
-      "categories": ["Medical", "Pharmacy", "Services"],
-      "columns": ["Commercial", "Medicare", "Medicaid"],
+      "categories": [
+        "Medical",
+        "Pharmacy",
+        "Services"
+      ],
+      "columns": [
+        "Commercial",
+        "Medicare",
+        "Medicaid"
+      ],
       "data": [
         {
           "category": "Medical",
@@ -2407,10 +2790,26 @@
     "payerDetails": [
       {
         "columns": [
-          { "id": "policyName", "label": "Policy Name", "type": "text" },
-          { "id": "effectiveDate", "label": "Effective Date", "type": "date" },
-          { "id": "coverageType", "label": "Coverage Type", "type": "text" },
-          { "id": "priorAuth", "label": "Prior Auth", "type": "checkbox" },
+          {
+            "id": "policyName",
+            "label": "Policy Name",
+            "type": "text"
+          },
+          {
+            "id": "effectiveDate",
+            "label": "Effective Date",
+            "type": "date"
+          },
+          {
+            "id": "coverageType",
+            "label": "Coverage Type",
+            "type": "text"
+          },
+          {
+            "id": "priorAuth",
+            "label": "Prior Auth",
+            "type": "checkbox"
+          },
           {
             "id": "clinicalReview",
             "label": "Clinical Review",
@@ -2446,11 +2845,31 @@
       },
       {
         "columns": [
-          { "id": "drugName", "label": "Drug Name", "type": "text" },
-          { "id": "tier", "label": "Tier", "type": "text" },
-          { "id": "costShare", "label": "Cost Share", "type": "text" },
-          { "id": "priorAuth", "label": "Prior Auth", "type": "checkbox" },
-          { "id": "stepTherapy", "label": "Step Therapy", "type": "checkbox" }
+          {
+            "id": "drugName",
+            "label": "Drug Name",
+            "type": "text"
+          },
+          {
+            "id": "tier",
+            "label": "Tier",
+            "type": "text"
+          },
+          {
+            "id": "costShare",
+            "label": "Cost Share",
+            "type": "text"
+          },
+          {
+            "id": "priorAuth",
+            "label": "Prior Auth",
+            "type": "checkbox"
+          },
+          {
+            "id": "stepTherapy",
+            "label": "Step Therapy",
+            "type": "checkbox"
+          }
         ],
         "data": [
           {
@@ -2490,10 +2909,26 @@
     },
     "codeExplorer": {
       "columns": [
-        { "id": "code", "label": "Code", "type": "text" },
-        { "id": "description", "label": "Description", "type": "text" },
-        { "id": "category", "label": "Category", "type": "text" },
-        { "id": "status", "label": "Status", "type": "status" }
+        {
+          "id": "code",
+          "label": "Code",
+          "type": "text"
+        },
+        {
+          "id": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "id": "category",
+          "label": "Category",
+          "type": "text"
+        },
+        {
+          "id": "status",
+          "label": "Status",
+          "type": "status"
+        }
       ],
       "data": [
         {
@@ -2539,25 +2974,71 @@
     },
     "topMissingCodes": {
       "data": [
-        { "code": "99214", "value": 450 },
-        { "code": "73721", "value": 380 },
-        { "code": "77067", "value": 320 },
-        { "code": "90791", "value": 290 },
-        { "code": "90837", "value": 250 },
-        { "code": "99213", "value": 220 },
-        { "code": "99203", "value": 190 },
-        { "code": "99204", "value": 170 },
-        { "code": "99215", "value": 150 },
-        { "code": "77066", "value": 130 }
+        {
+          "code": "99214",
+          "value": 450
+        },
+        {
+          "code": "73721",
+          "value": 380
+        },
+        {
+          "code": "77067",
+          "value": 320
+        },
+        {
+          "code": "90791",
+          "value": 290
+        },
+        {
+          "code": "90837",
+          "value": 250
+        },
+        {
+          "code": "99213",
+          "value": 220
+        },
+        {
+          "code": "99203",
+          "value": 190
+        },
+        {
+          "code": "99204",
+          "value": 170
+        },
+        {
+          "code": "99215",
+          "value": 150
+        },
+        {
+          "code": "77066",
+          "value": 130
+        }
       ]
     },
     "spendUnderManagement": {
       "data": [
-        { "name": "BCBS", "value": 120, "highlighted": true },
-        { "name": "United", "value": 95 },
-        { "name": "Aetna", "value": 85 },
-        { "name": "Cigna", "value": 75 },
-        { "name": "Humana", "value": 65 }
+        {
+          "name": "BCBS",
+          "value": 120,
+          "highlighted": true
+        },
+        {
+          "name": "United",
+          "value": 95
+        },
+        {
+          "name": "Aetna",
+          "value": 85
+        },
+        {
+          "name": "Cigna",
+          "value": 75
+        },
+        {
+          "name": "Humana",
+          "value": 65
+        }
       ]
     }
   },
@@ -2748,18 +3229,6 @@
     ],
     "policies": [
       {
-        "id": "1",
-        "policyName": "Cardiac Imaging for Coronary Artery Disease",
-        "payer": {
-          "name": "Blue Cross Blue Shield",
-          "logo": "bcbs"
-        },
-        "clinicalCategory": "Cardiology",
-        "spendUnderManagement": "$1.2M",
-        "expDenialValue": "$320K",
-        "lastUpdated": "2 days ago"
-      },
-      {
         "id": "2",
         "policyName": "Genetic Testing for Hereditary Cancer Syndromes",
         "payer": {
@@ -2866,18 +3335,6 @@
         "spendUnderManagement": "$420K",
         "expDenialValue": "$95K",
         "lastUpdated": "3 days ago"
-      },
-      {
-        "id": "11",
-        "policyName": "Colonoscopy for Colorectal Cancer Screening",
-        "payer": {
-          "name": "Blue Cross Blue Shield",
-          "logo": "bcbs"
-        },
-        "clinicalCategory": "Gastroenterology",
-        "spendUnderManagement": "$720K",
-        "expDenialValue": "$210K",
-        "lastUpdated": "2 weeks ago"
       },
       {
         "id": "12",
@@ -3048,18 +3505,6 @@
         "lastUpdated": "1 week ago"
       },
       {
-        "id": "26",
-        "policyName": "Preventive Care Evaluation and Management",
-        "payer": {
-          "name": "Blue Cross Blue Shield",
-          "logo": "bcbs"
-        },
-        "clinicalCategory": "Evaluation & Management",
-        "spendUnderManagement": "$1.9M",
-        "expDenialValue": "$120K",
-        "lastUpdated": "5 days ago"
-      },
-      {
         "id": "27",
         "policyName": "General Surgery Procedures",
         "payer": {
@@ -3120,18 +3565,6 @@
         "lastUpdated": "1 week ago"
       },
       {
-        "id": "32",
-        "policyName": "Surgical Procedures Authorization",
-        "payer": {
-          "name": "Blue Cross Blue Shield",
-          "logo": "bcbs"
-        },
-        "clinicalCategory": "Surgery",
-        "spendUnderManagement": "$2.9M",
-        "expDenialValue": "$435K",
-        "lastUpdated": "5 days ago"
-      },
-      {
         "id": "33",
         "policyName": "Emergency Room Visit Coverage",
         "payer": {
@@ -3190,18 +3623,6 @@
         "spendUnderManagement": "$1.5M",
         "expDenialValue": "$225K",
         "lastUpdated": "1 week ago"
-      },
-      {
-        "id": "38",
-        "policyName": "Emergency Department Authorization",
-        "payer": {
-          "name": "Blue Cross Blue Shield",
-          "logo": "bcbs"
-        },
-        "clinicalCategory": "Emergency Medicine",
-        "spendUnderManagement": "$1.6M",
-        "expDenialValue": "$240K",
-        "lastUpdated": "5 days ago"
       }
     ],
     "suggestions": [
