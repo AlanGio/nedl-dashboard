@@ -17,9 +17,9 @@ export function SpendUnderManagement() {
   return (
     <div className="rounded-lg border bg-white p-6 shadow-custom">
       <div className="mb-4">
-        <h3 className="text-base font-medium">Claim Paid PMPM ($PMPM)</h3>
+        <h3 className="text-base font-medium">Unmanaged PMPM claims spend</h3>
         <p className="text-sm text-slate-500">
-          Total $PMPM being managed today by a given payer's policies
+          Total PMPM not managed by policies.
         </p>
       </div>
       <div className="h-80">
