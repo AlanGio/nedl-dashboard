@@ -72,7 +72,7 @@ export function CoverageComparisonChart() {
   return (
     <div className="rounded-xl border bg-white p-6 shadow-custom">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-base font-medium">Coverage Comparison</h3>
+        <h3 className="text-base font-medium">Policy Coverage Comparison</h3>
         <div className="flex items-center rounded-md border bg-slate-50 px-3 py-1 text-xs">
           <CalendarIcon className="mr-2 h-4 w-4 text-slate-500" />
           <span>Current Quarter</span>

@@ -1,0 +1,696 @@
+{
+  "policies": {
+    "A": [
+      {
+        "id": "advance-care-planning",
+        "name": "Advance Care Planning",
+        "pmpm": 0.4,
+        "category": "End of Life Care",
+        "status": "Active",
+        "lastUpdated": "2024-01-15"
+      },
+      {
+        "id": "allergen-immunotherapy",
+        "name": "Allergen Immunotherapy",
+        "pmpm": 0.33,
+        "category": "Allergy & Immunology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "allergen-immunotherapy-scit",
+        "name": "Allergen Immunotherapy (AIT) with Subcutaneous Immunotherapy (SCIT)",
+        "pmpm": 0.32,
+        "category": "Allergy & Immunology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "allergy-immunotherapy",
+        "name": "Allergy Immunotherapy",
+        "pmpm": 0.33,
+        "category": "Allergy & Immunology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "allergy-skin-testing",
+        "name": "Allergy Skin Testing",
+        "pmpm": 0.11,
+        "category": "Allergy & Immunology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "allergy-testing",
+        "name": "Allergy Testing",
+        "pmpm": 0.17,
+        "category": "Allergy & Immunology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "allogeneic-hematopoietic-cell-transplantation",
+        "name": "Allogeneic Hematopoietic Cell Transplantation for Primary Refractory or Relapsed Hodgkin's and Non-Hodgkin's Lymphoma with B-cell or T-cell Origin",
+        "pmpm": 0.01,
+        "category": "Oncology",
+        "status": "Active",
+        "lastUpdated": "2024-01-10"
+      },
+      {
+        "id": "ambulatory-electrocardiograph-monitoring",
+        "name": "Ambulatory Electrocardiograph (AECG) Monitoring",
+        "pmpm": 1.44,
+        "category": "Cardiology",
+        "status": "Active",
+        "lastUpdated": "2024-03-05"
+      },
+      {
+        "id": "amniotic-placental-derived-product-injections",
+        "name": "Amniotic and Placental-Derived Product Injections and/or Applications for Musculoskeletal Indications, Non-Wound",
+        "pmpm": 0.02,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      },
+      {
+        "id": "ankle-foot-knee-ankle-foot-orthosis",
+        "name": "Ankle-Foot/Knee-Ankle-Foot Orthosis",
+        "pmpm": 0.08,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "aortography-peripheral-angiography",
+        "name": "Aortography and peripheral angiography",
+        "pmpm": 0.25,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "artificial-intelligence-ct-coronary-topography",
+        "name": "Artificial Intelligence Enabled CT Based Quantitative Coronary Topography (AI-QCT)/Coronary Plaque Analysis (AI-CPA)",
+        "pmpm": 0.05,
+        "category": "Cardiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-28"
+      }
+    ],
+    "B": [
+      {
+        "id": "bariatric-surgery",
+        "name": "Bariatric Surgery",
+        "pmpm": 2.15,
+        "category": "General Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-01-20"
+      },
+      {
+        "id": "breast-cancer-screening",
+        "name": "Breast Cancer Screening",
+        "pmpm": 0.85,
+        "category": "Oncology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      },
+      {
+        "id": "bone-density-testing",
+        "name": "Bone Density Testing",
+        "pmpm": 0.42,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      },
+      {
+        "id": "biopsy-procedures",
+        "name": "Biopsy Procedures",
+        "pmpm": 0.38,
+        "category": "Pathology",
+        "status": "Active",
+        "lastUpdated": "2024-02-05"
+      }
+    ],
+    "C": [
+      {
+        "id": "cardiac-catheterization",
+        "name": "Cardiac Catheterization",
+        "pmpm": 1.25,
+        "category": "Cardiology",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "colonoscopy",
+        "name": "Colonoscopy",
+        "pmpm": 0.95,
+        "category": "Gastroenterology",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "cataract-surgery",
+        "name": "Cataract Surgery",
+        "pmpm": 0.68,
+        "category": "Ophthalmology",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      },
+      {
+        "id": "chest-x-ray",
+        "name": "Chest X-Ray",
+        "pmpm": 0.15,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      }
+    ],
+    "D": [
+      {
+        "id": "diabetes-management",
+        "name": "Diabetes Management",
+        "pmpm": 1.85,
+        "category": "Endocrinology",
+        "status": "Active",
+        "lastUpdated": "2024-02-28"
+      },
+      {
+        "id": "dental-implants",
+        "name": "Dental Implants",
+        "pmpm": 0.45,
+        "category": "Dental",
+        "status": "Active",
+        "lastUpdated": "2024-01-15"
+      },
+      {
+        "id": "dermatology-procedures",
+        "name": "Dermatology Procedures",
+        "pmpm": 0.32,
+        "category": "Dermatology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      }
+    ],
+    "E": [
+      {
+        "id": "emergency-room-services",
+        "name": "Emergency Room Services",
+        "pmpm": 3.25,
+        "category": "Emergency Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-03-05"
+      },
+      {
+        "id": "endoscopy-procedures",
+        "name": "Endoscopy Procedures",
+        "pmpm": 0.78,
+        "category": "Gastroenterology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "echocardiogram",
+        "name": "Echocardiogram",
+        "pmpm": 0.55,
+        "category": "Cardiology",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      }
+    ],
+    "F": [
+      {
+        "id": "fertility-treatments",
+        "name": "Fertility Treatments",
+        "pmpm": 1.15,
+        "category": "Reproductive Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "foot-surgery",
+        "name": "Foot Surgery",
+        "pmpm": 0.42,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      },
+      {
+        "id": "facial-reconstructive-surgery",
+        "name": "Facial Reconstructive Surgery",
+        "pmpm": 0.28,
+        "category": "Plastic Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-02-05"
+      }
+    ],
+    "G": [
+      {
+        "id": "gastric-bypass-surgery",
+        "name": "Gastric Bypass Surgery",
+        "pmpm": 1.95,
+        "category": "General Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-01-20"
+      },
+      {
+        "id": "genetic-testing",
+        "name": "Genetic Testing",
+        "pmpm": 0.65,
+        "category": "Genetics",
+        "status": "Active",
+        "lastUpdated": "2024-02-28"
+      },
+      {
+        "id": "gynecological-surgery",
+        "name": "Gynecological Surgery",
+        "pmpm": 0.88,
+        "category": "Gynecology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      }
+    ],
+    "H": [
+      {
+        "id": "hip-replacement-surgery",
+        "name": "Hip Replacement Surgery",
+        "pmpm": 1.45,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      },
+      {
+        "id": "hearing-aids",
+        "name": "Hearing Aids",
+        "pmpm": 0.35,
+        "category": "Audiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "heart-transplant",
+        "name": "Heart Transplant",
+        "pmpm": 0.08,
+        "category": "Cardiology",
+        "status": "Active",
+        "lastUpdated": "2024-01-10"
+      }
+    ],
+    "I": [
+      {
+        "id": "immunotherapy-cancer",
+        "name": "Immunotherapy for Cancer",
+        "pmpm": 2.85,
+        "category": "Oncology",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "insulin-pump-therapy",
+        "name": "Insulin Pump Therapy",
+        "pmpm": 0.95,
+        "category": "Endocrinology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "infertility-treatment",
+        "name": "Infertility Treatment",
+        "pmpm": 1.25,
+        "category": "Reproductive Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      }
+    ],
+    "J": [
+      {
+        "id": "joint-replacement-surgery",
+        "name": "Joint Replacement Surgery",
+        "pmpm": 1.75,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "jaw-surgery",
+        "name": "Jaw Surgery",
+        "pmpm": 0.52,
+        "category": "Oral Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      }
+    ],
+    "K": [
+      {
+        "id": "kidney-transplant",
+        "name": "Kidney Transplant",
+        "pmpm": 0.12,
+        "category": "Nephrology",
+        "status": "Active",
+        "lastUpdated": "2024-01-15"
+      },
+      {
+        "id": "knee-replacement-surgery",
+        "name": "Knee Replacement Surgery",
+        "pmpm": 1.55,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      }
+    ],
+    "L": [
+      {
+        "id": "laser-eye-surgery",
+        "name": "Laser Eye Surgery",
+        "pmpm": 0.85,
+        "category": "Ophthalmology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      },
+      {
+        "id": "liver-transplant",
+        "name": "Liver Transplant",
+        "pmpm": 0.15,
+        "category": "Hepatology",
+        "status": "Active",
+        "lastUpdated": "2024-01-20"
+      },
+      {
+        "id": "lung-cancer-screening",
+        "name": "Lung Cancer Screening",
+        "pmpm": 0.45,
+        "category": "Oncology",
+        "status": "Active",
+        "lastUpdated": "2024-02-25"
+      }
+    ],
+    "M": [
+      {
+        "id": "mammography",
+        "name": "Mammography",
+        "pmpm": 0.65,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "mental-health-counseling",
+        "name": "Mental Health Counseling",
+        "pmpm": 1.25,
+        "category": "Psychiatry",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "mri-scanning",
+        "name": "MRI Scanning",
+        "pmpm": 1.15,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      }
+    ],
+    "N": [
+      {
+        "id": "neonatal-care",
+        "name": "Neonatal Care",
+        "pmpm": 2.45,
+        "category": "Pediatrics",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      },
+      {
+        "id": "neurological-testing",
+        "name": "Neurological Testing",
+        "pmpm": 0.75,
+        "category": "Neurology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      },
+      {
+        "id": "nuclear-medicine",
+        "name": "Nuclear Medicine",
+        "pmpm": 0.55,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      }
+    ],
+    "O": [
+      {
+        "id": "obstetrical-care",
+        "name": "Obstetrical Care",
+        "pmpm": 2.85,
+        "category": "Obstetrics",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "oncology-treatment",
+        "name": "Oncology Treatment",
+        "pmpm": 3.25,
+        "category": "Oncology",
+        "status": "Active",
+        "lastUpdated": "2024-03-05"
+      },
+      {
+        "id": "ophthalmology-services",
+        "name": "Ophthalmology Services",
+        "pmpm": 0.95,
+        "category": "Ophthalmology",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      }
+    ],
+    "P": [
+      {
+        "id": "physical-therapy",
+        "name": "Physical Therapy",
+        "pmpm": 1.35,
+        "category": "Physical Therapy",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "preventive-care",
+        "name": "Preventive Care",
+        "pmpm": 0.85,
+        "category": "Primary Care",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "psychiatric-services",
+        "name": "Psychiatric Services",
+        "pmpm": 1.65,
+        "category": "Psychiatry",
+        "status": "Active",
+        "lastUpdated": "2024-02-25"
+      }
+    ],
+    "Q": [
+      {
+        "id": "quality-improvement-programs",
+        "name": "Quality Improvement Programs",
+        "pmpm": 0.25,
+        "category": "Quality Management",
+        "status": "Active",
+        "lastUpdated": "2024-01-20"
+      },
+      {
+        "id": "quantitative-ultrasound",
+        "name": "Quantitative Ultrasound",
+        "pmpm": 0.35,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      }
+    ],
+    "R": [
+      {
+        "id": "radiology-services",
+        "name": "Radiology Services",
+        "pmpm": 1.45,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "rehabilitation-services",
+        "name": "Rehabilitation Services",
+        "pmpm": 1.15,
+        "category": "Physical Therapy",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      },
+      {
+        "id": "respiratory-therapy",
+        "name": "Respiratory Therapy",
+        "pmpm": 0.75,
+        "category": "Respiratory Therapy",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      }
+    ],
+    "S": [
+      {
+        "id": "spinal-fusion-surgery",
+        "name": "Spinal Fusion Surgery",
+        "pmpm": 2.15,
+        "category": "Orthopedics",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      },
+      {
+        "id": "sleep-study",
+        "name": "Sleep Study",
+        "pmpm": 0.65,
+        "category": "Sleep Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "sports-medicine",
+        "name": "Sports Medicine",
+        "pmpm": 0.95,
+        "category": "Sports Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      }
+    ],
+    "T": [
+      {
+        "id": "transplant-services",
+        "name": "Transplant Services",
+        "pmpm": 0.85,
+        "category": "Transplant Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-01-15"
+      },
+      {
+        "id": "trauma-care",
+        "name": "Trauma Care",
+        "pmpm": 2.25,
+        "category": "Emergency Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-02-25"
+      },
+      {
+        "id": "telemedicine-services",
+        "name": "Telemedicine Services",
+        "pmpm": 0.45,
+        "category": "Telemedicine",
+        "status": "Active",
+        "lastUpdated": "2024-03-05"
+      }
+    ],
+    "U": [
+      {
+        "id": "urgent-care-services",
+        "name": "Urgent Care Services",
+        "pmpm": 1.35,
+        "category": "Urgent Care",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      },
+      {
+        "id": "urology-procedures",
+        "name": "Urology Procedures",
+        "pmpm": 0.95,
+        "category": "Urology",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      },
+      {
+        "id": "ultrasound-services",
+        "name": "Ultrasound Services",
+        "pmpm": 0.55,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      }
+    ],
+    "V": [
+      {
+        "id": "vaccination-services",
+        "name": "Vaccination Services",
+        "pmpm": 0.35,
+        "category": "Preventive Medicine",
+        "status": "Active",
+        "lastUpdated": "2024-03-01"
+      },
+      {
+        "id": "vascular-surgery",
+        "name": "Vascular Surgery",
+        "pmpm": 1.25,
+        "category": "Vascular Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-02-20"
+      },
+      {
+        "id": "vision-care",
+        "name": "Vision Care",
+        "pmpm": 0.65,
+        "category": "Ophthalmology",
+        "status": "Active",
+        "lastUpdated": "2024-01-25"
+      }
+    ],
+    "W": [
+      {
+        "id": "wound-care-management",
+        "name": "Wound Care Management",
+        "pmpm": 0.85,
+        "category": "Wound Care",
+        "status": "Active",
+        "lastUpdated": "2024-02-15"
+      },
+      {
+        "id": "weight-loss-surgery",
+        "name": "Weight Loss Surgery",
+        "pmpm": 1.95,
+        "category": "General Surgery",
+        "status": "Active",
+        "lastUpdated": "2024-01-30"
+      }
+    ],
+    "X": [
+      {
+        "id": "x-ray-services",
+        "name": "X-Ray Services",
+        "pmpm": 0.25,
+        "category": "Radiology",
+        "status": "Active",
+        "lastUpdated": "2024-02-10"
+      },
+      {
+        "id": "xenotransplantation",
+        "name": "Xenotransplantation",
+        "pmpm": 0.05,
+        "category": "Transplant Medicine",
+        "status": "Experimental",
+        "lastUpdated": "2024-01-15"
+      }
+    ],
+    "Y": [
+      {
+        "id": "youth-mental-health",
+        "name": "Youth Mental Health Services",
+        "pmpm": 1.45,
+        "category": "Child Psychiatry",
+        "status": "Active",
+        "lastUpdated": "2024-02-25"
+      }
+    ],
+    "Z": [
+      {
+        "id": "zika-virus-testing",
+        "name": "Zika Virus Testing",
+        "pmpm": 0.15,
+        "category": "Infectious Disease",
+        "status": "Active",
+        "lastUpdated": "2024-01-20"
+      }
+    ]
+  }
+}

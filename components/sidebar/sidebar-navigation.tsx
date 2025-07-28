@@ -11,6 +11,7 @@ import {
   House,
   Diff,
   Blend,
+  ChartNoAxesColumnIncreasing,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -101,6 +102,13 @@ export function SidebarNavigation({
           label: "Code Coverage",
           color: "text-blue-600",
           href: "/code-coverage",
+        },
+        {
+          id: "lcd-mcd-coverage",
+          icon: ChartNoAxesColumnIncreasing,
+          label: "LCD / MCD Coverage",
+          color: "text-blue-600",
+          href: "/lcd-mcd-coverage",
         },
         {
           id: "service-comparison",
