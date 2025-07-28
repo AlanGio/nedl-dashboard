@@ -275,16 +275,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Services"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Services"],
         "data": [
           {
             "category": "Medical",
@@ -459,16 +451,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -643,16 +627,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -827,16 +803,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1011,16 +979,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1195,16 +1155,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1379,16 +1331,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1563,16 +1507,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1747,16 +1683,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -1931,16 +1859,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -2115,16 +2035,8 @@
         "medicaid": 20
       },
       "policyDistribution": {
-        "categories": [
-          "Medical",
-          "Pharmacy",
-          "Services"
-        ],
-        "columns": [
-          "Commercial",
-          "Medicare",
-          "Medicaid"
-        ],
+        "categories": ["Medical", "Pharmacy", "Services"],
+        "columns": ["Commercial", "Medicare", "Medicaid"],
         "data": [
           {
             "category": "Medical",
@@ -2406,11 +2318,7 @@
     },
     "codeCoverageStatus": {
       "title": "Top Code Coverage",
-      "filters": [
-        "All Codes",
-        "High Volume",
-        "High Cost"
-      ],
+      "filters": ["All Codes", "High Volume", "High Cost"],
       "coverage": {
         "details": {
           "covered": 65,
@@ -2735,16 +2643,8 @@
       }
     },
     "policyDistributionTable": {
-      "categories": [
-        "Medical",
-        "Pharmacy",
-        "Services"
-      ],
-      "columns": [
-        "Commercial",
-        "Medicare",
-        "Medicaid"
-      ],
+      "categories": ["Medical", "Pharmacy", "Services"],
+      "columns": ["Commercial", "Medicare", "Medicaid"],
       "data": [
         {
           "category": "Medical",
@@ -3019,13 +2919,9 @@
     "spendUnderManagement": {
       "data": [
         {
-          "name": "BCBS",
+          "name": "HCSC",
           "value": 120,
           "highlighted": true
-        },
-        {
-          "name": "United",
-          "value": 95
         },
         {
           "name": "Aetna",
@@ -3038,6 +2934,10 @@
         {
           "name": "Humana",
           "value": 65
+        },
+        {
+          "name": "United",
+          "value": 95
         }
       ]
     }

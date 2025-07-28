@@ -845,7 +845,7 @@ export default function ServiceComparison() {
             {/* Payer 2 Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Second Payer
+                Reference Payer
               </label>
               <select
                 value={selectedPayer2}
@@ -938,14 +938,12 @@ export default function ServiceComparison() {
                           </th>
                           <th className="text-center py-4 px-6 font-medium text-gray-900">
                             <div className="flex flex-col">
-                              <span>Spend under</span>
-                              <span>management</span>
+                              <span>Claim Paid PMPM</span>
                             </div>
                           </th>
                           <th className="text-center py-4 px-6 font-medium text-gray-900">
                             <div className="flex flex-col">
-                              <span>Expected denial</span>
-                              <span>value</span>
+                              <span>Addressable Policy Impact</span>
                             </div>
                           </th>
                         </tr>
