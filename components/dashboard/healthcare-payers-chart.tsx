@@ -8,9 +8,17 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import mockData from "@/data/mockData.json";
+import chartConfig from "@/data/healthcare-payers-chart-config.json";
 
 interface HealthcarePayersChartProps {
   selectedPayer?: string;
+}
+
+interface ChartConfigType {
+  [key: string]: {
+    label: string;
+    color: string;
+  };
 }
 
 export function HealthcarePayersChart({
@@ -46,12 +54,17 @@ export function HealthcarePayersChart({
       if (!selectedPayerData) {
         // Fallback if payer not found
         return mockData.payersData
-          .slice(0, 10)
+          .slice(0, chartConfig.chartSettings.maxDisplayedPayers)
           .map((payer) => {
             const isSelected = payer.name === selectedPayer;
+            const variation =
+              chartConfig.chartSettings.fallbackVariationRange.min +
+              Math.random() *
+                (chartConfig.chartSettings.fallbackVariationRange.max -
+                  chartConfig.chartSettings.fallbackVariationRange.min);
             const adjustedValue = isSelected
               ? payer.coveredLives
-              : payer.coveredLives * (0.8 + Math.random() * 0.4);
+              : payer.coveredLives * variation;
 
             return {
               name: payer.name,
@@ -71,22 +84,18 @@ export function HealthcarePayersChart({
           if (payer.name === selectedPayer) return true;
 
           // Include top payers for comparison
-          const topPayers = [
-            "UnitedHealthcare",
-            "Elevance Health (Anthem)",
-            "CVS Health/Aetna",
-            "Cigna",
-            "Kaiser Permanente",
-            "Humana",
-            "Centene",
-          ];
-          return topPayers.includes(payer.name);
+          return chartConfig.topPayers.includes(payer.name);
         })
-        .slice(0, 10) // Limit to top 10 for readability
+        .slice(0, chartConfig.chartSettings.maxDisplayedPayers) // Limit to top 10 for readability
         .map((payer) => {
           const isSelected = payer.name === selectedPayer;
           // Add some variation to make the chart more realistic
-          const variation = isSelected ? 1 : 0.85 + Math.random() * 0.3;
+          const variation = isSelected
+            ? 1
+            : chartConfig.chartSettings.variationRange.min +
+              Math.random() *
+                (chartConfig.chartSettings.variationRange.max -
+                  chartConfig.chartSettings.variationRange.min);
           const adjustedValue = payer.coveredLives * variation;
 
           return {
@@ -107,25 +116,13 @@ export function HealthcarePayersChart({
 
   // Determine chart configuration based on selected payer
   const isAllPayers = selectedPayer === "All Payers";
-  const chartConfig = isAllPayers
-    ? {
-        HCSC: {
-          label: "HCSC",
-          color: "#F5709A", // Pink for HCSC
-        },
-        "Other Payers": {
-          label: "Other Payers",
-          color: "#449CFB", // Blue for all other payers
-        },
-      }
+  const chartConfigData: ChartConfigType = isAllPayers
+    ? chartConfig.chartConfigs.allPayers
     : {
+        ...chartConfig.chartConfigs.selectedPayer,
         "Selected Payer": {
+          ...chartConfig.chartConfigs.selectedPayer["Selected Payer"],
           label: selectedPayer,
-          color: "#F5709A", // Pink for selected payer
-        },
-        Competitors: {
-          label: "Competitors",
-          color: "#449CFB", // Blue for competitors
         },
       };
 
@@ -143,37 +140,31 @@ export function HealthcarePayersChart({
         </CardTitle>
       </CardHeader>
       <CardContent className="w-full h-auto">
-        <ChartContainer className="w-full h-auto" config={chartConfig}>
-          <BarChart
-            data={chartData}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 120,
-            }}
-          >
+        <ChartContainer className="w-full h-auto" config={chartConfigData}>
+          <BarChart data={chartData} margin={chartConfig.chartMargins}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="name"
-              angle={-45}
-              textAnchor="end"
-              height={140}
-              tick={{ fontSize: 10 }}
-              interval={0}
+              angle={chartConfig.xAxisSettings.angle}
+              textAnchor={chartConfig.xAxisSettings.textAnchor}
+              height={chartConfig.xAxisSettings.height}
+              tick={{ fontSize: chartConfig.xAxisSettings.fontSize }}
+              interval={chartConfig.xAxisSettings.interval}
             />
             <YAxis
               label={{
-                value: "Covered Lives (Millions)",
+                value: chartConfig.chartSettings.yAxisLabel,
                 angle: -90,
                 position: "insideLeft",
               }}
-              domain={[0, 60]}
+              domain={chartConfig.chartSettings.yAxisDomain}
             />
             <ChartTooltip
               content={<ChartTooltipContent />}
-              formatter={(value, name) => [
-                value > 0 ? `${value.toFixed(1)}M` : null,
+              formatter={(value: any, name: string) => [
+                typeof value === "number" && value > 0
+                  ? `${value.toFixed(1)}M`
+                  : null,
                 name,
               ]}
               labelFormatter={(label) => `${label}`}
@@ -183,8 +174,8 @@ export function HealthcarePayersChart({
               <Bar
                 key={key}
                 dataKey={key}
-                name={chartConfig[key].label}
-                fill={chartConfig[key].color}
+                name={chartConfigData[key].label}
+                fill={chartConfigData[key].color}
                 stackId="stack"
               />
             ))}

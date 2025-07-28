@@ -1,0 +1,59 @@
+{
+  "topPayers": [
+    "UnitedHealthcare",
+    "Elevance Health (Anthem)",
+    "CVS Health/Aetna",
+    "Cigna",
+    "Kaiser Permanente",
+    "Humana",
+    "Centene"
+  ],
+  "chartConfigs": {
+    "allPayers": {
+      "HCSC": {
+        "label": "HCSC",
+        "color": "#F5709A"
+      },
+      "Other Payers": {
+        "label": "Other Payers",
+        "color": "#449CFB"
+      }
+    },
+    "selectedPayer": {
+      "Selected Payer": {
+        "label": "Selected Payer",
+        "color": "#F5709A"
+      },
+      "Competitors": {
+        "label": "Competitors",
+        "color": "#449CFB"
+      }
+    }
+  },
+  "chartSettings": {
+    "maxDisplayedPayers": 10,
+    "yAxisDomain": [0, 60],
+    "yAxisLabel": "Covered Lives (Millions)",
+    "variationRange": {
+      "min": 0.85,
+      "max": 1.15
+    },
+    "fallbackVariationRange": {
+      "min": 0.8,
+      "max": 1.2
+    }
+  },
+  "chartMargins": {
+    "top": 20,
+    "right": 30,
+    "left": 20,
+    "bottom": 120
+  },
+  "xAxisSettings": {
+    "angle": -45,
+    "textAnchor": "end",
+    "height": 140,
+    "fontSize": 10,
+    "interval": 0
+  }
+}
