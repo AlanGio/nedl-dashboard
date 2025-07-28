@@ -934,7 +934,7 @@ export default function ServiceComparison() {
                       <thead>
                         <tr className="border-b border-gray-200 bg-gray-50">
                           <th className="text-left py-4 px-6 font-medium text-gray-900">
-                            Policy Name
+                            Reference Policy Name
                           </th>
                           <th className="text-center py-4 px-6 font-medium text-gray-900">
                             <div className="flex flex-col">
@@ -1211,7 +1211,7 @@ export default function ServiceComparison() {
                           </div>
                           <div className="flex justify-between items-center mt-2">
                             <div className="text-sm text-gray-600">
-                              Expected denial value:
+                              Addressable Policy Impact:
                             </div>
                             <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                               ${expectedDenial.toFixed(1)} PMPM
@@ -1247,13 +1247,13 @@ export default function ServiceComparison() {
                       <thead>
                         <tr className="border-b border-gray-200 bg-gray-50">
                           <th className="text-left py-4 px-6 font-medium text-gray-900">
-                            {selectedPayer1} (expected denial value)
+                            {selectedPayer1} (policy impact)
                           </th>
                           <th className="text-left py-4 px-6 font-medium text-gray-900">
-                            {selectedPayer2} (expected denial value)
+                            {selectedPayer2} (policy impact)
                           </th>
                           <th className="text-right py-4 px-6 font-medium text-gray-900">
-                            Expected denial value
+                            Addressable Policy Impact
                           </th>
                         </tr>
                       </thead>
@@ -1612,7 +1612,7 @@ export default function ServiceComparison() {
                             {/* Overall Expected Denial Value */}
                             <div className="flex justify-between items-center pt-2 border-t border-gray-100">
                               <span className="text-sm font-medium text-gray-700">
-                                Expected denial value:
+                                Addressable Policy Impact:
                               </span>
                               <span className="inline-flex px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
                                 ${overallDenial.toFixed(1)} PMPM

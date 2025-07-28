@@ -84,11 +84,11 @@ export function BestInClassModal({
         "Best-in-class policy manages higher spend, suggesting more comprehensive cost management and oversight.",
     },
     {
-      metric: "Expected Denial Value",
+      metric: "Addressable Policy Impact ",
       selectedValue: selectedPolicy.expDenialValue,
       bestInClassValue: bestInClassPolicy.expDenialValue,
       reasoning:
-        "Lower expected denial value in best-in-class policy indicates more favorable approval rates and reduced administrative burden.",
+        "Lower Addressable Policy Impact in best-in-class policy indicates more favorable approval rates and reduced administrative burden.",
     },
   ];
 
