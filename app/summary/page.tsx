@@ -7,14 +7,9 @@ import { LayoutWithNav } from "@/app/layout-with-nav";
 import {
   FileCheck,
   FileBarChart,
-  FileText,
-  BarChart3,
-  MoreVertical,
   ChevronRight,
-  Receipt,
-  ChartLine,
-  FileCheck2,
-  BadgePoundSterling,
+  Users,
+  BookOpen,
 } from "lucide-react";
 
 import { FloatingChat } from "@/components/chat/floating-chat";
@@ -52,7 +47,7 @@ const moduleData: ModuleData[] = [
   {
     id: "claims-repricer",
     title: "Claims Repricer",
-    icon: Receipt,
+    icon: FileCheck,
     hasGradient: true,
     metrics: [
       { label: "Total Claims", value: "145M" },
@@ -68,7 +63,7 @@ const moduleData: ModuleData[] = [
   {
     id: "policy-intelligence",
     title: "Policy Intelligence",
-    icon: ChartLine,
+    icon: FileBarChart,
     hasGradient: false,
     metrics: [
       { label: "Active Policies", value: "1,234" },
@@ -84,7 +79,7 @@ const moduleData: ModuleData[] = [
   {
     id: "contract-intelligence",
     title: "Contract Intelligence",
-    icon: FileCheck2,
+    icon: BookOpen,
     hasGradient: false,
     metrics: [
       { label: "Active Contracts", value: "892" },
@@ -100,7 +95,7 @@ const moduleData: ModuleData[] = [
   {
     id: "payment-leakage",
     title: "Payment Leakage Analysis",
-    icon: BadgePoundSterling,
+    icon: Users,
     hasGradient: false,
     metrics: [
       { label: "Leakage Detected", value: "$847K" },
