@@ -46,10 +46,34 @@ export function ComparisonModal({
   const getPolicyMetrics = (policy: Policy) => {
     // Generate consistent values based on policy ID for demo purposes
     const policyIdNum = parseInt(policy.id.replace(/\D/g, "")) || 1;
+
+    console.log(policy.payer);
+    // Specific values for Blue Cross Blue Shield and Aetna
+    if (
+      policy.payer.name.toLowerCase().includes("blue cross") ||
+      policy.payer.name.toLowerCase().includes("bcbs")
+    ) {
+      return {
+        codesCovered: Math.floor((policyIdNum * 7) % 100) + 50, // 50-149 range
+        annualClaimAmount: "$750M",
+        claimPaidPMPM: "$15.63",
+        addressablePolicyImpact: "$15M",
+      };
+    } else if (policy.payer.name.toLowerCase().includes("aetna")) {
+      return {
+        codesCovered: Math.floor((policyIdNum * 7) % 100) + 50, // 50-149 range
+        annualClaimAmount: "$2,650M",
+        claimPaidPMPM: "$14.72",
+        addressablePolicyImpact: "$26.5M",
+      };
+    }
+
+    // Default values for other payers
     return {
       codesCovered: Math.floor((policyIdNum * 7) % 100) + 50, // 50-149 range
       annualClaimAmount: `$${Math.floor((policyIdNum * 5) % 80) + 15}m`, // $15m-$94m range
       claimPaidPMPM: `$${Math.floor((policyIdNum * 2) % 40) + 25}`, // $25-$64 range
+      addressablePolicyImpact: `$${Math.floor((policyIdNum * 3) % 20) + 10}M`, // $10M-$29M range
     };
   };
 
@@ -169,7 +193,7 @@ export function ComparisonModal({
                         )}
                         {metric === "Addressable Policy Impact" && (
                           <span className="font-semibold text-gray-900">
-                            {policy.expDenialValue}
+                            {getPolicyMetrics(policy).addressablePolicyImpact}
                           </span>
                         )}
                         {metric === "Last Updated" && (
