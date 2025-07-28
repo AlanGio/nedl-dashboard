@@ -182,7 +182,7 @@ export function PolicyCommandCenter() {
             iconColor={updatedMetrics.recentUpdates.iconColor}
           />
           <MetricCard
-            title="Compliance Score"
+            title="Confidence Score"
             value={updatedMetrics.complianceScore.value}
             icon={getIconComponent(updatedMetrics.complianceScore.icon)}
             change={updatedMetrics.complianceScore.change}

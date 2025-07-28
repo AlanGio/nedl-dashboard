@@ -85,7 +85,7 @@ const moduleData: ModuleData[] = [
       { label: "Active Contracts", value: "892" },
       { label: "Contract Value", value: "$1.2B" },
       { label: "Renewal Rate", value: "94.2%" },
-      { label: "Compliance Score", value: "98.1%" },
+      { label: "Confidence Score", value: "98.1%" },
     ],
     buttonLinks: {
       addClaim: "https://payment-leakage.vercel.app/claims-management",
