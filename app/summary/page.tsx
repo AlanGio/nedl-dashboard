@@ -51,7 +51,7 @@ const moduleData: ModuleData[] = [
     hasGradient: true,
     metrics: [
       { label: "Total Claims", value: "145M" },
-      { label: "Total Allowed Amount", value: "$472.5B" },
+      { label: "Total Allowed Amount", value: "$236.3B" },
       { label: "Total Medicare Reference Price", value: "$197.2B" },
       { label: "Avg. Medicare Rate Relativity", value: "120%" },
     ],

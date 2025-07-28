@@ -1,0 +1,102 @@
+[
+    {
+        "company": "UnitedHealth Group",
+        "covered_lives_millions": 51.0
+    },
+    {
+        "company": "Elevance Health (Anthem)",
+        "covered_lives_millions": 47.5
+    },
+    {
+        "company": "CVS Health (Aetna)",
+        "covered_lives_millions": 39.2
+    },
+    {
+        "company": "Cigna",
+        "covered_lives_millions": 18.5
+    },
+    {
+        "company": "Kaiser Permanente",
+        "covered_lives_millions": 12.6
+    },
+    {
+        "company": "Centene Corporation",
+        "covered_lives_millions": 12.3
+    },
+    {
+        "company": "Humana",
+        "covered_lives_millions": 11.8
+    },
+    {
+        "company": "Blue Cross Blue Shield of Michigan",
+        "covered_lives_millions": 5.3
+    },
+    {
+        "company": "Blue Shield of California",
+        "covered_lives_millions": 5.1
+    },
+    {
+        "company": "Highmark Health",
+        "covered_lives_millions": 4.9
+    },
+    {
+        "company": "Independence Health Group",
+        "covered_lives_millions": 4.8
+    },
+    {
+        "company": "Molina Healthcare",
+        "covered_lives_millions": 4.6
+    },
+    {
+        "company": "GuideWell (Florida Blue)",
+        "covered_lives_millions": 4.5
+    },
+    {
+        "company": "Blue Cross Blue Shield of NC",
+        "covered_lives_millions": 4.3
+    },
+    {
+        "company": "Blue Cross Blue Shield of MA",
+        "covered_lives_millions": 4.1
+    },
+    {
+        "company": "CareFirst BlueCross BlueShield",
+        "covered_lives_millions": 3.9
+    },
+    {
+        "company": "Health Care Service Corporation (HCSC)",
+        "covered_lives_millions": 3.8
+    },
+    {
+        "company": "Premera Blue Cross",
+        "covered_lives_millions": 3.7
+    },
+    {
+        "company": "Regence Blue Cross Blue Shield",
+        "covered_lives_millions": 3.6
+    },
+    {
+        "company": "Wellmark Blue Cross Blue Shield",
+        "covered_lives_millions": 3.5
+    },
+    {
+        "company": "Blue Cross Blue Shield of TN",
+        "covered_lives_millions": 3.4
+    },
+    {
+        "company": "Blue Cross Blue Shield of AZ",
+        "covered_lives_millions": 3.3
+    },
+    {
+        "company": "Blue Cross Blue Shield of AL",
+        "covered_lives_millions": 3.2
+    },
+    {
+        "company": "Priority Health",
+        "covered_lives_millions": 3.1
+    },
+    {
+        "company": "Geisinger Health Plan",
+        "covered_lives_millions": 3.0
+    }
+]
