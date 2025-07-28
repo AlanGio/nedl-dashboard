@@ -28,7 +28,7 @@ const policyData: PolicyCoverageData[] = [
     modifiersCovered: 420,
   },
   {
-    payerName: "BCBS Texas (HCSC)",
+    payerName: "Centene",
     totalPolicies: 520,
     hcpcsCodes: 9000,
     modifiersCovered: 340,
@@ -100,10 +100,10 @@ export function WrittenPolicyCoverageTable({
     <Card className="shadow-custom">
       <CardHeader>
         <CardTitle className="text-lg font-semibold text-slate-800">
-          Written Policy Coverage by Payer
+          Policy Coverage by Payer
           {selectedPolicies.length > 0 && (
             <span className="ml-2 text-sm font-normal text-blue-600">
-              (Filtered by {selectedPolicies.length} selected policy{selectedPolicies.length > 1 ? 'ies' : 'y'})
+              (Filtered by {selectedPolicies.length} selected polic{selectedPolicies.length > 1 ? 'ies' : 'y'})
             </span>
           )}
         </CardTitle>

@@ -32,30 +32,182 @@
     }
   },
   "payersList": [
-    "HCSC",
     "UnitedHealthcare",
     "Elevance Health (Anthem)",
-    "BCBS Texas (HCSC)",
-    "BCBS Florida (GuideWell)",
-    "BCBS Michigan",
-    "BCBS Illinois (HCSC)",
-    "Highmark BCBS",
+    "CVS Health/Aetna",
+    "Cigna",
     "Kaiser Permanente",
     "Centene",
     "Humana",
-    "CVS Health/Aetna",
-    "Cigna",
-    "Molina Healthcare",
-    "BCBS Massachusetts",
-    "BCBS Tennessee",
-    "CareFirst BCBS",
+    "BCBS Michigan",
+    "Blue Shield of California",
+    "Highmark BCBS",
     "Independence BCBS",
-    "WellCare",
-    "Anthem BCBS (Other States)"
+    "Molina Healthcare",
+    "BCBS Florida (GuideWell)",
+    "BCBS North Carolina",
+    "BCBS Massachusetts",
+    "CareFirst BCBS",
+    "HCSC",
+    "Premera Blue Cross",
+    "Regence Blue Cross Blue Shield",
+    "Wellmark Blue Cross Blue Shield"
   ],
   "payersData": [
     {
       "rank": 1,
+      "name": "UnitedHealthcare",
+      "coveredLives": 51000000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry, Oncology & Hematology"
+    },
+    {
+      "rank": 2,
+      "name": "Elevance Health (Anthem)",
+      "coveredLives": 47500000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
+    },
+    {
+      "rank": 3,
+      "name": "CVS Health/Aetna",
+      "coveredLives": 39200000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
+    },
+    {
+      "rank": 4,
+      "name": "Cigna",
+      "coveredLives": 18500000,
+      "type": "Commercial",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Neurology & Psychiatry, Oncology & Hematology"
+    },
+    {
+      "rank": 5,
+      "name": "Kaiser Permanente",
+      "coveredLives": 12600000,
+      "type": "Integrated",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology"
+    },
+    {
+      "rank": 6,
+      "name": "Centene",
+      "coveredLives": 12300000,
+      "type": "Medicaid",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Neurology & Psychiatry"
+    },
+    {
+      "rank": 7,
+      "name": "Humana",
+      "coveredLives": 11800000,
+      "type": "Medicare",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical, Cardiology & Vascular"
+    },
+    {
+      "rank": 8,
+      "name": "BCBS Michigan",
+      "coveredLives": 5300000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 9,
+      "name": "Blue Shield of California",
+      "coveredLives": 5100000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 10,
+      "name": "Highmark BCBS",
+      "coveredLives": 4900000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 11,
+      "name": "Independence BCBS",
+      "coveredLives": 4800000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 12,
+      "name": "Molina Healthcare",
+      "coveredLives": 4600000,
+      "type": "Medicaid",
+      "national": 1,
+      "regional": 0,
+      "specialties": "General Medical"
+    },
+    {
+      "rank": 13,
+      "name": "BCBS Florida (GuideWell)",
+      "coveredLives": 4500000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 14,
+      "name": "BCBS North Carolina",
+      "coveredLives": 4300000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 15,
+      "name": "BCBS Massachusetts",
+      "coveredLives": 4100000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 16,
+      "name": "CareFirst BCBS",
+      "coveredLives": 3900000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Neurology & Psychiatry",
+      "bcbsAffiliate": true
+    },
+    {
+      "rank": 17,
       "name": "HCSC",
       "coveredLives": 3800000,
       "type": "Commercial",
@@ -65,161 +217,9 @@
       "bcbsAffiliate": true
     },
     {
-      "rank": 2,
-      "name": "UnitedHealthcare",
-      "coveredLives": 53000000,
-      "type": "Commercial",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry, Oncology & Hematology"
-    },
-    {
-      "rank": 3,
-      "name": "Elevance Health (Anthem)",
-      "coveredLives": 47000000,
-      "type": "Commercial",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
-    },
-    {
-      "rank": 4,
-      "name": "BCBS Texas (HCSC)",
-      "coveredLives": 10400000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 5,
-      "name": "BCBS Florida (GuideWell)",
-      "coveredLives": 5200000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 6,
-      "name": "BCBS Michigan",
-      "coveredLives": 4600000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 7,
-      "name": "BCBS Illinois (HCSC)",
-      "coveredLives": 8500000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 8,
-      "name": "Highmark BCBS",
-      "coveredLives": 6500000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 9,
-      "name": "Kaiser Permanente",
-      "coveredLives": 12600000,
-      "type": "Integrated",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular, Oncology & Hematology"
-    },
-    {
-      "rank": 10,
-      "name": "Centene",
-      "coveredLives": 27500000,
-      "type": "Medicaid",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Neurology & Psychiatry"
-    },
-    {
-      "rank": 11,
-      "name": "Humana",
-      "coveredLives": 17000000,
-      "type": "Medicare",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Cardiology & Vascular"
-    },
-    {
-      "rank": 12,
-      "name": "CVS Health/Aetna",
-      "coveredLives": 24000000,
-      "type": "Commercial",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Cardiology & Vascular, Neurology & Psychiatry"
-    },
-    {
-      "rank": 13,
-      "name": "Cigna",
-      "coveredLives": 18000000,
-      "type": "Commercial",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical, Neurology & Psychiatry, Oncology & Hematology"
-    },
-    {
-      "rank": 14,
-      "name": "Molina Healthcare",
-      "coveredLives": 5100000,
-      "type": "Medicaid",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical"
-    },
-    {
-      "rank": 15,
-      "name": "BCBS Massachusetts",
-      "coveredLives": 3200000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Cardiology & Vascular",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 16,
-      "name": "BCBS Tennessee",
-      "coveredLives": 3500000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Oncology & Hematology",
-      "bcbsAffiliate": true
-    },
-    {
-      "rank": 17,
-      "name": "CareFirst BCBS",
-      "coveredLives": 3400000,
-      "type": "Commercial",
-      "national": 0,
-      "regional": 1,
-      "specialties": "General Medical, Neurology & Psychiatry",
-      "bcbsAffiliate": true
-    },
-    {
       "rank": 18,
-      "name": "Independence BCBS",
-      "coveredLives": 2800000,
+      "name": "Premera Blue Cross",
+      "coveredLives": 3700000,
       "type": "Commercial",
       "national": 0,
       "regional": 1,
@@ -228,17 +228,18 @@
     },
     {
       "rank": 19,
-      "name": "WellCare",
-      "coveredLives": 6000000,
-      "type": "Medicaid",
-      "national": 1,
-      "regional": 0,
-      "specialties": "General Medical"
+      "name": "Regence Blue Cross Blue Shield",
+      "coveredLives": 3600000,
+      "type": "Commercial",
+      "national": 0,
+      "regional": 1,
+      "specialties": "General Medical, Cardiology & Vascular",
+      "bcbsAffiliate": true
     },
     {
       "rank": 20,
-      "name": "Anthem BCBS (Other States)",
-      "coveredLives": 8000000,
+      "name": "Wellmark Blue Cross Blue Shield",
+      "coveredLives": 3500000,
       "type": "Commercial",
       "national": 0,
       "regional": 1,
@@ -275,19 +276,19 @@
       },
       "policyDistribution": {
         "categories": ["Medical", "Pharmacy", "Services"],
-        "columns": ["Commercial", "Medicare", "Medicaid"],
+        "columns": ["Commercial", "Medicare", "Services"],
         "data": [
           {
             "category": "Medical",
             "values": {
               "Commercial": "280",
               "Medicare": "190",
-              "Medicaid": "130"
+              "Services": "130"
             },
             "colors": {
               "Commercial": "bg-primary-100 text-primary-800",
               "Medicare": "bg-primary-50 text-primary-700",
-              "Medicaid": "bg-primary-50 text-primary-700"
+              "Services": "bg-primary-50 text-primary-700"
             }
           },
           {
@@ -295,12 +296,12 @@
             "values": {
               "Commercial": "170",
               "Medicare": "130",
-              "Medicaid": "95"
+              "Services": "95"
             },
             "colors": {
               "Commercial": "bg-secondary-100 text-secondary-800",
               "Medicare": "bg-secondary-50 text-secondary-700",
-              "Medicaid": "bg-secondary-50 text-secondary-700"
+              "Services": "bg-secondary-50 text-secondary-700"
             }
           },
           {
@@ -308,12 +309,12 @@
             "values": {
               "Commercial": "130",
               "Medicare": "85",
-              "Medicaid": "85"
+              "Services": "85"
             },
             "colors": {
               "Commercial": "bg-blue-100 text-blue-800",
               "Medicare": "bg-blue-50 text-blue-700",
-              "Medicaid": "bg-blue-50 text-blue-700"
+              "Services": "bg-blue-50 text-blue-700"
             }
           }
         ]
@@ -2293,12 +2294,6 @@
         "modifiers": 420
       },
       {
-        "payer": "BCBS Texas (HCSC)",
-        "totalPolicies": 520,
-        "hcpcsCodes": 9000,
-        "modifiers": 340
-      },
-      {
         "payer": "BCBS Florida",
         "totalPolicies": 480,
         "hcpcsCodes": 8500,
@@ -2991,6 +2986,222 @@
         "spendUnderManagement": "$320K",
         "expDenialValue": "$75K",
         "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "21",
+        "policyName": "Office Visit Evaluation and Management",
+        "payer": {
+          "name": "HCSC",
+          "logo": "hcsc"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$2.3M",
+        "expDenialValue": "$150K",
+        "lastUpdated": "2 days ago"
+      },
+      {
+        "id": "22",
+        "policyName": "Primary Care Evaluation and Management",
+        "payer": {
+          "name": "CVS Health/Aetna",
+          "logo": "aetna"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$2.1M",
+        "expDenialValue": "$140K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "23",
+        "policyName": "Consultation Evaluation and Management",
+        "payer": {
+          "name": "UnitedHealthcare",
+          "logo": "united"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$2.8M",
+        "expDenialValue": "$180K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "24",
+        "policyName": "Specialist Visit Evaluation and Management",
+        "payer": {
+          "name": "Elevance Health",
+          "logo": "elevance"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$2.4M",
+        "expDenialValue": "$160K",
+        "lastUpdated": "4 days ago"
+      },
+      {
+        "id": "25",
+        "policyName": "Follow-up Evaluation and Management",
+        "payer": {
+          "name": "Cigna",
+          "logo": "cigna"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$2.0M",
+        "expDenialValue": "$130K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "26",
+        "policyName": "Preventive Care Evaluation and Management",
+        "payer": {
+          "name": "Blue Cross Blue Shield",
+          "logo": "bcbs"
+        },
+        "clinicalCategory": "Evaluation & Management",
+        "spendUnderManagement": "$1.9M",
+        "expDenialValue": "$120K",
+        "lastUpdated": "5 days ago"
+      },
+      {
+        "id": "27",
+        "policyName": "General Surgery Procedures",
+        "payer": {
+          "name": "HCSC",
+          "logo": "hcsc"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$3.2M",
+        "expDenialValue": "$480K",
+        "lastUpdated": "2 days ago"
+      },
+      {
+        "id": "28",
+        "policyName": "Minimally Invasive Surgery",
+        "payer": {
+          "name": "CVS Health/Aetna",
+          "logo": "aetna"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$2.8M",
+        "expDenialValue": "$420K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "29",
+        "policyName": "Outpatient Surgery Procedures",
+        "payer": {
+          "name": "UnitedHealthcare",
+          "logo": "united"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$3.5M",
+        "expDenialValue": "$525K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "30",
+        "policyName": "Cardiovascular Surgery",
+        "payer": {
+          "name": "Elevance Health",
+          "logo": "elevance"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$4.1M",
+        "expDenialValue": "$615K",
+        "lastUpdated": "4 days ago"
+      },
+      {
+        "id": "31",
+        "policyName": "Orthopedic Surgery Procedures",
+        "payer": {
+          "name": "Cigna",
+          "logo": "cigna"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$3.0M",
+        "expDenialValue": "$450K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "32",
+        "policyName": "Surgical Procedures Authorization",
+        "payer": {
+          "name": "Blue Cross Blue Shield",
+          "logo": "bcbs"
+        },
+        "clinicalCategory": "Surgery",
+        "spendUnderManagement": "$2.9M",
+        "expDenialValue": "$435K",
+        "lastUpdated": "5 days ago"
+      },
+      {
+        "id": "33",
+        "policyName": "Emergency Room Visit Coverage",
+        "payer": {
+          "name": "HCSC",
+          "logo": "hcsc"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.8M",
+        "expDenialValue": "$270K",
+        "lastUpdated": "2 days ago"
+      },
+      {
+        "id": "34",
+        "policyName": "Emergency Department Services",
+        "payer": {
+          "name": "CVS Health/Aetna",
+          "logo": "aetna"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.7M",
+        "expDenialValue": "$255K",
+        "lastUpdated": "1 day ago"
+      },
+      {
+        "id": "35",
+        "policyName": "ER Trauma Care Coverage",
+        "payer": {
+          "name": "UnitedHealthcare",
+          "logo": "united"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$2.2M",
+        "expDenialValue": "$330K",
+        "lastUpdated": "3 days ago"
+      },
+      {
+        "id": "36",
+        "policyName": "Emergency Medical Services",
+        "payer": {
+          "name": "Elevance Health",
+          "logo": "elevance"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.9M",
+        "expDenialValue": "$285K",
+        "lastUpdated": "4 days ago"
+      },
+      {
+        "id": "37",
+        "policyName": "Urgent Care and Emergency Room",
+        "payer": {
+          "name": "Cigna",
+          "logo": "cigna"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.5M",
+        "expDenialValue": "$225K",
+        "lastUpdated": "1 week ago"
+      },
+      {
+        "id": "38",
+        "policyName": "Emergency Department Authorization",
+        "payer": {
+          "name": "Blue Cross Blue Shield",
+          "logo": "bcbs"
+        },
+        "clinicalCategory": "Emergency Medicine",
+        "spendUnderManagement": "$1.6M",
+        "expDenialValue": "$240K",
+        "lastUpdated": "5 days ago"
       }
     ],
     "suggestions": [

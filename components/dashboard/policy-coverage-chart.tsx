@@ -17,7 +17,7 @@ const policyData: PolicyCoverageData[] = [
   { payer: "HCSC", totalPolicies: 450, hcpcsCodes: 8200, modifiers: 320 },
   { payer: "UnitedHealthcare", totalPolicies: 850, hcpcsCodes: 12500, modifiers: 450 },
   { payer: "Elevance Health", totalPolicies: 780, hcpcsCodes: 11800, modifiers: 420 },
-  { payer: "BCBS Texas (HCSC)", totalPolicies: 520, hcpcsCodes: 9000, modifiers: 340 },
+  { payer: "Centene", totalPolicies: 520, hcpcsCodes: 9000, modifiers: 340 },
   { payer: "BCBS Florida", totalPolicies: 480, hcpcsCodes: 8500, modifiers: 310 },
   { payer: "BCBS Michigan", totalPolicies: 440, hcpcsCodes: 8000, modifiers: 300 },
   { payer: "Kaiser Permanente", totalPolicies: 620, hcpcsCodes: 9500, modifiers: 380 },

@@ -42,7 +42,7 @@ export function PolicyDistributionChart({
   const barColors = {
     Commercial: "#449CFB",
     Medicare: "#F08C76",
-    Medicaid: "#F5709A",
+    Services: "#F5709A",
   };
 
   return (

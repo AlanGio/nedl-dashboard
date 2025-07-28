@@ -14,7 +14,7 @@ const data = [
   { name: "HCSC", value: 7500 },
   { name: "UnitedHealthcare", value: 12000 },
   { name: "Elevance Health", value: 11500 },
-  { name: "BCBS Texas (HCSC)", value: 8500 },
+  { name: "Cigna", value: 8500 },
   { name: "BCBS Florida", value: 8000 },
   { name: "BCBS Michigan", value: 7500 },
   { name: "Kaiser Permanente", value: 9500 },
