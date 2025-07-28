@@ -186,6 +186,14 @@ export function SidebarNavigation({
       href: "",
       disabled: true,
     },
+    {
+      id: "contract-library",
+      icon: BookOpen,
+      label: "Contract Library",
+      color: "text-[#9c5d45]",
+      href: "",
+      disabled: true,
+    },
   ];
 
   const handleNavigate = (href: string, itemId?: string | null) => {
