@@ -22,6 +22,7 @@ interface ModuleData {
   title: string;
   icon: React.ElementType;
   hasGradient: boolean;
+  disabled?: boolean;
   metrics: {
     label: string;
     value: string;
@@ -81,6 +82,7 @@ const moduleData: ModuleData[] = [
     title: "Contract Intelligence",
     icon: BookOpen,
     hasGradient: false,
+    disabled: true,
     metrics: [
       { label: "Active Contracts", value: "892" },
       { label: "Contract Value", value: "$1.2B" },
@@ -300,7 +302,9 @@ export default function Summary() {
   };
 
   const handleModuleClick = (module: ModuleData) => {
-    setSelectedModule(module);
+    if (!module.disabled) {
+      setSelectedModule(module);
+    }
   };
 
   const handleButtonClick = (url: string) => {
@@ -373,14 +377,21 @@ export default function Summary() {
                         return (
                           <button
                             key={module.id}
-                            onClick={() => handleModuleClick(module)}
-                            className={`p-6 rounded-xl transition-all duration-200 hover:shadow-lg ${
-                              isSelected
-                                ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white"
-                                : "bg-white border border-gray-200 hover:border-gray-300"
+                            onClick={() =>
+                              !module.disabled && handleModuleClick(module)
+                            }
+                            disabled={module.disabled}
+                            className={`p-6 rounded-xl transition-all duration-200 ${
+                              module.disabled
+                                ? "bg-gray-100 cursor-not-allowed opacity-80"
+                                : isSelected
+                                ? "bg-gradient-to-r from-[#449CFB] to-[#E85DF9] text-white hover:shadow-lg"
+                                : "bg-white border border-gray-200 hover:border-gray-300 hover:shadow-lg"
                             }`}
-                            tabIndex={0}
-                            aria-label={`Select ${module.title} module`}
+                            tabIndex={module.disabled ? -1 : 0}
+                            aria-label={`Select ${module.title} module${
+                              module.disabled ? " (disabled)" : ""
+                            }`}
                           >
                             <div className="flex flex-col gap-4">
                               <IconComponent
@@ -397,6 +408,11 @@ export default function Summary() {
                                   }`}
                                 >
                                   {module.title}
+                                  {module.disabled && (
+                                    <span className="ml-2 text-xs text-gray-400">
+                                      (Coming Soon)
+                                    </span>
+                                  )}
                                 </h3>
                               </div>
                             </div>
