@@ -88,7 +88,7 @@ export function ModernPieChart({
   };
 
   return (
-    <div className="bg-white rounded-xl p-4 lg:p-6 shadow-xs border border-[#e5e7eb] hover:shadow-lg transition-all duration-300 h-full">
+    <div className="bg-white rounded-xl p-4 shadow-xs border border-[#e5e7eb] hover:shadow-lg transition-all duration-300 h-full">
       <div className="text-center mb-4 lg:mb-6">
         <h3 className="text-base lg:text-lg font-semibold text-[#374151] mb-2 font-comfortaa">
           {title}

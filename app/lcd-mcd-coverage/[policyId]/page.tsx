@@ -346,18 +346,6 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
       ],
     },
     {
-      id: "bcbs",
-      name: "Blue Cross Blue Shield",
-      logo: "/bcbs-logo.png",
-      coverageStatus: "Not covered",
-      approvalRate: "0%",
-      avgProcessingTime: "N/A",
-      pmpm: 0.0,
-      lastUpdated: "2024-01-08",
-      policyType: "LCD",
-      requirements: ["Procedure not covered under current policy"],
-    },
-    {
       id: "kaiser",
       name: "Kaiser Permanente",
       logo: "/generic-insurance-logo.png",
