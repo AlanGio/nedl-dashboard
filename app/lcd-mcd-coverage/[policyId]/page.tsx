@@ -900,7 +900,7 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
             </div>
 
             {/* Right Sidebar - Insurance Company Comparison */}
-            <div className="w-full lg:w-120 flex-shrink-0">
+            <div className="w-full lg:w-96 flex-shrink-0">
               <Card className="lg:sticky lg:top-6">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg font-bold text-gray-900">
