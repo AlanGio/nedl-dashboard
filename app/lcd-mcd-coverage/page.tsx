@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { LayoutWithNav } from "@/app/layout-with-nav";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +25,7 @@ interface PoliciesData {
 }
 
 export default function LCDMCDCoverage() {
+  const router = useRouter();
   const [selectedLetter, setSelectedLetter] = useState("A");
   const [viewMode, setViewMode] = useState<"browse" | "search">("browse");
   const [searchQuery, setSearchQuery] = useState("");
@@ -86,6 +88,10 @@ export default function LCDMCDCoverage() {
       default:
         return "bg-gray-100 text-gray-800";
     }
+  };
+
+  const handlePolicyClick = (policyId: string) => {
+    router.push(`/lcd-mcd-coverage/${policyId}`);
   };
 
   return (
@@ -199,6 +205,15 @@ export default function LCDMCDCoverage() {
                 <Card
                   key={policy.id}
                   className="hover:shadow-md transition-shadow duration-200 cursor-pointer"
+                  onClick={() => handlePolicyClick(policy.id)}
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handlePolicyClick(policy.id);
+                    }
+                  }}
+                  aria-label={`View details for ${policy.name}`}
                 >
                   <CardContent className="p-4">
                     <div className="space-y-3">
