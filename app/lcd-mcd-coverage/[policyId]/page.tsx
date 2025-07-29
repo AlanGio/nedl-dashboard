@@ -55,9 +55,9 @@ interface PoliciesData {
 }
 
 interface PolicyDetailProps {
-  params: {
+  params: Promise<{
     policyId: string;
-  };
+  }>;
 }
 
 // Category icon mapping
@@ -301,10 +301,114 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
     },
   };
 
-  // Get related policies (same category)
-  const relatedPolicies = allPolicies
-    .filter((p) => p.category === policy.category && p.id !== policy.id)
-    .slice(0, 8);
+  // Mock insurance companies data for comparison
+  const insuranceCompanies = [
+    {
+      id: "united",
+      name: "UnitedHealthcare",
+      logo: "/united-logo.png",
+      coverageStatus: "Covered",
+      approvalRate: "94.2%",
+      avgProcessingTime: "2.8 days",
+      pmpm: 1.85,
+      lastUpdated: "2024-01-15",
+      policyType: "LCD",
+      requirements: [
+        "Prior authorization required",
+        "Documentation of medical necessity",
+      ],
+    },
+    {
+      id: "aetna",
+      name: "Aetna",
+      logo: "/aetna-logo.png",
+      coverageStatus: "Covered with restrictions",
+      approvalRate: "89.7%",
+      avgProcessingTime: "3.5 days",
+      pmpm: 1.62,
+      lastUpdated: "2024-01-10",
+      policyType: "LCD",
+      requirements: ["Pre-certification required", "Specific diagnosis codes"],
+    },
+    {
+      id: "cigna",
+      name: "Cigna",
+      logo: "/cigna-logo.png",
+      coverageStatus: "Covered",
+      approvalRate: "91.3%",
+      avgProcessingTime: "2.9 days",
+      pmpm: 1.78,
+      lastUpdated: "2024-01-12",
+      policyType: "LCD",
+      requirements: [
+        "Clinical documentation required",
+        "Evidence-based criteria",
+      ],
+    },
+    {
+      id: "bcbs",
+      name: "Blue Cross Blue Shield",
+      logo: "/bcbs-logo.png",
+      coverageStatus: "Not covered",
+      approvalRate: "0%",
+      avgProcessingTime: "N/A",
+      pmpm: 0.0,
+      lastUpdated: "2024-01-08",
+      policyType: "LCD",
+      requirements: ["Procedure not covered under current policy"],
+    },
+    {
+      id: "kaiser",
+      name: "Kaiser Permanente",
+      logo: "/generic-insurance-logo.png",
+      coverageStatus: "Covered",
+      approvalRate: "96.1%",
+      avgProcessingTime: "2.1 days",
+      pmpm: 2.15,
+      lastUpdated: "2024-01-20",
+      policyType: "LCD",
+      requirements: ["In-network providers only", "Standard clinical criteria"],
+    },
+    {
+      id: "humana",
+      name: "Humana",
+      logo: "/generic-insurance-logo.png",
+      coverageStatus: "Covered with limitations",
+      approvalRate: "87.4%",
+      avgProcessingTime: "4.2 days",
+      pmpm: 1.45,
+      lastUpdated: "2024-01-05",
+      policyType: "LCD",
+      requirements: ["Prior authorization", "Specific facility requirements"],
+    },
+    {
+      id: "anthem",
+      name: "Anthem",
+      logo: "/generic-insurance-logo.png",
+      coverageStatus: "Covered",
+      approvalRate: "92.8%",
+      avgProcessingTime: "3.1 days",
+      pmpm: 1.95,
+      lastUpdated: "2024-01-18",
+      policyType: "LCD",
+      requirements: [
+        "Documentation of medical necessity",
+        "Approved providers",
+      ],
+    },
+    {
+      id: "hcsc",
+      name: "HCSC",
+      logo: "/hcsc-logo.png",
+      coverageStatus: "Covered",
+      approvalRate: "90.5%",
+      avgProcessingTime: "3.3 days",
+      pmpm: 1.72,
+      lastUpdated: "2024-01-14",
+      policyType: "LCD",
+      requirements: ["Clinical criteria met", "Appropriate documentation"],
+    },
+  ];
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -331,6 +435,20 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
     router.push(`/lcd-mcd-coverage/${policyId}`);
   };
 
+  const getCoverageStatusColor = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "covered":
+        return "bg-green-100 text-green-800";
+      case "covered with restrictions":
+      case "covered with limitations":
+        return "bg-yellow-100 text-yellow-800";
+      case "not covered":
+        return "bg-red-100 text-red-800";
+      default:
+        return "bg-gray-100 text-gray-800";
+    }
+  };
+
   return (
     <LayoutWithNav>
       <div className="min-h-screen bg-gray-50">
@@ -349,7 +467,7 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
         </div>
 
         <div className="p-6">
-          <div className="flex gap-6">
+          <div className="flex flex-col lg:flex-row gap-6">
             {/* Main Content Area */}
             <div className="flex-1 space-y-6">
               {/* Policy Header */}
@@ -428,14 +546,15 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
                       <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id as any)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 ${
+                        className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors flex-1 ${
                           activeTab === tab.id
                             ? "bg-blue-100 text-blue-900"
                             : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                         }`}
                       >
-                        <IconComponent className="w-4 h-4" />
-                        {tab.label}
+                        <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="hidden sm:inline">{tab.label}</span>
+                        <span className="sm:hidden">{tab.label.charAt(0)}</span>
                       </button>
                     );
                   })}
@@ -780,96 +899,129 @@ export default function PolicyDetail({ params }: PolicyDetailProps) {
               </div>
             </div>
 
-                          {/* Right Sidebar - Compare to Related Policies */}
-              <div className="w-80 flex-shrink-0">
-                <Card className="sticky top-6">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg font-bold text-gray-900">
-                      Compare to Related Policies
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <div className="space-y-0">
-                      {relatedPolicies.map((relatedPolicy, index) => (
-                        <div key={relatedPolicy.id}>
-                          <button
-                            onClick={() => handlePolicyClick(relatedPolicy.id)}
-                            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors text-left group"
-                          >
-                            <div className="flex items-center gap-3 flex-1 min-w-0">
-                              {/* Policy Icon */}
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                                {(() => {
-                                  // Generate different colored icons based on policy name
-                                  const colors = [
-                                    "bg-blue-100 text-blue-600",
-                                    "bg-green-100 text-green-600", 
-                                    "bg-purple-100 text-purple-600",
-                                    "bg-orange-100 text-orange-600",
-                                    "bg-red-100 text-red-600",
-                                    "bg-indigo-100 text-indigo-600",
-                                    "bg-pink-100 text-pink-600",
-                                    "bg-teal-100 text-teal-600"
-                                  ];
-                                  const colorIndex = relatedPolicy.name.length % colors.length;
-                                  return (
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${colors[colorIndex]}`}>
-                                      <span className="text-xs font-semibold">
-                                        {relatedPolicy.name.charAt(0)}
-                                      </span>
-                                    </div>
+            {/* Right Sidebar - Insurance Company Comparison */}
+            <div className="w-full lg:w-120 flex-shrink-0">
+              <Card className="lg:sticky lg:top-6">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg font-bold text-gray-900">
+                    Insurance Company Coverage
+                  </CardTitle>
+                  <p className="text-sm text-gray-600">
+                    Compare {policy.name} coverage across payers
+                  </p>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="space-y-0">
+                    {insuranceCompanies.map((company, index) => (
+                      <div key={company.id}>
+                        <button
+                          onClick={() => {
+                            // Could navigate to a comparison page or show modal
+                            console.log(
+                              `View ${company.name} coverage details`
+                            );
+                          }}
+                          className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors text-left group"
+                        >
+                          <div className="flex items-center gap-3 flex-1 min-w-0">
+                            {/* Company Logo/Icon */}
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-gray-100">
+                              <img
+                                src={company.logo}
+                                alt={`${company.name} logo`}
+                                className="w-6 h-6 object-contain"
+                                onError={(e) => {
+                                  // Fallback to text if image fails to load
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = "none";
+                                  target.nextElementSibling?.classList.remove(
+                                    "hidden"
                                   );
-                                })()}
-                              </div>
-                              
-                              {/* Policy Name */}
-                              <div className="flex-1 min-w-0">
-                                <div className="text-sm font-medium text-gray-900 truncate group-hover:text-blue-600 transition-colors">
-                                  {relatedPolicy.name}
-                                </div>
-                                <div className="text-xs text-gray-500 mt-1">
-                                  {relatedPolicy.category} • ${relatedPolicy.pmpm.toFixed(2)} PMPM
-                                </div>
+                                }}
+                              />
+                              <div className="hidden w-6 h-6 bg-blue-100 rounded flex items-center justify-center">
+                                <span className="text-xs font-semibold text-blue-600">
+                                  {company.name.charAt(0)}
+                                </span>
                               </div>
                             </div>
-                            
-                            {/* Compare Icon */}
-                            <div className="w-6 h-6 bg-gray-900 rounded flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors">
-                              <svg 
-                                className="w-3 h-3 text-white" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                              >
-                                <path 
-                                  strokeLinecap="round" 
-                                  strokeLinejoin="round" 
-                                  strokeWidth={2} 
-                                  d="M9 5l7 7-7 7" 
-                                />
-                              </svg>
+
+                            {/* Company Info */}
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-medium text-gray-900 truncate group-hover:text-blue-600 transition-colors">
+                                {company.name}
+                              </div>
+                              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mt-1">
+                                <Badge
+                                  variant="secondary"
+                                  className={`text-xs ${getCoverageStatusColor(
+                                    company.coverageStatus
+                                  )}`}
+                                >
+                                  {company.coverageStatus}
+                                </Badge>
+                                <span className="text-xs text-gray-500">
+                                  {company.approvalRate}
+                                </span>
+                              </div>
                             </div>
-                          </button>
-                          
-                          {/* Separator line (except for last item) */}
-                          {index < relatedPolicies.length - 1 && (
-                            <div className="mx-4 border-t border-gray-100"></div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Show more policies indicator if there are more */}
-                    {relatedPolicies.length >= 8 && (
-                      <div className="mt-4 pt-3 border-t border-gray-100">
-                        <button className="w-full text-center text-sm text-blue-600 hover:text-blue-800 font-medium">
-                          View More Related Policies
+                          </div>
+
+                          {/* Compare Icon */}
+                          <div className="w-6 h-6 bg-gray-900 rounded flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors">
+                            <svg
+                              className="w-3 h-3 text-white"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </div>
                         </button>
+
+                        {/* Separator line (except for last item) */}
+                        {index < insuranceCompanies.length - 1 && (
+                          <div className="mx-4 border-t border-gray-100"></div>
+                        )}
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
+                    ))}
+                  </div>
+
+                  {/* Summary Stats */}
+                  <div className="mt-4 pt-3 border-t border-gray-100">
+                    <div className="grid grid-cols-2 gap-3 text-xs">
+                      <div className="text-center p-2 bg-green-50 rounded">
+                        <div className="font-semibold text-green-700">
+                          {
+                            insuranceCompanies.filter((c) =>
+                              c.coverageStatus.toLowerCase().includes("covered")
+                            ).length
+                          }
+                        </div>
+                        <div className="text-green-600">Covered</div>
+                      </div>
+                      <div className="text-center p-2 bg-red-50 rounded">
+                        <div className="font-semibold text-red-700">
+                          {
+                            insuranceCompanies.filter(
+                              (c) =>
+                                c.coverageStatus.toLowerCase() === "not covered"
+                            ).length
+                          }
+                        </div>
+                        <div className="text-red-600">Not Covered</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

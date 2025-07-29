@@ -67,10 +67,10 @@ const moduleData: ModuleData[] = [
     icon: FileBarChart,
     hasGradient: false,
     metrics: [
-      { label: "Active Policies", value: "1,234" },
-      { label: "Coverage Score", value: "87.3%" },
-      { label: "Policy Updates", value: "156" },
-      { label: "Compliance Rate", value: "96.8%" },
+      { label: "Active Policies", value: "14,750" },
+      { label: "Total Covered Lives", value: "270.1M" },
+      { label: "Policy Updates", value: "42" },
+      { label: "Compliance Rate", value: "92%" },
     ],
     buttonLinks: {
       addClaim: "https://payment-leakage.vercel.app/claims-management",
@@ -100,8 +100,8 @@ const moduleData: ModuleData[] = [
     icon: Users,
     hasGradient: false,
     metrics: [
-      { label: "Leakage Detected", value: "$847K" },
-      { label: "Recovery Rate", value: "73.4%" },
+      { label: "Leakage Detected", value: "$5.05M" },
+      { label: "Recovery Rate", value: "39.1%" },
       { label: "Claims Reviewed", value: "8,923" },
       { label: "Accuracy Rate", value: "91.7%" },
     ],
@@ -354,22 +354,22 @@ export default function Summary() {
       <div>
         <div className="p-6">
           {/* Page Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Welcome back, Ashish
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 mt-2 text-sm sm:text-base">
               Here's an overview of your healthcare analytics dashboard
             </p>
           </div>
 
-          <div className="flex flex-row gap-16">
-            <div className="flex flex-col lg:flex-row w-full sm:w-1/2  gap-6">
+          <div className="flex flex-col xl:flex-row gap-8 xl:gap-16">
+            <div className="flex flex-col w-full xl:w-1/2 gap-6">
               <div className="flex flex-col gap-6">
-                <div className="flex flex-row gap-6">
+                <div className="flex flex-col lg:flex-row gap-6">
                   {/* Left Column - Module Cards */}
                   <section className="w-full lg:w-1/2">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {moduleData.map((module) => {
                         const IconComponent = module.icon;
                         const isSelected = selectedModule?.id === module.id;
@@ -427,22 +427,22 @@ export default function Summary() {
                     <div className="p-[2px] rounded-xl bg-gradient-to-r from-[#449CFB] to-[#E85DF9]">
                       <div className="bg-white rounded-xl p-5 h-full flex flex-col">
                         <div className="flex flex-col justify-between h-full">
-                          <div className="flex flex-col gap-6 mb-6">
+                          <div className="flex flex-col gap-4 sm:gap-6 mb-6">
                             {selectedModule.metrics.map((metric, index) => (
                               <div
                                 key={index}
                                 className="flex items-center justify-between"
                               >
-                                <span className="text-gray-400 text-sm">
+                                <span className="text-gray-400 text-xs sm:text-sm">
                                   {metric.label}
                                 </span>
-                                <span className="text-[#49A0FB] text-xl font-semibold font-comfortaa">
+                                <span className="text-[#49A0FB] text-lg sm:text-xl font-semibold font-comfortaa">
                                   {metric.value}
                                 </span>
                               </div>
                             ))}
                           </div>
-                          <div className="flex gap-4 mt-4">
+                          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4">
                             <button
                               className="flex items-center justify-center gap-1 bg-[#49A0FB] hover:bg-[#318ce7] text-white font-medium rounded-full px-3 py-1.5 text-xs transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
                               tabIndex={0}
@@ -498,7 +498,7 @@ export default function Summary() {
 
                 {/* Latest Activity */}
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-800 mb-4">
+                  <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">
                     Latest Activity
                   </h2>
                   <div className="bg-white rounded-2xl shadow p-6">
@@ -628,9 +628,9 @@ export default function Summary() {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row w-full sm:w-1/2">
-              <section className="w-full ">
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            <div className="flex flex-col w-full xl:w-1/2">
+              <section className="w-full">
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
                   Data at glance
                 </h2>
 
@@ -644,7 +644,7 @@ export default function Summary() {
                   </div>
 
                   {/* Right: Top Metrics Cards */}
-                  <div className="flex flex-col gap-4 flex-2">
+                  <div className="flex flex-col gap-4 flex-1 lg:flex-2">
                     {/* Total Claims Card */}
                     <div className="bg-white rounded-2xl shadow p-4">
                       <div className="flex items-center justify-between mb-2">
