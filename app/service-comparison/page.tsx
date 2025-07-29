@@ -28,7 +28,7 @@ interface ServiceData {
 
 // Available payers for comparison
 const availablePayers = [
-  "BCBSNC",
+  "HCSC",
   "United Healthcare",
   "Cigna",
   "Aetna",
@@ -56,7 +56,7 @@ const serviceData: ServiceData[] = [
       "Regular monitoring of kidney function",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -74,7 +74,7 @@ const serviceData: ServiceData[] = [
       "No prior immunotherapy treatment",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -92,7 +92,7 @@ const serviceData: ServiceData[] = [
       "Intravenous immunoglobulin therapy",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -110,7 +110,7 @@ const serviceData: ServiceData[] = [
       "Exclusion of other medical conditions",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -128,7 +128,7 @@ const serviceData: ServiceData[] = [
       "Regular clinical monitoring",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -146,7 +146,7 @@ const serviceData: ServiceData[] = [
       "Specialized treatment center",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -164,7 +164,7 @@ const serviceData: ServiceData[] = [
       "Comprehensive genetic testing",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -182,7 +182,7 @@ const serviceData: ServiceData[] = [
       "Transplant center approval",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -200,7 +200,7 @@ const serviceData: ServiceData[] = [
       "Combination therapy protocol",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
   {
@@ -218,7 +218,7 @@ const serviceData: ServiceData[] = [
       "Comprehensive genomic profiling",
     ],
     payer2Criteria: [],
-    payer1Name: "BCBSNC",
+    payer1Name: "HCSC",
     payer2Name: "United Healthcare",
   },
 ];
@@ -231,7 +231,7 @@ export default function ServiceComparison() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Payer selection state
-  const [selectedPayer1, setSelectedPayer1] = useState<string>("BCBSNC");
+  const [selectedPayer1, setSelectedPayer1] = useState<string>("HCSC");
   const [selectedPayer2, setSelectedPayer2] =
     useState<string>("United Healthcare");
 
@@ -1266,8 +1266,8 @@ export default function ServiceComparison() {
                             condition: "end-stage renal disease",
                             payer1CPB: "0146",
                             payer2CPB: "0587",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 3.2,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 3.2,
                           },
                           {
                             id: "improve-2",
@@ -1275,8 +1275,8 @@ export default function ServiceComparison() {
                             condition: "Parkinson's disease",
                             payer1CPB: "0303",
                             payer2CPB: "0307",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.0,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.0,
                           },
                           {
                             id: "improve-3",
@@ -1285,8 +1285,8 @@ export default function ServiceComparison() {
                             condition: "TMJ disorders",
                             payer1CPB: "0156",
                             payer2CPB: "0028",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 1.7,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 1.7,
                           },
                           {
                             id: "improve-4",
@@ -1294,8 +1294,8 @@ export default function ServiceComparison() {
                             condition: "chronic pain syndromes",
                             payer1CPB: "0234",
                             payer2CPB: "0456",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.8,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.8,
                           },
                           {
                             id: "improve-5",
@@ -1303,8 +1303,8 @@ export default function ServiceComparison() {
                             condition: "movement disorders",
                             payer1CPB: "0678",
                             payer2CPB: "0789",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 1.9,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 1.9,
                           },
                           {
                             id: "improve-6",
@@ -1312,8 +1312,8 @@ export default function ServiceComparison() {
                             condition: "end-stage lung disease",
                             payer1CPB: "0345",
                             payer2CPB: "0567",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.5,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.5,
                           },
                           {
                             id: "improve-7",
@@ -1321,8 +1321,8 @@ export default function ServiceComparison() {
                             condition: "end-stage heart failure",
                             payer1CPB: "0789",
                             payer2CPB: "0123",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 3.1,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 3.1,
                           },
                           {
                             id: "improve-8",
@@ -1330,8 +1330,8 @@ export default function ServiceComparison() {
                             condition: "end-stage liver disease",
                             payer1CPB: "0456",
                             payer2CPB: "0890",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.9,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.9,
                           },
                           {
                             id: "improve-9",
@@ -1339,8 +1339,8 @@ export default function ServiceComparison() {
                             condition: "hematologic malignancies",
                             payer1CPB: "0234",
                             payer2CPB: "0678",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.3,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.3,
                           },
                           {
                             id: "improve-10",
@@ -1348,8 +1348,8 @@ export default function ServiceComparison() {
                             condition: "corneal disorders",
                             payer1CPB: "0567",
                             payer2CPB: "0345",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 1.8,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 1.8,
                           },
                           {
                             id: "improve-11",
@@ -1357,8 +1357,8 @@ export default function ServiceComparison() {
                             condition: "diabetes mellitus",
                             payer1CPB: "0890",
                             payer2CPB: "0234",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 2.6,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 2.6,
                           },
                           {
                             id: "improve-12",
@@ -1366,8 +1366,8 @@ export default function ServiceComparison() {
                             condition: "intestinal failure",
                             payer1CPB: "0123",
                             payer2CPB: "0456",
-                            basePayer1Denial: 0.0,
-                            basePayer2Denial: 3.4,
+                            basePayer2Denial: 0.0,
+                            basePayer1Denial: 3.4,
                           },
                         ].map((service, index) => {
                           const payer1Denial = getDynamicValue(

@@ -13,13 +13,13 @@ export function HeatmapChart() {
   const payers = mockData.payersList;
   const [hoveredCell, setHoveredCell] = useState<string | null>(null);
   const [displayedPayers, setDisplayedPayers] = useState([
-    "BCBSNC",
+    "HCSC",
     "United",
     "Cigna",
     "Elevance Health",
     "CVS Health",
     "Kaiser Per...",
-    "Health Care Service Corpo...",
+    "Centene",
   ]);
 
   // Get color based on value - blue to purple gradient with amplified range
