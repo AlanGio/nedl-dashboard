@@ -11,7 +11,14 @@ import {
   BarChart3,
   Lightbulb,
   Share2,
+  FilePlus2,
 } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface ServiceData {
   id: string;
@@ -1081,24 +1088,32 @@ export default function ServiceComparison() {
                                 </span>
                               </td>
                               <td className="py-4 px-6 text-center">
-                                <button
-                                  onClick={() => {
-                                    const link = document.createElement("a");
-                                    link.href =
-                                      "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                    link.download =
-                                      "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                    document.body.appendChild(link);
-                                    link.click();
-                                    document.body.removeChild(link);
-                                  }}
-                                  className="inline-flex items-center gap-2 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
-                                  tabIndex={0}
-                                  aria-label="Download policy document"
-                                >
-                                  <Download className="w-4 h-4" />
-                                  Download
-                                </button>
+                                <TooltipProvider>
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <button
+                                        onClick={() => {
+                                          const link =
+                                            document.createElement("a");
+                                          link.href =
+                                            "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                          link.download =
+                                            "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                          document.body.appendChild(link);
+                                          link.click();
+                                          document.body.removeChild(link);
+                                        }}
+                                        className="inline-flex items-center gap-2 px-3 py-2 bg-gray-400 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                                        tabIndex={0}
+                                      >
+                                        <FilePlus2 className="w-5 h-5" />
+                                      </button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>Generate optimal Policy</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                </TooltipProvider>
                               </td>
                             </tr>
                           );
@@ -1243,24 +1258,32 @@ export default function ServiceComparison() {
                             </span>
                           </div>
                           <div className="flex justify-center mt-3">
-                            <button
-                              onClick={() => {
-                                const link = document.createElement("a");
-                                link.href =
-                                  "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                link.download =
-                                  "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
-                              }}
-                              className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
-                              tabIndex={0}
-                              aria-label="Download policy document"
-                            >
-                              <Download className="w-4 h-4" />
-                              Download Policy
-                            </button>
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <button
+                                    onClick={() => {
+                                      const link = document.createElement("a");
+                                      link.href =
+                                        "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                      link.download =
+                                        "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                      document.body.appendChild(link);
+                                      link.click();
+                                      document.body.removeChild(link);
+                                    }}
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                                    tabIndex={0}
+                                  >
+                                    <FilePlus2 className="w-4 h-4" />
+                                    Generate Policy
+                                  </button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>Generate optimal Policy</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
                           </div>
                         </div>
                       );
