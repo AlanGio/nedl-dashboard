@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta charset="utf-8">
+    <title>BCNC Gene Therapies for Hemophilia B Clinical Policy</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotPromptForConvert/>
+            <w:DoNotShowInsertionsAndDeletions/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.15; margin: 1in; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #003f7f; padding-bottom: 15px; }
+        .company-name { font-size: 16pt; font-weight: bold; color: #003f7f; margin-bottom: 5px; }
+        .policy-type { font-size: 14pt; color: #666; margin-bottom: 10px; }
+        .policy-title { font-size: 18pt; font-weight: bold; color: #003f7f; margin-bottom: 15px; }
+        .policy-info { font-size: 11pt; color: #333; }
+        h1 { font-size: 14pt; font-weight: bold; color: #003f7f; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #003f7f; padding-bottom: 5px; }
+        h2 { font-size: 13pt; font-weight: bold; color: #333; margin-top: 20px; margin-bottom: 8px; }
+        h3 { font-size: 12pt; font-weight: bold; color: #333; margin-top: 15px; margin-bottom: 6px; }
+        h4 { font-size: 12pt; font-weight: bold; color: #555; margin-top: 12px; margin-bottom: 6px; }
+        ul, ol { margin: 10px 0; padding-left: 25px; }
+        li { margin-bottom: 5px; line-height: 1.2; }
+        .criteria-box { border: 1px solid #ccc; padding: 15px; margin: 15px 0; background-color: #f9f9f9; }
+        .exclusion-box { border: 1px solid #d32f2f; padding: 15px; margin: 15px 0; background-color: #ffeaea; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #003f7f; color: white; font-weight: bold; }
+        .note { font-style: italic; color: #666; font-size: 10pt; margin: 10px 0; }
+        .footer { margin-top: 30px; border-top: 1px solid #ccc; padding-top: 15px; font-size: 10pt; color: #666; }
+    </style>
+</head>
+<body>
+
+    
+
+    <div class="header">
+        <div class="company-name">Blue Cross Blue Shield of North Carolina</div>
+        <div class="policy-type">Clinical Payment and Coding Policy</div>
+        <div class="policy-title">Gene Therapies for Hemophilia B</div>
+        <div class="policy-info">
+            <strong>Policy Number:</strong> CPCPPHARM025<br>
+            <strong>Version:</strong> 1.0<br>
+            <strong>Approval Date:</strong> February 15, 2025<br>
+            <strong>Plan Effective Date:</strong> May 1, 2025
+        </div>
+    </div>
+
+    <h1>Policy Statement</h1>
+    <p>Blue Cross and Blue Shield of North Carolina (BCBSNC) considers gene therapies for the treatment of Hemophilia B to be proven and medically necessary when specific clinical criteria are met as outlined in this policy. This policy applies to Beqvez (fidanacogene elaparvovec-dzkt) and Hemgenix (etranacogene dezaparvovec-drlb).</p>
+    
+    <p>If a conflict arises between this Clinical Payment and Coding Policy and any plan document under which a member is entitled to Covered Services, the plan document will govern. If a conflict arises between this policy and any provider contract, the provider contract will govern.</p>
+
+    <h1>Coverage Criteria</h1>
+
+    <h2>Medical Necessity Requirements</h2>
+    <div class="criteria-box">
+        <p><strong>Gene therapy for Hemophilia B is considered medically necessary when ALL of the following criteria are met:</strong></p>
+    </div>
+
+    <h3>General Eligibility Criteria</h3>
+    <ol>
+        <li><strong>Age Requirement:</strong>
+            <ul><li>Patient is 18 years of age or older</li></ul>
+        </li>
+        
+        <li><strong>Hemophilia B Diagnosis:</strong>
+            <ul>
+                <li>Severe hemophilia B with endogenous factor IX levels less than 1% of normal (&lt; 0.01 IU/mL)</li>
+                <li><strong>OR</strong></li>
+                <li>Moderately severe hemophilia B with endogenous factor IX levels ≥ 1% to ≤ 2% (0.01-0.02 IU/mL) <strong>AND</strong> one of the following:
+                    <ul>
+                        <li>Current or historical life-threatening hemorrhage</li>
+                        <li>Repeated, serious spontaneous bleeding episodes</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        
+        <li><strong>Prior Treatment History:</strong><br>
+            One of the following must be documented:
+            <ul>
+                <li>Currently receiving chronic prophylactic Hympavzi (marstacimab-hncq) therapy</li>
+                <li><strong>OR</strong></li>
+                <li>Currently uses factor IX prophylaxis therapy <strong>AND</strong> has had a minimum of 50 exposure days to a factor IX agent</li>
+                <li><strong>OR</strong></li>
+                <li>Determined to be an appropriate candidate by a Hemophilia Treatment Center based on willingness to adhere to initial and long-term monitoring and management</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Exclusion Criteria</h3>
+    <div class="exclusion-box">
+        <p><strong>The following conditions EXCLUDE coverage for gene therapy:</strong></p>
+        <ol>
+            <li><strong>Inhibitor History:</strong>
+                <ul>
+                    <li>History of inhibitors to factor IX ≥ 0.6 Bethesda units (BU)</li>
+                    <li>Positive screening for active factor IX inhibitors ≥ 0.6 Bethesda units (BU) prior to administration</li>
+                </ul>
+            </li>
+            <li><strong>Previous Gene Therapy:</strong>
+                <ul><li>Prior treatment with Beqvez, Hemgenix, or any other gene therapy for hemophilia B</li></ul>
+            </li>
+            <li><strong>Immune Tolerance Induction:</strong>
+                <ul><li>Previous Immune Tolerance Induction (ITI) therapy</li></ul>
+            </li>
+        </ol>
+    </div>
+
+    <h3>Specific Requirements by Product</h3>
+    <h4>For Beqvez (fidanacogene elaparvovec-dzkt):</h4>
+    <ul>
+        <li>No neutralizing antibodies to adeno-associated virus serotype Rh74var (AAVRh74var) capsid as detected by FDA-approved test</li>
+    </ul>
+
+    <h4>For Hemgenix (etranacogene dezaparvovec-drlb):</h4>
+    <ul>
+        <li>Evaluation for preexisting neutralizing antibodies to adenovirus vector (AAV-5)</li>
+        <li>Pre-existing anti-AAV5 neutralizing antibodies measured through CLIA-validated AAV5 Neutralizing Antibody Test</li>
+        <li>No high anti-AAV antibody titers that may prevent treatment response</li>
+    </ul>
+
+    <h3>Medical Assessments Required</h3>
+    <ol>
+        <li><strong>Liver Health Evaluation:</strong>
+            <ul>
+                <li>Liver enzyme testing: ALT, AST, alkaline phosphatase, total bilirubin</li>
+                <li>Hepatic ultrasound and/or elastography to rule out liver abnormalities</li>
+            </ul>
+        </li>
+        <li><strong>Infectious Disease Screening:</strong>
+            <ul>
+                <li>HIV status: Negative OR positive with viral suppression (&lt; 200 copies/mL)</li>
+                <li>Hepatitis B surface antigen: Negative</li>
+                <li>Hepatitis C: Negative antibody OR positive antibody with negative HCV RNA</li>
+                <li>Not currently using antiviral therapy for hepatitis B or C</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Provider and Facility Requirements</h3>
+    <ol>
+        <li><strong>Prescriber Qualifications:</strong>
+            <ul>
+                <li>Bleeding disorder specialist on staff at a federally designated Hemophilia Treatment Center (HTC)</li>
+                <li>Listed in CDC's HTC directory</li>
+            </ul>
+        </li>
+        <li><strong>Monitoring Commitments:</strong>
+            <ul>
+                <li><strong>Beqvez:</strong> ALT, AST, and factor IX activity monitoring weekly for minimum 4 months, then per prescribing information</li>
+                <li><strong>Hemgenix:</strong> ALT, AST, and factor IX activity monitoring weekly for minimum 3 months, then per prescribing information</li>
+            </ul>
+        </li>
+        <li><strong>Patient Counseling:</strong>
+            <ul><li>Documentation of counseling regarding alcohol consumption risks post-treatment</li></ul>
+        </li>
+        <li><strong>Dosing Compliance:</strong>
+            <ul><li>Dosing must be in accordance with FDA-approved labeling</li></ul>
+        </li>
+    </ol>
+
+    <h3>Authorization Parameters</h3>
+    <ul>
+        <li><strong>Frequency:</strong> One treatment per lifetime maximum</li>
+        <li><strong>Authorization Duration:</strong> No longer than 45 days from approval</li>
+        <li><strong>Prior Authorization:</strong> Required</li>
+    </ul>
+
+    <h1>Limitations and Exclusions</h1>
+    <p><strong>Gene therapy for Hemophilia B is NOT covered for:</strong></p>
+    <ol>
+        <li>Treatment of hemophilia A</li>
+        <li>Repeat administration for hemophilia B treatment</li>
+        <li>Treatment after previously receiving another factor IX gene therapy</li>
+        <li>Routine combination with chronic prophylactic therapy</li>
+        <li>Patients under 18 years of age</li>
+        <li>Patients meeting any exclusion criteria listed above</li>
+    </ol>
+
+    <h1>Coding Information</h1>
+
+    <h2>HCPCS Codes</h2>
+    <table>
+        <tbody><tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>J1411</td>
+            <td>Injection, etranacogene dezaparvovec-drlb (Hemgenix), per therapeutic dose</td>
+        </tr>
+        <tr>
+            <td>J1414</td>
+            <td>Injection, fidanacogene elaparvovec-dzkt (Beqvez), per therapeutic dose</td>
+        </tr>
+    </tbody></table>
+
+    <h2>ICD-10-CM Diagnosis Codes</h2>
+    <table>
+        <tbody><tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>D67</td>
+            <td>Hereditary factor IX deficiency</td>
+        </tr>
+    </tbody></table>
+
+    <p class="note"><em>Note: The inclusion of a code does not guarantee coverage. Benefit coverage is determined by the member-specific benefit plan document and applicable medical necessity criteria.</em></p>
+
+    <h1>Documentation Requirements</h1>
+
+    <h2>Prior Authorization Submission Must Include:</h2>
+    <ol>
+        <li><strong>Complete medical history including:</strong>
+            <ul>
+                <li>Hemophilia B diagnosis confirmation</li>
+                <li>Factor IX activity levels</li>
+                <li>Bleeding episode history</li>
+                <li>Previous treatment regimens</li>
+            </ul>
+        </li>
+        <li><strong>Laboratory Results:</strong>
+            <ul>
+                <li>Factor IX inhibitor testing</li>
+                <li>Liver function tests</li>
+                <li>Infectious disease screening results</li>
+                <li>Viral vector antibody testing (product-specific)</li>
+            </ul>
+        </li>
+        <li><strong>Provider Documentation:</strong>
+            <ul>
+                <li>HTC certification verification</li>
+                <li>Treatment plan and monitoring schedule</li>
+                <li>Patient counseling documentation</li>
+            </ul>
+        </li>
+        <li><strong>Clinical Assessments:</strong>
+            <ul>
+                <li>Liver imaging results</li>
+                <li>Treatment candidacy evaluation</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h1>Quality Monitoring</h1>
+
+    <h2>Ongoing Assessment Requirements</h2>
+    <p>Prescribers must attest that patients will be assessed for:</p>
+    <ul>
+        <li>Factor IX expression levels</li>
+        <li>Breakthrough bleeding episodes</li>
+        <li>Factor IX product utilization</li>
+        <li>Inhibitor development</li>
+        <li>Adverse events</li>
+    </ul>
+
+    <p>BCBSNC may request documentation of patient assessments biannually for up to 5 years post-treatment for quality assurance purposes.</p>
+
+    <h1>Background and Rationale</h1>
+    <p>Hemophilia B is a rare, X-linked genetic bleeding disorder affecting approximately 1 in 40,000 individuals, representing about 15% of all hemophilia cases. The condition results from deficiency or dysfunction of coagulation factor IX, leading to prolonged bleeding episodes and potential life-threatening hemorrhages.</p>
+
+    <p>Gene therapy represents a transformative treatment approach that introduces a functional copy of the factor IX gene to enable endogenous factor IX production, potentially reducing or eliminating the need for regular factor IX replacement therapy.</p>
+
+    <p><strong>Beqvez</strong> utilizes AAVRh74var vector technology containing the high-activity FIX-R338L variant (Padua variant) to deliver the therapeutic gene to hepatocytes.</p>
+
+    <p><strong>Hemgenix</strong> employs AAV5 vector containing the codon-optimized human factor IX gene with the Padua variant under liver-specific promoter control.</p>
+
+    <p>Both therapies have demonstrated efficacy in reducing annualized bleeding rates in clinical trials of adults with moderate to severe hemophilia B.</p>
+
+    <h1>Clinical Evidence Summary</h1>
+    <p>Clinical efficacy has been established through:</p>
+
+    <p><strong>Beqvez:</strong> Prospective, open-label, single-arm study (n=45) demonstrating non-inferiority in annualized bleeding rate reduction from 4.5 to 2.5 bleeds/year post-treatment.</p>
+
+    <p><strong>Hemgenix:</strong> Open-label, single-arm study (n=54) showing significant reduction in annualized bleeding rate from 4.1 to 1.9 bleeds/year during months 7-18 post-treatment.</p>
+
+    <h1>References</h1>
+    <ol>
+        <li>U.S. Food and Drug Administration. Beqvez (fidanacogene elaparvovec-dzkt) Prescribing Information. April 2024.</li>
+        <li>U.S. Food and Drug Administration. Hemgenix (etranacogene dezaparvovec-drlb) Prescribing Information. November 2022.</li>
+        <li>Miesbach W, et al. Gene therapy with adeno-associated virus vector 5-human factor IX in adults with hemophilia B. Blood. 2018;131(9):1022-1031.</li>
+        <li>Von Drygalski A, et al. Etranacogene dezaparvovec (AMT-061 phase 2b): normal/near normal FIX activity and bleed cessation in hemophilia B. Blood Adv. 2019;3(21):3241-3247.</li>
+        <li>Division of Blood Disorders Gateway. HTC Directory. Centers for Disease Control and Prevention. Available at: https://dbdgateway.cdc.gov/HTCDirSearch.aspx</li>
+    </ol>
+
+    <h1>Policy History</h1>
+    <table>
+        <tbody><tr>
+            <th>Approval Date</th>
+            <th>Effective Date</th>
+            <th>Summary of Changes</th>
+        </tr>
+        <tr>
+            <td>02/15/2025</td>
+            <td>05/01/2025</td>
+            <td>New policy establishing coverage criteria for gene therapies for Hemophilia B</td>
+        </tr>
+    </tbody></table>
+
+    <div class="footer">
+        <h2>Contact Information</h2>
+        <p>For questions regarding this policy, please contact BCBSNC Provider Services at 1-800-XXX-XXXX or visit the provider portal at bcbsnc.com.</p>
+        
+        <p class="note"><em>This policy is subject to change based on new clinical evidence, regulatory updates, and plan design modifications.</em></p>
+        
+        <p><strong>Proprietary Information of Blue Cross and Blue Shield of North Carolina. Copyright 2025 Blue Cross and Blue Shield of North Carolina.</strong></p>
+    </div>
+
+    <script>
+        function downloadAsWord() {
+            // Create a blob with the HTML content formatted for Word
+            const htmlContent = `
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta charset="utf-8">
+    <title>BCNC Gene Therapies for Hemophilia B Clinical Policy</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotPromptForConvert/>
+            <w:DoNotShowInsertionsAndDeletions/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.15; margin: 1in; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #003f7f; padding-bottom: 15px; }
+        .company-name { font-size: 16pt; font-weight: bold; color: #003f7f; margin-bottom: 5px; }
+        .policy-type { font-size: 14pt; color: #666; margin-bottom: 10px; }
+        .policy-title { font-size: 18pt; font-weight: bold; color: #003f7f; margin-bottom: 15px; }
+        .policy-info { font-size: 11pt; color: #333; }
+        h1 { font-size: 14pt; font-weight: bold; color: #003f7f; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #003f7f; padding-bottom: 5px; }
+        h2 { font-size: 13pt; font-weight: bold; color: #333; margin-top: 20px; margin-bottom: 8px; }
+        h3 { font-size: 12pt; font-weight: bold; color: #333; margin-top: 15px; margin-bottom: 6px; }
+        h4 { font-size: 12pt; font-weight: bold; color: #555; margin-top: 12px; margin-bottom: 6px; }
+        ul, ol { margin: 10px 0; padding-left: 25px; }
+        li { margin-bottom: 5px; line-height: 1.2; }
+        .criteria-box { border: 1px solid #ccc; padding: 15px; margin: 15px 0; background-color: #f9f9f9; }
+        .exclusion-box { border: 1px solid #d32f2f; padding: 15px; margin: 15px 0; background-color: #ffeaea; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #003f7f; color: white; font-weight: bold; }
+        .note { font-style: italic; color: #666; font-size: 10pt; margin: 10px 0; }
+        .footer { margin-top: 30px; border-top: 1px solid #ccc; padding-top: 15px; font-size: 10pt; color: #666; }
+    </style>
+</head>
+<body>
+${document.body.innerHTML.replace(/<button[^>]*>.*?<\/button>/gi, '')}
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'application/msword' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'BCNC_Gene_Therapies_Hemophilia_B_Policy.doc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+
+
+</body>
+</html>

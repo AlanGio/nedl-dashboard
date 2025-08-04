@@ -946,6 +946,11 @@ export default function ServiceComparison() {
                               <span>Addressable Policy Impact</span>
                             </div>
                           </th>
+                          <th className="text-center py-4 px-6 font-medium text-gray-900">
+                            <div className="flex flex-col">
+                              <span>Actions</span>
+                            </div>
+                          </th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
@@ -1074,6 +1079,26 @@ export default function ServiceComparison() {
                                 <span className="flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full  justify-center">
                                   ${expectedDenial.toFixed(1)} PMPM
                                 </span>
+                              </td>
+                              <td className="py-4 px-6 text-center">
+                                <button
+                                  onClick={() => {
+                                    const link = document.createElement("a");
+                                    link.href =
+                                      "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                    link.download =
+                                      "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+                                  }}
+                                  className="inline-flex items-center gap-2 px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                                  tabIndex={0}
+                                  aria-label="Download policy document"
+                                >
+                                  <Download className="w-4 h-4" />
+                                  Download
+                                </button>
                               </td>
                             </tr>
                           );
@@ -1216,6 +1241,26 @@ export default function ServiceComparison() {
                             <span className="inline-flex px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                               ${expectedDenial.toFixed(1)} PMPM
                             </span>
+                          </div>
+                          <div className="flex justify-center mt-3">
+                            <button
+                              onClick={() => {
+                                const link = document.createElement("a");
+                                link.href =
+                                  "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                link.download =
+                                  "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                              }}
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                              tabIndex={0}
+                              aria-label="Download policy document"
+                            >
+                              <Download className="w-4 h-4" />
+                              Download Policy
+                            </button>
                           </div>
                         </div>
                       );
