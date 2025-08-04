@@ -4,14 +4,12 @@ import { useState, useMemo } from "react";
 import { LayoutWithNav } from "@/app/layout-with-nav";
 import {
   X,
-  Search,
   Filter,
   Download,
   TrendingUp,
-  BarChart3,
   Lightbulb,
-  Share2,
   FilePlus2,
+  Loader2,
 } from "lucide-react";
 import {
   Tooltip,
@@ -270,6 +268,30 @@ export default function ServiceComparison() {
   const [showInsights, setShowInsights] = useState(false);
   const [showTrends, setShowTrends] = useState(false);
   const [selectedInsight, setSelectedInsight] = useState<string | null>(null);
+  const [loadingStates, setLoadingStates] = useState<Record<string, boolean>>(
+    {}
+  );
+
+  const handleGeneratePolicy = async (serviceId: string) => {
+    // Set loading state for this specific service
+    setLoadingStates((prev) => ({ ...prev, [serviceId]: true }));
+
+    // Simulate processing time (2-3 seconds)
+    await new Promise((resolve) =>
+      setTimeout(resolve, 2000 + Math.random() * 1000)
+    );
+
+    // Download the file
+    const link = document.createElement("a");
+    link.href = "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+    link.download = "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Clear loading state
+    setLoadingStates((prev) => ({ ...prev, [serviceId]: false }));
+  };
 
   const handleCompareCriteria = (serviceId: string) => {
     const service = serviceData.find((s) => s.id === serviceId);
@@ -1092,26 +1114,28 @@ export default function ServiceComparison() {
                                   <Tooltip>
                                     <TooltipTrigger asChild>
                                       <button
-                                        onClick={() => {
-                                          const link =
-                                            document.createElement("a");
-                                          link.href =
-                                            "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                          link.download =
-                                            "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                          document.body.appendChild(link);
-                                          link.click();
-                                          document.body.removeChild(link);
-                                        }}
-                                        className="inline-flex items-center gap-2 px-3 py-2 bg-gray-400 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                                        onClick={() =>
+                                          handleGeneratePolicy(service.id)
+                                        }
+                                        disabled={loadingStates[service.id]}
+                                        className={`group relative p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 ${
+                                          loadingStates[service.id]
+                                            ? "opacity-50 cursor-not-allowed"
+                                            : ""
+                                        }`}
                                         tabIndex={0}
                                       >
-                                        <FilePlus2 className="w-5 h-5" />
+                                        {loadingStates[service.id] ? (
+                                          <Loader2 className="h-4 w-4 animate-spin" />
+                                        ) : (
+                                          <FilePlus2 className="h-4 w-4" />
+                                        )}
+                                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                                          Generate optimal Policy
+                                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"></div>
+                                        </div>
                                       </button>
                                     </TooltipTrigger>
-                                    <TooltipContent>
-                                      <p>Generate optimal Policy</p>
-                                    </TooltipContent>
                                   </Tooltip>
                                 </TooltipProvider>
                               </td>
@@ -1262,26 +1286,28 @@ export default function ServiceComparison() {
                               <Tooltip>
                                 <TooltipTrigger asChild>
                                   <button
-                                    onClick={() => {
-                                      const link = document.createElement("a");
-                                      link.href =
-                                        "/BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                      link.download =
-                                        "BCNC_Gene_Therapies_Hemophilia_B_Policy.doc";
-                                      document.body.appendChild(link);
-                                      link.click();
-                                      document.body.removeChild(link);
-                                    }}
-                                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                                    onClick={() =>
+                                      handleGeneratePolicy(service.id)
+                                    }
+                                    disabled={loadingStates[service.id]}
+                                    className={`group relative p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200 ${
+                                      loadingStates[service.id]
+                                        ? "opacity-50 cursor-not-allowed"
+                                        : ""
+                                    }`}
                                     tabIndex={0}
                                   >
-                                    <FilePlus2 className="w-4 h-4" />
-                                    Generate Policy
+                                    {loadingStates[service.id] ? (
+                                      <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                      <FilePlus2 className="h-4 w-4" />
+                                    )}
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                                      Generate optimal Policy
+                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"></div>
+                                    </div>
                                   </button>
                                 </TooltipTrigger>
-                                <TooltipContent>
-                                  <p>Generate optimal Policy</p>
-                                </TooltipContent>
                               </Tooltip>
                             </TooltipProvider>
                           </div>
