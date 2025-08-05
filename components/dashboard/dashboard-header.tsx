@@ -66,10 +66,10 @@ export function DashboardHeader({
 
           <div className="flex items-center space-x-2 lg:space-x-3 bg-white/70 backdrop-blur-xs rounded-xl lg:rounded-2xl px-2 lg:px-4 py-1.5 lg:py-2 hover:bg-white/90 transition-all duration-200 cursor-pointer border border-[#e5e7eb]/50 shadow-xs">
             <span className="text-xs lg:text-sm font-medium text-[#374151] hidden sm:inline">
-              Ashish
+              Radhika
             </span>
             <div className="w-7 h-7 lg:w-9 lg:h-9 bg-gradient-to-r from-[#449CFB] to-[#f087fb] text-white rounded-lg lg:rounded-xl flex items-center justify-center text-xs lg:text-sm font-bold shadow-md">
-              A
+              R
             </div>
             <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 text-[#6b7280] hidden sm:inline" />
           </div>

@@ -356,7 +356,7 @@ export default function Summary() {
           {/* Page Header */}
           <div className="mb-6 sm:mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              Welcome back, Ashish
+              Welcome back, Radhika
             </h1>
             <p className="text-gray-600 mt-2 text-sm sm:text-base">
               Here's an overview of your healthcare analytics dashboard
